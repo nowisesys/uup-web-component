@@ -179,17 +179,24 @@ class Element extends Renderable implements Component
                 }
 
                 // 
-                // Render this element and child components:
+                // Render simple tag:
                 // 
                 if (empty($this->_text) && empty($this->_comp)) {
                         printf("<%s %s/>\n", $this->_name, implode(" ", $attr));
-                } elseif (!empty($this->_text)) {
-                        printf("<%s %s>%s</%s>\n", $this->_name, implode(" ", $attr), $this->_text, $this->_name);
-                } else {
-                        printf("<%s %s>", $this->_name, implode(" ", $attr));
-                        parent::render($transform);
-                        printf("</%s>\n", $this->_name);
+                        return;
                 }
+
+                // 
+                // Render this element including inner HTML and child components:
+                // 
+                printf("<%s %s>", $this->_name, implode(" ", $attr));
+                if (!empty($this->_text)) {
+                        printf("%s", $this->_text);
+                }
+                if (!empty($this->_comp)) {
+                        parent::render($transform);
+                }
+                printf("</%s>\n", $this->_name);
         }
 
 }
