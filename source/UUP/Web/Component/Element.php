@@ -124,10 +124,10 @@ class Element extends Renderable implements Component
                                 break;
                 }
         }
-        
+
         public function __get($name)
         {
-                switch($name) {
+                switch ($name) {
                         case 'id':
                         case 'title':
                                 return $this->attr->get($name);
