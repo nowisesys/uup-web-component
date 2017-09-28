@@ -1,0 +1,105 @@
+=============================================================================
+    UUP-WEB-COMPONENT - OOP aproach on web components
+=============================================================================
+
+This library provides web component classes for rendering HTML. 
+
+By definition, an component is a class that has both behavior and interface. 
+The component classes provided by uup-web-component an be used to either output 
+HTML by calling their render method or use them as an abstract representation
+of an DOM-tree elements (possibly containing other components).
+
+The user decides how to use the class library. It's also possible to hook in
+during rendition of an component to modify it. The reasons for doing this can be
+to support themes, creating high-contrast styles or translation of text.
+
+The library is organized as:
+
+    UUP\Web\Component
+        +-- Component           // Interface class
+        +-- Transform           // Rendition transformer (callable)
+        +-- Element             // Generic element component class
+        +-- Container           // Generic container component class
+        +-- Style               // Enum classes for inline CSS
+        |     +-- Color
+        |     +-- Spacing
+        |     +-- Border
+        |    ...
+        +-- Collection          // Collection support (i.e. attributes and events).
+        |     +-- Classes
+        |     +-- Attributes
+        |     +-- Events
+        |     +-- Stylesheet
+        |     +-- Collection    // Base class
+        +-- Element             // Components with direct rendering
+        |     +-- Button
+        |     +-- Combobox
+        |     +-- Panel
+        |    ...
+        +-- Container           // Components using rendering template
+              +-- Grid
+              +-- Card
+              +-- Download
+              +-- Sitemap
+
+Generated HTML targets the W3.CSS library by default when using the direct 
+properties declared by i.e. element classes:
+
+    $button = new Button("Download");
+    $button->color = "red";
+    $button->render();          // <button class="w3-btn w3-red">Download</button>
+
+You can override this by passing an transform class instance to the render()
+method and modify classes:
+
+    $transform = new TransformBootstrap();
+    $button->render($transform);
+
+Another option is to not using the component properties, but to use the collection 
+properties instead:
+
+    $button = new Button("Download");
+    $button->attr->color = "red";
+    $button->render();          // <button color="red">Download</button>
+
+For setting attributes that can't be used as property names (syntax violation on
+i.e. background-color), use the add() method instead:
+
+    $button->attr->add("background-color", "red");
+
+You are not limited to setting individual properties. The class, event, attr and 
+style properties all accepts an array:
+
+    $button->attr->set(array(
+        "color" => "red",
+        "background-color" => "blue"
+    ));
+
+For setting all at once, use the second argument during construction:
+
+    $button = new Button("Download", array(
+        "style" => array(           // Define inline CSS
+            ...     
+        ),
+        "event" => array(           // Define event handlers
+            ...     
+        ),
+    ));
+
+All components (element and containers) can contain other child components:
+
+    $div = new Div();
+    $p1 = $div->add(new Paragraph("Some text here"));
+    $p2 = $div->add(new Paragraph("More text here"));
+    $div->render();     // <div><p>Some text here</p><p>More text here</p></div>
+
+Calling render() on parent component automatic renders all child components. 
+The rendition will take care of outputting them inside itself using their added 
+order but after its own text (think inner HTML).
+
+The scope of this library is not to provide a complete set of HTML element 
+components. Neither does it care if nesting input elements inside an option
+element.
+
+
+// Anders Lövgren, 2017-09-26
