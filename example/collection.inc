@@ -5,25 +5,7 @@ use UUP\Web\Component\Collection\Classes;
 use UUP\Web\Component\Collection\Events;
 use UUP\Web\Component\Collection\StyleSheet;
 
-/*
- * Copyright (C) 2017 Anders Lövgren (QNET).
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-require_once("../vendor/autoload.php");
-
-echo "<h1>Collection test</h1>\n";
+echo "<h2>Collection test</h2>\n";
 echo "<p>This page demonstrate some features of the attributes, classes, stylesheet and ";
 echo "event handlers collection classes.</p>\n";
 
@@ -31,7 +13,7 @@ echo "event handlers collection classes.</p>\n";
 // Test set class attributes:
 // 
 
-echo "<h2>Classes:</h2>\n";
+echo "<h3>Classes:</h3>\n";
 $classes = new Classes();
 $classes->add('class1');
 $classes->add('class2');
@@ -60,7 +42,7 @@ echo "<hr>\n";
 // Test set inline CSS style:
 // 
 
-echo "<h2>Style:</h2>\n";
+echo "<h3>Style:</h3>\n";
 $style = new StyleSheet();
 $style->add('background-color', 'red');
 $style->add(array(
@@ -84,7 +66,7 @@ echo "<hr>\n";
 // Test set custom attributes:
 // 
 
-echo "<h2>Attributes:</h2>\n";
+echo "<h3>Attributes:</h3>\n";
 $attr = new Attributes();
 $attr->add('id', 'my-id');
 $attr->add(array(
@@ -108,7 +90,7 @@ echo "<hr>\n";
 // Test set event handlers:
 // 
 
-echo "<h2>Events:</h2>\n";
+echo "<h3>Events:</h3>\n";
 $event = new Events();
 $event->add('onclick', "alert('CLICKED')");
 $event->add(array(

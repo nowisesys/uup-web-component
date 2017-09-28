@@ -47,7 +47,8 @@ $strings = array(
         'onclick = "alert(\" some quoted text \")"',
 );
 
-echo "<h1>Testing regexp pattern matching for javascript</h1>\n";
+echo "<h2>Regular expression pattern matching</h2>\n";
+echo "<p>Test of extracting javascript event action and handler from input string.</p>\n";
 
 foreach ($strings as $string) {
         echo "<b>$string:</b>\n<pre>\n";
