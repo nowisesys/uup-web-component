@@ -28,6 +28,8 @@ use UUP\Web\Component\Collection\StyleSheet;
  * 
  * @property string $id The element ID.
  * @property string $title The title attribute (tooltip).
+ * @property string $name Set element name (advanced feature).
+ * @property string $text Set inner HTML.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
