@@ -1,6 +1,5 @@
 <?php
-
-/* 
+/*
  * Copyright (C) 2017 Anders Lövgren (QNET).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,5 +19,9 @@ require_once("../vendor/autoload.php");
 
 ?>
 
-<a href="elements.php">Elements</a>
-<a href="regexp.php">Regexp pattern matching</a>
+<h1>Index page for UUP Web Components</h1>
+<ul>
+    <li><a href="elements.php">Element components</a></li>
+    <li><a href="collection.php">Collection classes</a></li>
+    <li><a href="regexp.php">Regexp pattern matching</a></li>
+</ul>

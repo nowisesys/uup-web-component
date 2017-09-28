@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Copyright (C) 2017 Anders Lövgren (QNET).
  *
@@ -16,6 +15,16 @@
  * limitations under the License.
  */
 
+?>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<h1>Element components (i.e. buttons)</h1>
+<p>
+    These components should be rendered for W3.CSS style sheet. Some component test transforms 
+    for example CSS-classes, so these will probably look weird.
+</p>
+
+<?php
 require_once("../vendor/autoload.php");
 
 use UUP\Web\Component\Element\Button;
@@ -24,10 +33,12 @@ $button = new Button("Button1");
 $button->render();
 
 $button = new Button("Button2", array(
+        'class' => 'w3-button',
         'style' => array(
                 'background-color' => 'red',
                 'border-color'     => 'orange'
         ),
         'event' => 'onclick=\"alert("Hello world!")\"'
     ));
+$button->class->remove('w3-btn');
 $button->render();
