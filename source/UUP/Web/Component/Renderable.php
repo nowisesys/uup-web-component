@@ -32,7 +32,7 @@ abstract class Renderable implements Component
          * The collection of child components.
          * @var array 
          */
-        private $_comp = array();
+        protected $_comp = array();
 
         /**
          * Add child component.
