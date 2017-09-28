@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+require_once("../vendor/autoload.php");
+
 ?>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -25,28 +27,13 @@
 </p>
 
 <?php
-require_once("../vendor/autoload.php");
 
-use UUP\Web\Component\Element\Button;
+function example($file)
+{
+        echo "<div class=\"w3-container w3-padding w3-margin w3-border\">\n";
+        require_once($file);
+        echo "</div>\n";
+}
 
-$button = new Button("Button1");
-$button->render();
-
-$button = new Button("Button2", array(
-        'class' => 'w3-button',
-        'style' => array(
-                'background-color' => 'red',
-                'border-color'     => 'orange'
-        ),
-        'event' => 'onclick="alert(\'Hello world!\')"'
-    ));
-$button->class->remove('w3-btn');
-$button->id = 'my-button';
-$button->attr->title = 'Click me!';
-$button->attr->id = 'my-button2';       // Overwrite previous $button->id
-$button->render();
-
-echo "<pre>\n";
-printf("ID: %s\n", $button->id);
-printf("TITLE: %s\n", $button->title);
-echo "</pre>\n";
+example("element/buttons.inc");
+example("element/panels.inc");
