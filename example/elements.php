@@ -38,7 +38,15 @@ $button = new Button("Button2", array(
                 'background-color' => 'red',
                 'border-color'     => 'orange'
         ),
-        'event' => 'onclick=\"alert("Hello world!")\"'
+        'event' => 'onclick="alert(\'Hello world!\')"'
     ));
 $button->class->remove('w3-btn');
+$button->id = 'my-button';
+$button->attr->title = 'Click me!';
+$button->attr->id = 'my-button2';       // Overwrite previous $button->id
 $button->render();
+
+echo "<pre>\n";
+printf("ID: %s\n", $button->id);
+printf("TITLE: %s\n", $button->title);
+echo "</pre>\n";

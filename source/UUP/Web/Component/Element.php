@@ -109,6 +109,31 @@ class Element extends Renderable implements Component
                 $this->_text = $text;
         }
 
+        public function __set($name, $value)
+        {
+                switch ($name) {
+                        case 'id':
+                        case 'title':
+                                $this->attr->set($name, $value);
+                                break;
+                        case 'name':
+                                $this->_name = $value;
+                                break;
+                        case 'text':
+                                $this->_text = $value;
+                                break;
+                }
+        }
+        
+        public function __get($name)
+        {
+                switch($name) {
+                        case 'id':
+                        case 'title':
+                                return $this->attr->get($name);
+                }
+        }
+
         /**
          * Render component.
          * 
