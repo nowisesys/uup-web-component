@@ -7,6 +7,7 @@ return array(
         ),
         'Containers' => array(
                 'Card'     => '?page=container/card',
+                'Cell'     => '?page=container/cell',
                 'Grid'     => '?page=container/grid',
                 'Download' => '?page=container/download',
                 'Sitemap'  => '?page=container/sitemap',

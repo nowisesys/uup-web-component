@@ -23,7 +23,9 @@ use UUP\Web\Component\Element;
 /**
  * Panel component.
  *
- * @author Anders Lövgren (Computing Department at BMC, Uppsala University)
+ * @author Anders Lövgren (QNET)
+ * @package UUP
+ * @subpackage Web Components
  */
 class Panel extends Element
 {
