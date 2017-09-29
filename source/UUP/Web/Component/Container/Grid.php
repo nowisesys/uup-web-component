@@ -21,40 +21,24 @@ namespace UUP\Web\Component\Container;
 use UUP\Web\Component\Container;
 
 /**
- * Cell component.
+ * Grid component.
+ * 
+ * The image is an URL and icon is the name of an font awesome icon.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Cell extends Container
+class Grid extends Container
 {
 
-        /**
-         * The card title.
-         * @var string 
-         */
         public $title = "TITLE";
-        /**
-         * The card text.
-         * @var string 
-         */
+        public $intro = "INTRO";
         public $text = "TEXT";
-        /**
-         * The image URL.
-         * @var string 
-         */
-        public $image = "https://secure.bankofamerica.com/content/images/ContextualSiteGraphics/Instructional/en_US/Banner_Credit_Card_Activation.png";
-        /**
-         * Background color.
-         * @var string 
-         */
-        public $color = "w3-white";
-        /**
-         * The target URL.
-         * @var string 
-         */
-        public $href = "#";
+        public $icon = false;
+        public $image = false;
+        public $color = "white";
+        public $align = "left";
 
         /**
          * Constructor.
@@ -62,7 +46,7 @@ class Cell extends Container
          */
         public function __construct($path = null)
         {
-                parent::__construct('cell', $path);
+                parent::__construct('grid', $path);
         }
 
 }

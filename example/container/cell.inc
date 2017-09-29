@@ -9,7 +9,6 @@ echo "are title, text, background color and image. Set target URL for mouse clic
 echo "<div class=\"w3-cell-row\">\n";
 
 $card = new Cell();
-$card->button->event->onclick = "alert('CLICKED1')";
 $card->color = 'w3-light-grey';
 $card->render();
 
