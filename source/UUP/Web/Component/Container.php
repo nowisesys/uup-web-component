@@ -29,11 +29,83 @@ class Container extends Renderable implements Component
 {
 
         /**
+         * The container template.
+         * @var string 
+         */
+        private $_template = false;
+        /**
+         * The template name.
+         * @var string 
+         */
+        private $_name;
+        /**
+         * The template path.
+         * @var string 
+         */
+        private $_path;
+
+        /**
+         * Constructor.
+         * @param string $name The template name.
+         * @param string $path The template path (optional).
+         */
+        public function __construct($name, $path = null)
+        {
+                if (isset($path)) {
+                        if (($template = $this->resolve($name, $path))) {
+                                $this->_template = $template;
+                        }
+                }
+                if (!$this->_template) {
+                        if (($template = $this->resolve($name, realpath(__DIR__ . "/../../../../template/")))) {
+                                $this->_template = $template;
+                        }
+                }
+                if (!$this->_template) {
+                        throw new \RuntimeException("Failed resolve template path for $name container");
+                }
+
+                $this->_name = $name;
+                $this->_path = $path;
+        }
+
+        /**
          * Render this component.
          * @param callable|Transform $transform The render transformation object.
          */
         public function render($transform = false)
         {
+                if (!is_callable($transform)) {
+                        $this->output($transform);
+                } elseif ($transform($this, Component::CONTAINER)) {
+                        parent::render($transform);
+                } else {
+                        $this->output($transform);
+                }
+        }
+
+        private function output($transform)
+        {
+                include($this->_template);
+                parent::render($transform);
+        }
+
+        /**
+         * Try resolve template path.
+         * 
+         * @param string $name The template name.
+         * @param string $path The template path.
+         * @return boolean|string
+         */
+        private function resolve($name, $path)
+        {
+                $filename = sprintf("%s/%s.ui", $path, $name);
+
+                if (file_exists($filename)) {
+                        return $filename;
+                } else {
+                        return false;
+                }
         }
 
 }
