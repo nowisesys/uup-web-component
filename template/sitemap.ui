@@ -83,6 +83,14 @@ function render_children($node)
     ul.sitemap-level-2 {
         display: none;
     }
+    @media (min-width:768px) {
+        .sitemap-search-box {
+            float: right;
+        }
+        .sitemap-search-input {
+            min-width: 280px;
+        }
+    }
 </style>
 
 <script>
@@ -118,11 +126,18 @@ function render_children($node)
 
             var nodes = sitemap.getElementsByTagName("li");
             var found = [];
+            var exact = document.getElementById('sitemap-match-exact').checked;
 
             if (sender.value.length > 0) {
                 for (var i = 0; i < nodes.length; ++i) {
-                    if (nodes[i].textContent.indexOf(sender.value) > -1) {
-                        found.push(nodes[i]);
+                    if (exact) {
+                        if (nodes[i].textContent.trim() === sender.value) {
+                            found.push(nodes[i]);
+                        }
+                    } else {
+                        if (nodes[i].textContent.indexOf(sender.value) > -1) {
+                            found.push(nodes[i]);
+                        }
                     }
                 }
 
@@ -146,23 +161,51 @@ function render_children($node)
                 sitemap.style.display = "block";
             }
         }
+
+        function toggle_advanced_options(event) {
+            event.preventDefault();
+
+            var options = document.getElementById('sitemap-advanced-options');
+
+            if (options.style.display === 'none') {
+                options.style.display = 'block';
+            } else {
+                options.style.display = 'none';
+            }
+        }
+
+        function sitemap_expand_all(sender) {
+            var nodes = document.getElementById('sitemap').getElementsByTagName("ul");
+
+            for (var i = 0; i < nodes.length; ++i) {
+                if (sender.checked) {
+                    nodes[i].style.display = "block";
+                } else {
+                    nodes[i].style.display = "";
+                }
+            }
+        }
 </script>
 
 <form>
-    <div class="w3-row w3-right w3-hide-medium w3-hide-small">
-        <div class="w3-col" style="width:40px">
-            <button class="w3-button w3-xlarge w3-indigo" onclick="return false"><i class="w3-xlarge fa fa-search"></i></button>
+    <div class="w3-row sitemap-search-box">
+        <div class="w3-col" style="width: 40px">
+            <button class="w3-button w3-xlarge w3-indigo" onclick="toggle_advanced_options(event)">
+                <i class="w3-xlarge fa fa-search"></i>
+            </button>
         </div>
         <div class="w3-rest" style="padding-left: 20px">
-            <input class="w3-input w3-border" onkeyup="sitemap_filter(this)" placeholder="Filter...">
-        </div>
-    </div>
-    <div class="w3-row w3-section w3-hide-large">
-        <div class="w3-col" style="width:40px">
-            <button class="w3-button w3-xlarge w3-indigo" onclick="return false"><i class="w3-xlarge fa fa-search"></i></button>
-        </div>
-        <div class="w3-rest" style="padding-left: 20px">
-            <input class="w3-input w3-border" onkeyup="sitemap_filter(this)" placeholder="Filter...">
+            <input class="w3-input w3-border sitemap-search-input" onkeyup="sitemap_filter(this)" placeholder="Filter...">
+
+            <div id="sitemap-advanced-options" style="display: none">
+                <span style="margin-right: 20px">
+                    <input class="w3-check" type="checkbox" id="sitemap-expand-all" onchange="sitemap_expand_all(this)"> Expand all nodes
+                </span>
+                <br>
+                <span style="margin-right: 20px">
+                    <input class="w3-check" type="checkbox" id="sitemap-match-exact"> Use exact matching on names
+                </span>
+            </div>
         </div>
     </div>
     <div>
