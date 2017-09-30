@@ -148,10 +148,10 @@ function render_children($node)
         }
 </script>
 
-<form>
-    <div class="w3-row w3-right w3-hide-medium w3-hide-small">
+<form class="w3-container w3-margin">
+    <div class="w3-row w3-section w3-right w3-hide-medium w3-hide-small">
         <div class="w3-col" style="width:40px">
-            <button class="w3-button w3-xlarge w3-indigo" onclick="return false"><i class="w3-xlarge fa fa-search"></i></button>
+            <button class="w3-button w3-xlarge w3-indigo" title="Display advanced options"><i class="w3-xlarge fa fa-search"></i></button>
         </div>
         <div class="w3-rest" style="padding-left: 20px">
             <input class="w3-input w3-border" onkeyup="sitemap_filter(this)" placeholder="Filter...">
@@ -159,11 +159,15 @@ function render_children($node)
     </div>
     <div class="w3-row w3-section w3-hide-large">
         <div class="w3-col" style="width:40px">
-            <button class="w3-button w3-xlarge w3-indigo" onclick="return false"><i class="w3-xlarge fa fa-search"></i></button>
+            <button class="w3-button w3-xlarge w3-indigo" title="Display advanced options"><i class="w3-xlarge fa fa-search"></i></button>
         </div>
         <div class="w3-rest" style="padding-left: 20px">
             <input class="w3-input w3-border" onkeyup="sitemap_filter(this)" placeholder="Filter...">
         </div>
+    </div>
+    <div>
+        <input type="checkbox" id="sitemap-expand-all" onchange="sitemap_expand_all(this)" value="Expand all nodes">
+        <input type="checkbox" id="sitemap-expand-all" onchange="sitemap_expand_all(this)" value="Use exact matching on names">
     </div>
     <div>
         <?php render_root_node($this) ?>  
