@@ -17,6 +17,7 @@
  */
 
 ?>
+
 <style>
     .sitemap a {
         text-decoration: none;
@@ -27,13 +28,36 @@
     ul.sitemap {
         list-style-type: none;
     }
+    ul.sitemap-level-1 {
+        display: block;
+    }
+    ul.sitemap-level-2 {
+        display: none;
+    }
 </style>
+
+<script>
+        function sitemap_toggle_expand(uuid) {
+            var node = document.getElementById(uuid);
+
+            if (node === null) {
+                return;
+            }
+            if (node.style.display === 'block') {
+                node.style.display = 'none';
+            } else {
+                node.style.display = 'block';
+            }
+        }
+</script>
 
 <?php
 
 function render_node_item($node, $icon)
 {
-        printf("<li><i class=\"fa $icon sitemap-icon w3-text-blue\" aria-hidden=\"true\"></i><a href=\"%s\"> %s</a></li>\n", $node->getPath(), $node->getName());
+        printf("<li onclick=\"sitemap_toggle_expand('%s')\">", $node->getID());
+        printf("<i class=\"fa $icon sitemap-icon w3-text-blue\" aria-hidden=\"true\"></i><a href=\"%s\"> %s</a>", $node->getPath(), $node->getName());
+        printf("</li>\n");
 }
 
 function render_root_node($node)
@@ -61,7 +85,7 @@ function render_child_leaf($node)
 
 function render_children($node)
 {
-        printf("<ul class=\"sitemap\">\n");
+        printf("<ul class=\"sitemap sitemap-level-%d\" id=\"%s\">\n", $node->getLevel(), $node->getID());
         foreach ($node->getChildren() as $child) {
                 if ($child->isDisplayable() == false) {
                         continue;

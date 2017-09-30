@@ -195,4 +195,13 @@ class Sitemap extends Container implements TreeNode
                 return 0;
         }
 
+        /**
+         * Get unique ID.
+         * @return string
+         */
+        public function getID()
+        {
+                return $this->_directory->getID();
+        }
+
 }

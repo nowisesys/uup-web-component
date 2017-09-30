@@ -36,6 +36,11 @@ class Directory implements TreeNode
          */
         private $_sitemap;
         /**
+         * Unique ID.
+         * @var string 
+         */
+        private $_uuid;
+        /**
          * The node name.
          * @var string 
          */
@@ -68,6 +73,7 @@ class Directory implements TreeNode
 
                 $this->_name = $name;
                 $this->_path = $path;
+                $this->_uuid = uniqid();
 
                 $this->_level = $level;
         }
@@ -246,6 +252,15 @@ class Directory implements TreeNode
         public function getLevel()
         {
                 return $this->_level;
+        }
+
+        /**
+         * Get unique ID.
+         * @return string
+         */
+        public function getID()
+        {
+                return $this->_uuid;
         }
 
 }

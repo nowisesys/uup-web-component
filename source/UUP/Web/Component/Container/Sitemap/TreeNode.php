@@ -61,4 +61,10 @@ interface TreeNode
          * @return int 
          */
         function getLevel();
+
+        /**
+         * Get unique ID.
+         * @return string
+         */
+        function getID();
 }
