@@ -47,7 +47,7 @@ function render_child_leaf($node)
 
 function render_children($node)
 {
-        printf("<ul class=\"sitemap sitemap-level-%d\" id=\"%s\" style=\"display: %s\">\n", $node->getLevel(), $node->getID(), ($node->getLevel() === 1) ? 'block' : '');
+        printf("<ul class=\"sitemap sitemap-node sitemap-level-%d\" id=\"%s\" style=\"display: %s\">\n", $node->getLevel(), $node->getID(), ($node->getLevel() === 1) ? 'block' : '');
         foreach ($node->getChildren() as $child) {
                 if ($child->isDisplayable() == false) {
                         continue;
@@ -72,6 +72,9 @@ function render_children($node)
     }
     ul.sitemap {
         list-style-type: none;
+    }
+    ul.sitemap-node {
+        padding-left: 18px;
     }
     ul.sitemap-level-1 {
         display: block;
