@@ -24,7 +24,7 @@ function render_node_item($node, $icon)
 
 function render_root_node($node)
 {
-        printf("<ul class=\"sitemap\" id=\"sitemap\">\n");
+        printf("<ul class=\"sitemap sitemap-root\" id=\"sitemap\">\n");
         render_node_item($node, "fa-globe");
         if ($node->hasChildren()) {
                 render_children($node);
@@ -89,6 +89,11 @@ function render_children($node)
         }
         .sitemap-search-input {
             min-width: 280px;
+        }
+    }
+    @media (max-width:768px) {
+        ul.sitemap-root {
+            padding-left: 0px
         }
     }
 </style>
@@ -194,7 +199,7 @@ function render_children($node)
                 <i class="w3-xlarge fa fa-search"></i>
             </button>
         </div>
-        <div class="w3-rest" style="padding-left: 20px">
+        <div class="w3-rest" style="padding-left: 13px">
             <input class="w3-input w3-border sitemap-search-input" onkeyup="sitemap_filter(this)" placeholder="Filter...">
 
             <div id="sitemap-advanced-options" style="display: none">
