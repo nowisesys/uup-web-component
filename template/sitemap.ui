@@ -85,7 +85,7 @@ function render_child_leaf($node)
 
 function render_children($node)
 {
-        printf("<ul class=\"sitemap sitemap-level-%d\" id=\"%s\">\n", $node->getLevel(), $node->getID());
+        printf("<ul class=\"sitemap sitemap-level-%d\" id=\"%s\" style=\"display: %s\">\n", $node->getLevel(), $node->getID(), ($node->getLevel() === 1) ? 'block' : '');
         foreach ($node->getChildren() as $child) {
                 if ($child->isDisplayable() == false) {
                         continue;
