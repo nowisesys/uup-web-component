@@ -63,6 +63,7 @@ function render_children($node)
 
 ?>
 
+<!-- sitemap start -->
 <style>
     .sitemap a {
         text-decoration: none;
@@ -118,25 +119,32 @@ function render_children($node)
             var nodes = sitemap.getElementsByTagName("li");
             var found = [];
 
-            for (var i = 0; i < nodes.length; ++i) {
-                if (nodes[i].textContent.indexOf(sender.value) > -1) {
-                    found.push(nodes[i]);
+            if (sender.value.length > 0) {
+                for (var i = 0; i < nodes.length; ++i) {
+                    if (nodes[i].textContent.indexOf(sender.value) > -1) {
+                        found.push(nodes[i]);
+                    }
                 }
-            }
 
-            for (var i = 0; i < nodes.length; ++i) {
-                nodes[i].style.display = "none";
-            }
-            for (var i = 0; i < found.length; ++i) {
-                found[i].style.display = "block";
-                sitemap_expand(found[i]);
+                for (var i = 0; i < nodes.length; ++i) {
+                    nodes[i].style.display = "none";
+                    nodes[i].style.color = "";
+                }
+                for (var i = 0; i < found.length; ++i) {
+                    found[i].style.display = "block";
+                    found[i].style.color = "orange";
+                    sitemap_expand(found[i]);
+                }
+            } else {
+                for (var i = 0; i < nodes.length; ++i) {
+                    nodes[i].style.display = "";
+                    nodes[i].style.color = "";
+                }
             }
 
             if (sitemap.style.display !== "block") {
                 sitemap.style.display = "block";
             }
-
-            sitemap.style.display = "block";
         }
 </script>
 
@@ -157,3 +165,4 @@ function render_children($node)
         <?php render_root_node($this) ?>  
     </div>
 </form>
+<!-- sitemap end -->
