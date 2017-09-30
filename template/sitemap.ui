@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Copyright (C) 2017 Anders Lövgren (QNET).
  *
@@ -16,43 +15,6 @@
  * limitations under the License.
  */
 
-?>
-
-<style>
-    .sitemap a {
-        text-decoration: none;
-    }
-    .sitemap-icon {
-        color: deepskyblue;
-    }
-    ul.sitemap {
-        list-style-type: none;
-    }
-    ul.sitemap-level-1 {
-        display: block;
-    }
-    ul.sitemap-level-2 {
-        display: none;
-    }
-</style>
-
-<script>
-        function sitemap_toggle_expand(uuid) {
-            var node = document.getElementById(uuid);
-
-            if (node === null) {
-                return;
-            }
-            if (node.style.display === 'block') {
-                node.style.display = 'none';
-            } else {
-                node.style.display = 'block';
-            }
-        }
-</script>
-
-<?php
-
 function render_node_item($node, $icon)
 {
         printf("<li onclick=\"sitemap_toggle_expand('%s')\">", $node->getID());
@@ -62,7 +24,7 @@ function render_node_item($node, $icon)
 
 function render_root_node($node)
 {
-        printf("<ul class=\"sitemap\">\n");
+        printf("<ul class=\"sitemap\" id=\"sitemap\">\n");
         render_node_item($node, "fa-globe");
         if ($node->hasChildren()) {
                 render_children($node);
@@ -99,4 +61,96 @@ function render_children($node)
         printf("</ul>\n");
 }
 
-render_root_node($this);
+?>
+
+<style>
+    .sitemap a {
+        text-decoration: none;
+    }
+    .sitemap-icon {
+        color: deepskyblue;
+    }
+    ul.sitemap {
+        list-style-type: none;
+    }
+    ul.sitemap-level-1 {
+        display: block;
+    }
+    ul.sitemap-level-2 {
+        display: none;
+    }
+</style>
+
+<script>
+        function sitemap_toggle_expand(uuid) {
+            var node = document.getElementById(uuid);
+
+            if (node === null) {
+                return;
+            }
+            if (node.style.display === 'block') {
+                node.style.display = 'none';
+            } else {
+                node.style.display = 'block';
+            }
+        }
+
+        function sitemap_expand(node) {
+            // 
+            // The previous sibling (li) is the item toggle display 
+            // of the list (ul).
+            // 
+            while (node.id !== "sitemap") {
+                node = node.parentNode;
+                node.style.display = "block";
+                if (node.previousElementSibling !== null) {
+                    node.previousElementSibling.style.display = "block";
+                }
+            }
+        }
+
+        function sitemap_filter(sender) {
+            var sitemap = document.getElementById('sitemap');
+
+            var nodes = sitemap.getElementsByTagName("li");
+            var found = [];
+
+            for (var i = 0; i < nodes.length; ++i) {
+                if (nodes[i].textContent.indexOf(sender.value) > -1) {
+                    found.push(nodes[i]);
+                }
+            }
+
+            for (var i = 0; i < nodes.length; ++i) {
+                nodes[i].style.display = "none";
+            }
+            for (var i = 0; i < found.length; ++i) {
+                found[i].style.display = "block";
+                sitemap_expand(found[i]);
+            }
+
+            if (sitemap.style.display !== "block") {
+                sitemap.style.display = "block";
+            }
+
+            sitemap.style.display = "block";
+        }
+</script>
+
+<form class="w3-container w3-margin">
+    <div class="w3-row w3-section w3-right w3-hide-medium w3-hide-small">
+        <div class="w3-col" style="width:40px"><i class="w3-xlarge fa fa-search"></i></div>
+        <div class="w3-rest ">
+            <input class="w3-input w3-border" onkeyup="sitemap_filter(this)" placeholder="Filter...">
+        </div>
+    </div>
+    <div class="w3-row w3-section w3-hide-large">
+        <div class="w3-col" style="width:40px"><i class="w3-xlarge fa fa-search"></i></div>
+        <div class="w3-rest ">
+            <input class="w3-input w3-border" onkeyup="sitemap_filter(this)" placeholder="Filter...">
+        </div>
+    </div>
+    <div>
+        <?php render_root_node($this) ?>  
+    </div>
+</form>
