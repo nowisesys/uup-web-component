@@ -13,8 +13,11 @@
     require_once("index.inc");
 
     echo "<div style=\"display: flex\">\n";
-    echo "<div>\n";
+    echo "<div id=\"menu\">\n";
     print_menu(include('menu.inc'));
+    echo "<div class=\"w3-center\">\n";
+    echo "<button class=\"w3-btn w3-orange\" onclick=\"document.getElementById('menu').style.display = 'none'\">Hide</button>\n";
+    echo "</div>\n";
     echo "</div>\n";
     echo "<div style=\"width: 100%\">\n";
     load_example();
