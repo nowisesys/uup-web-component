@@ -55,6 +55,8 @@ use UUP\Web\Component\Container;
  * @property-read array $first The primary download file.
  * @property-read array $older Older download files.
  * @property-read array $files All downloadable files.
+ * 
+ * @property-read array $secure The associated security files.
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
@@ -88,6 +90,11 @@ class Download extends Container
          * @var string 
          */
         public $format = '%2$s/%3$s';
+        /**
+         * The security files to detect.
+         * @var array 
+         */
+        public $detect = array("md5", "sha1", "sha256");
         /**
          * The files in download directory.
          * @var array 
@@ -127,6 +134,8 @@ class Download extends Container
                                 return $this->_files['first'];
                         case 'older':
                                 return $this->_files['older'];
+                        case 'secure':
+                                return $this->_files['secure'];
                         default:
                                 return $this->_files;
                 }
@@ -143,8 +152,9 @@ class Download extends Container
                 }
 
                 $this->_files = array(
-                        'first' => false,
-                        'older' => array()
+                        'first'  => false,
+                        'older'  => array(),
+                        'secure' => array()
                 );
 
                 $this->collect();
@@ -201,6 +211,9 @@ class Download extends Container
                 } elseif ($fileinfo->isFile()) {
                         $this->addFile($fileinfo);
                 }
+                if ($this->hasSecurity($fileinfo)) {
+                        $this->addSecurity($fileinfo);
+                }
         }
 
         /**
@@ -232,6 +245,45 @@ class Download extends Container
                         'time' => strftime("%x %X", filemtime($fileinfo->getRealPath())),
                         'path' => sprintf($this->format, $this->id, $this->path, $fileinfo->getFilename())
                 );
+        }
+
+        /**
+         * Check if security files exists.
+         * 
+         * Returns true if checksum or signed files exist for current download file.
+         * @param FilesystemIterator $fileinfo The file info object. 
+         * @return bool 
+         */
+        private function hasSecurity($fileinfo)
+        {
+                if (empty($this->detect)) {
+                        return false;
+                }
+
+                foreach ($this->detect as $secure) {
+                        $filename = sprintf("%s/%s.%s", $this->path, $fileinfo->getFilename(), $secure);
+                        if (file_exists($filename)) {
+                                return true;
+                        }
+                }
+
+                return false;
+        }
+
+        /**
+         * Add security files.
+         * @param FilesystemIterator $fileinfo The file info object. 
+         */
+        private function addSecurity($fileinfo)
+        {
+                $this->_files['secure'][$fileinfo->getFilename()] = array();
+
+                foreach ($this->detect as $secure) {
+                        $filename = sprintf("%s/%s.%s", $this->path, $fileinfo->getFilename(), $secure);
+                        if (file_exists($filename)) {
+                                $this->_files['secure'][$fileinfo->getFilename()][$secure] = $filename;
+                        }
+                }
         }
 
 }

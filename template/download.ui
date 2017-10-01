@@ -15,17 +15,34 @@
  * limitations under the License.
  */
 
+function download_output_security($download, $name)
+{
+        if (isset($download->secure[$name])) {
+                foreach ($download->secure[$name] as $name => $link) {
+                        printf("<a class=\"w3-btn w3-yellow w3-tiny w3-round download-security-file\" href=\"%s\">\n", $link);
+                        printf("<i class=\"fa fa-shield\" aria-hidden=\"true\"></i> %s\n", $name);
+                        printf("</a>\n");
+                }
+        }
+}
+
 ?>
 
 <style>
     li.older {
         display: block;
     }
+    .download div {
+        overflow: visible;
+    }
     .download-file {
         cursor: pointer;
     }
     .download-button {
         min-width: 110px;
+    }
+    .download-security-file {
+        margin-top: 3px;
     }
 </style>
 
@@ -52,7 +69,7 @@
 
 </script>
 
-<ul class="w3-ul" id="<?= $this->id ?>">
+<ul class="w3-ul download" id="<?= $this->id ?>">
     <li class="download-first">
         <div class="w3-bar">
             <span class="w3-bar-item download-file" onclick="download_show_fileinfo(this)"><?= $this->first['name'] ?></span>
@@ -61,7 +78,10 @@
         </div>
         <div class="w3-bar w3-small w3-text-grey" style="display: none">
             <span class="w3-bar-item download-size">Size: <?= $this->first['size'] ?></span>
-            <span class="w3-bar-item download-time">Date: <?= $this->first['time'] ?></span>            
+            <span class="w3-bar-item download-time">Date: <?= $this->first['time'] ?></span>  
+            <div class="w3-margin-left">
+                <?php download_output_security($this, $this->first['name']) ?>                                        
+            </div>
         </div>
     </li>
     <?php foreach ($this->older as $file) : ?>
@@ -73,6 +93,9 @@
                 <div class="w3-bar w3-small w3-text-grey" style="display: none">
                     <span class="w3-bar-item download-size">Size: <?= $file['size'] ?></span>
                     <span class="w3-bar-item download-time">Date: <?= $file['time'] ?></span>            
+                    <div class="w3-margin-left">
+                        <?php download_output_security($this, $file['name']) ?>
+                    </div>
                 </div>
             </li>
     <?php endforeach; ?>
