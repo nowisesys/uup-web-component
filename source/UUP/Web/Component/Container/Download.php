@@ -1,0 +1,237 @@
+<?php
+
+/*
+ * Copyright (C) 2017 Anders Lövgren (QNET).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+namespace UUP\Web\Component\Container;
+
+use FilesystemIterator;
+use RuntimeException;
+use UUP\Web\Component\Container;
+
+/**
+ * Download compoment.
+ * 
+ * The downloadable files are divided in first and older. The first file is the primary
+ * download target and is by default the file with largest version (as natural sorted on 
+ * file-x.y.z). 
+ * 
+ * If sorting don't apply (perhaps all files have random names), then the primary target 
+ * can be hardcoded in the filesystem by creating a symbolic link and setting the latest
+ * property accordingly:
+ * 
+ *   dir/
+ *    +-- latest -> file1
+ *    +-- file1           // accessed thru first
+ *    +-- file2           // accessed thru older
+ *   ...
+ *    +-- fileN           // accessed thru older
+ * 
+ * Each file has a name, size, time and path key in the data returned. Notice that when
+ * scanning for files with compound extension (like tar.gz-files), then set the file 
+ * extension to last part (i.e. use gz for tar.gz).
+ * 
+ * If a download wrapper script is going to be used (i.e. if authetication is required 
+ * or download statistics is collected), then set the format string to generate download 
+ * links of the id, path and file arguments:
+ * 
+ * <code>
+ * $download->format = 'script.php?file=%3$s&from=%1$s';
+ * </code>
+ * 
+ * @property-read array $first The primary download file.
+ * @property-read array $older Older download files.
+ * @property-read array $files All downloadable files.
+ *
+ * @author Anders Lövgren (QNET)
+ * @package UUP
+ * @subpackage Web Components
+ */
+class Download extends Container
+{
+
+        /**
+         * Unique ID for download list.
+         * @var string 
+         */
+        public $id;
+        /**
+         * The directory containing files.
+         * @var string 
+         */
+        public $path = "download";
+        /**
+         * The file extension.
+         * @var string 
+         */
+        public $extension = "gz";
+        /**
+         * Name of latest file.
+         * @var string 
+         */
+        public $latest = "latest.tar.gz";
+        /**
+         * The download link format.
+         * @var string 
+         */
+        public $format = '%2$s/%3$s';
+        /**
+         * The files in download directory.
+         * @var array 
+         */
+        private $_files;
+
+        /**
+         * Constructor.
+         * @param string $path The template path (optional).
+         */
+        public function __construct($path = null)
+        {
+                parent::__construct('download', $path);
+                $this->id = md5($this->path);
+        }
+
+        public function __get($name)
+        {
+                return $this->getFiles($name);
+        }
+
+        /**
+         * Get download files.
+         * @param string $section The optional section (first or older).
+         * @return array
+         */
+        public function getFiles($section = null)
+        {
+                if (!isset($this->_files)) {
+                        $this->setFiles();
+                }
+
+                switch ($section) {
+                        case 'files':
+                                return $this->_files;
+                        case 'first':
+                                return $this->_files['first'];
+                        case 'older':
+                                return $this->_files['older'];
+                        default:
+                                return $this->_files;
+                }
+        }
+
+        /**
+         * Set files array.
+         * @throws RuntimeException
+         */
+        private function setFiles()
+        {
+                if (!file_exists($this->path)) {
+                        throw new RuntimeException("The download directory don't exist");
+                }
+
+                $this->_files = array(
+                        'first' => false,
+                        'older' => array()
+                );
+
+                $this->collect();
+                $this->sort();
+
+                $this->setFirst();
+        }
+
+        /**
+         * Collect downloadable files.
+         */
+        private function collect()
+        {
+                $iterator = new FilesystemIterator($this->path);
+
+                foreach ($iterator as $fileinfo) {
+                        if ($iterator->getExtension() == $this->extension) {
+                                $this->addEntry($fileinfo);
+                        }
+                }
+        }
+
+        /**
+         * Sort downloadable files.
+         */
+        private function sort()
+        {
+                uasort($this->_files['older'], function($a, $b) {
+                        return strnatcmp($b['name'], $a['name']);
+                });
+        }
+
+        /**
+         * Set primary target.
+         */
+        private function setFirst()
+        {
+                if (!$this->_files['first']) {
+                        $this->_files['first'] = current($this->_files['older']);
+                }
+                if ($this->_files['first']['name'] == current($this->_files['older'])['name']) {
+                        array_shift($this->_files['older']);
+                }
+        }
+
+        /**
+         * Add file entry.
+         * @param FilesystemIterator $fileinfo The file info object.
+         */
+        private function addEntry($fileinfo)
+        {
+                if ($fileinfo->isLink()) {
+                        $this->addLink($fileinfo);
+                } elseif ($fileinfo->isFile()) {
+                        $this->addFile($fileinfo);
+                }
+        }
+
+        /**
+         * Add standard file.
+         * @param FilesystemIterator $fileinfo The file info object.
+         */
+        private function addFile($fileinfo)
+        {
+                $this->_files['older'][] = array(
+                        'name' => $fileinfo->getFilename(),
+                        'size' => $fileinfo->getSize(),
+                        'time' => strftime("%x %X", filemtime($fileinfo->getRealPath())),
+                        'path' => sprintf($this->format, $this->id, $this->path, $fileinfo->getFilename())
+                );
+        }
+
+        /**
+         * Add symbolic link.
+         * @param FilesystemIterator $fileinfo The file info object.
+         */
+        private function addLink($fileinfo)
+        {
+                if ($fileinfo->getFilename() != $this->latest) {
+                        return;
+                }
+                $this->_files['first'] = array(
+                        'name' => $fileinfo->getLinkTarget(),
+                        'size' => $fileinfo->getSize(),
+                        'time' => strftime("%x %X", filemtime($fileinfo->getRealPath())),
+                        'path' => sprintf($this->format, $this->id, $this->path, $fileinfo->getFilename())
+                );
+        }
+
+}

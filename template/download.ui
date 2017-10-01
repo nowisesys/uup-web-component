@@ -1,19 +1,79 @@
 <?php
-
-/* 
-* Copyright (C) 2017 Anders Lövgren (QNET).
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+/*
+ * Copyright (C) 2017 Anders Lövgren (QNET).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 ?>
+
+<style>
+    li.older {
+        display: block;
+    }
+    .download-file {
+        cursor: pointer;
+    }
+    .download-button {
+        min-width: 110px;
+    }
+</style>
+
+<script>
+        function download_show_older(id) {
+            var list = document.getElementById(id);
+            var item = list.getElementsByClassName("older");
+
+            for (var i = 0; i < item.length; ++i) {
+                item[i].style.display = 'block';
+            }
+        }
+
+        function download_show_fileinfo(sender) {
+            var parent = sender.parentNode;
+            var target = parent.nextElementSibling;
+
+            if (target.style.display === 'none') {
+                target.style.display = 'block';
+            } else {
+                target.style.display = 'none';
+            }
+        }
+
+</script>
+
+<ul class="w3-ul" id="<?= $this->id ?>">
+    <li class="download-first">
+        <div class="w3-bar">
+            <span class="w3-bar-item download-file" onclick="download_show_fileinfo(this)"><?= $this->first['name'] ?></span>
+            <a class="w3-btn w3-green w3-right w3-bar-item download-button" href="<?= $this->first['path'] ?>">Download</a>
+            <a class="w3-button w3-right w3-text-grey download-button" onclick="download_show_older('<?= $this->id ?>')"><i class="fa fa-caret-down" aria-hidden="true"></i> More</a>        
+        </div>
+        <div class="w3-bar w3-small w3-text-grey" style="display: none">
+            <span class="w3-bar-item download-size">Size: <?= $this->first['size'] ?></span>
+            <span class="w3-bar-item download-time">Date: <?= $this->first['time'] ?></span>            
+        </div>
+    </li>
+    <?php foreach ($this->older as $file) : ?>
+            <li class="download-older older" style="display: none">
+                <div class="w3-bar">
+                    <span class="w3-bar-item download-file" onclick="download_show_fileinfo(this)"><?= $file['name'] ?></span>
+                    <a class="w3-btn w3-green w3-right w3-bar-item download-button" href="<?= $file['path'] ?>">Download</a>
+                </div>
+                <div class="w3-bar w3-small w3-text-grey" style="display: none">
+                    <span class="w3-bar-item download-size">Size: <?= $file['size'] ?></span>
+                    <span class="w3-bar-item download-time">Date: <?= $file['time'] ?></span>            
+                </div>
+            </li>
+    <?php endforeach; ?>
+</ul>
