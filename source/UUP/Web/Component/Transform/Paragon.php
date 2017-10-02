@@ -24,8 +24,14 @@ use UUP\Web\Component\Transform;
 
 /**
  * The default transformer.
+ * 
+ * This transformer produces W3.CSS class names from generic properties set 
+ * on component elements. For example, the generic 'color-text' is tranformed
+ * to w3-text-xxx', where xxx is the color name.
  *
- * @author Anders Lövgren (Computing Department at BMC, Uppsala University)
+ * @author Anders Lövgren (QNET)
+ * @package UUP
+ * @subpackage Web Components
  */
 class Paragon extends Transform
 {
