@@ -53,7 +53,38 @@ class Paragon extends Transform
          */
         private function transform($component)
         {
-                
+                foreach ($component->props as $key => $val) {
+                        if (($class = $this->remap($key, $val))) {
+                                $component->class->add($class);
+                        }
+                }
+        }
+
+        /**
+         * Return w3-xxx class mapped by key/val pair.
+         * 
+         * @param string $key The generic key name.
+         * @param string $val The generic key value.
+         * @return string
+         */
+        private function remap($key, $val)
+        {
+                switch ($key) {
+                        case 'color-back':
+                                return "w3-$val";
+                        case 'color-text':
+                                return "w3-text-$val";
+                        case 'hover-back':
+                                return "w3-hover-$val";
+                        case 'hover-text':
+                                return "w3-hover-text-$val";
+                        case 'hover-border':
+                                return "w3-hover-border-$val";
+                        default:
+                                if (is_bool($val) && $val != false) {
+                                        return "w3-$key";
+                                }
+                }
         }
 
 }
