@@ -18,7 +18,9 @@
 
 namespace UUP\Web\Component\Collection;
 
+use ArrayIterator;
 use DomainException;
+use IteratorAggregate;
 
 /**
  * Generic collection class.
@@ -36,7 +38,7 @@ use DomainException;
  * @package UUP
  * @subpackage Web Components
  */
-class Collection
+class Collection implements IteratorAggregate
 {
 
         /**
@@ -342,6 +344,11 @@ class Collection
                                 $this->assign($key, $val);
                         }
                 }
+        }
+
+        public function getIterator()
+        {
+                return new ArrayIterator($this->_data);
         }
 
 }
