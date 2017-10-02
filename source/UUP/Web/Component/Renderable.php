@@ -18,11 +18,11 @@
 
 namespace UUP\Web\Component;
 
-use UUP\Web\Component\Transform\Paragon;
+use RuntimeException;
 
 /**
  * Abstract base class for concrete component classes.
- *
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -88,7 +88,7 @@ abstract class Renderable implements Component
         public function render($transform = false)
         {
                 if (!$transform) {
-                        throw new \RuntimeException("Called without transformer");
+                        throw new RuntimeException("Called without transformer");
                 }
                 foreach ($this->_comp as $component) {
                         $component->render($transform);
