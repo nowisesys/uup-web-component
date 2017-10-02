@@ -40,7 +40,7 @@ class Button extends Element
         public function __construct($text = '', $attr = array(), $name = 'button')
         {
                 parent::__construct($attr, $name, $text);
-                $this->class->add('w3-btn');
+                $this->props->btn = true;
         }
 
 }

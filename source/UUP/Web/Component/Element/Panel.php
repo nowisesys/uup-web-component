@@ -40,7 +40,7 @@ class Panel extends Element
         public function __construct($text = '', $attr = array(), $name = 'div')
         {
                 parent::__construct($attr, $name, $text);
-                $this->class->add('w3-panel');
+                $this->props->add('panel');
         }
 
 }
