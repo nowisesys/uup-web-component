@@ -15,6 +15,11 @@
 use UUP\Web\Component\Element\Button;
 use UUP\Web\Component\Transform\Native;
 
+// 
+// Set default render transformer to native:
+// 
+UUP\Web\Component\Transform::setInstance(new Native('nat'));
+
 echo "<h2>Native transformer</h2>\n";
 echo "<p>Demo of the native attribute transformer that renders component with one-to-one ";
 echo "mapping between property and CSS-class names. The class names are prefixed with ";
@@ -22,22 +27,18 @@ echo "the string 'nat' for demo purposes.</p>\n";
 
 echo "<div>\n";
 $button = new Button("Button1");
-$button->setTransformer(new Native('nat'));
 $button->render();
 
 $button = new Button("Button2");
-$button->setTransformer(new Native('nat'));
 $button->props->color->back = "green";
 $button->render();
 
 $button = new Button("Button3");
-$button->setTransformer(new Native('nat'));
 $button->props->color->back = "green";
 $button->props->hover->back = "red";
 $button->render();
 
 $button = new Button("Button4");
-$button->setTransformer(new Native('nat'));
 $button->props->color->back = "green";
 $button->props->hover->back = "red";
 $button->props->hover->text = "yellow";
@@ -46,7 +47,6 @@ echo "</div>\n";
 
 echo "<div style=\"margin-top: 20px\">\n";
 $button = new Button("Button5");
-$button->setTransformer(new Native('nat'));
 $button->props->card = true;
 $button->render();
 echo "</div>\n";
