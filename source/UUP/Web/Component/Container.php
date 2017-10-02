@@ -80,10 +80,18 @@ class Container extends Renderable implements Component
                 if (!$transform) {
                         $transform = $this->_transform;
                 }
-                if ($transform($this, Component::CONTAINER)) {
-                        parent::render($transform);
-                } else {
-                        $this->output($transform);
+
+                switch ($transform($this, Component::CONTAINER)) {
+                        case Transform::RENDER_DONE:
+                                break;
+                        case Transform::RENDER_NONE:
+                                $this->output($transform);
+                                break;
+                        case Transform::RENDER_CHILDREN:
+                                parent::render($transform);
+                                break;
+                        default:
+                                $this->output($transform);
                 }
         }
 

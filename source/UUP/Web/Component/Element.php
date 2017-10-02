@@ -29,8 +29,9 @@ use UUP\Web\Component\Collection\StyleSheet;
  * 
  * @property string $id The element ID.
  * @property string $title The title attribute (tooltip).
- * @property string $name Set element name (advanced feature).
- * @property string $text Set inner HTML.
+ * @property bool $last This components text is rendered after child components (default to false).
+ * @property-write string $name Set element name (advanced feature).
+ * @property-write string $text Set inner HTML or text.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
@@ -49,6 +50,11 @@ class Element extends Renderable implements Component
          * @var string 
          */
         private $_text;
+        /**
+         * This component text is rendered last.
+         * @var boolean 
+         */
+        private $_last;
         /**
          * The transform properties.
          * @var Properties 
@@ -82,7 +88,7 @@ class Element extends Renderable implements Component
          * @param string $name The element name.
          * @param string $text The element text.
          */
-        protected function __construct($attr, $name, $text)
+        public function __construct($attr, $name, $text)
         {
                 $this->props = new Properties();
                 $this->class = new Classes();
@@ -116,6 +122,7 @@ class Element extends Renderable implements Component
 
                 $this->_name = $name;
                 $this->_text = $text;
+                $this->_last = false;
 
                 parent::__construct();
         }
@@ -133,6 +140,9 @@ class Element extends Renderable implements Component
                         case 'text':
                                 $this->_text = $value;
                                 break;
+                        case 'last':
+                                $this->_last = $value;
+                                break;
                 }
         }
 
@@ -142,6 +152,8 @@ class Element extends Renderable implements Component
                         case 'id':
                         case 'title':
                                 return $this->attr->get($name);
+                        case 'last':
+                                return $this->_last;
                 }
         }
 
@@ -159,10 +171,18 @@ class Element extends Renderable implements Component
                 if (!$transform) {
                         $transform = $this->_transform;
                 }
-                if ($transform($this, Component::ELEMENT)) {
-                        parent::render($transform);
-                } else {
-                        $this->output($transform);
+
+                switch ($transform($this, Component::ELEMENT)) {
+                        case Transform::RENDER_DONE:
+                                break;
+                        case Transform::RENDER_NONE:
+                                $this->output($transform);
+                                break;
+                        case Transform::RENDER_CHILDREN:
+                                parent::render($transform);
+                                break;
+                        default:
+                                $this->output($transform);
                 }
         }
 
@@ -191,22 +211,25 @@ class Element extends Renderable implements Component
                 }
 
                 // 
-                // Render simple tag:
-                // 
-                if (empty($this->_text) && empty($this->_comp)) {
-                        printf("<%s %s/>\n", $this->_name, implode(" ", $attr));
-                        return;
-                }
-
-                // 
                 // Render this element including inner HTML and child components:
                 // 
                 printf("<%s %s>", $this->_name, implode(" ", $attr));
-                if (!empty($this->_text)) {
-                        printf("%s", $this->_text);
-                }
-                if (!empty($this->_comp)) {
-                        parent::render($transform);
+                if ($this->_last) {
+                        if (!empty($this->_comp)) {
+                                printf(" ");
+                                parent::render($transform);
+                        }
+                        if (!empty($this->_text)) {
+                                printf("%s", $this->_text);
+                        }
+                } else {
+                        if (!empty($this->_text)) {
+                                printf("%s", $this->_text);
+                        }
+                        if (!empty($this->_comp)) {
+                                printf(" ");
+                                parent::render($transform);
+                        }
                 }
                 printf("</%s>\n", $this->_name);
         }
