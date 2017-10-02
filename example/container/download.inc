@@ -7,5 +7,4 @@ echo "<p>Provides a component for file download. Given a directory path, it scan
 echo "for files to make available for download.</p>\n";
 
 $download = new Download();
-$download->path = "/var/www/localhost/htdocs/sites/it.bmc.uu.se/htdocs/andlov/proj/sci/batchelor/stable";
 $download->render();
