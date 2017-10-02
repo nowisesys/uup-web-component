@@ -33,6 +33,19 @@ abstract class Transform
 {
 
         /**
+         * Nothing has been rendered.
+         */
+        const RENDER_NONE = 0;
+        /**
+         * The complete rendering is done.
+         */
+        const RENDER_DONE = 1;
+        /**
+         * Continue render children.
+         */
+        const RENDER_CHILDREN = 2;
+
+        /**
          * The shared transform object.
          * @var Transform 
          */
@@ -53,12 +66,26 @@ abstract class Transform
         /**
          * Implement this method to handle transformation.
          * 
-         * Return true if this method has rendered the component. The caller will
-         * not try to render itself in this case.
+         * This method should return one of the RENDER_XXX constants to signal
+         * whether the component has been completely rendered (RENDER_DONE), if
+         * nothing has been rendered (RENDER_NONE) or if caller should continue
+         * render child components (RENDER_CHILDREN).
+         * 
+         * 1. One case is that the transformer either renders the component including 
+         *    any child components and returns RENDER_DONE. 
+         * 
+         * 2. Another case is that this transformer is just transforming properties, in 
+         *    which case returning RENDER_NONE is appropriate. 
+         * 
+         * 3. The last case is for a transformer that is rendering the top component
+         *    but leave rendering of children. In this case return RENDER_CHILDREN.
+         * 
+         * If nothing is returned, then the caller should perform the same behavior 
+         * as if RENDER_NONE was returned.
          * 
          * @param Component $component The component to render.
          * @param int $type The component type (one of the Component::XXX constants).
-         * @return boolean
+         * @return int
          */
         public abstract function apply($component, $type);
 
