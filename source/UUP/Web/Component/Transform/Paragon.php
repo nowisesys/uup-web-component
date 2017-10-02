@@ -39,9 +39,6 @@ class Paragon extends Transform
         /**
          * Transform component.
          * 
-         * Return true if this method has rendered the component. The caller will
-         * not try to render itself in this case.
-         * 
          * @param Component $component The component to render.
          * @param int $type The component type (one of the Component::XXX constants).
          * @return int

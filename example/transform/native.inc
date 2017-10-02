@@ -13,15 +13,16 @@
 <?php
 
 use UUP\Web\Component\Element\Button;
+use UUP\Web\Component\Transform;
 use UUP\Web\Component\Transform\Native;
 
 // 
 // Set default render transformer to native:
 // 
-UUP\Web\Component\Transform::setInstance(new Native('nat'));
+Transform::setInstance(new Native('nat'));
 
 echo "<h2>Native transformer</h2>\n";
-echo "<p>Demo of the native attribute transformer that renders component with one-to-one ";
+echo "<p>Demo of native attribute transformer that renders component with one-to-one ";
 echo "mapping between property and CSS-class names. The class names are prefixed with ";
 echo "the string 'nat' for demo purposes.</p>\n";
 
