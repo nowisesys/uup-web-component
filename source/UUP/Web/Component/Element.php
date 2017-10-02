@@ -21,6 +21,7 @@ namespace UUP\Web\Component;
 use UUP\Web\Component\Collection\Attributes;
 use UUP\Web\Component\Collection\Classes;
 use UUP\Web\Component\Collection\Events;
+use UUP\Web\Component\Collection\Properties;
 use UUP\Web\Component\Collection\StyleSheet;
 
 /**
@@ -48,6 +49,11 @@ class Element extends Renderable implements Component
          * @var string 
          */
         private $_text;
+        /**
+         * The transform properties.
+         * @var Properties 
+         */
+        public $props;
         /**
          * Custom CSS classes.
          * @var Classes 
@@ -78,6 +84,7 @@ class Element extends Renderable implements Component
          */
         protected function __construct($attr, $name, $text)
         {
+                $this->props = new Properties();
                 $this->class = new Classes();
                 $this->event = new Events();
                 $this->style = new StyleSheet();

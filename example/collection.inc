@@ -3,6 +3,7 @@
 use UUP\Web\Component\Collection\Attributes;
 use UUP\Web\Component\Collection\Classes;
 use UUP\Web\Component\Collection\Events;
+use UUP\Web\Component\Collection\Properties;
 use UUP\Web\Component\Collection\StyleSheet;
 
 echo "<h2>Collection test</h2>\n";
@@ -106,4 +107,25 @@ echo "</pre>\n";
 
 echo "<hr>\n";
 printf("<div %s style=\"padding: 20px; border: 2px dashed #eeeeee\">Event handlers applied here. Use browsers developer tools to inspect.</div>\n", $event->join());
+echo "<hr>\n";
+
+// 
+// Test set element properties:
+// 
+
+echo "<h3>Properties:</h3>\n";
+$props = new Properties();
+$props->add('key1', 'val1');
+$props->add('key2', 'val2');
+$props->add('key3', 'val3');
+echo "<pre>\n";
+print_r($props);
+echo "</pre>\n";
+
+echo "<hr>\n";
+printf("<div style=\"padding: 20px; border: 2px dashed #eeeeee\">Properties iterated using foreach(): \n");
+foreach($props as $key => $val) {
+        echo "$key => $val, \n";
+}
+printf("</div>\n");
 echo "<hr>\n";
