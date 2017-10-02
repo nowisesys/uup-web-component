@@ -13,8 +13,9 @@ return array(
                 'Sitemap'  => '?page=container/sitemap',
         ),
         'Transform'  => array(
-                'Paragon' => '?page=transform/paragon',
-                'Native'  => '?page=transform/native'
+                'Paragon'   => '?page=transform/paragon',
+                'Native'    => '?page=transform/native',
+                'Bootstrap' => '?page=transform/bootstrap'
         ),
         'Test'       => array(
                 'Collections' => '?page=collection',
