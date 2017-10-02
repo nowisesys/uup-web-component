@@ -13,7 +13,8 @@ return array(
                 'Sitemap'  => '?page=container/sitemap',
         ),
         'Transform'  => array(
-                'Paragon' => '?page=transform/paragon'
+                'Paragon' => '?page=transform/paragon',
+                'Native'  => '?page=transform/native'
         ),
         'Test'       => array(
                 'Collections' => '?page=collection',
