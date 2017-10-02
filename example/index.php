@@ -9,20 +9,24 @@
     </p>
 
     <?php
-    require_once("../vendor/autoload.php");
-    require_once("index.inc");
+    try {
+            require_once("../vendor/autoload.php");
+            require_once("index.inc");
 
-    echo "<div style=\"display: flex\">\n";
-    echo "<div id=\"menu\">\n";
-    print_menu(include('menu.inc'));
-    echo "<div class=\"w3-center\">\n";
-    echo "<button class=\"w3-btn w3-orange\" onclick=\"document.getElementById('menu').style.display = 'none'\">Hide</button>\n";
-    echo "</div>\n";
-    echo "</div>\n";
-    echo "<div style=\"width: 100%\">\n";
-    load_example();
-    echo "</div>\n";
-    echo "</div>\n";
+            echo "<div style=\"display: flex\">\n";
+            echo "<div id=\"menu\">\n";
+            print_menu(include('menu.inc'));
+            echo "<div class=\"w3-center\">\n";
+            echo "<button class=\"w3-btn w3-orange\" onclick=\"document.getElementById('menu').style.display = 'none'\">Hide</button>\n";
+            echo "</div>\n";
+            echo "</div>\n";
+            echo "<div style=\"width: 100%\">\n";
+            load_example();
+            echo "</div>\n";
+            echo "</div>\n";
+    } catch (Exception $exception) {
+            die(sprintf("<b>%s</b>: <span style=\"color: red\">%s</div>", get_class($exception), $exception->getMessage()));
+    }
 
     ?>
 
