@@ -35,7 +35,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::__set
-         * @todo   Implement test__set().
          */
         public function test__set()
         {
@@ -49,7 +48,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::__get
-         * @todo   Implement test__get().
          */
         public function test__get()
         {
@@ -63,7 +61,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::__toString
-         * @todo   Implement test__toString().
          */
         public function test__toString()
         {
@@ -78,7 +75,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::add
-         * @todo   Implement testAdd().
          */
         public function testAdd()
         {
@@ -103,7 +99,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::set
-         * @todo   Implement testSet().
          */
         public function testSet()
         {
@@ -128,7 +123,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::get
-         * @todo   Implement testGet().
          */
         public function testGet()
         {
@@ -141,7 +135,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::remove
-         * @todo   Implement testRemove().
          */
         public function testRemove()
         {
@@ -160,7 +153,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::exist
-         * @todo   Implement testExist().
          */
         public function testExist()
         {
@@ -179,7 +171,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::find
-         * @todo   Implement testFind().
          */
         public function testFind()
         {
@@ -203,7 +194,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::join
-         * @todo   Implement testJoin().
          */
         public function testJoin()
         {
@@ -218,7 +208,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::count
-         * @todo   Implement testCount().
          */
         public function testCount()
         {
@@ -254,7 +243,6 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
         /**
          * @covers UUP\Web\Component\Collection\Collection::clear
-         * @todo   Implement testClear().
          */
         public function testClear()
         {
