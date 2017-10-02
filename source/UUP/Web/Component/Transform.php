@@ -33,6 +33,12 @@ abstract class Transform
 {
 
         /**
+         * The shared transform object.
+         * @var Transform 
+         */
+        private static $_instance;
+
+        /**
          * Invokes the apply method.
          * 
          * @param int $type The component type (one of the Component::XXX constants).
@@ -55,4 +61,27 @@ abstract class Transform
          * @return boolean
          */
         public abstract function apply($component, $type);
+
+        /**
+         * Get default transformer.
+         * @return Transform
+         */
+        public static function getInstance()
+        {
+                if (isset(self::$_instance)) {
+                        return self::$_instance;
+                } else {
+                        return self::$_instance = new Transform\Paragon();
+                }
+        }
+
+        /**
+         * Set default transformer.
+         * @param Transform $transform The transform object.
+         */
+        public static function setInstance($transform)
+        {
+                self::$_instance = $transform;
+        }
+
 }

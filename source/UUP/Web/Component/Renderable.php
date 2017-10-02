@@ -46,7 +46,7 @@ abstract class Renderable implements Component
          */
         protected function __construct()
         {
-                $this->_transform = new Paragon();
+                $this->_transform = Transform::getInstance();
         }
 
         /**
