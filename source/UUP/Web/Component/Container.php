@@ -67,6 +67,8 @@ class Container extends Renderable implements Component
 
                 $this->_name = $name;
                 $this->_path = $path;
+
+                parent::__construct();
         }
 
         /**
@@ -75,9 +77,10 @@ class Container extends Renderable implements Component
          */
         public function render($transform = false)
         {
-                if (!is_callable($transform)) {
-                        $this->output($transform);
-                } elseif ($transform($this, Component::CONTAINER)) {
+                if (!$transform) {
+                        $transform = $this->_transform;
+                }
+                if ($transform($this, Component::CONTAINER)) {
                         parent::render($transform);
                 } else {
                         $this->output($transform);

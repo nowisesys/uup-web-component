@@ -109,6 +109,8 @@ class Element extends Renderable implements Component
 
                 $this->_name = $name;
                 $this->_text = $text;
+
+                parent::__construct();
         }
 
         public function __set($name, $value)
@@ -147,9 +149,10 @@ class Element extends Renderable implements Component
          */
         public function render($transform = false)
         {
-                if (!is_callable($transform)) {
-                        $this->output($transform);
-                } elseif ($transform($this, Component::ELEMENT)) {
+                if (!$transform) {
+                        $transform = $this->_transform;
+                }
+                if ($transform($this, Component::ELEMENT)) {
                         parent::render($transform);
                 } else {
                         $this->output($transform);

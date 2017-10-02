@@ -12,6 +12,9 @@ return array(
                 'Download' => '?page=container/download',
                 'Sitemap'  => '?page=container/sitemap',
         ),
+        'Transform'  => array(
+                'Paragon' => '?page=transform/paragon'
+        ),
         'Test'       => array(
                 'Collections' => '?page=collection',
                 'Regexp'      => '?page=regexp'

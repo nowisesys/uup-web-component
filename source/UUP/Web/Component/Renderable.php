@@ -18,6 +18,8 @@
 
 namespace UUP\Web\Component;
 
+use UUP\Web\Component\Transform\Paragon;
+
 /**
  * Abstract base class for concrete component classes.
  *
@@ -33,6 +35,19 @@ abstract class Renderable implements Component
          * @var array 
          */
         protected $_comp = array();
+        /**
+         * The transformer object.
+         * @var Transform 
+         */
+        protected $_transform;
+
+        /**
+         * Constructor.
+         */
+        protected function __construct()
+        {
+                $this->_transform = new Paragon();
+        }
 
         /**
          * Add child component.
@@ -72,9 +87,17 @@ abstract class Renderable implements Component
          */
         public function render($transform = false)
         {
+                if (!$transform) {
+                        throw new \RuntimeException("Called without transformer");
+                }
                 foreach ($this->_comp as $component) {
                         $component->render($transform);
                 }
+        }
+
+        public function setTransformer($transform)
+        {
+                $this->_transform = $transform;
         }
 
 }

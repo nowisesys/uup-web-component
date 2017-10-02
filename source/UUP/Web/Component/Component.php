@@ -65,4 +65,10 @@ interface Component
          * @param callable|Transform $transform The render transform callable.
          */
         function render($transform = false);
+
+        /**
+         * Set transformer.
+         * @param Transform $transform The transformer object.
+         */
+        function setTransformer($transform);
 }
