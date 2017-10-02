@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/localhost/apps/uup/uup-web-component/docs/README</file>
+            <file>file:/var/www/localhost/apps/uup/uup-web-component/composer.json</file>
+        </group>
+        <group name="whoson-multi">
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Element.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Container.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/example/collection.inc</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Component.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Collection/Attributes.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Transform.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Transform/Paragon.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/example/container/sitemap.inc</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/example/element/buttons.inc</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Container/Sitemap.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Container/Sitemap/Directory.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/example/transform/paragon.inc</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Collection/Properties.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/test/source/UUP/Web/Component/Collection/PropertiesTest.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/example/menu.inc</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Collection/Events.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Collection/Properties/Virtual.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Renderable.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/example/index.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/example/container/download.inc</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Container/Download.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/template/sitemap.ui</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Collection/Classes.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Collection/Collection.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Collection/Properties/Color.php</file>
+            <file>file:/var/data/www/localhost/apps/uup/uup-web-component/source/UUP/Web/Component/Container/Sitemap/TreeNode.php</file>
+        </group>
+    </open-files>
+</project-private>
