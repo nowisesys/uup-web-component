@@ -24,7 +24,9 @@ use UUP\Web\Component\Collection\Properties;
 /**
  * Virtual properties collection.
  * 
- * @author Anders Lövgren (Computing Department at BMC, Uppsala University)
+ * @author Anders Lövgren (QNET)
+ * @package UUP
+ * @subpackage Web Components
  */
 class Virtual
 {

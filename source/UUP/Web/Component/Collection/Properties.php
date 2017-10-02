@@ -29,7 +29,9 @@ use UUP\Web\Component\Collection\Properties\Hover;
  * that might be processed to define HTML classes and style attributes depending on
  * the transformer possibly installed by some theme.
  * 
- * @author Anders Lövgren (Computing Department at BMC, Uppsala University)
+ * @author Anders Lövgren (QNET)
+ * @package UUP
+ * @subpackage Web Components
  */
 class Properties extends Collection
 {

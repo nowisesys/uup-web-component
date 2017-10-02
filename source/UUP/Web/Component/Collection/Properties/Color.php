@@ -24,7 +24,9 @@ namespace UUP\Web\Component\Collection\Properties;
  * @property string $back The background color.
  * @property string $text The text color.
  *
- * @author Anders Lövgren (Computing Department at BMC, Uppsala University)
+ * @author Anders Lövgren (QNET)
+ * @package UUP
+ * @subpackage Web Components
  */
 class Color extends Virtual
 {
