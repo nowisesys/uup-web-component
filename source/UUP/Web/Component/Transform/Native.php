@@ -53,6 +53,7 @@ class Native extends Transform
         /**
          * Transform component.
          * @param Element $component The element component to render.
+         * @return int
          */
         public function apply($component, $type)
         {

@@ -44,7 +44,7 @@ class Paragon extends Transform
          * 
          * @param Component $component The component to render.
          * @param int $type The component type (one of the Component::XXX constants).
-         * @return boolean
+         * @return int
          */
         public function apply($component, $type)
         {
