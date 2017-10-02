@@ -1,9 +1,12 @@
 <?php
 
+use UUP\Web\Component\Element;
 use UUP\Web\Component\Element\Button;
 
 echo "<h2>Buttons</h2>\n";
 
+echo "<div>\n";
+echo "<p>Some buttons that is not containing other components:</p>\n";
 // 
 // Most basic button:
 // 
@@ -14,17 +17,29 @@ $button->render();
 // Set class, style and events at once:
 // 
 $button = new Button("Button2", array(
-        'class' => 'w3-button',
         'style' => array(
                 'background-color' => 'red',
                 'border-color'     => 'orange'
         ),
         'event' => 'onclick="alert(\'Hello world!\')"'
     ));
-$button->class->remove('w3-btn');
+$button->props->remove('btn');
+$button->props->set('button');
 $button->id = 'my-button';
 $button->attr->title = 'Click me!';
 $button->attr->id = 'my-button2';       // Overwrite previous $button->id
+$button->render();
+echo "</div>\n";
+
+echo "<div>\n";
+echo "<p>These buttons contains other components (italic for text and icon):</p>\n";
+
+// 
+// Button with italic text:
+// 
+$button = new Button();
+$button->props->color->back = "blue";
+$button->add(new Element(array(), 'i', 'Button3'));
 $button->render();
 
 //
@@ -34,3 +49,28 @@ $button = new Button();
 $button->props->color->back = "red";
 $button->text = '<i class="fa fa-refresh w3-spin" style="font-size:16px"></i> Click';
 $button->render();
+
+//
+// Button with spinning icon (before):
+// 
+$button = new Button("Click");
+$button->props->color->back = "purple";
+$button->add(new Element(array(
+        'class' => 'fa fa-refresh w3-spin',
+        'style' => 'font-size:16px'
+), 'i', ''));
+$button->last = true;
+$button->render();
+
+//
+// Button with spinning icon (after):
+// 
+$button = new Button("Click");
+$button->props->color->back = "purple";
+$button->add(new Element(array(
+        'class' => 'fa fa-refresh w3-spin',
+        'style' => 'font-size:16px'
+), 'i', ''));
+$button->last = false;
+$button->render();
+echo "</div>\n";
