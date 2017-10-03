@@ -21,11 +21,13 @@ namespace UUP\Web\Component\Collection;
 use UUP\Web\Component\Collection\Properties\Base\Cluster;
 use UUP\Web\Component\Collection\Properties\Base\Prefixed;
 use UUP\Web\Component\Collection\Properties\Base\Repository;
+use UUP\Web\Component\Collection\Properties\Card;
 use UUP\Web\Component\Collection\Properties\Color;
 use UUP\Web\Component\Collection\Properties\Container;
 use UUP\Web\Component\Collection\Properties\Display;
 use UUP\Web\Component\Collection\Properties\Effect;
 use UUP\Web\Component\Collection\Properties\Hover;
+use UUP\Web\Component\Collection\Properties\Padding;
 
 /**
  * The properties collection.
@@ -55,7 +57,8 @@ use UUP\Web\Component\Collection\Properties\Hover;
  * @property Container $container The container properties.
  * @property Effect $effect The effect properties (opacity, grayscale and sepia).
  * @property Display $display The display properties.
- * @property bool|string|int $padding The padding properties.
+ * @property Padding $padding The padding property.
+ * @property Card $card The card property.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
