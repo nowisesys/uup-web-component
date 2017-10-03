@@ -49,6 +49,8 @@ use UUP\Web\Component\Collection\Properties\Hover;
  * that object. The container objects will be lazy initialized upon read for 
  * first time.
  * 
+ * @property Color $color The color properties.
+ * @property Hover $hover The hover properties.
  * @property Container $container The container properties.
  * @property Effect $effect The effect properties (opacity, grayscale and sepia).
  * 
@@ -60,16 +62,6 @@ class Properties extends Collection
 {
 
         /**
-         * The color properties.
-         * @var Color 
-         */
-        public $color;
-        /**
-         * The hover properties.
-         * @var Hover 
-         */
-        public $hover;
-        /**
          * Properties collection repository.
          * @var Repository 
          */
@@ -80,12 +72,8 @@ class Properties extends Collection
          */
         public function __construct()
         {
-                $this->color = new Color($this);
-                $this->hover = new Hover($this);
-
-                $this->_virtual = new Repository($this);
-
                 parent::__construct(' ', ' ', '');
+                $this->_virtual = new Repository($this);
         }
 
         public function __get($key)

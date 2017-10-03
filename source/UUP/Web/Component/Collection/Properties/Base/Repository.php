@@ -19,8 +19,10 @@
 namespace UUP\Web\Component\Collection\Properties\Base;
 
 use UUP\Web\Component\Collection\Properties;
+use UUP\Web\Component\Collection\Properties\Color;
 use UUP\Web\Component\Collection\Properties\Container;
 use UUP\Web\Component\Collection\Properties\Effect;
+use UUP\Web\Component\Collection\Properties\Hover;
 
 /**
  * Properties collection repository.
@@ -94,6 +96,10 @@ class Repository
                                 return $this->_repos[$name] = new Container($this->_props);
                         case 'effect':
                                 return $this->_repos[$name] = new Effect($this->_props);
+                        case 'color':
+                                return $this->_repos[$name] = new Color($this->_props);
+                        case 'hover':
+                                return $this->_repos[$name] = new Hover($this->_props);
                         default:
                                 return false;
                 }
