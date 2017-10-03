@@ -23,6 +23,7 @@ return array(
                 'Display'   => '?page=properties/display',
                 'Effect'    => '?page=properties/effect',
                 'Padding'   => '?page=properties/padding',
+                'Shadow'    => '?page=properties/card',
         ),
         'Test'       => array(
                 'Collections' => '?page=collection',
