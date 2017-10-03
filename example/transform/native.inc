@@ -3,6 +3,7 @@
         padding: 8px 16px;
         border: none;
         border-radius: 5px;
+        cursor: pointer;
     }
     button.nat-color-back-green {
         background-color: green;
