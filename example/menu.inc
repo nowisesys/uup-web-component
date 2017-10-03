@@ -17,6 +17,10 @@ return array(
                 'Native'    => '?page=transform/native',
                 'Bootstrap' => '?page=transform/bootstrap'
         ),
+        'Properties' => array(
+                'Color'     => '?page=properties/color',
+                'Container' => '?page=properties/container'
+        ),
         'Test'       => array(
                 'Collections' => '?page=collection',
                 'Regexp'      => '?page=regexp'
