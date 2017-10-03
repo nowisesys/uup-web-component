@@ -23,6 +23,7 @@ use UUP\Web\Component\Collection\Properties\Base\Prefixed;
 use UUP\Web\Component\Collection\Properties\Base\Repository;
 use UUP\Web\Component\Collection\Properties\Color;
 use UUP\Web\Component\Collection\Properties\Container;
+use UUP\Web\Component\Collection\Properties\Effect;
 use UUP\Web\Component\Collection\Properties\Hover;
 
 /**
@@ -51,6 +52,8 @@ use UUP\Web\Component\Collection\Properties\Hover;
  * @property-write bool $container Container with 16px left and right padding.
  * @property-read Container $container The container properties.
  * 
+ * @property Effect $effect The effect properties (opacity, grayscale and sepia).
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -73,7 +76,7 @@ class Properties extends Collection
          * @var Repository 
          */
         private $_virtual;
-
+        
         /**
          * Constructor.
          */

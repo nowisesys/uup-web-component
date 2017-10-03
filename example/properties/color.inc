@@ -2,23 +2,28 @@
 
 use UUP\Web\Component\Element\Panel;
 
-$panel = new Panel("Panel without properties");
+echo "<h2>Color properties</h2>\n";
+
+echo "<p>Use the color->{back,text,border} property. For border to actually be visible, ";
+echo "set 'border = true' also.</p>\n";
+
+$panel = new Panel("<p>Panel without properties</p>");
 $panel->render();
 
-$panel = new Panel("Panel with red background color");
+$panel = new Panel("<p>Panel with red background color</p>");
 $panel->props->color->back = "red";
 $panel->render();
 
-$panel = new Panel("Panel with red text color");
+$panel = new Panel("<p>Panel with red text color</p>");
 $panel->props->color->text = "red";
 $panel->render();
 
-$panel = new Panel("Panel with red border color");
+$panel = new Panel("<p>Panel with red border color</p>");
 $panel->props->border = true;
 $panel->props->color->border = "red";
 $panel->render();
 
-$panel = new Panel("Panel with border and text in red color");
+$panel = new Panel("<p>Panel with border and text in red color</p>");
 $panel->props->border = true;
 $panel->props->color->border = "red";
 $panel->props->color->text = "red";

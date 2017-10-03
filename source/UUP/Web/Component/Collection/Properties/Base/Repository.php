@@ -20,6 +20,7 @@ namespace UUP\Web\Component\Collection\Properties\Base;
 
 use UUP\Web\Component\Collection\Properties;
 use UUP\Web\Component\Collection\Properties\Container;
+use UUP\Web\Component\Collection\Properties\Effect;
 
 /**
  * Properties collection repository.
@@ -91,6 +92,8 @@ class Repository
                 switch ($name) {
                         case 'container':
                                 return $this->_repos[$name] = new Container($this->_props);
+                        case 'effect':
+                                return $this->_repos[$name] = new Effect($this->_props);
                         default:
                                 return false;
                 }

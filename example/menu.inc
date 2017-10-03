@@ -19,7 +19,8 @@ return array(
         ),
         'Properties' => array(
                 'Color'     => '?page=properties/color',
-                'Container' => '?page=properties/container'
+                'Container' => '?page=properties/container',
+                'Effect'    => '?page=properties/effect',
         ),
         'Test'       => array(
                 'Collections' => '?page=collection',
