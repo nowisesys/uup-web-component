@@ -32,9 +32,9 @@ class PropertiesTest extends \PHPUnit_Framework_TestCase
         }
 
         /**
-         * Test virtual color properties.
+         * Test prefixed properties.
          */
-        public function testColor()
+        public function testPrefixed()
         {
                 $expect = 'green';
                 $this->object->color->back = $expect;
