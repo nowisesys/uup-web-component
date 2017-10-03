@@ -21,7 +21,8 @@ return array(
                 'Color'     => '?page=properties/color',
                 'Container' => '?page=properties/container',
                 'Display'   => '?page=properties/display',
-                'Effect'    => '?page=properties/effect'
+                'Effect'    => '?page=properties/effect',
+                'Padding'   => '?page=properties/padding',
         ),
         'Test'       => array(
                 'Collections' => '?page=collection',

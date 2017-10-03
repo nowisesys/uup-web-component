@@ -55,6 +55,7 @@ use UUP\Web\Component\Collection\Properties\Hover;
  * @property Container $container The container properties.
  * @property Effect $effect The effect properties (opacity, grayscale and sepia).
  * @property Display $display The display properties.
+ * @property bool|string|int $padding The padding properties.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
