@@ -312,6 +312,9 @@ class Collection implements IteratorAggregate
                 } elseif (is_string($key) && is_bool($val)) {
                         $this->explore($key, $result);
                         $this->merge($result, $replace);
+                } elseif (is_string($key) && is_int($val)) {
+                        $result[$key] = $val;
+                        $this->merge($result, $replace, $key);
                 } elseif (is_string($key) && is_string($val)) {
                         $result[$key] = $val;
                         $this->merge($result, $replace, $key);
