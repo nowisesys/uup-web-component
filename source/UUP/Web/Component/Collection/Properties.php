@@ -49,9 +49,7 @@ use UUP\Web\Component\Collection\Properties\Hover;
  * that object. The container objects will be lazy initialized upon read for 
  * first time.
  * 
- * @property-write bool $container Container with 16px left and right padding.
- * @property-read Container $container The container properties.
- * 
+ * @property Container $container The container properties.
  * @property Effect $effect The effect properties (opacity, grayscale and sepia).
  * 
  * @author Anders Lövgren (QNET)
