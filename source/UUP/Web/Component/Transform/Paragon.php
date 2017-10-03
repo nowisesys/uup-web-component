@@ -77,6 +77,8 @@ class Paragon extends Transform
                                 return "w3-$val";
                         case 'color-text':
                                 return "w3-text-$val";
+                        case 'color-border':
+                                return "w3-border-$val";
                         case 'hover-back':
                                 return "w3-hover-$val";
                         case 'hover-text':
@@ -86,6 +88,8 @@ class Paragon extends Transform
                         default:
                                 if (is_bool($val) && $val != false) {
                                         return "w3-$key";
+                                } else {
+                                        return "w3-$key-$val";
                                 }
                 }
         }
