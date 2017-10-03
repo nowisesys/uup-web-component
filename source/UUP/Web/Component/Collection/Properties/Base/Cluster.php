@@ -53,11 +53,11 @@ class Cluster
 
         public function __set($name, $value)
         {
-                if (is_string($value) || is_bool($value)) {
-                        $this->_props->set($name, $value);
-                } else {
+                if (!is_string($value) && !is_bool($value)) {
                         throw new DomainException("Expected string value");
                 }
+
+                $this->_props->set($name, $value);
         }
 
 }
