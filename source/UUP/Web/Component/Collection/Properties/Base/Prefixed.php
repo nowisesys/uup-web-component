@@ -16,19 +16,18 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Collection\Properties;
+namespace UUP\Web\Component\Collection\Properties\Base;
 
-use DomainException;
 use UUP\Web\Component\Collection\Properties;
 
 /**
- * Virtual properties collection.
+ * Prefixed properties collection.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Virtual
+class Prefixed
 {
 
         /**
