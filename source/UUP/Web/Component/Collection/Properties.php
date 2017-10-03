@@ -18,16 +18,38 @@
 
 namespace UUP\Web\Component\Collection;
 
+use UUP\Web\Component\Collection\Properties\Base\Cluster;
+use UUP\Web\Component\Collection\Properties\Base\Prefixed;
+use UUP\Web\Component\Collection\Properties\Base\Repository;
 use UUP\Web\Component\Collection\Properties\Color;
+use UUP\Web\Component\Collection\Properties\Container;
 use UUP\Web\Component\Collection\Properties\Hover;
 
 /**
  * The properties collection.
  * 
- * This collection keeps attributes that is going to be transformed by the current 
- * transformer at rendering time. See it as a collection of custom HTML attributes
- * that might be processed to define HTML classes and style attributes depending on
- * the transformer possibly installed by some theme.
+ * This collection keeps attributes that is going to be transformed by the 
+ * current transformer at rendering time. See it as an abstract representation of 
+ * wanted visual style that eventually will be transformed into HTML style and 
+ * classes during rendering.
+ * 
+ * This class has some funky code because it supports properties to be mapped 
+ * different depending on if writing or reading them. For example, the container 
+ * property is both an boolean on write and object on read. The purpose of this is 
+ * to support:
+ * 
+ * <code>
+ * $component->container = true;        // This component is a container...
+ * $component->container->panel = true; // ... and also a panel container.
+ * </code>
+ * 
+ * This works because the former is writing the container property while the 
+ * latter is first reading the container object and writing the panel property on 
+ * that object. The container objects will be lazy initialized upon read for 
+ * first time.
+ * 
+ * @property-write bool $container Container with 16px left and right padding.
+ * @property-read Container $container The container properties.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
@@ -46,6 +68,11 @@ class Properties extends Collection
          * @var Hover 
          */
         public $hover;
+        /**
+         * Properties collection repository.
+         * @var Repository 
+         */
+        private $_virtual;
 
         /**
          * Constructor.
@@ -55,7 +82,55 @@ class Properties extends Collection
                 $this->color = new Color($this);
                 $this->hover = new Hover($this);
 
+                $this->_virtual = new Repository($this);
+
                 parent::__construct(' ', ' ', '');
+        }
+
+        public function __get($key)
+        {
+                if (($cluster = $this->_virtual->get($key))) {
+                        return $cluster;
+                } else {
+                        return parent::get($key);
+                }
+        }
+
+        public function __set($key, $val)
+        {
+                if (!is_object($val)) {
+                        parent::set($key, $val);
+                }
+        }
+
+        /**
+         * Get value from property collection.
+         * 
+         * Return property value of exist or false if missing.
+         * 
+         * @param string $key The property name.
+         * @return mixed
+         */
+        public function property($key)
+        {
+                return parent::get($key);
+        }
+
+        /**
+         * Get named property collection.
+         * 
+         * Return property collection if exist or false if missing. This differs from
+         * the magic get behavior that will create an empty collection for this key if 
+         * its missing.
+         * 
+         * @param string $key The property name.
+         * @return Cluster|Prefixed
+         */
+        public function collection($key)
+        {
+                if ($this->_virtual->has($key)) {
+                        return $this->_virtual->get($key);
+                }
         }
 
 }

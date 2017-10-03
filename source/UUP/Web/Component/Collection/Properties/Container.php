@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (Computing Department at BMC, Uppsala University).
+ * Copyright (C) 2017 Anders Lövgren (QNET).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,30 +18,23 @@
 
 namespace UUP\Web\Component\Collection\Properties;
 
-use UUP\Web\Component\Collection\Properties;
-use UUP\Web\Component\Collection\Properties\Base\Prefixed;
+use UUP\Web\Component\Collection\Properties\Base\Cluster;
 
 /**
- * The color properties.
+ * The container properties.
  * 
- * @property string $back The background color.
- * @property string $text The text color.
- * @property string $border The border color.
- *
+ * @property bool $panel Container with 16px left and right padding and 16px top and bottom margin.
+ * @property bool $badge Circular badge.
+ * @property bool $tag Rectangular tag.
+ * @property bool $ul Unordered list.
+ * @property bool $code Code container.
+ * @property bool $codespan Inline code container (for code snippets).
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Color extends Prefixed
+class Container extends Cluster
 {
-
-        /**
-         * Constructor.
-         * @param Properties $props The shadowed properties collection.
-         */
-        public function __construct($props)
-        {
-                parent::__construct('color', $props);
-        }
-
+        
 }

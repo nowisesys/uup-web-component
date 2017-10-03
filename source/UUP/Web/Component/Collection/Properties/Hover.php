@@ -18,6 +18,9 @@
 
 namespace UUP\Web\Component\Collection\Properties;
 
+use UUP\Web\Component\Collection\Properties;
+use UUP\Web\Component\Collection\Properties\Base\Prefixed;
+
 /**
  * The hover properties.
  *
@@ -29,9 +32,13 @@ namespace UUP\Web\Component\Collection\Properties;
  * @package UUP
  * @subpackage Web Components
  */
-class Hover extends Virtual
+class Hover extends Prefixed
 {
 
+        /**
+         * Constructor.
+         * @param Properties $props The shadowed properties collection.
+         */
         public function __construct($props)
         {
                 parent::__construct('hover', $props);
