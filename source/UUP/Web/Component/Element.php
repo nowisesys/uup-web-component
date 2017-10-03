@@ -111,6 +111,11 @@ class Element extends Renderable implements Component
                         unset($attr['event']);
                 }
 
+                if (isset($attr['props'])) {
+                        $this->props->add($attr['props']);
+                        unset($attr['props']);
+                }
+
                 foreach ($attr as $key => $val) {
                         if (strncmp($key, "on", 2) == 0) {
                                 $this->event->add($key, $val);
