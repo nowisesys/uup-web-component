@@ -11,7 +11,7 @@
         </style>
     </head>        
     <body>
-        <div style="padding: 10px">
+        <div style="padding: 15px">
             <h1>UUP Web Components</h1>
             <p>
                 Components should be rendered for W3.CSS style sheet. Some test might apply 
