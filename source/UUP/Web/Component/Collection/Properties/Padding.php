@@ -66,6 +66,10 @@ class Padding extends Prefixed
          */
         const SIZE_64 = 64;
 
+        /**
+         * Constructor.
+         * @param Properties $props The shadowed properties collection.
+         */
         public function __construct($props)
         {
                 parent::__construct('padding', $props);
