@@ -48,13 +48,34 @@ class Cluster
 
         public function __get($name)
         {
-                return $this->_props->get($name);
+                return $this->get($name);
         }
 
         public function __set($name, $value)
         {
-                if (!is_string($value) && !is_bool($value)) {
-                        throw new DomainException("Expected string value");
+                $this->set($name, $value);
+        }
+
+        /**
+         * Get property value.
+         * @param string $name The property name.
+         * @return bool|string
+         */
+        public function get($name)
+        {
+                return $this->_props->get($name);
+        }
+
+        /**
+         * Set property value.
+         * @param string $name The property name.
+         * @param string|bool $value The property value.
+         * @throws DomainException
+         */
+        public function set($name, $value)
+        {
+                if (!is_string($value) && !is_bool($value) && !is_null($value)) {
+                        throw new DomainException("Unexpected property value");
                 }
 
                 $this->_props->set($name, $value);

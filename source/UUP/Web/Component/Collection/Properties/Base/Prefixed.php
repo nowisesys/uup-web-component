@@ -55,16 +55,40 @@ class Prefixed
 
         public function __get($name)
         {
-                return $this->_props->get(sprintf("%s-%s", $this->_prefix, $name));
+                return $this->get($name);
         }
 
         public function __set($name, $value)
         {
-                if (!is_string($value) && !is_bool($value)) {
-                        throw new DomainException("Expected string value");
-                }
+                $this->set($name, $value);
+        }
 
-                $this->_props->set(sprintf("%s-%s", $this->_prefix, $name), $value);
+        /**
+         * Get property value.
+         * @param string $name The property name.
+         * @return bool|string
+         */
+        public function get($name)
+        {
+                return $this->_props->get(sprintf("%s-%s", $this->_prefix, $name));
+        }
+
+        /**
+         * Set property value.
+         * @param string $name The property name.
+         * @param string|bool $value The property value.
+         * @throws DomainException
+         */
+        public function set($name, $value = null)
+        {
+                if (!is_string($value) && !is_bool($value) && !is_null($value)) {
+                        throw new DomainException("Unexpected property value");
+                }
+                if (isset($value)) {
+                        $this->_props->set(sprintf("%s-%s", $this->_prefix, $name), $value);
+                } else {
+                        $this->_props->set(sprintf("%s", $this->_prefix), $name);
+                }
         }
 
 }
