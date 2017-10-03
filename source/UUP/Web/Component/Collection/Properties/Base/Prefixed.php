@@ -18,6 +18,7 @@
 
 namespace UUP\Web\Component\Collection\Properties\Base;
 
+use DomainException;
 use UUP\Web\Component\Collection\Properties;
 
 /**
@@ -59,11 +60,11 @@ class Prefixed
 
         public function __set($name, $value)
         {
-                if (!is_string($value)) {
+                if (!is_string($value) && !is_bool($value)) {
                         throw new DomainException("Expected string value");
-                } else {
-                        $this->_props->set(sprintf("%s-%s", $this->_prefix, $name), $value);
                 }
+
+                $this->_props->set(sprintf("%s-%s", $this->_prefix, $name), $value);
         }
 
 }
