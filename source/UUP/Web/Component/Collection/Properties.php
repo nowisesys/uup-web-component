@@ -23,6 +23,7 @@ use UUP\Web\Component\Collection\Properties\Base\Prefixed;
 use UUP\Web\Component\Collection\Properties\Base\Repository;
 use UUP\Web\Component\Collection\Properties\Color;
 use UUP\Web\Component\Collection\Properties\Container;
+use UUP\Web\Component\Collection\Properties\Display;
 use UUP\Web\Component\Collection\Properties\Effect;
 use UUP\Web\Component\Collection\Properties\Hover;
 
@@ -53,6 +54,7 @@ use UUP\Web\Component\Collection\Properties\Hover;
  * @property Hover $hover The hover properties.
  * @property Container $container The container properties.
  * @property Effect $effect The effect properties (opacity, grayscale and sepia).
+ * @property Display $display The display properties.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
