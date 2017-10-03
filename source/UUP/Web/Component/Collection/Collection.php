@@ -140,6 +140,14 @@ class Collection implements IteratorAggregate
                 $this->insert($key, $val, true);
         }
 
+        /**
+         * Get data from collection.
+         * 
+         * Return value if exist or false if missing.
+         * 
+         * @param string $key The key name.
+         * @return mixed
+         */
         public function get($key)
         {
                 return $this->find($key);
@@ -346,6 +354,19 @@ class Collection implements IteratorAggregate
                 }
         }
 
+        /**
+         * Get properties array.
+         * @return array
+         */
+        public function data()
+        {
+                return $this->_data;
+        }
+
+        /**
+         * Get property iterator.
+         * @return ArrayIterator
+         */
         public function getIterator()
         {
                 return new ArrayIterator($this->_data);
