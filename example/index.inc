@@ -26,3 +26,10 @@ function print_menu($menu)
         }
         echo "</ul>\n";
 }
+
+function dump_property_data($props)
+{
+        echo "<span style=\"color: #cccccc\">\n";
+        print_r($props->data());
+        echo "</span>\n";
+}
