@@ -24,8 +24,9 @@
                     require_once("index.inc");
 
                     echo "<div style=\"display: flex\">\n";
-                    echo "<div id=\"menu\">\n";
+                    echo "<div id=\"menu\" class=\"w3-container w3-padding w3-margin-top\">\n";
                     print_menu(include('menu.inc'));
+                    echo "<hr>\n";
                     echo "<div class=\"w3-center\">\n";
                     echo "<button class=\"w3-btn w3-orange\" onclick=\"document.getElementById('menu').style.display = 'none'\">Hide Menu</button>\n";
                     echo "</div>\n";
