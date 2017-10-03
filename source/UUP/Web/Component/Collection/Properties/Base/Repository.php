@@ -19,11 +19,14 @@
 namespace UUP\Web\Component\Collection\Properties\Base;
 
 use UUP\Web\Component\Collection\Properties;
+use UUP\Web\Component\Collection\Properties\Base\Cluster;
+use UUP\Web\Component\Collection\Properties\Card;
 use UUP\Web\Component\Collection\Properties\Color;
 use UUP\Web\Component\Collection\Properties\Container;
 use UUP\Web\Component\Collection\Properties\Display;
 use UUP\Web\Component\Collection\Properties\Effect;
 use UUP\Web\Component\Collection\Properties\Hover;
+use UUP\Web\Component\Collection\Properties\Padding;
 
 /**
  * Properties collection repository.
@@ -93,16 +96,20 @@ class Repository
         private function create($name)
         {
                 switch ($name) {
-                        case 'container':
-                                return $this->_repos[$name] = new Container($this->_props);
-                        case 'effect':
-                                return $this->_repos[$name] = new Effect($this->_props);
+                        case 'card':
+                                return $this->_repos[$name] = new Card($this->_props);
                         case 'color':
                                 return $this->_repos[$name] = new Color($this->_props);
-                        case 'hover':
-                                return $this->_repos[$name] = new Hover($this->_props);
+                        case 'container':
+                                return $this->_repos[$name] = new Container($this->_props);
                         case 'display':
                                 return $this->_repos[$name] = new Display($this->_props);
+                        case 'effect':
+                                return $this->_repos[$name] = new Effect($this->_props);
+                        case 'hover':
+                                return $this->_repos[$name] = new Hover($this->_props);
+                        case 'padding':
+                                return $this->_repos[$name] = new Padding($this->_props);
                         default:
                                 return false;
                 }

@@ -20,6 +20,7 @@ foreach (array('topleft', 'topright', 'bottomleft', 'bottomright', 'left', 'righ
 }
 
 $div->render();
+dump_property_data($div->props);
 
 echo "<p>A div containing divs positioned along borders (visible on hover):</p>\n";
 // 
@@ -38,3 +39,4 @@ foreach (array('topleft', 'topright', 'bottomleft', 'bottomright', 'left', 'righ
 }
 
 $div->render();
+dump_property_data($div->props);

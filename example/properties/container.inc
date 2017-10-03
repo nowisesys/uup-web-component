@@ -13,31 +13,37 @@ echo "value or object. The method data() can be used to get the properties array
 $div = new Div("Some text");
 $div->props->container = true;
 $div->render();
+dump_property_data($div->props);
 
 $div = new Div("Some text");
 $div->props->container->panel = true;
 $div->render();
+dump_property_data($div->props);
 
 $div = new Div("Some text");
 $div->props->container->panel = true;
 $div->props->container = true;
 $div->render();
+dump_property_data($div->props);
 
 $div = new Div("Some text");
 $div->props->container = true;
 $div->props->container->panel = true;
 $div->render();
+dump_property_data($div->props);
 
 $div = new Div("Some text");
 $div->props->container->tag = true;
 $div->props->color->back = 'teal';
 $div->render();
+dump_property_data($div->props);
 
 $div = new Div("Some text");
 $div->props->container->tag = true;
 $div->props->color->back = 'yellow';
 $div->props->hover->text = 'red';
 $div->render();
+dump_property_data($div->props);
 
 echo "<p>Use browser developer tools to inspect rendered class names.</p>\n";
 
