@@ -53,24 +53,24 @@ $button->render();
 //
 // Button with spinning icon (before):
 // 
-$button = new Button("Click");
+$button = new Button();
 $button->props->color->back = "purple";
 $button->add(new Element(array(
         'class' => 'fa fa-refresh w3-spin',
         'style' => 'font-size:16px'
 ), 'i', ''));
-$button->last = true;
+$button->setText("Click", true);
 $button->render();
 
 //
 // Button with spinning icon (after):
 // 
-$button = new Button("Click");
+$button = new Button();
 $button->props->color->back = "purple";
 $button->add(new Element(array(
         'class' => 'fa fa-refresh w3-spin',
         'style' => 'font-size:16px'
 ), 'i', ''));
-$button->last = false;
+$button->setText("Click", false);
 $button->render();
 echo "</div>\n";

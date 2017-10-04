@@ -29,8 +29,6 @@ use UUP\Web\Component\Collection\StyleSheet;
  * 
  * @property string $id The element ID.
  * @property string $title The title attribute (tooltip).
- * @property bool $last This components text is rendered after child components (default to false).
- * @property-write string $name Set element name (advanced feature).
  * @property-write string $text Set inner HTML or text.
  * 
  * @author Anders Lövgren (QNET)
@@ -139,14 +137,8 @@ class Element extends Renderable implements Component
                         case 'title':
                                 $this->attr->set($name, $value);
                                 break;
-                        case 'name':
-                                $this->_name = $value;
-                                break;
                         case 'text':
                                 $this->_text = $value;
-                                break;
-                        case 'last':
-                                $this->_last = $value;
                                 break;
                 }
         }
@@ -157,11 +149,34 @@ class Element extends Renderable implements Component
                         case 'id':
                         case 'title':
                                 return $this->attr->get($name);
-                        case 'last':
-                                return $this->_last;
                 }
         }
 
+        /**
+         * Set element name (i.e. span).
+         * @param string $name The element name.
+         */
+        public function setName($name)
+        {
+                $this->_name = $name;
+        }
+
+        /**
+         * Set inner HTML.
+         * 
+         * The last argument defines if this component render its text content 
+         * before or after any child components. The default (false) is to render
+         * inner HTML before any child components.
+         * 
+         * @param string $text The inner HTML.
+         * @param bool $last Render inner HTML after child components.
+         */
+        public function setText($text, $last = false)
+        {
+                $this->_text = $text;
+                $this->_last = $last;
+        }
+        
         /**
          * Render component.
          * 
