@@ -28,7 +28,6 @@ use UUP\Web\Component\Collection\StyleSheet;
  * The element component.
  * 
  * @property string $id The element ID.
- * @property string $title The title attribute (tooltip).
  * @property-write string $text Set inner HTML or text.
  * 
  * @author Anders Lövgren (QNET)
@@ -134,7 +133,6 @@ class Element extends Renderable implements Component
         {
                 switch ($name) {
                         case 'id':
-                        case 'title':
                                 $this->attr->set($name, $value);
                                 break;
                         case 'text':
@@ -147,7 +145,6 @@ class Element extends Renderable implements Component
         {
                 switch ($name) {
                         case 'id':
-                        case 'title':
                                 return $this->attr->get($name);
                 }
         }

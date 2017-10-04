@@ -43,5 +43,3 @@ $panel->props->card->set(Card::SIZE_4);
 $panel->props->color->back = 'yellow';
 $panel->render();
 dump_property_data($panel->props);
-
-    
