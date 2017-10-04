@@ -19,34 +19,136 @@
 class Generate
 {
 
+        private $_curr = "";
+        private $_seen;
+
+        const SECTION = 1;      // scanned section
+        const NOTHING = false;  // scanned nothing
+
         public function process($file, $colmap)
         {
                 echo "\nfile $file\n-----------------------------\n";
-                $data = array();
 
                 if (!($handle = fopen($file, "r"))) {
                         die("Failed open $file");
                 }
 
+                $this->_curr = "";
+                $this->_seen = "";
+
+                $this->read($handle, $colmap);
+                $this->close($handle);
+        }
+
+        private function read($handle, $colmap)
+        {
+                $data = array();
+
                 while ($line = fgets($handle)) {
-                        if (strpos($line, "\t") === false) {
-                                continue;
-                        }
-                        if (!($part = explode("\t", $line))) {
-                                die("Failed split $line");
-                        } elseif (count($part) < 2) {
-                                die("Failed split $line");
-                        } else {
-                                $data[$part[$colmap['name']]] = trim($part[$colmap['desc']]);
-                        }
+                        $this->handle($data, $line, $colmap);
                 }
 
+                $this->flush($data);
+        }
+
+        private function close($handle)
+        {
                 fclose($handle);
+        }
 
-                foreach ($data as $name => $desc) {
-                        echo "* @property string \$$name $desc.\n";
+        private function handle(&$data, $line, $colmap)
+        {
+                if (($entry = $this->scanned($line, $colmap))) {
+                        if ($entry == self::SECTION) {
+                                $this->flush($data);
+                        } else {
+                                $this->insert($data, $entry);
+                        }
                 }
-                
+        }
+
+        private function flush(&$data)
+        {
+                printf("\n%s\n\n", $this->_curr);
+                $this->output($data);
+                $this->_curr = $this->_seen;
+                $data = array();
+        }
+
+        private function output($data)
+        {
+                foreach ($data as $name => $data) {
+                        if ($data['appl']) {
+                                printf("* @property string \$%s %s. Applies to %s.\n", $name, $data['desc'], rtrim($data['appl'], '.'));
+                        } elseif ($data['note']) {
+                                printf("* @property string \$%s %s (Notice: %s).\n", $name, $data['desc'], rtrim($data['note'], '.'));
+                        } else {
+                                printf("* @property string \$%s %s.\n", $name, $data['desc']);
+                        }
+                }
+        }
+
+        private function remap(&$part, $colmap)
+        {
+                $data = array(
+                        'name' => $part[$colmap['name']],
+                        'desc' => $part[$colmap['desc']],
+                        'appl' => $part[$colmap['appl']],
+                        'note' => false
+                );
+
+                if ($data['appl'] == "Not supported in HTML 5.") {
+                        $data['note'] = $data['appl'];
+                        $data['appl'] = false;
+                }
+                if ($data['appl'] == $data['name']) {
+                        $data['appl'] = false;
+                }
+
+                $part = $data;
+        }
+
+        private function clean(&$part)
+        {
+                foreach (array_keys($part) as $key) {
+                        if (is_string($part[$key])) {
+                                $part[$key] = trim($part[$key]);
+                        }
+                }
+        }
+
+        private function split($line)
+        {
+                if (!($part = explode("\t", $line))) {
+                        die("Failed split $line");
+                } elseif (count($part) < 2) {
+                        die("Failed split $line");
+                }
+
+                return $part;
+        }
+
+        private function scanned($line, $colmap)
+        {
+                if ($line[0] == '*' && $line[1] == '*') {
+                        $this->_seen = trim($line);
+                        return self::SECTION;
+                }
+                if (strpos($line, "\t") === false) {
+                        return self::NOTHING;
+                }
+
+                $part = $this->split($line);
+                $this->remap($part, $colmap);
+                $this->clean($part);
+
+                return $part;
+        }
+
+        private function insert(&$data, $entry)
+        {
+                $name = array_shift($entry);
+                $data[$name] = $entry;
         }
 
 }
@@ -54,9 +156,11 @@ class Generate
 $generate = new Generate();
 $generate->process('attributes.txt', array(
         'name' => 0,
-        'desc' => 1
+        'appl' => 1,
+        'desc' => 2
 ));
 $generate->process('events.txt', array(
         'name' => 0,
+        'appl' => false,
         'desc' => 2
 ));
