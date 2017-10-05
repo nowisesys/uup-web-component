@@ -200,7 +200,13 @@ class Collection implements IteratorAggregate
         {
                 $result = array();
 
-                foreach ($this->_data as $key => $val) {
+                if (method_exists($this, 'convert')) {
+                        $data = $this->convert($this->_data);
+                } else {
+                        $data = $this->_data;
+                }
+
+                foreach (array_filter($data) as $key => $val) {
                         $result[] = $this->format($key, $val);
                 }
 
@@ -238,11 +244,22 @@ class Collection implements IteratorAggregate
         {
                 foreach (explode($this->_join, $input) as $item) {
                         if (strpos($item, $this->_split) === false) {
-                                $result[trim($item)] = true;
+                                $key = trim($item);
+                                $val = true;
                         } else {
                                 list($key, $val) = explode($this->_split, $item);
-                                $result[trim($key)] = trim($val);
+                                $key = trim($key);
+                                $val = trim($val);
                         }
+                        if (is_string($val)) {
+                                if ($val == "true") {
+                                        $val = true;
+                                } elseif ($val == "false") {
+                                        $val = false;
+                                }
+                        }
+
+                        $result[$key] = $val;
                 }
         }
 
@@ -310,7 +327,7 @@ class Collection implements IteratorAggregate
                         $this->explore($key, $result);
                         $this->merge($result, $replace);
                 } elseif (is_string($key) && is_bool($val)) {
-                        $this->explore($key, $result);
+                        $result[$key] = $val;
                         $this->merge($result, $replace);
                 } elseif (is_string($key) && is_int($val)) {
                         $result[$key] = $val;
@@ -321,7 +338,7 @@ class Collection implements IteratorAggregate
                 } elseif (is_string($key) && is_array($val)) {
                         $this->merge($val, $replace, $key);
                 } elseif (is_array($key) && is_numeric(key($key))) {
-                        $result = array_fill_keys($key, false);
+                        $result = array_fill_keys($key, true);
                         $this->merge($result, $replace);
                 } elseif (is_array($key) && !isset($val)) {
                         $this->merge($key, $replace);
@@ -345,8 +362,10 @@ class Collection implements IteratorAggregate
                                 $key = $missing;
                         }
 
-                        if (is_bool($val)) {
+                        if (is_bool($val) && $val) {
                                 $this->replace($key);
+                        } elseif (is_bool($val)) {
+                                $this->assign($key, $val);
                         } elseif ($replace) {
                                 $this->assign($key, $val);
                         } elseif ($this->exist($key)) {
