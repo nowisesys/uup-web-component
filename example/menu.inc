@@ -27,6 +27,7 @@ return array(
         ),
         'Test'       => array(
                 'Collections' => '?page=collection',
+                'Attributes'  => '?page=attributes',
                 'Regexp'      => '?page=regexp'
         )
 );

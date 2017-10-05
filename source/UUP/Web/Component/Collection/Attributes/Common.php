@@ -22,7 +22,7 @@ namespace UUP\Web\Component\Collection\Attributes;
  * Common HTML attributes.
  *
  * @property string $alt Specifies an alternative text for an image, when the image cannot be displayed.
- * @property string $disabled Specifies that an input element should be disabled.
+ * @property bool $disabled Specifies that an input element should be disabled.
  * @property string $href Specifies the URL (web address) for a link.
  * @property string $id Specifies a unique id for an element.
  * @property string $src Specifies the URL (web address) for an image.

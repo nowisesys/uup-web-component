@@ -30,6 +30,13 @@ $classes->set(array(
 ));
 $classes->class6 = true;                // non-intuitive, but working.
 $classes->add('class7 class8');         // test parsing
+$classes->remove('class7');
+$classes->remove('class5');
+$classes->remove('class3');
+$classes->remove('class1');
+
+$classes->add('class9');
+$classes->class9 = false;               // still in collection, but removed from render
 
 echo "<pre>\n";
 print_r($classes);

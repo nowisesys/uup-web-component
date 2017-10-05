@@ -25,20 +25,20 @@ namespace UUP\Web\Component\Collection\Attributes;
  * 
  * @property string $accesskey Specifies a shortcut key to activate/focus an element.
  * @property string $class Specifies one or more classnames for an element (refers to a class in a style sheet).
- * @property string $contenteditable Specifies whether the content of an element is editable or not.
+ * @property bool $contenteditable Specifies whether the content of an element is editable or not.
  * @property string $contextmenu Specifies a context menu for an element. The context menu appears when a user right-clicks on the element.
  * @property string $data-* Used to store custom data private to the page or application. Use set('data-xxx', ...) to define data attribute.
  * @property string $dir Specifies the text direction for the content in an element.
- * @property string $draggable Specifies whether an element is draggable or not.
- * @property string $dropzone Specifies whether the dragged data is copied, moved, or linked, when dropped.
- * @property string $hidden Specifies that an element is not yet, or is no longer, relevant.
+ * @property bool|string $draggable Specifies whether an element is draggable or not (true|false or "auto").
+ * @property string $dropzone Specifies whether the dragged data is copied, moved, or linked, when dropped ("copy|move|link").
+ * @property bool $hidden Specifies that an element is not yet, or is no longer, relevant.
  * @property string $id Specifies a unique id for an element.
  * @property string $lang Specifies the language of the element's content.
- * @property string $spellcheck Specifies whether the element is to have its spelling and grammar checked or not.
+ * @property bool $spellcheck Specifies whether the element is to have its spelling and grammar checked or not.
  * @property string $style Specifies an inline CSS style for an element.
  * @property string $tabindex Specifies the tabbing order of an element.
  * @property string $title Specifies extra information about an element.
- * @property string $translate Specifies whether the content of an element should be translated or not.
+ * @property bool $translate Specifies whether the content of an element should be translated or not.
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
