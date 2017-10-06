@@ -195,12 +195,12 @@ function render_children($node)
 <form>
     <div class="w3-row sitemap-search-box">
         <div class="w3-col" style="width: 40px">
-            <button class="w3-button w3-border w3-large w3-indigo" onclick="toggle_advanced_options(event)">
-                <i class="w3-large fa fa-search"></i>
+            <button class="w3-button w3-border w3-xlarge w3-indigo" onclick="toggle_advanced_options(event)">
+                <i class="fa fa-search"></i>
             </button>
         </div>
-        <div class="w3-rest" style="padding-left: 10px">
-            <input class="w3-input w3-large sitemap-search-input" onkeyup="sitemap_filter(this)" placeholder="Filter...">
+        <div class="w3-rest" style="padding-left: 15px; margin-top: 2px">
+            <input class="w3-input sitemap-search-input" onkeyup="sitemap_filter(this)" placeholder="Filter...">
 
             <div id="sitemap-advanced-options" style="display: none">
                 <span style="margin-right: 20px">

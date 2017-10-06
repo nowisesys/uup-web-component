@@ -1,3 +1,9 @@
+<?php
+require_once("../vendor/autoload.php");
+require_once("index.inc");
+$transformer = load_transformer();
+
+?>
 <!DOCTYPE html> 
 <html>
     <head>
@@ -11,36 +17,41 @@
         </style>
     </head>        
     <body>
-        <div style="padding: 15px">
-            <h1>UUP Web Components</h1>
-            <p>
-                Components should be rendered for W3.CSS style sheet. Some test might apply 
-                transformation of CSS-classes in components that makes them look weird.
-            </p>
 
+        <h1 class="w3-center w3-blue w3-card-2" style="margin-top: 0px">UUP Web Components</h1>
+        <div class="w3-right w3-padding">
+            <?php show_transformer($transformer) ?>
+        </div>
+
+        <div class="w3-sidebar w3-bar-block w3-collapse w3-card-2" style="width:200px; top: 56px" id="menu">
+            <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="close_menu()">Close &times;</button>
+            <?php print_menu(include('menu.inc')); ?>
+        </div>
+
+        <div class="w3-main w3-padding" style="margin-left:200px">
+            <button class="w3-button w3-xlarge w3-hide-large" onclick="open_menu()">&#9776;</button>
+            <div>
+                <p>
+                    Components should be rendered for W3.CSS style sheet. Some test might apply 
+                    transformation of CSS-classes in components that makes them look weird.
+                </p>
+            </div>
             <?php
             try {
-                    require_once("../vendor/autoload.php");
-                    require_once("index.inc");
-
-                    echo "<div style=\"display: flex\">\n";
-                    echo "<div id=\"menu\" class=\"w3-container w3-padding w3-margin-top\">\n";
-                    print_menu(include('menu.inc'));
-                    echo "<hr>\n";
-                    echo "<div class=\"w3-center\">\n";
-                    echo "<button class=\"w3-btn w3-orange\" onclick=\"document.getElementById('menu').style.display = 'none'\">Hide Menu</button>\n";
-                    echo "</div>\n";
-                    echo "</div>\n";
-                    echo "<div style=\"width: 100%\">\n";
                     load_example();
-                    echo "</div>\n";
-                    echo "</div>\n";
             } catch (Exception $exception) {
                     die(sprintf("<b>%s</b>: <span style=\"color: red\">%s</div>", get_class($exception), $exception->getMessage()));
             }
 
             ?>
-
         </div>
+        <script>
+                function open_menu() {
+                    document.getElementById("menu").style.display = "block";
+                }
+                function close_menu() {
+                    document.getElementById("menu").style.display = "none";
+                }
+        </script>
     <body>
 </html>
