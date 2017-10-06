@@ -1,12 +1,57 @@
+<script>
+        function select_transformer(select) {
+            var params = new URLSearchParams(location.search);
+            params.set("transformer", select.options[select.selectedIndex].value);
+            location.href = '?' + params.toString();
+        }
+</script>
+
 <?php
 
 function load_example()
 {
         if (($page = filter_input(INPUT_GET, 'page'))) {
-                echo "<div class=\"w3-container w3-padding w3-margin w3-border\">\n";
                 require_once("$page.inc");
-                echo "</div>\n";
         }
+}
+
+function load_transformer()
+{
+        if (filter_has_var(INPUT_GET, "transformer")) {
+                $selected = filter_input(INPUT_GET, "transformer");
+                setcookie("transformer", $selected);
+        } elseif (filter_has_var(INPUT_COOKIE, "transformer")) {
+                $selected = filter_input(INPUT_COOKIE, "transformer");
+        } else {
+                $selected = "none";
+        }
+
+        return $selected;
+}
+
+function show_transformer($selected)
+{
+        $transformers = array(
+                "none"      => "Select transformer",
+                "paragon"   => "Paragon",
+                "native"    => "Native",
+                "bootstrap" => "Bootstrap"
+        );
+
+        printf("<form>\n");
+        printf("<select class=\"w3-select\" name=\"transformer\" onchange=\"select_transformer(this)\">\n");
+        foreach ($transformers as $name => $value) {
+                $attr = array();
+                if ($name == $selected) {
+                        $attr[] = "selected";
+                }
+                if ($name == "none") {
+                        $attr[] = "disabled";
+                }
+                printf("<option value=\"%s\" %s>%s</option>\n", $name, implode(" ", $attr), $value);
+        }
+        printf("</select>\n");
+        printf("</form>\n");
 }
 
 function print_menu($menu)
