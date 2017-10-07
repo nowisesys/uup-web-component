@@ -1,16 +1,20 @@
 <?php
 
 return array(
-        'Elements'   => array(
-                'Buttons' => '?page=element/buttons',
-                'Panels'  => '?page=element/panels'
-        ),
         'Containers' => array(
                 'Card'     => '?page=container/card',
                 'Cell'     => '?page=container/cell',
                 'Grid'     => '?page=container/grid',
                 'Download' => '?page=container/download',
                 'Sitemap'  => '?page=container/sitemap',
+        ),
+        'Widgets'    => array(
+                'Buttons' => '?page=widgets/buttons',
+                'Panels'  => '?page=widgets/panels'
+        ),
+        'Elements'   => array(
+                'Buttons' => '?page=element/buttons',
+                'Divs'    => '?page=element/divs',
         ),
         'Transform'  => array(
                 'Paragon'   => '?page=transform/paragon',

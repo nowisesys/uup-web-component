@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Element;
+namespace UUP\Web\Component\Widget;
 
-use UUP\Web\Component\Element;
+use UUP\Web\Component\Element\Div;
 
 /**
  * Panel component.
@@ -27,7 +27,7 @@ use UUP\Web\Component\Element;
  * @package UUP
  * @subpackage Web Components
  */
-class Panel extends Element
+class Panel extends Div
 {
 
         /**
@@ -37,9 +37,9 @@ class Panel extends Element
          * @param array $attr Optional attributes.
          * @param string $name The element type.
          */
-        public function __construct($text = '', $attr = array(), $name = 'div')
+        public function __construct($text = '')
         {
-                parent::__construct($attr, $name, $text);
+                parent::__construct($text);
                 $this->props->add('panel');
         }
 

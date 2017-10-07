@@ -44,5 +44,9 @@ class Border
          * The border-color CSS style.
          */
         const COLOR = 'border-color';
+        /**
+         * The border-radius CSS style.
+         */
+        const RADIUS = 'border-radius';
 
 }

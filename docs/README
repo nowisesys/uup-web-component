@@ -21,17 +21,25 @@ The library is organized as:
         +-- Element             // Generic element component class
         +-- Container           // Generic container component class
         +-- Style               // Enum classes for inline CSS
-        |     +-- Color
-        |     +-- Spacing
+        |     +-- Alignment
         |     +-- Border
+        |     +-- Color
+        |     +-- Font
         |    ...
         +-- Collection          // Collection support (i.e. attributes and events).
-        |     +-- Classes
         |     +-- Attributes
+        |     +-- Classes
         |     +-- Events
         |     +-- Stylesheet
+        |     +-- Properties    // Generic properties
         |     +-- Collection    // Base class
-        +-- Element             // Components with direct rendering
+        +-- Element             // Components with direct rendering (HTML elements)
+        |     +-- Button
+        |     +-- Span
+        |     +-- List
+        |     +-- Table
+        |    ...
+        +-- Widget              // Components with direct rendering (specialized objects)
         |     +-- Button
         |     +-- Combobox
         |     +-- Panel
