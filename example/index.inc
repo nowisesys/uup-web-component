@@ -8,6 +8,19 @@
 
 <?php
 
+function load_stylesheet($transformer)
+{
+        switch ($transformer) {
+                case 'native':
+                        break;
+                case 'bootstrap':
+                        echo "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n";
+                        echo "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>\n'";
+                        echo "<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n";
+                        break;
+        }
+}
+
 function load_example()
 {
         if (($page = filter_input(INPUT_GET, 'page'))) {
@@ -23,7 +36,11 @@ function load_transformer()
         } elseif (filter_has_var(INPUT_COOKIE, "transformer")) {
                 $selected = filter_input(INPUT_COOKIE, "transformer");
         } else {
-                $selected = "none";
+                $selected = 0;
+        }
+
+        if ($selected == "reset") {
+                setcookie("transformer", "", time() - 1);
         }
 
         return $selected;
@@ -31,21 +48,26 @@ function load_transformer()
 
 function show_transformer($selected)
 {
+        if ($selected == "reset") {
+                $selected = 0;
+        }
         $transformers = array(
-                "none"      => "Select transformer",
+                0           => "Select transformer",
                 "paragon"   => "Paragon",
                 "native"    => "Native",
-                "bootstrap" => "Bootstrap"
+                "bootstrap" => "Bootstrap",
+                1           => "<hr/>",
+                "reset"     => "Clear Selected"
         );
 
         printf("<form>\n");
         printf("<select class=\"w3-select\" name=\"transformer\" onchange=\"select_transformer(this)\">\n");
         foreach ($transformers as $name => $value) {
                 $attr = array();
-                if ($name == $selected) {
+                if ($name === $selected) {
                         $attr[] = "selected";
                 }
-                if ($name == "none") {
+                if (is_numeric($name)) {
                         $attr[] = "disabled";
                 }
                 printf("<option value=\"%s\" %s>%s</option>\n", $name, implode(" ", $attr), $value);
