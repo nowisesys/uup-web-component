@@ -24,10 +24,10 @@ $transformer = load_transformer();
             <?php show_transformer($transformer) ?>
         </div>
 
-        <div class="w3-sidebar w3-bar-block w3-collapse w3-card-2" style="width:200px; top: 56px" id="menu">
+        <nav class="w3-sidebar w3-bar-block w3-collapse w3-card-2" style="width:200px; top: 56px" id="menu">
             <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="close_menu()">Close &times;</button>
             <?php print_menu(include('menu.inc')); ?>
-        </div>
+        </nav>
 
         <div class="w3-main w3-padding" style="margin-left:200px">
             <button class="w3-button w3-xlarge w3-hide-large" onclick="open_menu()">&#9776;</button>

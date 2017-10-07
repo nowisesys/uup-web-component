@@ -56,7 +56,7 @@ function show_transformer($selected)
                 "paragon"   => "Paragon",
                 "native"    => "Native",
                 "bootstrap" => "Bootstrap",
-                1           => "<hr/>",
+                1           => null,
                 "reset"     => "Clear Selected"
         );
 
@@ -70,7 +70,11 @@ function show_transformer($selected)
                 if (is_numeric($name)) {
                         $attr[] = "disabled";
                 }
-                printf("<option value=\"%s\" %s>%s</option>\n", $name, implode(" ", $attr), $value);
+                if (is_string($value)) {
+                        printf("<option value=\"%s\" %s>%s</option>\n", $name, implode(" ", $attr), $value);
+                } else {
+                        printf("<option %s>---------------</option>\n", implode(" ", $attr));
+                }
         }
         printf("</select>\n");
         printf("</form>\n");
