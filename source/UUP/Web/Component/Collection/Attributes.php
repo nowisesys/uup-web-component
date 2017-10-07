@@ -20,6 +20,7 @@ namespace UUP\Web\Component\Collection;
 
 use UUP\Web\Component\Collection\Attributes\Common;
 use UUP\Web\Component\Collection\Attributes\Complete;
+use UUP\Web\Component\Collection\Attributes\Custom;
 use UUP\Web\Component\Collection\Attributes\Extended;
 use UUP\Web\Component\Collection\Attributes\Globals;
 
@@ -32,6 +33,7 @@ use UUP\Web\Component\Collection\Attributes\Globals;
  * @property string $accesskey Specifies a shortcut key to activate/focus an element.
  * @property bool $contenteditable Specifies whether the content of an element is editable or not.
  * @property string $contextmenu Specifies a context menu for an element. The context menu appears when a user right-clicks on the element.
+ * @property Custom $data Used to store custom data private to the page or application.
  * @property string $data-* Used to store custom data private to the page or application. Use set('data-xxx', ...) to define data attribute.
  * @property string $dir Specifies the text direction for the content in an element.
  * @property bool|string $draggable Specifies whether an element is draggable or not (true|false or "auto").
@@ -78,6 +80,8 @@ class Attributes extends Collection
                                 return $this->complete = new Extended($this);
                         case 'complete':
                                 return $this->complete = new Complete($this);
+                        case 'data':
+                                return $this->data = new Custom($this);
                         default:
                                 return parent::__get($key);
                 }
@@ -97,6 +101,9 @@ class Attributes extends Collection
                                 break;
                         case 'complete':
                                 $this->complete = $val;
+                                break;
+                        case 'data':
+                                $this->data = $val;
                                 break;
                         default:
                                 parent::__set($key, $val);
@@ -161,7 +168,7 @@ class Attributes extends Collection
                                 $data['translate'] = "no";
                         }
                 }
-                
+
                 return $data;
         }
 

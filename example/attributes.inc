@@ -145,3 +145,12 @@ $attr->translate = false;
 print_r($attr->data());
 printf("<pre>%s</pre>\n", $attr);
 
+echo "<h3>data-* (custom)</h3>\n";
+
+$attr = new Attributes();
+$attr->id = "my-id";
+$attr->data->set('ship-id', '324');
+$attr->data->weapons = 'pulsar phaser';
+$attr->data->shields = '72%';
+print_r($attr->data());
+printf("<pre>%s</pre>\n", $attr);
