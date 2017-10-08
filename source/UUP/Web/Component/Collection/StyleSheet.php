@@ -38,6 +38,7 @@ use UUP\Web\Component\Collection\StyleSheet\Hanging;
 use UUP\Web\Component\Collection\StyleSheet\Justify;
 use UUP\Web\Component\Collection\StyleSheet\Letter;
 use UUP\Web\Component\Collection\StyleSheet\Line;
+use UUP\Web\Component\Collection\StyleSheet\Lists;
 
 /**
  * The stylesheet attribute collection.
@@ -59,6 +60,7 @@ use UUP\Web\Component\Collection\StyleSheet\Line;
  * @property-read Justify $justify The justify style object.
  * @property-read Letter $letter The letter style object.
  * @property-read Line $line The line style object.
+ * @property-read Lists $list The list style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>

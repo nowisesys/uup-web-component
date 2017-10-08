@@ -39,6 +39,7 @@ use UUP\Web\Component\Collection\StyleSheet\Hanging;
 use UUP\Web\Component\Collection\StyleSheet\Justify;
 use UUP\Web\Component\Collection\StyleSheet\Letter;
 use UUP\Web\Component\Collection\StyleSheet\Line;
+use UUP\Web\Component\Collection\StyleSheet\Lists;
 
 /**
  * Properties collection repository.
@@ -109,6 +110,8 @@ class Repository extends CollectionRepository
                                 return new Letter($this->_props);
                         case 'line':
                                 return new Line($this->_props);
+                        case 'list':
+                                return new Lists($this->_props);                                
                         default:
                                 return false;
                 }
