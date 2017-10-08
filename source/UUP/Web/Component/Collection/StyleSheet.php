@@ -36,6 +36,7 @@ use UUP\Web\Component\Collection\StyleSheet\Flex;
 use UUP\Web\Component\Collection\StyleSheet\Font;
 use UUP\Web\Component\Collection\StyleSheet\Hanging;
 use UUP\Web\Component\Collection\StyleSheet\Justify;
+use UUP\Web\Component\Collection\StyleSheet\Letter;
 
 /**
  * The stylesheet attribute collection.
@@ -55,6 +56,7 @@ use UUP\Web\Component\Collection\StyleSheet\Justify;
  * @property-read Font $font The font style object.
  * @property-read Hanging $hanging The hanging style object.
  * @property-read Justify $justify The justify style object.
+ * @property-read Letter $letter The letter style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
