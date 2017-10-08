@@ -28,6 +28,7 @@ use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
 use UUP\Web\Component\Collection\StyleSheet\Border;
 use UUP\Web\Component\Collection\StyleSheet\Box;
 use UUP\Web\Component\Collection\StyleSheet\Caption;
+use UUP\Web\Component\Collection\StyleSheet\Caret;
 
 /**
  * The stylesheet attribute collection.
@@ -39,6 +40,7 @@ use UUP\Web\Component\Collection\StyleSheet\Caption;
  * @property-read Border $border The border style object.
  * @property-read Box $box The box style object.
  * @property-read Caption $caption The caption style object.
+ * @property-read Caret $caret The caret style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
