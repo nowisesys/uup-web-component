@@ -71,6 +71,11 @@ use UUP\Web\Component\Collection\StyleSheet\Column;
  *      <b>CSS Syntax</b>
  *      <br> color: &lt;color&gt;|initial|inherit;
  * 
+ * @property string $columns A shorthand property for setting column-width and column-count
+ *      (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> columns: auto|&lt;column-width&gt; &lt;column-count&gt;|initial|inherit;
+ * 
  * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> opacity: &lt;number&gt;|initial|inherit;
@@ -83,6 +88,10 @@ use UUP\Web\Component\Collection\StyleSheet\Column;
  * @link https://www.w3schools.com/cssref/css3_pr_background.asp The background property.
  * @link https://www.w3schools.com/cssref/pr_border.asp The border property.
  * @link https://www.w3schools.com/cssref/pr_pos_bottom.asp The bottom property.
+ * @link https://www.w3schools.com/cssref/pr_class_clear.asp The clear proprty.
+ * @link https://www.w3schools.com/cssref/pr_pos_clip.asp The clip property.
+ * @link https://www.w3schools.com/cssref/pr_text_color.asp The color property.
+ * @link https://www.w3schools.com/cssref/css3_pr_columns.asp The columns property.
  */
 class StyleSheet extends Collection
 {
