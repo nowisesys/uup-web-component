@@ -164,3 +164,8 @@ $generate->process('events.txt', array(
         'appl' => false,
         'desc' => 2
 ));
+$generate->process('css.txt', array(
+        'name' => 0,
+        'appl' => 2,
+        'desc' => 1
+));
