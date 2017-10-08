@@ -22,6 +22,7 @@ use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\CollectionRepository;
 use UUP\Web\Component\Collection\StyleSheet;
 use UUP\Web\Component\Collection\StyleSheet\Background;
+use UUP\Web\Component\Collection\StyleSheet\Border;
 
 /**
  * Properties collection repository.
@@ -60,6 +61,8 @@ class Repository extends CollectionRepository
                 switch ($name) {
                         case 'background':
                                 return new Background($this->_props);
+                        case 'border':
+                                return new Border($this->_props);
                         default:
                                 return false;
                 }

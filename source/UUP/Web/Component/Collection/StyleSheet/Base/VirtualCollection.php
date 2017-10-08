@@ -40,11 +40,6 @@ abstract class VirtualCollection
          * @var array 
          */
         private $_remap;
-        /**
-         * The attribute to property name map.
-         * @var array 
-         */
-        private $_inmap;
 
         /**
          * Constructor.
@@ -56,7 +51,6 @@ abstract class VirtualCollection
         {
                 $this->_attrs = $attrs;
                 $this->_remap = $remap;
-                $this->_inmap = array_flip($remap);
         }
 
         public function __get($name)

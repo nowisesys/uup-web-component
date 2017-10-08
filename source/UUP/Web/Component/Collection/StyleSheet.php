@@ -22,11 +22,13 @@ use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\StyleSheet\Background;
 use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
+use UUP\Web\Component\Collection\StyleSheet\Border;
 
 /**
  * The stylesheet attribute collection.
  * 
  * @property-read Background $background Background CSS style.
+ * @property-read Border $border Border CSS style.
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
