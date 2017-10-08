@@ -109,6 +109,10 @@ use UUP\Web\Component\Collection\StyleSheet\Flex;
  *      <b>CSS Syntax</b>
  *      <br> flex: &lt;flex-grow&gt; &lt;flex-shrink&gt; &lt;flex-basis&gt;|auto|initial|inherit;
  * 
+ * @property string $float Specifies whether or not a box should float (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> float: none|left|right|initial|inherit;
+ * 
  * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> opacity: &lt;number&gt;|initial|inherit;
@@ -130,6 +134,7 @@ use UUP\Web\Component\Collection\StyleSheet\Flex;
  * @link https://www.w3schools.com/cssref/pr_text_direction.asp The direction property.
  * @link https://www.w3schools.com/cssref/css3_pr_filter.asp The filter property.
  * @link https://www.w3schools.com/cssref/css3_pr_flex.asp The flex property.
+ * @link https://www.w3schools.com/cssref/pr_class_float.asp The float property.
  */
 class StyleSheet extends Collection
 {
