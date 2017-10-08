@@ -87,6 +87,10 @@ use UUP\Web\Component\Collection\StyleSheet\Counter;
  *      <b>CSS Syntax</b>
  *      <br> cursor: auto|copy|crosshair|default|grab|help|move|no-drop|pointer|progress|wait|&lt;value&gt;;
  * 
+ * @property string $direction Specifies the text direction/writing direction (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> direction: ltr|rtl|initial|inherit;
+ *  
  * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> opacity: &lt;number&gt;|initial|inherit;
@@ -105,6 +109,7 @@ use UUP\Web\Component\Collection\StyleSheet\Counter;
  * @link https://www.w3schools.com/cssref/css3_pr_columns.asp The columns property.
  * @link https://www.w3schools.com/cssref/pr_gen_content.asp The content property.
  * @link https://www.w3schools.com/cssref/pr_class_cursor.asp The cursor property.
+ * @link https://www.w3schools.com/cssref/pr_text_direction.asp The direction property.
  */
 class StyleSheet extends Collection
 {
