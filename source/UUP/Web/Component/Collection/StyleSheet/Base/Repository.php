@@ -38,6 +38,7 @@ use UUP\Web\Component\Collection\StyleSheet\Font;
 use UUP\Web\Component\Collection\StyleSheet\Hanging;
 use UUP\Web\Component\Collection\StyleSheet\Justify;
 use UUP\Web\Component\Collection\StyleSheet\Letter;
+use UUP\Web\Component\Collection\StyleSheet\Line;
 
 /**
  * Properties collection repository.
@@ -106,6 +107,8 @@ class Repository extends CollectionRepository
                                 return new Justify($this->_props);
                         case 'letter':
                                 return new Letter($this->_props);
+                        case 'line':
+                                return new Line($this->_props);
                         default:
                                 return false;
                 }
