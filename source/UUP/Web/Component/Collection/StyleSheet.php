@@ -46,10 +46,9 @@ use UUP\Web\Component\Collection\StyleSheet\Border;
  *      <b>CSS Syntax</b>
  *      <br> background: &lt;background-color&gt; &lt;background-image&gt; &lt;position&gt;/&lt;background-size&gt; &lt;background-repeat&gt; &lt;background-origin&gt; &lt;background-clip&gt; &lt;background-attachment&gt; initial|inherit;
  * 
- * @property string $bottom Sets all the bottom border properties in one declaration 
- *      (since CSS1).<br><br>
+ * @property string $bottom Specifies the bottom position of a positioned element (since CSS2).<br><br>
  *      <b>CSS Syntax</b>
- *      <br> border-bottom: &lt;border-width&gt; &lt;border-style&gt; &lt;border-color&gt;|initial|inherit;
+ *      <br> bottom: auto|&lt;length&gt;(px|cm|mm|%)|initial|inherit;
  * 
  * @property string $color Sets the color of text (since CSS1).<br><br>
  *      <b>CSS Syntax</b>
@@ -64,8 +63,9 @@ use UUP\Web\Component\Collection\StyleSheet\Border;
  * @subpackage Web Components
  * 
  * @link https://www.w3schools.com/cssref/css3_pr_animation.asp The animation property.
- * @link https://www.w3schools.com/cssref/pr_border.asp The border property.
  * @link https://www.w3schools.com/cssref/css3_pr_background.asp The background property.
+ * @link https://www.w3schools.com/cssref/pr_border.asp The border property.
+ * @link https://www.w3schools.com/cssref/pr_pos_bottom.asp The bottom property.
  */
 class StyleSheet extends Collection
 {
