@@ -19,11 +19,6 @@
 class Generate
 {
 
-        /**
-         * 
-         */
-        const TEST = 1;
-
         private $_curr = "";
         private $_seen;
 
@@ -82,7 +77,7 @@ class Generate
 
         private function output($data)
         {
-                if (count($data) == 0) {
+                if (count($data) > 0) {
                         $this->properties($data);
                         $this->constants($data);
                 }
