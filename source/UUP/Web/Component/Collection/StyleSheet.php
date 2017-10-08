@@ -26,6 +26,7 @@ use UUP\Web\Component\Collection\StyleSheet\Backface;
 use UUP\Web\Component\Collection\StyleSheet\Background;
 use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
 use UUP\Web\Component\Collection\StyleSheet\Border;
+use UUP\Web\Component\Collection\StyleSheet\Box;
 
 /**
  * The stylesheet attribute collection.
@@ -35,6 +36,7 @@ use UUP\Web\Component\Collection\StyleSheet\Border;
  * @property-read Backface $backface The backface style object.
  * @property-read Background $background The background style object.
  * @property-read Border $border The border style object.
+ * @property-read Box $box The box style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
