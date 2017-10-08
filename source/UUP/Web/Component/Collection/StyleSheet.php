@@ -76,6 +76,11 @@ use UUP\Web\Component\Collection\StyleSheet\Column;
  *      <b>CSS Syntax</b>
  *      <br> columns: auto|&lt;column-width&gt; &lt;column-count&gt;|initial|inherit;
  * 
+ * @property string $content Used with the :before and :after pseudo-elements, to insert 
+ *      generated content (since CSS2). <br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> content: normal|none|counter|attr|&lt;string&gt;|open-quote|close-quote|no-open-quote|no-close-quote|&lt;url&gt;|initial|inherit;
+ * 
  * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> opacity: &lt;number&gt;|initial|inherit;
@@ -92,6 +97,7 @@ use UUP\Web\Component\Collection\StyleSheet\Column;
  * @link https://www.w3schools.com/cssref/pr_pos_clip.asp The clip property.
  * @link https://www.w3schools.com/cssref/pr_text_color.asp The color property.
  * @link https://www.w3schools.com/cssref/css3_pr_columns.asp The columns property.
+ * @link https://www.w3schools.com/cssref/pr_gen_content.asp The content property.
  */
 class StyleSheet extends Collection
 {
