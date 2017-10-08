@@ -31,6 +31,7 @@ use UUP\Web\Component\Collection\StyleSheet\Caption;
 use UUP\Web\Component\Collection\StyleSheet\Caret;
 use UUP\Web\Component\Collection\StyleSheet\Column;
 use UUP\Web\Component\Collection\StyleSheet\Counter;
+use UUP\Web\Component\Collection\StyleSheet\Emptys;
 
 /**
  * The stylesheet attribute collection.
@@ -45,6 +46,7 @@ use UUP\Web\Component\Collection\StyleSheet\Counter;
  * @property-read Caret $caret The caret style object.
  * @property-read Column $column The column style object.
  * @property-read Counter $counter The counter style object.
+ * @property-read Emptys $empty The empty style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
