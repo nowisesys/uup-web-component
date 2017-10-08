@@ -33,6 +33,7 @@ use UUP\Web\Component\Collection\StyleSheet\Caret;
 use UUP\Web\Component\Collection\StyleSheet\Column;
 use UUP\Web\Component\Collection\StyleSheet\Counter;
 use UUP\Web\Component\Collection\StyleSheet\Emptys;
+use UUP\Web\Component\Collection\StyleSheet\Flex;
 
 /**
  * Properties collection repository.
@@ -91,6 +92,8 @@ class Repository extends CollectionRepository
                                 return new Counter($this->_props);
                         case 'empty':
                                 return new Emptys($this->_props);
+                        case 'flex':
+                                return new Flex($this->_props);
                         default:
                                 return false;
                 }

@@ -32,6 +32,7 @@ use UUP\Web\Component\Collection\StyleSheet\Caret;
 use UUP\Web\Component\Collection\StyleSheet\Column;
 use UUP\Web\Component\Collection\StyleSheet\Counter;
 use UUP\Web\Component\Collection\StyleSheet\Emptys;
+use UUP\Web\Component\Collection\StyleSheet\Flex;
 
 /**
  * The stylesheet attribute collection.
@@ -47,6 +48,7 @@ use UUP\Web\Component\Collection\StyleSheet\Emptys;
  * @property-read Column $column The column style object.
  * @property-read Counter $counter The counter style object.
  * @property-read Emptys $empty The empty style object.
+ * @property-read Flex $flex The flex style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
@@ -103,6 +105,10 @@ use UUP\Web\Component\Collection\StyleSheet\Emptys;
  *      <b>CSS Syntax</b>
  *      <br> filter: none|blur(px)|brightness(%)|contrast(%)|drop-shadow(&lt;h-shadow&gt; &lt;v-shadow&gt;...)|grayscale(%)|hue-rotate(deg)|invert(%)|opacity(%)|saturate(%)|sepia(%)|url();
  * 
+ * @property string $flex Specifies the length of the item, relative to the rest (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> flex: &lt;flex-grow&gt; &lt;flex-shrink&gt; &lt;flex-basis&gt;|auto|initial|inherit;
+ * 
  * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> opacity: &lt;number&gt;|initial|inherit;
@@ -123,6 +129,7 @@ use UUP\Web\Component\Collection\StyleSheet\Emptys;
  * @link https://www.w3schools.com/cssref/pr_class_cursor.asp The cursor property.
  * @link https://www.w3schools.com/cssref/pr_text_direction.asp The direction property.
  * @link https://www.w3schools.com/cssref/css3_pr_filter.asp The filter property.
+ * @link https://www.w3schools.com/cssref/css3_pr_flex.asp The flex property.
  */
 class StyleSheet extends Collection
 {
