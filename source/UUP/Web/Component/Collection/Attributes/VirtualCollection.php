@@ -27,7 +27,7 @@ use UUP\Web\Component\Collection\Attributes;
  * @package UUP
  * @subpackage Web Components
  */
-abstract class Virtual
+abstract class VirtualCollection
 {
 
         /**

@@ -128,7 +128,7 @@ namespace UUP\Web\Component\Collection\Attributes;
  * @package UUP
  * @subpackage Web Components
  */
-class Extended extends Virtual
+class Extended extends VirtualCollection
 {
 
         //put your code here

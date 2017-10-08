@@ -33,7 +33,7 @@ namespace UUP\Web\Component\Collection\Attributes;
  * @package UUP
  * @subpackage Web Components
  */
-class Common extends Virtual
+class Common extends VirtualCollection
 {
         
 }

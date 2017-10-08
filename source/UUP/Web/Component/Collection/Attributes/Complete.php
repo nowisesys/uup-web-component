@@ -197,7 +197,7 @@ namespace UUP\Web\Component\Collection\Attributes;
  * @package UUP
  * @subpackage Web Components
  */
-class Complete extends Virtual
+class Complete extends VirtualCollection
 {
         
 }
