@@ -4,14 +4,15 @@
 
 This library provides web component classes for rendering HTML. 
 
-By definition, an component is a class that has both behavior and interface. 
-The component classes provided by uup-web-component an be used to either output 
-HTML by calling their render method or use them as an abstract representation
-of an DOM-tree elements (possibly containing other components).
+A component is a class that has both behavior and interface. The main classes
+are widget (standard components), element (simple HTML elements) and finally
+container (using template file). You can use these direct, but recommended is
+to use one of their sub-classes.
 
-The user decides how to use the class library. It's also possible to hook in
-during rendition of an component to modify it. The reasons for doing this can be
-to support themes, creating high-contrast styles or translation of text.
+The easiest way to get started is to examine the code in the examples directory
+while watching the outcome in a web browser. It's recommended to open the project
+in i.e. NetBeans IDE to get autocomplete of property names. Start explore the 
+container and widget classes.
 
 The library is organized as:
 
@@ -50,8 +51,31 @@ The library is organized as:
               +-- Download
               +-- Sitemap
 
-Generated HTML targets the W3.CSS library by default when using the direct 
-properties declared by i.e. element classes:
+All classes derived from element has access to the special properties class, 
+event, props, style and attr that provides collection support. Settings in the
+props collection are transformed during rendering. Some of the collection has
+virtual sub collections that groups properties together:
+
+    $element = new Element(array(), "p", "...");
+    $element->id = 12;
+    $element->data->order = 4885;
+    $element->render();     // <p id="12" data-order="4885">...</p>
+
+Components contains properties and optional sub components. It's the job of the 
+render transformer to generate HTML from component objects and rendition can be 
+altered by passing the transformer to render() method or set a default transformer 
+globally:
+
+    $transformer = new CustomTransformer();
+    Transformer::setInstance($transfomer);
+
+The reason for using a custom transformer could be to support themes, creating 
+high-contrast styles or translation of text. It's up to you as the library user
+to decide how to use it, at the extreme you can bypass the builtin rendition and
+use the library classes as plain objects.
+
+The default render transformer is paragon that produces HTML targetting the W3.CSS
+library from properties defined in component objects:
 
     $button = new Button("Download");
     $button->color = "red";
@@ -60,7 +84,7 @@ properties declared by i.e. element classes:
 You can override this by passing an transform class instance to the render()
 method and modify classes:
 
-    $transform = new TransformBootstrap();
+    $transform = new MaterialDesignTransform();
     $button->render($transform);
 
 Another option is to not using the component properties, but to use the collection 
