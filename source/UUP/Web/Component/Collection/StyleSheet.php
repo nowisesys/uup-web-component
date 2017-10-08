@@ -34,6 +34,7 @@ use UUP\Web\Component\Collection\StyleSheet\Counter;
 use UUP\Web\Component\Collection\StyleSheet\Emptys;
 use UUP\Web\Component\Collection\StyleSheet\Flex;
 use UUP\Web\Component\Collection\StyleSheet\Font;
+use UUP\Web\Component\Collection\StyleSheet\Hanging;
 
 /**
  * The stylesheet attribute collection.
@@ -51,6 +52,7 @@ use UUP\Web\Component\Collection\StyleSheet\Font;
  * @property-read Emptys $empty The empty style object.
  * @property-read Flex $flex The flex style object.
  * @property-read Font $font The font style object.
+ * @property-read Hanging $hanging The hanging style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
