@@ -16,18 +16,12 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Collection\Properties\Base;
+namespace UUP\Web\Component\Collection\StyleSheet\Base;
 
 use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\CollectionRepository;
-use UUP\Web\Component\Collection\Properties;
-use UUP\Web\Component\Collection\Properties\Card;
-use UUP\Web\Component\Collection\Properties\Color;
-use UUP\Web\Component\Collection\Properties\Container;
-use UUP\Web\Component\Collection\Properties\Display;
-use UUP\Web\Component\Collection\Properties\Effect;
-use UUP\Web\Component\Collection\Properties\Hover;
-use UUP\Web\Component\Collection\Properties\Padding;
+use UUP\Web\Component\Collection\StyleSheet;
+use UUP\Web\Component\Collection\StyleSheet\Background;
 
 /**
  * Properties collection repository.
@@ -40,14 +34,14 @@ class Repository extends CollectionRepository
 {
 
         /**
-         * The properties collection.
-         * @var Properties 
+         * The stylesheet collection.
+         * @var StyleSheet 
          */
         private $_props;
 
         /**
          * Constructor.
-         * @param Properties $props The properties collection.
+         * @param StyleSheet $props The stylesheet collection.
          */
         public function __construct($props)
         {
@@ -64,20 +58,8 @@ class Repository extends CollectionRepository
         protected function create($name)
         {
                 switch ($name) {
-                        case 'card':
-                                return new Card($this->_props);
-                        case 'color':
-                                return new Color($this->_props);
-                        case 'container':
-                                return new Container($this->_props);
-                        case 'display':
-                                return new Display($this->_props);
-                        case 'effect':
-                                return new Effect($this->_props);
-                        case 'hover':
-                                return new Hover($this->_props);
-                        case 'padding':
-                                return new Padding($this->_props);
+                        case 'background':
+                                return new Background($this->_props);
                         default:
                                 return false;
                 }

@@ -18,7 +18,8 @@
 
 namespace UUP\Web\Component\Collection\Properties\Effect;
 
-use UUP\Web\Component\Collection\Properties\Base\Prefixed;
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
+use UUP\Web\Component\Collection\Properties;
 
 /**
  * The grayscale properties.
@@ -30,7 +31,7 @@ use UUP\Web\Component\Collection\Properties\Base\Prefixed;
  * @package UUP
  * @subpackage Web Components
  */
-class Grayscale extends Prefixed
+class Grayscale extends PrefixedAttributeCollection
 {
 
         /**

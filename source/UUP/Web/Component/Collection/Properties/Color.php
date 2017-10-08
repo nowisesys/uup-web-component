@@ -18,8 +18,8 @@
 
 namespace UUP\Web\Component\Collection\Properties;
 
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\Properties;
-use UUP\Web\Component\Collection\Properties\Base\Prefixed;
 
 /**
  * The color properties.
@@ -32,7 +32,7 @@ use UUP\Web\Component\Collection\Properties\Base\Prefixed;
  * @package UUP
  * @subpackage Web Components
  */
-class Color extends Prefixed
+class Color extends PrefixedAttributeCollection
 {
 
         /**

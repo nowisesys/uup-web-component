@@ -18,8 +18,15 @@
 
 namespace UUP\Web\Component\Collection;
 
+use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
+use UUP\Web\Component\Collection\StyleSheet\Background;
+use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
+
 /**
  * The stylesheet attribute collection.
+ * 
+ * @property-read Background $background Background CSS style.
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
@@ -29,11 +36,64 @@ class StyleSheet extends Collection
 {
 
         /**
+         * Sub collection repository.
+         * @var Repository 
+         */
+        private $_virtual;
+
+        /**
          * Constructor.
          */
         public function __construct()
         {
                 parent::__construct(';', ':', '');
+                $this->_virtual = new Repository($this);
+        }
+
+        public function __get($key)
+        {
+                if (($cluster = $this->_virtual->get($key))) {
+                        return $cluster;
+                } else {
+                        return parent::get($key);
+                }
+        }
+
+        public function __set($key, $val)
+        {
+                if (!is_object($val)) {
+                        parent::set($key, $val);
+                }
+        }
+
+        /**
+         * Get value from sub collection.
+         * 
+         * Return style value if exist or false if missing.
+         * 
+         * @param string $key The sub collection name.
+         * @return mixed
+         */
+        public function property($key)
+        {
+                return parent::get($key);
+        }
+
+        /**
+         * Get named property collection.
+         * 
+         * Return sub collection if exist or false if missing. This differs from
+         * the magic get behavior that will create an empty collection for this key if 
+         * its missing.
+         * 
+         * @param string $key The sub collection name.
+         * @return ClusterAttributeCollection|PrefixedAttributeCollection
+         */
+        public function collection($key)
+        {
+                if ($this->_virtual->has($key)) {
+                        return $this->_virtual->get($key);
+                }
         }
 
 }

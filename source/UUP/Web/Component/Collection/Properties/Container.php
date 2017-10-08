@@ -18,7 +18,7 @@
 
 namespace UUP\Web\Component\Collection\Properties;
 
-use UUP\Web\Component\Collection\Properties\Base\Cluster;
+use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 
 /**
  * The container properties.
@@ -34,7 +34,7 @@ use UUP\Web\Component\Collection\Properties\Base\Cluster;
  * @package UUP
  * @subpackage Web Components
  */
-class Container extends Cluster
+class Container extends ClusterAttributeCollection
 {
         
 }

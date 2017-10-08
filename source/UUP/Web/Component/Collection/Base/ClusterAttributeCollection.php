@@ -16,30 +16,30 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Collection\Properties\Base;
+namespace UUP\Web\Component\Collection\Base;
 
 use DomainException;
-use UUP\Web\Component\Collection\Properties;
+use UUP\Web\Component\Collection\Collection;
 
 /**
- * Clustered properties collection.
+ * Clustered attribute collection.
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Cluster
+class ClusterAttributeCollection
 {
 
         /**
-         * The shadowed properties collection.
-         * @var Properties 
+         * The shadowed collection.
+         * @var Collection 
          */
         private $_props;
 
         /**
          * Constructor.
-         * @param Properties $props The shadowed properties collection.
+         * @param Collection $props The shadowed collection.
          */
         public function __construct($props)
         {

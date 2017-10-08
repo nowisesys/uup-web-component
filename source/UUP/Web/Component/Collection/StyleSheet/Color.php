@@ -16,29 +16,21 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Collection\Properties;
+namespace UUP\Web\Component\Collection\StyleSheet;
 
-use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
-use UUP\Web\Component\Collection\Properties\Effect\Grayscale;
-use UUP\Web\Component\Collection\Properties\Effect\Opacity;
-use UUP\Web\Component\Collection\Properties\Effect\Sepia;
+use UUP\Web\Component\Collection\StyleSheet\Base\VirtualCollection;
 
 /**
- * The effect properties.
+ * Color CSS style.
  * 
- * @property bool|string $opacity Adds opacity/transparency to an element or turn it off (true, min, max or off).
- * @property bool|string $grayscale Adds a grayscale effect to an element (true, min or max).
- * @property bool|string $sepia Adds a sepia effect to an element (true, min or max).
+ * @property string $color Sets the color of text. Applies to CSS1.
+ * @property string $opacity Sets the opacity level for an element. Applies to CSS3.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
- * 
- * @see Opacity
- * @see Grayscale
- * @see Sepia
  */
-class Effect extends ClusterAttributeCollection
+class Color extends VirtualCollection
 {
         
 }

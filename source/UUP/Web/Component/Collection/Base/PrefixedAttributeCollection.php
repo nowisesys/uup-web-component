@@ -16,19 +16,19 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Collection\Properties\Base;
+namespace UUP\Web\Component\Collection\Base;
 
 use DomainException;
-use UUP\Web\Component\Collection\Properties;
+use UUP\Web\Component\Collection\Collection;
 
 /**
- * Prefixed properties collection.
+ * Prefixed attribute collection.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Prefixed
+class PrefixedAttributeCollection
 {
 
         /**
@@ -38,14 +38,14 @@ class Prefixed
         private $_prefix;
         /**
          * The shadowed properties collection.
-         * @var Properties 
+         * @var Collection 
          */
         private $_props;
 
         /**
          * Constructor.
          * @param string $prefix The prefix string (i.e. color).
-         * @param Properties $props The shadowed properties collection.
+         * @param Collection $props The shadowed collection.
          */
         public function __construct($prefix, $props)
         {

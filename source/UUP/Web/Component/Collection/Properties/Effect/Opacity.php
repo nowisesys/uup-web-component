@@ -18,7 +18,8 @@
 
 namespace UUP\Web\Component\Collection\Properties\Effect;
 
-use UUP\Web\Component\Collection\Properties\Base\Prefixed;
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
+use UUP\Web\Component\Collection\Properties;
 
 /**
  * The opacity properties.
@@ -33,13 +34,13 @@ use UUP\Web\Component\Collection\Properties\Base\Prefixed;
  * @package UUP
  * @subpackage Web Components
  */
-class Opacity extends Prefixed
+class Opacity extends PrefixedAttributeCollection
 {
+
         /**
          * 0.6 opacity.
          */
         const ENABLE = true;
-
         /**
          * 1.0 opacity.
          */

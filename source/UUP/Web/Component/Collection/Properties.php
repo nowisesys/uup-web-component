@@ -18,8 +18,8 @@
 
 namespace UUP\Web\Component\Collection;
 
-use UUP\Web\Component\Collection\Properties\Base\Cluster;
-use UUP\Web\Component\Collection\Properties\Base\Prefixed;
+use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\Properties\Base\Repository;
 use UUP\Web\Component\Collection\Properties\Card;
 use UUP\Web\Component\Collection\Properties\Color;
@@ -68,7 +68,7 @@ class Properties extends Collection
 {
 
         /**
-         * Properties collection repository.
+         * Sub collection repository.
          * @var Repository 
          */
         private $_virtual;
@@ -99,11 +99,11 @@ class Properties extends Collection
         }
 
         /**
-         * Get value from property collection.
+         * Get value from sub collection.
          * 
-         * Return property value of exist or false if missing.
+         * Return property value if exist or false if missing.
          * 
-         * @param string $key The property name.
+         * @param string $key The sub collection name.
          * @return mixed
          */
         public function property($key)
@@ -112,14 +112,14 @@ class Properties extends Collection
         }
 
         /**
-         * Get named property collection.
+         * Get named sub collection.
          * 
          * Return property collection if exist or false if missing. This differs from
          * the magic get behavior that will create an empty collection for this key if 
          * its missing.
          * 
-         * @param string $key The property name.
-         * @return Cluster|Prefixed
+         * @param string $key The sub collection name.
+         * @return ClusterAttributeCollection|PrefixedAttributeCollection
          */
         public function collection($key)
         {

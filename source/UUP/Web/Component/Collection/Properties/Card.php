@@ -18,7 +18,8 @@
 
 namespace UUP\Web\Component\Collection\Properties;
 
-use UUP\Web\Component\Collection\Properties\Base\Prefixed;
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
+use UUP\Web\Component\Collection\Properties;
 
 /**
  * The card collection.
@@ -27,7 +28,7 @@ use UUP\Web\Component\Collection\Properties\Base\Prefixed;
  * @package UUP
  * @subpackage Web Components
  */
-class Card extends Prefixed
+class Card extends PrefixedAttributeCollection
 {
 
         /**

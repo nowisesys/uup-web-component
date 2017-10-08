@@ -18,7 +18,8 @@
 
 namespace UUP\Web\Component\Collection\Properties;
 
-use UUP\Web\Component\Collection\Properties\Base\Prefixed;
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
+use UUP\Web\Component\Collection\Properties;
 
 /**
  * The padding properties.
@@ -30,7 +31,7 @@ use UUP\Web\Component\Collection\Properties\Base\Prefixed;
  * @package UUP
  * @subpackage Web Components
  */
-class Padding extends Prefixed
+class Padding extends PrefixedAttributeCollection
 {
 
         /**

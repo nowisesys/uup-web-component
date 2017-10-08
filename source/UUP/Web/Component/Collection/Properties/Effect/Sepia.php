@@ -18,7 +18,8 @@
 
 namespace UUP\Web\Component\Collection\Properties\Effect;
 
-use UUP\Web\Component\Collection\Properties\Base\Prefixed;
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
+use UUP\Web\Component\Collection\Properties;
 
 /**
  * The sepia properties.
@@ -30,7 +31,7 @@ use UUP\Web\Component\Collection\Properties\Base\Prefixed;
  * @package UUP
  * @subpackage Web Components
  */
-class Sepia extends Prefixed
+class Sepia extends PrefixedAttributeCollection
 {
 
         /**

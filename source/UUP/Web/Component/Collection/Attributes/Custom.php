@@ -19,7 +19,7 @@
 namespace UUP\Web\Component\Collection\Attributes;
 
 use UUP\Web\Component\Collection\Attributes;
-use UUP\Web\Component\Collection\Properties\Base\Prefixed;
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 
 /**
  * Custom data attributes.
@@ -33,7 +33,7 @@ use UUP\Web\Component\Collection\Properties\Base\Prefixed;
  * 
  * @link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
  */
-class Custom extends Prefixed
+class Custom extends PrefixedAttributeCollection
 {
 
         /**

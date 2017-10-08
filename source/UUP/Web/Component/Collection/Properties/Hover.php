@@ -18,8 +18,8 @@
 
 namespace UUP\Web\Component\Collection\Properties;
 
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\Properties;
-use UUP\Web\Component\Collection\Properties\Base\Prefixed;
 
 /**
  * The hover properties.
@@ -32,7 +32,7 @@ use UUP\Web\Component\Collection\Properties\Base\Prefixed;
  * @package UUP
  * @subpackage Web Components
  */
-class Hover extends Prefixed
+class Hover extends PrefixedAttributeCollection
 {
 
         /**

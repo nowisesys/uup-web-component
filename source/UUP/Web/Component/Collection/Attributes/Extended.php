@@ -125,8 +125,10 @@ namespace UUP\Web\Component\Collection\Attributes;
  * @property string $wrap Specifies how the text in a text area is to be wrapped when submitted in a form. Applies to <textarea>.
  *
  * @author Anders Lövgren (QNET)
+ * @package UUP
+ * @subpackage Web Components
  */
-class Extended
+class Extended extends Virtual
 {
 
         //put your code here
