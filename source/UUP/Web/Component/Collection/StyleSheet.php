@@ -121,6 +121,9 @@ use UUP\Web\Component\Collection\StyleSheet\Hanging;
  *      <b>CSS Syntax</b>
  *      <br> font: &lt;font-style&gt; &lt;font-variant&gt; &lt;font-weight&gt; &lt;font-size&gt;/&lt;line-height&gt; &lt;font-family&gt;|caption|icon|menu|message-box|small-caption|status-bar|initial|inherit;
  * 
+ * @property string $height Sets the height of an element (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> height: auto|&lt;length&gt;|initial|inherit;
  * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> opacity: &lt;number&gt;|initial|inherit;
@@ -144,6 +147,7 @@ use UUP\Web\Component\Collection\StyleSheet\Hanging;
  * @link https://www.w3schools.com/cssref/css3_pr_flex.asp The flex property.
  * @link https://www.w3schools.com/cssref/pr_class_float.asp The float property.
  * @link https://www.w3schools.com/cssref/pr_font_font.asp The font property.
+ * @link https://www.w3schools.com/cssref/pr_dim_height.asp The height property.
  */
 class StyleSheet extends Collection
 {
