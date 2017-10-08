@@ -22,6 +22,7 @@ use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\StyleSheet\Align;
 use UUP\Web\Component\Collection\StyleSheet\Animation;
+use UUP\Web\Component\Collection\StyleSheet\Backface;
 use UUP\Web\Component\Collection\StyleSheet\Background;
 use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
 use UUP\Web\Component\Collection\StyleSheet\Border;
@@ -31,6 +32,7 @@ use UUP\Web\Component\Collection\StyleSheet\Border;
  * 
  * @property-read Align $align The align style object.
  * @property-read Animation $animation The animation style object.
+ * @property-read Backface $backface The backface style object.
  * @property-read Background $background The background style object.
  * @property-read Border $border The border style object.
  * 

@@ -20,9 +20,11 @@ namespace UUP\Web\Component\Collection\StyleSheet\Base;
 
 use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\CollectionRepository;
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\StyleSheet;
 use UUP\Web\Component\Collection\StyleSheet\Align;
 use UUP\Web\Component\Collection\StyleSheet\Animation;
+use UUP\Web\Component\Collection\StyleSheet\Backface;
 use UUP\Web\Component\Collection\StyleSheet\Background;
 use UUP\Web\Component\Collection\StyleSheet\Border;
 
@@ -56,7 +58,7 @@ class Repository extends CollectionRepository
          * Return sub collection object if handled by this class or false.
          * 
          * @param string $name The property collection name.
-         * @return boolean|ClusterAttributeCollection|Prefix
+         * @return boolean|ClusterAttributeCollection|PrefixedAttributeCollection
          */
         protected function create($name)
         {
@@ -65,6 +67,8 @@ class Repository extends CollectionRepository
                                 return new Align($this->_props);
                         case 'animation':
                                 return new Animation($this->_props);
+                        case 'backface':
+                                return new Backface($this->_props);
                         case 'background':
                                 return new Background($this->_props);
                         case 'border':
