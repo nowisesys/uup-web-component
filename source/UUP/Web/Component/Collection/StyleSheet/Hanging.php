@@ -32,6 +32,8 @@ use UUP\Web\Component\Collection\StyleSheet;
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
+ * 
+ * @link https://www.w3schools.com/cssref/css3_pr_hanging-punctuation.asp The hanging-punctuation property.
  */
 class Hanging extends PrefixedAttributeCollection
 {
