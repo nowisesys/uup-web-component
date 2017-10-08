@@ -1,7 +1,7 @@
 <?php
 
 use UUP\Web\Component\Collection\Properties\Card;
-use UUP\Web\Component\Element\Panel;
+use UUP\Web\Component\Widget\Panel;
 
 echo "<h3>Cards (Shadow)</h3>\n";
 

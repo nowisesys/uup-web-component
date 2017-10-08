@@ -1,6 +1,6 @@
 <?php
 
-use UUP\Web\Component\Element\Panel;
+use UUP\Web\Component\Widget\Panel;
 
 echo "<h2>Color properties</h2>\n";
 

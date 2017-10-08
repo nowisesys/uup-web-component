@@ -1,7 +1,7 @@
 <?php
 
 use UUP\Web\Component\Collection\Properties\Padding;
-use UUP\Web\Component\Element\Panel;
+use UUP\Web\Component\Widget\Panel;
 
 echo "<h2>Padding</h2>\n";
 
