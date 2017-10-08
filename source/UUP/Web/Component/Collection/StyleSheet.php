@@ -39,6 +39,7 @@ use UUP\Web\Component\Collection\StyleSheet\Justify;
 use UUP\Web\Component\Collection\StyleSheet\Letter;
 use UUP\Web\Component\Collection\StyleSheet\Line;
 use UUP\Web\Component\Collection\StyleSheet\Lists;
+use UUP\Web\Component\Collection\StyleSheet\Margin;
 
 /**
  * The stylesheet attribute collection.
@@ -61,6 +62,7 @@ use UUP\Web\Component\Collection\StyleSheet\Lists;
  * @property-read Letter $letter The letter style object.
  * @property-read Line $line The line style object.
  * @property-read Lists $list The list style object.
+ * @property-read Margin $margin The margin style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
@@ -137,6 +139,10 @@ use UUP\Web\Component\Collection\StyleSheet\Lists;
  *      <b>CSS Syntax</b>
  *      <br> left: auto|&lt;length&gt;|initial|inherit;
  * 
+ * @property string $margin Sets all the margin properties in one declaration (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> margin: &lt;length&gt;|auto|initial|inherit;
+ * 
  * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> opacity: &lt;number&gt;|initial|inherit;
@@ -161,6 +167,8 @@ use UUP\Web\Component\Collection\StyleSheet\Lists;
  * @link https://www.w3schools.com/cssref/pr_class_float.asp The float property.
  * @link https://www.w3schools.com/cssref/pr_font_font.asp The font property.
  * @link https://www.w3schools.com/cssref/pr_dim_height.asp The height property.
+ * @link https://www.w3schools.com/cssref/pr_pos_left.asp The left property.
+ * @link https://www.w3schools.com/cssref/pr_margin.asp The margin property.
  */
 class StyleSheet extends Collection
 {

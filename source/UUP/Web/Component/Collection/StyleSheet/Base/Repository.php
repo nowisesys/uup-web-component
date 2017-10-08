@@ -40,6 +40,7 @@ use UUP\Web\Component\Collection\StyleSheet\Justify;
 use UUP\Web\Component\Collection\StyleSheet\Letter;
 use UUP\Web\Component\Collection\StyleSheet\Line;
 use UUP\Web\Component\Collection\StyleSheet\Lists;
+use UUP\Web\Component\Collection\StyleSheet\Margin;
 
 /**
  * Properties collection repository.
@@ -112,6 +113,8 @@ class Repository extends CollectionRepository
                                 return new Line($this->_props);
                         case 'list':
                                 return new Lists($this->_props);                                
+                        case 'margin':
+                                return new Margin($this->_props);                                
                         default:
                                 return false;
                 }
