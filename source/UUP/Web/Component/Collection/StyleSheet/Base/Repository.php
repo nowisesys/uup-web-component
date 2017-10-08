@@ -34,6 +34,7 @@ use UUP\Web\Component\Collection\StyleSheet\Column;
 use UUP\Web\Component\Collection\StyleSheet\Counter;
 use UUP\Web\Component\Collection\StyleSheet\Emptys;
 use UUP\Web\Component\Collection\StyleSheet\Flex;
+use UUP\Web\Component\Collection\StyleSheet\Font;
 
 /**
  * Properties collection repository.
@@ -94,6 +95,8 @@ class Repository extends CollectionRepository
                                 return new Emptys($this->_props);
                         case 'flex':
                                 return new Flex($this->_props);
+                        case 'font':
+                                return new Font($this->_props);
                         default:
                                 return false;
                 }

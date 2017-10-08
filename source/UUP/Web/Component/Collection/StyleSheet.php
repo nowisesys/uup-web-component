@@ -33,6 +33,7 @@ use UUP\Web\Component\Collection\StyleSheet\Column;
 use UUP\Web\Component\Collection\StyleSheet\Counter;
 use UUP\Web\Component\Collection\StyleSheet\Emptys;
 use UUP\Web\Component\Collection\StyleSheet\Flex;
+use UUP\Web\Component\Collection\StyleSheet\Font;
 
 /**
  * The stylesheet attribute collection.
@@ -49,6 +50,7 @@ use UUP\Web\Component\Collection\StyleSheet\Flex;
  * @property-read Counter $counter The counter style object.
  * @property-read Emptys $empty The empty style object.
  * @property-read Flex $flex The flex style object.
+ * @property-read Font $font The font style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
@@ -113,6 +115,10 @@ use UUP\Web\Component\Collection\StyleSheet\Flex;
  *      <b>CSS Syntax</b>
  *      <br> float: none|left|right|initial|inherit;
  * 
+ * @property string $font Sets all the font properties in one declaration (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> font: &lt;font-style&gt; &lt;font-variant&gt; &lt;font-weight&gt; &lt;font-size&gt;/&lt;line-height&gt; &lt;font-family&gt;|caption|icon|menu|message-box|small-caption|status-bar|initial|inherit;
+ * 
  * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> opacity: &lt;number&gt;|initial|inherit;
@@ -135,6 +141,7 @@ use UUP\Web\Component\Collection\StyleSheet\Flex;
  * @link https://www.w3schools.com/cssref/css3_pr_filter.asp The filter property.
  * @link https://www.w3schools.com/cssref/css3_pr_flex.asp The flex property.
  * @link https://www.w3schools.com/cssref/pr_class_float.asp The float property.
+ * @link https://www.w3schools.com/cssref/pr_font_font.asp The font property.
  */
 class StyleSheet extends Collection
 {
