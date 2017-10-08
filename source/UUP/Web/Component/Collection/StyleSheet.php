@@ -126,6 +126,11 @@ use UUP\Web\Component\Collection\StyleSheet\Justify;
  * @property string $height Sets the height of an element (since CSS1).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> height: auto|&lt;length&gt;|initial|inherit;
+ * 
+ * @property string $left Specifies the left position of a positioned element (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> left: auto|&lt;length&gt;|initial|inherit;
+ * 
  * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> opacity: &lt;number&gt;|initial|inherit;
