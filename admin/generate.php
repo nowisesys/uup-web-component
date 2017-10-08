@@ -19,6 +19,11 @@
 class Generate
 {
 
+        /**
+         * 
+         */
+        const TEST = 1;
+
         private $_curr = "";
         private $_seen;
 
@@ -77,15 +82,57 @@ class Generate
 
         private function output($data)
         {
-                foreach ($data as $name => $data) {
-                        if ($data['appl']) {
-                                printf("* @property string \$%s %s. Applies to %s.\n", $name, $data['desc'], rtrim($data['appl'], '.'));
-                        } elseif ($data['note']) {
-                                printf("* @property string \$%s %s (Notice: %s).\n", $name, $data['desc'], rtrim($data['note'], '.'));
-                        } else {
-                                printf("* @property string \$%s %s.\n", $name, $data['desc']);
-                        }
+                if (count($data) == 0) {
+                        $this->properties($data);
+                        $this->constants($data);
                 }
+        }
+
+        private function properties($data)
+        {
+                echo "=====================\n";
+                echo " Properties:\n";
+                echo "=====================\n";
+                foreach ($data as $name => $data) {
+                        $this->property($name, $data);
+                }
+        }
+
+        private function constants($data)
+        {
+                echo "=====================\n";
+                echo " Constants:\n";
+                echo "=====================\n";
+                foreach ($data as $name => $data) {
+                        $this->constant($name, $data);
+                }
+        }
+
+        private function property($name, $data)
+        {
+                if ($data['appl']) {
+                        printf("* @property string \$%s %s. Applies to %s.\n", $name, $data['desc'], rtrim($data['appl'], '.'));
+                } elseif ($data['note']) {
+                        printf("* @property string \$%s %s (Notice: %s).\n", $name, $data['desc'], rtrim($data['note'], '.'));
+                } else {
+                        printf("* @property string \$%s %s.\n", $name, $data['desc']);
+                }
+        }
+
+        private function constant($name, $data)
+        {
+                $disp = strtoupper(str_replace('-', '_', $name));
+
+                printf("/**\n");
+                if ($data['appl']) {
+                        printf(" * %s. Applies to %s.\n", $data['desc'], rtrim($data['appl'], '.'));
+                } elseif ($data['note']) {
+                        printf(" * %s (Notice: %s).\n", $data['desc'], rtrim($data['note'], '.'));
+                } else {
+                        printf(" * %s.\n", $data['desc']);
+                }
+                printf(" */\n");
+                printf("const %s = '%s';\n\n", $disp, $name);
         }
 
         private function remap(&$part, $colmap)
