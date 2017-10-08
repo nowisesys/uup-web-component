@@ -41,6 +41,8 @@ use UUP\Web\Component\Collection\StyleSheet\Letter;
 use UUP\Web\Component\Collection\StyleSheet\Line;
 use UUP\Web\Component\Collection\StyleSheet\Lists;
 use UUP\Web\Component\Collection\StyleSheet\Margin;
+use UUP\Web\Component\Collection\StyleSheet\Max;
+use UUP\Web\Component\Collection\StyleSheet\Min;
 
 /**
  * Properties collection repository.
@@ -115,6 +117,10 @@ class Repository extends CollectionRepository
                                 return new Lists($this->_props);                                
                         case 'margin':
                                 return new Margin($this->_props);                                
+                        case 'max':
+                                return new Max($this->_props);                                
+                        case 'min':
+                                return new Min($this->_props);                                
                         default:
                                 return false;
                 }
