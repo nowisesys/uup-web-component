@@ -74,11 +74,33 @@ class ClusterAttributeCollection
          */
         public function set($name, $value)
         {
-                if (!is_string($value) && !is_bool($value) && !is_null($value)) {
+                if ($this->acceptable($value) == false) {
                         throw new DomainException("Unexpected property value");
                 }
 
                 $this->_props->set($name, $value);
+        }
+
+        /**
+         * Check if value is acceptable.
+         * @param mixed $value The value to check.
+         * @return boolean
+         */
+        private function acceptable($value)
+        {
+                if (is_object($value)) {
+                        return false;
+                } elseif (is_string($value)) {
+                        return true;
+                } elseif (is_bool($value)) {
+                        return true;
+                } elseif (is_numeric($value)) {
+                        return true;
+                } elseif (is_null($value)) {
+                        return true;
+                } else {
+                        return false;
+                }
         }
 
 }
