@@ -21,6 +21,7 @@ namespace UUP\Web\Component\Collection;
 use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\StyleSheet\Align;
+use UUP\Web\Component\Collection\StyleSheet\Animation;
 use UUP\Web\Component\Collection\StyleSheet\Background;
 use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
 use UUP\Web\Component\Collection\StyleSheet\Border;
@@ -29,8 +30,14 @@ use UUP\Web\Component\Collection\StyleSheet\Border;
  * The stylesheet attribute collection.
  * 
  * @property-read Align $align The align style object.
+ * @property-read Animation $animation The animation style object.
  * @property-read Background $background The background style object.
  * @property-read Border $border The border style object.
+ * 
+ * @property string $animation A shorthand property for all the animation properties (except 
+ *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;delay&gt; &lt;iteration-count&gt; &lt;direction&gt; &lt;fill-mode&gt; &lt;play-state&gt;;
  * 
  * @property string $background A shorthand property for setting all the background properties 
  *      in one declaration (since CSS1).<br><br>
@@ -54,6 +61,7 @@ use UUP\Web\Component\Collection\StyleSheet\Border;
  * @package UUP
  * @subpackage Web Components
  * 
+ * @link https://www.w3schools.com/cssref/css3_pr_animation.asp The animation property.
  * @link https://www.w3schools.com/cssref/pr_border.asp The border property.
  * @link https://www.w3schools.com/cssref/css3_pr_background.asp The background property.
  */

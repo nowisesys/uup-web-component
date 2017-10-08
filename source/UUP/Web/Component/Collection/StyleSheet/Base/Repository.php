@@ -21,6 +21,8 @@ namespace UUP\Web\Component\Collection\StyleSheet\Base;
 use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\CollectionRepository;
 use UUP\Web\Component\Collection\StyleSheet;
+use UUP\Web\Component\Collection\StyleSheet\Align;
+use UUP\Web\Component\Collection\StyleSheet\Animation;
 use UUP\Web\Component\Collection\StyleSheet\Background;
 use UUP\Web\Component\Collection\StyleSheet\Border;
 
@@ -59,6 +61,10 @@ class Repository extends CollectionRepository
         protected function create($name)
         {
                 switch ($name) {
+                        case 'align':
+                                return new Align($this->_props);
+                        case 'animation':
+                                return new Animation($this->_props);
                         case 'background':
                                 return new Background($this->_props);
                         case 'border':
