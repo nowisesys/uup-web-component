@@ -19,38 +19,34 @@
 namespace UUP\Web\Component\Style;
 
 /**
- * Alignment style.
+ * Transitions Properties (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Alignment
+class Transition
 {
 
         /**
-         * The text-align CSS style.
+         * A shorthand property for setting the four transition properties. Applies to CSS3.
          */
-        const TEXT_ALIGN = 'text-align';
+        const ALL = 'transition';
         /**
-         * The text-indent CSS style.
+         * Specifies the name of the CSS property the transition effect is for. Applies to CSS3.
          */
-        const TEXT_INDENT = 'text-indent';
+        const PROPERTY = 'transition-property';
         /**
-         * The word-spacing CSS style.
+         * Specifies how many seconds or milliseconds a transition effect takes to complete. Applies to CSS3.
          */
-        const WORD_SPACING = 'word-spacing';
+        const DURATION = 'transition-duration';
         /**
-         * The letter-spacing CSS style.
+         * Specifies the speed curve of the transition effect. Applies to CSS3.
          */
-        const LETTER_SPACING = 'letter-spacing';
+        const TIMING_FUNCTION = 'transition-timing-function';
         /**
-         * The line-height CSS style.
+         * Specifies when the transition effect will start. Applies to CSS3.
          */
-        const LINE_HEIGHT = 'line-height';
-        /**
-         * The white-space CSS style.
-         */
-        const WHITE_SPACE = 'white-space';
+        const DELAY = 'transition-delay';
 
 }

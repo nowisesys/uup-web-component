@@ -16,45 +16,25 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Style;
+namespace UUP\Web\Component\Style\Speech;
 
 /**
- * Layout CSS style (convenience class).
+ * Convenience class for speech rest (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Rest
 {
 
         /**
-         * The position CSS style.
+         * Specifies a rest or prosodic boundary to be observed after speaking an element's content. Applies to CSS3.
          */
-        const POSITION = 'position';
+        const AFTER = 'rest-after';
         /**
-         * The left CSS style.
+         * Specifies a rest or prosodic boundary to be observed before speaking an element's content. Applies to CSS3.
          */
-        const LEFT = 'left';
-        /**
-         * The right CSS style.
-         */
-        const RIGHT = 'right';
-        /**
-         * The top CSS style.
-         */
-        const TOP = 'top';
-        /**
-         * The bottom CSS style.
-         */
-        const BOTTOM = 'bottom';
-        /**
-         * The float CSS style.
-         */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const BEFORE = 'rest-before';
 
 }

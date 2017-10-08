@@ -16,45 +16,36 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Style;
+namespace UUP\Web\Component\Style\Border;
 
 /**
- * Layout CSS style (convenience class).
+ * Convenience class for border image (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Image
 {
-
         /**
-         * The position CSS style.
+         * Specifies the amount by which the border image area extends beyond the border box. Applies to CSS3.
          */
-        const POSITION = 'position';
+        const OUTSET = 'border-image-outset';
         /**
-         * The left CSS style.
+         * Specifies whether the border image should be repeated, rounded or stretched. Applies to CSS3.
          */
-        const LEFT = 'left';
+        const REPEAT = 'border-image-repeat';
         /**
-         * The right CSS style.
+         * Specifies how to slice the border image. Applies to CSS3.
          */
-        const RIGHT = 'right';
+        const SLICE = 'border-image-slice';
         /**
-         * The top CSS style.
+         * Specifies the path to the image to be used as a border. Applies to CSS3.
          */
-        const TOP = 'top';
+        const SOURCE = 'border-image-source';
         /**
-         * The bottom CSS style.
+         * Specifies the widths of the image-border. Applies to CSS3.
          */
-        const BOTTOM = 'bottom';
-        /**
-         * The float CSS style.
-         */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const WIDTH = 'border-image-width';
 
 }

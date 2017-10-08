@@ -19,26 +19,34 @@
 namespace UUP\Web\Component\Style;
 
 /**
- * Graphic style.
+ * Table Properties (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Graphic
+class Table
 {
 
         /**
-         * The background-image CSS style.
+         * Specifies whether or not table borders should be collapsed. Applies to CSS2.
          */
-        const BACKGROUND_IMAGE = 'background-image';
+        const BORDER_COLLAPSE = 'border-collapse';
         /**
-         * The background-repeat CSS style.
+         * Specifies the distance between the borders of adjacent cells. Applies to CSS2.
          */
-        const BACKGROUND_REPEAT = 'background-repeat';
+        const BORDER_SPACING = 'border-spacing';
         /**
-         * The background-position CSS style.
+         * Specifies the placement of a table caption. Applies to CSS2.
          */
-        const BACKGROUND_POSITION = 'background-position';
+        const CAPTION_SIDE = 'caption-side';
+        /**
+         * Specifies whether or not to display borders and background on empty cells in a table. Applies to CSS2.
+         */
+        const EMPTY_CELLS = 'empty-cells';
+        /**
+         * Sets the layout algorithm to be used for a table. Applies to CSS2.
+         */
+        const LAYOUT = 'table-layout';
 
 }

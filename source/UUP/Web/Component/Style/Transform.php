@@ -19,42 +19,38 @@
 namespace UUP\Web\Component\Style;
 
 /**
- * Layout CSS style (convenience class).
+ * Transform Properties (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Transform
 {
 
         /**
-         * The position CSS style.
+         * Defines whether or not an element should be visible when not facing the screen. Applies to CSS3.
          */
-        const POSITION = 'position';
+        const BACKFACE_VISIBILITY = 'backface-visibility';
         /**
-         * The left CSS style.
+         * Specifies the perspective on how CSS3D elements are viewed. Applies to CSS3.
          */
-        const LEFT = 'left';
+        const PERSPECTIVE = 'perspective';
         /**
-         * The right CSS style.
+         * Specifies the bottom position of CSS3D elements. Applies to CSS3.
          */
-        const RIGHT = 'right';
+        const PERSPECTIVE_ORIGIN = 'perspective-origin';
         /**
-         * The top CSS style.
+         * Applies a CSS2D or CSS3D transformation to an element. Applies to CSS3.
          */
-        const TOP = 'top';
+        const APPLY = 'transform';
         /**
-         * The bottom CSS style.
+         * Allows you to change the position on transformed elements. Applies to CSS3.
          */
-        const BOTTOM = 'bottom';
+        const ORIGIN = 'transform-origin';
         /**
-         * The float CSS style.
+         * Specifies how nested elements are rendered in CSS3D space. Applies to CSS3.
          */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const STYLE = 'transform-style';
 
 }

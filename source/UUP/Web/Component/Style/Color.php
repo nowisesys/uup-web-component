@@ -19,7 +19,7 @@
 namespace UUP\Web\Component\Style;
 
 /**
- * Color style.
+ * Color Properties (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
@@ -29,12 +29,12 @@ class Color
 {
 
         /**
-         * The foreground color CSS style.
+         * Sets the color of text. Applies to CSS1.
          */
-        const FOREGROUND = 'color';
+        const ALL = 'color';
         /**
-         * The background color CSS style.
+         * Sets the opacity level for an element. Applies to CSS3.
          */
-        const BACKGROUND = 'background-color';
+        const OPACITY = 'opacity';
 
 }

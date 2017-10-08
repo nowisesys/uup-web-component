@@ -19,42 +19,38 @@
 namespace UUP\Web\Component\Style;
 
 /**
- * Layout CSS style (convenience class).
+ * Lists and Counters Properties (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Listing
 {
 
         /**
-         * The position CSS style.
+         * Increments one or more counters. Applies to CSS2.
          */
-        const POSITION = 'position';
+        const COUNTER_INCREMENT = 'counter-increment';
         /**
-         * The left CSS style.
+         * Creates or resets one or more counters. Applies to CSS2.
          */
-        const LEFT = 'left';
+        const COUNTER_RESET = 'counter-reset';
         /**
-         * The right CSS style.
+         * Sets all the properties for a list in one declaration. Applies to CSS1.
          */
-        const RIGHT = 'right';
+        const STYLE = 'list-style';
         /**
-         * The top CSS style.
+         * Specifies an image as the list-item marker. Applies to CSS1.
          */
-        const TOP = 'top';
+        const STYLE_IMAGE = 'list-style-image';
         /**
-         * The bottom CSS style.
+         * Specifies if the list-item markers should appear inside or outside the content flow. Applies to CSS1.
          */
-        const BOTTOM = 'bottom';
+        const STYLE_POSITION = 'list-style-position';
         /**
-         * The float CSS style.
+         * Specifies the type of list-item marker. Applies to CSS1.
          */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const STYLE_TYPE = 'list-style-type';
 
 }

@@ -16,25 +16,37 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Style;
+namespace UUP\Web\Component\Style\Border;
 
 /**
- * Size style.
+ * Convenience class for border top (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Size
+class Top
 {
 
         /**
-         * The widht CSS style.
+         * Sets the color of the top border. Applies to CSS1.
          */
-        const WIDHT = 'width';
+        const COLOR = 'border-top-color';
         /**
-         * The height CSS style.
+         * Defines the shape of the border of the top-left corner. Applies to CSS3.
          */
-        const HEIGHT = 'height';
+        const LEFT_RADIUS = 'border-top-left-radius';
+        /**
+         * Defines the shape of the border of the top-right corner. Applies to CSS3.
+         */
+        const RIGHT_RADIUS = 'border-top-right-radius';
+        /**
+         * Sets the style of the top border. Applies to CSS1.
+         */
+        const STYLE = 'border-top-style';
+        /**
+         * Sets the width of the top border. Applies to CSS1.
+         */
+        const WIDTH = 'border-top-width';
 
 }

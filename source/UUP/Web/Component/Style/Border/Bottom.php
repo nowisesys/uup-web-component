@@ -16,45 +16,37 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Style;
+namespace UUP\Web\Component\Style\Border;
 
 /**
- * Layout CSS style (convenience class).
+ * Convenience class for border bottom (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Bottom
 {
 
         /**
-         * The position CSS style.
+         * Sets the color of the bottom border. Applies to CSS1.
          */
-        const POSITION = 'position';
+        const COLOR = 'border-bottom-color';
         /**
-         * The left CSS style.
+         * Defines the shape of the border of the bottom-left corner. Applies to CSS3.
          */
-        const LEFT = 'left';
+        const LEFT_RADIUS = 'border-bottom-left-radius';
         /**
-         * The right CSS style.
+         * Defines the shape of the border of the bottom-right corner. Applies to CSS3.
          */
-        const RIGHT = 'right';
+        const RIGHT_RADIUS = 'border-bottom-right-radius';
         /**
-         * The top CSS style.
+         * Sets the style of the bottom border. Applies to CSS1.
          */
-        const TOP = 'top';
+        const STYLE = 'border-bottom-style';
         /**
-         * The bottom CSS style.
+         * Sets the width of the bottom border. Applies to CSS1.
          */
-        const BOTTOM = 'bottom';
-        /**
-         * The float CSS style.
-         */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const WIDTH = 'border-bottom-width';
 
 }

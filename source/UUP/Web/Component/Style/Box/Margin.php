@@ -16,45 +16,37 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Style;
+namespace UUP\Web\Component\Style\Box;
 
 /**
- * Layout CSS style (convenience class).
+ * Convenience class for box margin (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Margin
 {
 
         /**
-         * The position CSS style.
+         * Sets all the margin properties in one declaration. Applies to CSS1.
          */
-        const POSITION = 'position';
+        const ALL = 'margin';
         /**
-         * The left CSS style.
+         * Sets the bottom margin of an element. Applies to CSS1.
          */
-        const LEFT = 'left';
+        const BOTTOM = 'margin-bottom';
         /**
-         * The right CSS style.
+         * Sets the left margin of an element. Applies to CSS1.
          */
-        const RIGHT = 'right';
+        const LEFT = 'margin-left';
         /**
-         * The top CSS style.
+         * Sets the right margin of an element. Applies to CSS1.
          */
-        const TOP = 'top';
+        const RIGHT = 'margin-right';
         /**
-         * The bottom CSS style.
+         * Sets the top margin of an element. Applies to CSS1.
          */
-        const BOTTOM = 'bottom';
-        /**
-         * The float CSS style.
-         */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const TOP = 'margin-top';
 
 }

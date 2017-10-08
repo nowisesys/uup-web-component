@@ -16,45 +16,33 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Style;
+namespace UUP\Web\Component\Style\Box;
 
 /**
- * Layout CSS style (convenience class).
+ * Convenience class for box outline (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Outline
 {
 
         /**
-         * The position CSS style.
+         * Sets the color of an outline. Applies to CSS2.
          */
-        const POSITION = 'position';
+        const COLOR = 'outline-color';
         /**
-         * The left CSS style.
+         * Offsets an outline, and draws it beyond the border edge. Applies to CSS3.
          */
-        const LEFT = 'left';
+        const OFFSET = 'outline-offset';
         /**
-         * The right CSS style.
+         * Sets the style of an outline. Applies to CSS2.
          */
-        const RIGHT = 'right';
+        const STYLE = 'outline-style';
         /**
-         * The top CSS style.
+         * Sets the width of an outline. Applies to CSS2.
          */
-        const TOP = 'top';
-        /**
-         * The bottom CSS style.
-         */
-        const BOTTOM = 'bottom';
-        /**
-         * The float CSS style.
-         */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const WIDTH = 'outline-width';
 
 }

@@ -19,42 +19,38 @@
 namespace UUP\Web\Component\Style;
 
 /**
- * Layout CSS style (convenience class).
+ * Writing Modes Properties (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Writing
 {
 
         /**
-         * The position CSS style.
+         * Specifies the text direction/writing direction. Applies to CSS2.
          */
-        const POSITION = 'position';
+        const DIRECTION = 'direction';
         /**
-         * The left CSS style.
+         * Defines the orientation of the text in a line. Applies to CSS3.
          */
-        const LEFT = 'left';
+        const TEXT_ORIENTATION = 'text-orientation';
         /**
-         * The right CSS style.
+         * Specifies the combination of multiple characters into the space of a single character. Applies to CSS3.
          */
-        const RIGHT = 'right';
+        const TEXT_COMBINE_UPRIGHT = 'text-combine-upright';
         /**
-         * The top CSS style.
+         * Used together with the direction property to set or return whether the text should be overridden to support multiple languages in the same document. Applies to CSS2.
          */
-        const TOP = 'top';
+        const UNICODE_BIDI = 'unicode-bidi';
         /**
-         * The bottom CSS style.
+         * Specifies whether the text of an element can be selected. Applies to CSS3.
          */
-        const BOTTOM = 'bottom';
+        const USER_SELECT = 'user-select';
         /**
-         * The float CSS style.
+         * . Applies to CSS3.
          */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const WRITING_MODE = 'writing-mode';
 
 }

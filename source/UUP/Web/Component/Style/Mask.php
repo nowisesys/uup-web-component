@@ -19,42 +19,22 @@
 namespace UUP\Web\Component\Style;
 
 /**
- * Layout CSS style (convenience class).
+ * Masking Properties (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Mask
 {
 
         /**
-         * The position CSS style.
+         * . Applies to CSS3.
          */
-        const POSITION = 'position';
+        const ALL = 'mask';
         /**
-         * The left CSS style.
+         * . Applies to CSS3.
          */
-        const LEFT = 'left';
-        /**
-         * The right CSS style.
-         */
-        const RIGHT = 'right';
-        /**
-         * The top CSS style.
-         */
-        const TOP = 'top';
-        /**
-         * The bottom CSS style.
-         */
-        const BOTTOM = 'bottom';
-        /**
-         * The float CSS style.
-         */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const TYPE = 'mask-type';
 
 }

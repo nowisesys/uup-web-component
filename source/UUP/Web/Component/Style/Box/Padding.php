@@ -16,45 +16,37 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Style;
+namespace UUP\Web\Component\Style\Box;
 
 /**
- * Layout CSS style (convenience class).
+ * Convenience class for box padding (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Padding
 {
 
         /**
-         * The position CSS style.
+         * Sets all the padding properties in one declaration. Applies to CSS1.
          */
-        const POSITION = 'position';
+        const ALL = 'padding';
         /**
-         * The left CSS style.
+         * Sets the bottom padding of an element. Applies to CSS1.
          */
-        const LEFT = 'left';
+        const BOTTOM = 'padding-bottom';
         /**
-         * The right CSS style.
+         * Sets the left padding of an element. Applies to CSS1.
          */
-        const RIGHT = 'right';
+        const LEFT = 'padding-left';
         /**
-         * The top CSS style.
+         * Sets the right padding of an element. Applies to CSS1.
          */
-        const TOP = 'top';
+        const RIGHT = 'padding-right';
         /**
-         * The bottom CSS style.
+         * Sets the top padding of an element. Applies to CSS1.
          */
-        const BOTTOM = 'bottom';
-        /**
-         * The float CSS style.
-         */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const TOP = 'padding-top';
 
 }

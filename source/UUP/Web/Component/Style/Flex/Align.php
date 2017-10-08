@@ -16,45 +16,28 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Style;
+namespace UUP\Web\Component\Style\Flex;
 
 /**
- * Layout CSS style (convenience class).
+ * Convenience class for flex align (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Align
 {
 
         /**
-         * The position CSS style.
+         * Specifies the alignment between the lines inside a flexible container when the items do not use all available space. Applies to CSS3.
          */
-        const POSITION = 'position';
+        const CONTENT = 'align-content';
         /**
-         * The left CSS style.
+         * Specifies the alignment for items inside a flexible container. Applies to CSS3.
          */
-        const LEFT = 'left';
+        const ITEMS = 'align-items';
         /**
-         * The right CSS style.
+         * Specifies the alignment for selected items inside a flexible container. Applies to CSS3.
          */
-        const RIGHT = 'right';
-        /**
-         * The top CSS style.
-         */
-        const TOP = 'top';
-        /**
-         * The bottom CSS style.
-         */
-        const BOTTOM = 'bottom';
-        /**
-         * The float CSS style.
-         */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
-
+        const SELF = 'align-self';
 }

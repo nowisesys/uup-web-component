@@ -16,45 +16,37 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Style;
+namespace UUP\Web\Component\Style\Border;
 
 /**
- * Layout CSS style (convenience class).
+ * Convenience class for border right (CSS).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Layout
+class Right
 {
 
         /**
-         * The position CSS style.
+         * Sets the color of the right border. Applies to CSS1.
          */
-        const POSITION = 'position';
+        const COLOR = 'border-right-color';
         /**
-         * The left CSS style.
+         * Sets the style of the right border. Applies to CSS1.
          */
-        const LEFT = 'left';
+        const STYLE = 'border-right-style';
         /**
-         * The right CSS style.
+         * Sets the width of the right border. Applies to CSS1.
          */
-        const RIGHT = 'right';
+        const WIDTH = 'border-right-width';
         /**
-         * The top CSS style.
+         * Defines the shape of the border of the top-right corner. Applies to CSS3.
          */
-        const TOP = 'top';
+        const RADIUS_TOP = 'border-top-right-radius';
         /**
-         * The bottom CSS style.
+         * Defines the shape of the border of the bottom-right corner. Applies to CSS3.
          */
-        const BOTTOM = 'bottom';
-        /**
-         * The float CSS style.
-         */
-        const FLOAT = 'float';
-        /**
-         * The clear CSS style.
-         */
-        const CLEAR = 'clear';
+        const RADIUS_BOTTOM = 'border-bottom-right-radius';
 
 }
