@@ -91,6 +91,11 @@ use UUP\Web\Component\Collection\StyleSheet\Counter;
  *      <b>CSS Syntax</b>
  *      <br> direction: ltr|rtl|initial|inherit;
  *  
+ * @property string $display Specifies how a certain HTML element should be displayed 
+ *      (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> display: block|inline|inline-block|flex|none|&lt;value&gt;;
+ * 
  * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> opacity: &lt;number&gt;|initial|inherit;
