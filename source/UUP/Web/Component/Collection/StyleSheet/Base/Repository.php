@@ -31,6 +31,7 @@ use UUP\Web\Component\Collection\StyleSheet\Box;
 use UUP\Web\Component\Collection\StyleSheet\Caption;
 use UUP\Web\Component\Collection\StyleSheet\Caret;
 use UUP\Web\Component\Collection\StyleSheet\Column;
+use UUP\Web\Component\Collection\StyleSheet\Counter;
 
 /**
  * Properties collection repository.
@@ -85,6 +86,8 @@ class Repository extends CollectionRepository
                                 return new Caret($this->_props);
                         case 'column':
                                 return new Column($this->_props);
+                        case 'counter':
+                                return new Counter($this->_props);
                         default:
                                 return false;
                 }
