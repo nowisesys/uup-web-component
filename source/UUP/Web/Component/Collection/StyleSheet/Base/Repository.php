@@ -30,6 +30,7 @@ use UUP\Web\Component\Collection\StyleSheet\Border;
 use UUP\Web\Component\Collection\StyleSheet\Box;
 use UUP\Web\Component\Collection\StyleSheet\Caption;
 use UUP\Web\Component\Collection\StyleSheet\Caret;
+use UUP\Web\Component\Collection\StyleSheet\Column;
 
 /**
  * Properties collection repository.
@@ -82,6 +83,8 @@ class Repository extends CollectionRepository
                                 return new Caption($this->_props);
                         case 'caret':
                                 return new Caret($this->_props);
+                        case 'column':
+                                return new Column($this->_props);
                         default:
                                 return false;
                 }
