@@ -156,6 +156,10 @@ use UUP\Web\Component\Collection\StyleSheet\Min;
  *      <b>CSS Syntax</b>
  *      <br> order: &lt;number&gt;|initial|inherit;
  * 
+ * @property string $outline Sets all the outline properties in one declaration (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> outline: &lt;outline-color&gt; &lt;outline-style&gt; &lt;outline-width&lt;|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -179,6 +183,7 @@ use UUP\Web\Component\Collection\StyleSheet\Min;
  * @link https://www.w3schools.com/cssref/pr_pos_left.asp The left property.
  * @link https://www.w3schools.com/cssref/pr_margin.asp The margin property.
  * @link https://www.w3schools.com/cssref/css3_pr_order.asp The order property.
+ * @link https://www.w3schools.com/cssref/pr_outline.asp The outline property.
  */
 class StyleSheet extends Collection
 {
