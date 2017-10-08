@@ -61,6 +61,10 @@ use UUP\Web\Component\Collection\StyleSheet\Caret;
  *      <b>CSS Syntax</b>
  *      <br> clear: none|left|right|both|initial|inherit;
  * 
+ * @property string $clip Clips an absolutely positioned element (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> clip: auto|rect(top, right, bottom, left)|initial|inherit;
+ * 
  * @property string $color Sets the color of text (since CSS1).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> color: &lt;color&gt;|initial|inherit;
