@@ -16,21 +16,25 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Collection\StyleSheet;
+namespace UUP\Web\Component\Collection\StyleSheet\Background;
 
-use UUP\Web\Component\Collection\StyleSheet\Base\VirtualCollection;
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 
 /**
- * Color CSS style.
- * 
- * @property string $color Sets the color of text. Applies to CSS1.
- * @property string $opacity Sets the opacity level for an element. Applies to CSS3.
+ * Background blend CSS style.
+ *
+ * @property string $mode Specifies the blending mode of each background layer (color/image). Applies to CSS3.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Color extends VirtualCollection
+class Blend extends PrefixedAttributeCollection
 {
-        
+
+        public function __construct($props)
+        {
+                parent::__construct('background-blend', $props);
+        }
+
 }

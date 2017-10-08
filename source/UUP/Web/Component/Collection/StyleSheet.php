@@ -27,9 +27,12 @@ use UUP\Web\Component\Collection\StyleSheet\Border;
 /**
  * The stylesheet attribute collection.
  * 
- * @property-read Background $background Background CSS style.
- * @property-read Border $border Border CSS style.
- *
+ * @property-read Background $background Background CSS style object.
+ * @property-read Border $border Border CSS style object.
+ * 
+ * @property string $color Sets the color of text. Applies to CSS1.
+ * @property string $opacity Sets the opacity level for an element. Applies to CSS3.
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components

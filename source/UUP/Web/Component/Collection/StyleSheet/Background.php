@@ -18,15 +18,17 @@
 
 namespace UUP\Web\Component\Collection\StyleSheet;
 
+use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\StyleSheet;
-use UUP\Web\Component\Collection\StyleSheet\Base\VirtualCollection;
+use UUP\Web\Component\Collection\StyleSheet\Background\Blend;
 
 /**
  * Background CSS style.
- *
+ * 
+ * @property Blend $blend The blend style object.
+ * 
  * @property string $background A shorthand property for setting all the background properties in one declaration. Applies to CSS1.
  * @property string $attachment Sets whether a background image is fixed or scrolls with the rest of the page. Applies to CSS1.
- * @property string $blend-mode Specifies the blending mode of each background layer (color/image). Applies to CSS3.
  * @property string $color Specifies the background color of an element. Applies to CSS1.
  * @property string $image Specifies one or more background images for an element. Applies to CSS1.
  * @property string $position Specifies the position of a background image. Applies to CSS1.
@@ -39,8 +41,14 @@ use UUP\Web\Component\Collection\StyleSheet\Base\VirtualCollection;
  * @package UUP
  * @subpackage Web Components
  */
-class Background extends VirtualCollection
+class Background extends PrefixedAttributeCollection
 {
+
+        /**
+         * The background blend object.
+         * @var Blend 
+         */
+        public $blend;
 
         /**
          * Constructor.
@@ -48,17 +56,8 @@ class Background extends VirtualCollection
          */
         public function __construct($attrs)
         {
-                parent::__construct($attrs, array(
-                        'attachment' => 'background-attachment',
-                        'blendMode'  => 'background-blend-mode',
-                        'color'      => 'background-color',
-                        'image'      => 'background-image',
-                        'position'   => 'background-position',
-                        'repeat'     => 'background-repeat',
-                        'clip'       => 'background-clip',
-                        'origin'     => 'background-origin',
-                        'size'       => 'background-size',
-                ));
+                parent::__construct('background', $attrs);
+                $this->blend = new Blend($attrs);
         }
 
 }
