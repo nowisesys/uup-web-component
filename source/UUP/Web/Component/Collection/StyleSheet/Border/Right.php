@@ -24,13 +24,25 @@ use UUP\Web\Component\Collection\StyleSheet;
 /**
  * Border right CSS style.
  * 
- * @property string $color Sets the color of the right border. Applies to CSS1.
- * @property string $style Sets the style of the right border. Applies to CSS1.
- * @property string $width Sets the width of the right border. Applies to CSS1.
+ * @property string $color Sets the color of the right border (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-right-color: &lt;color&gt;|transparent|initial|inherit;
+ * 
+ * @property string $style Sets the style of the right border (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-right-style:none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset|initial|inherit;
+ * 
+ * @property string $width Sets the width of the right border (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-right-width: medium|thin|thick|&lt;length&gt;|initial|inherit;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
+ * 
+ * @link https://www.w3schools.com/cssref/pr_border-right_color.asp The border-right-color property.
+ * @link https://www.w3schools.com/cssref/pr_border-right_style.asp The border-right-style property.
+ * @link https://www.w3schools.com/cssref/pr_border-right_width.asp The border-right-width property.
  */
 class Right extends PrefixedAttributeCollection
 {

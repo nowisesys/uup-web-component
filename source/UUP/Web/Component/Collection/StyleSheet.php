@@ -20,6 +20,7 @@ namespace UUP\Web\Component\Collection;
 
 use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
+use UUP\Web\Component\Collection\StyleSheet\Align;
 use UUP\Web\Component\Collection\StyleSheet\Background;
 use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
 use UUP\Web\Component\Collection\StyleSheet\Border;
@@ -27,15 +28,34 @@ use UUP\Web\Component\Collection\StyleSheet\Border;
 /**
  * The stylesheet attribute collection.
  * 
- * @property-read Background $background Background CSS style object.
- * @property-read Border $border Border CSS style object.
+ * @property-read Align $align The align style object.
+ * @property-read Background $background The background style object.
+ * @property-read Border $border The border style object.
  * 
- * @property string $color Sets the color of text. Applies to CSS1.
- * @property string $opacity Sets the opacity level for an element. Applies to CSS3.
+ * @property string $background A shorthand property for setting all the background properties 
+ *      in one declaration (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> background: &lt;background-color&gt; &lt;background-image&gt; &lt;position&gt;/&lt;background-size&gt; &lt;background-repeat&gt; &lt;background-origin&gt; &lt;background-clip&gt; &lt;background-attachment&gt; initial|inherit;
+ * 
+ * @property string $bottom Sets all the bottom border properties in one declaration 
+ *      (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-bottom: &lt;border-width&gt; &lt;border-style&gt; &lt;border-color&gt;|initial|inherit;
+ * 
+ * @property string $color Sets the color of text (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> color: &lt;color&gt;|initial|inherit;
+ * 
+ * @property string $opacity Sets the opacity level for an element (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> opacity: &lt;number&gt;|initial|inherit;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
+ * 
+ * @link https://www.w3schools.com/cssref/pr_border.asp The border property.
+ * @link https://www.w3schools.com/cssref/css3_pr_background.asp The background property.
  */
 class StyleSheet extends Collection
 {

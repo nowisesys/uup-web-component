@@ -24,15 +24,37 @@ use UUP\Web\Component\Collection\StyleSheet;
 /**
  * Border image CSS style.
  *
- * @property string $outset Specifies the amount by which the border image area extends beyond the border box. Applies to CSS3.
- * @property string $repeat Specifies whether the border image should be repeated, rounded or stretched. Applies to CSS3.
- * @property string $slice Specifies how to slice the border image. Applies to CSS3.
- * @property string $source Specifies the path to the image to be used as a border. Applies to CSS3.
- * @property string $width Specifies the widths of the image-border. Applies to CSS3.
+ * @property string $outset Specifies the amount by which the border image area extends 
+ *      beyond the border box (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-image-outset: &lt;length&gt;|&lt;number&gt;|initial|inherit;
+ * 
+ * @property string $repeat Specifies whether the border image should be repeated, rounded 
+ *      or stretched (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-image-repeat: stretch|repeat|round|initial|inherit;
+ * 
+ * @property string $slice Specifies how to slice the border image (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-image-slice: &lt;number&gt;|%|fill|initial|inherit;
+ * 
+ * @property string $source Specifies the path to the image to be used as a border (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-image-source: none|&lt;image&gt;|initial|inherit;
+ * 
+ * @property string $width Specifies the widths of the image-border (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-image-width: &lt;number&gt;|%|auto|initial|inherit;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
+ * 
+ * @link https://www.w3schools.com/cssref/css3_pr_border-image-outset.asp The border-image-outset property.
+ * @link https://www.w3schools.com/cssref/css3_pr_border-image-repeat.asp The border-image-repeat property.
+ * @link https://www.w3schools.com/cssref/css3_pr_border-image-slice.asp The border-image-slice property.
+ * @link https://www.w3schools.com/cssref/css3_pr_border-image-source.asp The border-image-source property.
+ * @link https://www.w3schools.com/cssref/css3_pr_border-image-width.asp The border-image-width property.
  */
 class Image extends PrefixedAttributeCollection
 {

@@ -24,11 +24,15 @@ use UUP\Web\Component\Collection\StyleSheet;
 /**
  * Border top right CSS style.
  *
- * @property string $radius Defines the shape of the border of the top-right corner. Applies to CSS3.
+ * @property string $radius Defines the shape of the border of the top-right corner (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-top-right-radius: &lt;length&gt;|% [&lt;length&gt;|%]|initial|inherit;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
+ * 
+ * @link https://www.w3schools.com/cssref/css3_pr_border-top-right-radius.asp The border-top-right-radius property.
  */
 class Right extends PrefixedAttributeCollection
 {

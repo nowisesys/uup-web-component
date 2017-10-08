@@ -23,11 +23,16 @@ use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 /**
  * Background blend CSS style.
  *
- * @property string $mode Specifies the blending mode of each background layer (color/image). Applies to CSS3.
+ * @property string $mode Specifies the blending mode of each background layer 
+ *      (color/image, since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> background-blend-mode: normal|multiply|screen|overlay|darken|lighten|color-dodge|saturation|color|luminosity;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
+ * 
+ * @link https://www.w3schools.com/cssref/pr_background-blend-mode.asp The background-blend-mode property.
  */
 class Blend extends PrefixedAttributeCollection
 {

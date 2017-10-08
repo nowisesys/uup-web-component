@@ -26,13 +26,25 @@ use UUP\Web\Component\Collection\StyleSheet\Border\Top\Right;
 /**
  * Border top CSS style.
  * 
- * @property string $color Sets the color of the top border. Applies to CSS1.
- * @property string $style Sets the style of the top border. Applies to CSS1.
- * @property string $width Sets the width of the top border. Applies to CSS1.
+ * @property string $color Sets the color of the top border (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-top-color: &lt;color&gt;|transparent|initial|inherit;
+ * 
+ * @property string $style Sets the style of the top border (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-top-style:none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset|initial|inherit;
+ * 
+ * @property string $width Sets the width of the top border (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-top-width: medium|thin|thick|&lt;length&gt;|initial|inherit;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
+ * 
+ * @link https://www.w3schools.com/cssref/pr_border-top_color.asp The border-top-color property.
+ * @link https://www.w3schools.com/cssref/pr_border-top_style.asp The border-top-style property.
+ * @link https://www.w3schools.com/cssref/pr_border-top_width.asp The border-top-width property.
  */
 class Top extends PrefixedAttributeCollection
 {

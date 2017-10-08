@@ -26,13 +26,25 @@ use UUP\Web\Component\Collection\StyleSheet\Border\Bottom\Right;
 /**
  * Border bottom CSS style.
  * 
- * @property string $color Sets the color of the bottom border. Applies to CSS1.
- * @property string $style Sets the style of the bottom border. Applies to CSS1.
- * @property string $width Sets the width of the bottom border. Applies to CSS1.
+ * @property string $color Sets the color of the bottom border (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-bottom-color: &lt;color&gt;|transparent|initial|inherit;
+ * 
+ * @property string $style Sets the style of the bottom border (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-bottom-style:none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset|initial|inherit;
+ * 
+ * @property string $width Sets the width of the bottom border (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-bottom-width: medium|thin|thick|&lt;length&gt;|initial|inherit;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
+ * 
+ * @link https://www.w3schools.com/cssref/pr_border-bottom_color.asp The border-bottom-color property.
+ * @link https://www.w3schools.com/cssref/pr_border-bottom_style.asp The border-bottom-style property.
+ * @link https://www.w3schools.com/cssref/pr_border-bottom_width.asp The border-bottom-width property.
  */
 class Bottom extends PrefixedAttributeCollection
 {

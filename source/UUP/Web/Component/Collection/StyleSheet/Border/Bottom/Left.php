@@ -24,11 +24,15 @@ use UUP\Web\Component\Collection\StyleSheet;
 /**
  * Border bottom left CSS style.
  *
- * @property string $radius Defines the shape of the border of the bottom-left corner. Applies to CSS3.
+ * @property string $radius Defines the shape of the border of the bottom-left corner (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border-bottom-left-radius: &lt;length&gt;|% [&lt;length&gt;|%]|initial|inherit;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
+ * 
+ * @link https://www.w3schools.com/cssref/css3_pr_border-bottom-left-radius.asp The border-bottom-left-radius property. 
  */
 class Left extends PrefixedAttributeCollection
 {
