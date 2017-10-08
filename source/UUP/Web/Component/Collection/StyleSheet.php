@@ -56,6 +56,11 @@ use UUP\Web\Component\Collection\StyleSheet\Caret;
  *      <b>CSS Syntax</b>
  *      <br> bottom: auto|&lt;length&gt;(px|cm|mm|%)|initial|inherit;
  * 
+ * @property string $clear Specifies which sides of an element where other floating 
+ *      elements are not allowed (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> clear: none|left|right|both|initial|inherit;
+ * 
  * @property string $color Sets the color of text (since CSS1).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> color: &lt;color&gt;|initial|inherit;
