@@ -28,6 +28,7 @@ use UUP\Web\Component\Collection\StyleSheet\Backface;
 use UUP\Web\Component\Collection\StyleSheet\Background;
 use UUP\Web\Component\Collection\StyleSheet\Border;
 use UUP\Web\Component\Collection\StyleSheet\Box;
+use UUP\Web\Component\Collection\StyleSheet\Caption;
 
 /**
  * Properties collection repository.
@@ -76,6 +77,8 @@ class Repository extends CollectionRepository
                                 return new Border($this->_props);
                         case 'box':
                                 return new Box($this->_props);
+                        case 'caption':
+                                return new Caption($this->_props);
                         default:
                                 return false;
                 }
