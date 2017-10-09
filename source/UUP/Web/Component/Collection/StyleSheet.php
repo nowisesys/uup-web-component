@@ -211,6 +211,10 @@ use UUP\Web\Component\Collection\StyleSheet\Text;
  *      <b>CSS Syntax</b>
  *      <br> right: auto|&lt;length&gt;|initial|inherit;
  * 
+ * @property string $top Specifies the top position of a positioned element (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> top: auto|&lt;length&gt;|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -242,6 +246,7 @@ use UUP\Web\Component\Collection\StyleSheet\Text;
  * @link https://www.w3schools.com/cssref/pr_gen_quotes.asp The quotes property.
  * @link https://www.w3schools.com/cssref/css3_pr_resize.asp The resize property.
  * @link https://www.w3schools.com/cssref/pr_pos_right.asp The right property.
+ * @link https://www.w3schools.com/cssref/pr_pos_top.asp The top property.
  */
 class StyleSheet extends Collection
 {
