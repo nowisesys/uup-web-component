@@ -46,6 +46,7 @@ use UUP\Web\Component\Collection\StyleSheet\Min;
 use UUP\Web\Component\Collection\StyleSheet\Outline;
 use UUP\Web\Component\Collection\StyleSheet\Overflow;
 use UUP\Web\Component\Collection\StyleSheet\Padding;
+use UUP\Web\Component\Collection\StyleSheet\Page;
 
 /**
  * Properties collection repository.
@@ -130,6 +131,8 @@ class Repository extends CollectionRepository
                                 return new Overflow($this->_props);
                         case 'padding':
                                 return new Padding($this->_props);
+                        case 'page':
+                                return new Page($this->_props);
                         default:
                                 return false;
                 }
