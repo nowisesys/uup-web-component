@@ -55,6 +55,7 @@ use UUP\Web\Component\Collection\StyleSheet\Transform;
 use UUP\Web\Component\Collection\StyleSheet\Transition;
 use UUP\Web\Component\Collection\StyleSheet\Unicode;
 use UUP\Web\Component\Collection\StyleSheet\User;
+use UUP\Web\Component\Collection\StyleSheet\Vertical;
 
 /**
  * Properties collection repository.
@@ -157,6 +158,8 @@ class Repository extends CollectionRepository
                                 return new Unicode($this->_props);
                         case 'user':
                                 return new User($this->_props);
+                        case 'vertical':
+                                return new Vertical($this->_props);
                         default:
                                 return false;
                 }
