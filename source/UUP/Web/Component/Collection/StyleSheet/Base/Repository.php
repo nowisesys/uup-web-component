@@ -51,6 +51,7 @@ use UUP\Web\Component\Collection\StyleSheet\Perspective;
 use UUP\Web\Component\Collection\StyleSheet\Tab;
 use UUP\Web\Component\Collection\StyleSheet\Table;
 use UUP\Web\Component\Collection\StyleSheet\Text;
+use UUP\Web\Component\Collection\StyleSheet\Transform;
 
 /**
  * Properties collection repository.
@@ -145,6 +146,8 @@ class Repository extends CollectionRepository
                                 return new Table($this->_props);
                         case 'text':
                                 return new Text($this->_props);
+                        case 'transform':
+                                return new Transform($this->_props);
                         default:
                                 return false;
                 }

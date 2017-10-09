@@ -50,6 +50,7 @@ use UUP\Web\Component\Collection\StyleSheet\Perspective;
 use UUP\Web\Component\Collection\StyleSheet\Tab;
 use UUP\Web\Component\Collection\StyleSheet\Table;
 use UUP\Web\Component\Collection\StyleSheet\Text;
+use UUP\Web\Component\Collection\StyleSheet\Transform;
 
 /**
  * The stylesheet attribute collection.
@@ -83,6 +84,7 @@ use UUP\Web\Component\Collection\StyleSheet\Text;
  * @property-read Tab $tab The tab style object.
  * @property-read Table $table The table style object.
  * @property-read Text $text The text style object.
+ * @property-read Transform $transform The transform style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
@@ -252,6 +254,7 @@ use UUP\Web\Component\Collection\StyleSheet\Text;
  * @link https://www.w3schools.com/cssref/css3_pr_resize.asp The resize property.
  * @link https://www.w3schools.com/cssref/pr_pos_right.asp The right property.
  * @link https://www.w3schools.com/cssref/pr_pos_top.asp The top property.
+ * @link https://www.w3schools.com/cssref/css3_pr_transform.asp The transform property.
  */
 class StyleSheet extends Collection
 {
