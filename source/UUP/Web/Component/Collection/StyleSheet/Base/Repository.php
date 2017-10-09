@@ -48,6 +48,7 @@ use UUP\Web\Component\Collection\StyleSheet\Overflow;
 use UUP\Web\Component\Collection\StyleSheet\Padding;
 use UUP\Web\Component\Collection\StyleSheet\Page;
 use UUP\Web\Component\Collection\StyleSheet\Perspective;
+use UUP\Web\Component\Collection\StyleSheet\Tab;
 
 /**
  * Properties collection repository.
@@ -136,6 +137,8 @@ class Repository extends CollectionRepository
                                 return new Page($this->_props);
                         case 'perspective':
                                 return new Perspective($this->_props);
+                        case 'tab':
+                                return new Tab($this->_props);
                         default:
                                 return false;
                 }
