@@ -46,6 +46,7 @@ use UUP\Web\Component\Collection\StyleSheet\Outline;
 use UUP\Web\Component\Collection\StyleSheet\Overflow;
 use UUP\Web\Component\Collection\StyleSheet\Padding;
 use UUP\Web\Component\Collection\StyleSheet\Page;
+use UUP\Web\Component\Collection\StyleSheet\Perspective;
 
 /**
  * The stylesheet attribute collection.
@@ -75,6 +76,7 @@ use UUP\Web\Component\Collection\StyleSheet\Page;
  * @property-read Overflow $overflow The overflow style object.
  * @property-read Padding $padding The padding style object.
  * @property-read Page $page The page style object.
+ * @property-read Perspective $perspective The perspective style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
