@@ -43,6 +43,7 @@ use UUP\Web\Component\Collection\StyleSheet\Lists;
 use UUP\Web\Component\Collection\StyleSheet\Margin;
 use UUP\Web\Component\Collection\StyleSheet\Max;
 use UUP\Web\Component\Collection\StyleSheet\Min;
+use UUP\Web\Component\Collection\StyleSheet\Outline;
 
 /**
  * Properties collection repository.
@@ -120,7 +121,9 @@ class Repository extends CollectionRepository
                         case 'max':
                                 return new Max($this->_props);                                
                         case 'min':
-                                return new Min($this->_props);                                
+                                return new Min($this->_props);  
+                        case 'outline':
+                                return new Outline($this->_props);
                         default:
                                 return false;
                 }

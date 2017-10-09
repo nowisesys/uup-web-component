@@ -42,6 +42,7 @@ use UUP\Web\Component\Collection\StyleSheet\Lists;
 use UUP\Web\Component\Collection\StyleSheet\Margin;
 use UUP\Web\Component\Collection\StyleSheet\Max;
 use UUP\Web\Component\Collection\StyleSheet\Min;
+use UUP\Web\Component\Collection\StyleSheet\Outline;
 
 /**
  * The stylesheet attribute collection.
@@ -67,6 +68,7 @@ use UUP\Web\Component\Collection\StyleSheet\Min;
  * @property-read Margin $margin The margin style object.
  * @property-read Max $max The max style object.
  * @property-read Min $min The min style object.
+ * @property-read Outline $outline The outline style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
