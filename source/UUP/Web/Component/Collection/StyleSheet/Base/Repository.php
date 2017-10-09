@@ -52,6 +52,7 @@ use UUP\Web\Component\Collection\StyleSheet\Tab;
 use UUP\Web\Component\Collection\StyleSheet\Table;
 use UUP\Web\Component\Collection\StyleSheet\Text;
 use UUP\Web\Component\Collection\StyleSheet\Transform;
+use UUP\Web\Component\Collection\StyleSheet\Transition;
 
 /**
  * Properties collection repository.
@@ -148,6 +149,8 @@ class Repository extends CollectionRepository
                                 return new Text($this->_props);
                         case 'transform':
                                 return new Transform($this->_props);
+                        case 'transition':
+                                return new Transition($this->_props);
                         default:
                                 return false;
                 }
