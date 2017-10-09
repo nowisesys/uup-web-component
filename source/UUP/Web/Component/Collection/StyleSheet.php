@@ -222,6 +222,11 @@ use UUP\Web\Component\Collection\StyleSheet\Transform;
  *      <b>CSS Syntax</b>
  *      <br> transform: none|&lt;transform-functions&gt;|initial|inherit;
  * 
+ * @property string $transition A shorthand property for setting the four transition properties
+ *      (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> transition: &lt;property&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;delay&gt;|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -255,6 +260,7 @@ use UUP\Web\Component\Collection\StyleSheet\Transform;
  * @link https://www.w3schools.com/cssref/pr_pos_right.asp The right property.
  * @link https://www.w3schools.com/cssref/pr_pos_top.asp The top property.
  * @link https://www.w3schools.com/cssref/css3_pr_transform.asp The transform property.
+ * @link https://www.w3schools.com/cssref/css3_pr_transition.asp The transition property.
  */
 class StyleSheet extends Collection
 {
