@@ -200,6 +200,11 @@ use UUP\Web\Component\Collection\StyleSheet\Perspective;
  *      <b>CSS Syntax</b>
  *      <br> resize: none|both|horizontal|vertical|initial|inherit;
  * 
+ * @property string $right Specifies the right position of a positioned element 
+ *      (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> right: auto|&lt;length&gt;|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -230,6 +235,7 @@ use UUP\Web\Component\Collection\StyleSheet\Perspective;
  * @link https://www.w3schools.com/cssref/pr_class_position.asp The position property.
  * @link https://www.w3schools.com/cssref/pr_gen_quotes.asp The quotes property.
  * @link https://www.w3schools.com/cssref/css3_pr_resize.asp The resize property.
+ * @link https://www.w3schools.com/cssref/pr_pos_right.asp The right property.
  */
 class StyleSheet extends Collection
 {
