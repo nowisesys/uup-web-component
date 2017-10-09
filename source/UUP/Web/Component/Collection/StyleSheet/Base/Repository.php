@@ -44,6 +44,7 @@ use UUP\Web\Component\Collection\StyleSheet\Margin;
 use UUP\Web\Component\Collection\StyleSheet\Max;
 use UUP\Web\Component\Collection\StyleSheet\Min;
 use UUP\Web\Component\Collection\StyleSheet\Outline;
+use UUP\Web\Component\Collection\StyleSheet\Overflow;
 
 /**
  * Properties collection repository.
@@ -124,6 +125,8 @@ class Repository extends CollectionRepository
                                 return new Min($this->_props);  
                         case 'outline':
                                 return new Outline($this->_props);
+                        case 'overflow':
+                                return new Overflow($this->_props);
                         default:
                                 return false;
                 }
