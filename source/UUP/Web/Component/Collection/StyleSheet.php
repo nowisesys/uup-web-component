@@ -169,6 +169,11 @@ use UUP\Web\Component\Collection\StyleSheet\Overflow;
  *      <b>CSS Syntax</b>
  *      <br> overflow: visible|hidden|scroll|auto|initial|inherit;
  * 
+ * @property string $padding Sets all the padding properties in one declaration 
+ *      (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> padding: &lt;length&gt;|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -194,6 +199,7 @@ use UUP\Web\Component\Collection\StyleSheet\Overflow;
  * @link https://www.w3schools.com/cssref/css3_pr_order.asp The order property.
  * @link https://www.w3schools.com/cssref/pr_outline.asp The outline property.
  * @link https://www.w3schools.com/cssref/pr_pos_overflow.asp The overflow property.
+ * @link https://www.w3schools.com/cssref/pr_padding.asp The padding property.
  */
 class StyleSheet extends Collection
 {
