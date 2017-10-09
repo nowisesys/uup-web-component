@@ -239,6 +239,10 @@ use UUP\Web\Component\Collection\StyleSheet\Vertical;
  *      <b>CSS Syntax</b>
  *      <br> visibility: visible|hidden|collapse|initial|inherit;
  * 
+ * @property string $width Sets the width of an element (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> width: auto|&lt;value&gt;|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -274,6 +278,7 @@ use UUP\Web\Component\Collection\StyleSheet\Vertical;
  * @link https://www.w3schools.com/cssref/css3_pr_transform.asp The transform property.
  * @link https://www.w3schools.com/cssref/css3_pr_transition.asp The transition property.
  * @link https://www.w3schools.com/cssref/pr_class_visibility.asp The visibility property.
+ * @link https://www.w3schools.com/cssref/pr_dim_width.asp The width property.
  */
 class StyleSheet extends Collection
 {
