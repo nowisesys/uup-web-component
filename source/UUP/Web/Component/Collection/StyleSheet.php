@@ -55,6 +55,7 @@ use UUP\Web\Component\Collection\StyleSheet\Transition;
 use UUP\Web\Component\Collection\StyleSheet\Unicode;
 use UUP\Web\Component\Collection\StyleSheet\User;
 use UUP\Web\Component\Collection\StyleSheet\Vertical;
+use UUP\Web\Component\Collection\StyleSheet\Word;
 
 /**
  * The stylesheet attribute collection.
@@ -93,6 +94,7 @@ use UUP\Web\Component\Collection\StyleSheet\Vertical;
  * @property-read Unicode $unicode The unicode style object.
  * @property-read User $user The user style object.
  * @property-read Vertical $vertical The vertical style object.
+ * @property-read Word $word The word style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
