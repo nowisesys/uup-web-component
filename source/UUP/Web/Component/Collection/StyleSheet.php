@@ -48,6 +48,23 @@ use UUP\Web\Component\Collection\StyleSheet\Border;
  *      <b>CSS Syntax</b>
  *      <br> border: &lt;border-width&gt; &lt;border-style&gt; &lt;border-color&gt;|initial|inherit;
  * 
+ * @property string $bottom Specifies the bottom position of a positioned element (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> bottom: auto|&lt;length&gt;(px|cm|mm|%)|initial|inherit;
+ * 
+ * @property string $left Specifies the left position of a positioned element (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> left: auto|&lt;length&gt;|initial|inherit;
+ * 
+ * @property string $right Specifies the right position of a positioned element 
+ *      (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> right: auto|&lt;length&gt;|initial|inherit;
+ * 
+ * @property string $top Specifies the top position of a positioned element (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> top: auto|&lt;length&gt;|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
