@@ -190,6 +190,10 @@ use UUP\Web\Component\Collection\StyleSheet\Perspective;
  *      <b>CSS Syntax</b>
  *      <br> position: static|absolute|fixed|relative|sticky|initial|inherit;
  * 
+ * @property string $quotes Sets the type of quotation marks for embedded quotations (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> quotes: none|&lt;string&gt;|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -218,6 +222,7 @@ use UUP\Web\Component\Collection\StyleSheet\Perspective;
  * @link https://www.w3schools.com/cssref/pr_padding.asp The padding property.
  * @link https://www.w3schools.com/cssref/css3_pr_perspective.asp The perspective property.
  * @link https://www.w3schools.com/cssref/pr_class_position.asp The position property.
+ * @link https://www.w3schools.com/cssref/pr_gen_quotes.asp The quotes property.
  */
 class StyleSheet extends Collection
 {
