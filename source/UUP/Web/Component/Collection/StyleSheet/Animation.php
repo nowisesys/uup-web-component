@@ -20,10 +20,6 @@ namespace UUP\Web\Component\Collection\StyleSheet;
 
 use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\StyleSheet;
-use UUP\Web\Component\Collection\StyleSheet\Animation\Fill;
-use UUP\Web\Component\Collection\StyleSheet\Animation\Iteration;
-use UUP\Web\Component\Collection\StyleSheet\Animation\Play;
-use UUP\Web\Component\Collection\StyleSheet\Animation\Timing;
 
 /**
  * Animation CSS style.

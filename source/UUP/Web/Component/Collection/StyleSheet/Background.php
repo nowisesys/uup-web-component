@@ -20,7 +20,6 @@ namespace UUP\Web\Component\Collection\StyleSheet;
 
 use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\StyleSheet;
-use UUP\Web\Component\Collection\StyleSheet\Background\Blend;
 
 /**
  * Background CSS style.
@@ -89,19 +88,12 @@ class Background extends PrefixedAttributeCollection
 {
 
         /**
-         * The background blend object.
-         * @var Blend 
-         */
-        public $blend;
-
-        /**
          * Constructor.
          * @param StyleSheet $attrs The stylesheet collection.
          */
         public function __construct($attrs)
         {
                 parent::__construct('background', $attrs);
-                $this->blend = new Blend($attrs);
         }
 
 }
