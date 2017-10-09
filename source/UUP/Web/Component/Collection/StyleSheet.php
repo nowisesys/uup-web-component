@@ -21,7 +21,10 @@ namespace UUP\Web\Component\Collection;
 use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\StyleSheet\Align;
+use UUP\Web\Component\Collection\StyleSheet\Animation;
+use UUP\Web\Component\Collection\StyleSheet\Background;
 use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
+use UUP\Web\Component\Collection\StyleSheet\Border;
 
 /**
  * The stylesheet attribute collection.
@@ -29,6 +32,7 @@ use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
  * @property-read Align $align The align style object.
  * @property-read Animation $animation The animation style object.
  * @property-read Background $background The background style object.
+ * @property-read Border $border The border style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
@@ -39,6 +43,10 @@ use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
  *      in one declaration (since CSS1).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> background: &lt;background-color&gt; &lt;background-image&gt; &lt;position&gt;/&lt;background-size&gt; &lt;background-repeat&gt; &lt;background-origin&gt; &lt;background-clip&gt; &lt;background-attachment&gt; initial|inherit;
+ * 
+ * @property string $border Sets all the border properties in one declaration (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border: &lt;border-width&gt; &lt;border-style&gt; &lt;border-color&gt;|initial|inherit;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
