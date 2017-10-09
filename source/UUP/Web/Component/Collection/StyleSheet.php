@@ -53,6 +53,7 @@ use UUP\Web\Component\Collection\StyleSheet\Text;
 use UUP\Web\Component\Collection\StyleSheet\Transform;
 use UUP\Web\Component\Collection\StyleSheet\Transition;
 use UUP\Web\Component\Collection\StyleSheet\Unicode;
+use UUP\Web\Component\Collection\StyleSheet\User;
 
 /**
  * The stylesheet attribute collection.
@@ -89,6 +90,7 @@ use UUP\Web\Component\Collection\StyleSheet\Unicode;
  * @property-read Transform $transform The transform style object.
  * @property-read Transition $transition The transition style object.
  * @property-read Unicode $unicode The unicode style object.
+ * @property-read User $user The user style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
