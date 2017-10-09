@@ -162,6 +162,11 @@ use UUP\Web\Component\Collection\StyleSheet\Outline;
  *      <b>CSS Syntax</b>
  *      <br> outline: &lt;outline-color&gt; &lt;outline-style&gt; &lt;outline-width&lt;|initial|inherit;
  * 
+ * @property string $overflow Specifies what happens if content overflows an element's box 
+ *      (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> overflow: visible|hidden|scroll|auto|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -186,6 +191,7 @@ use UUP\Web\Component\Collection\StyleSheet\Outline;
  * @link https://www.w3schools.com/cssref/pr_margin.asp The margin property.
  * @link https://www.w3schools.com/cssref/css3_pr_order.asp The order property.
  * @link https://www.w3schools.com/cssref/pr_outline.asp The outline property.
+ * @link https://www.w3schools.com/cssref/pr_pos_overflow.asp The overflow property.
  */
 class StyleSheet extends Collection
 {
