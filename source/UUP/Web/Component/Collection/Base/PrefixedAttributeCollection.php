@@ -70,7 +70,7 @@ class PrefixedAttributeCollection
          */
         public function get($name)
         {
-                return $this->_props->get(sprintf("%s-%s", $this->_prefix, $name));
+                return $this->_props->get(sprintf("%s-%s", $this->_prefix, str_replace('-', '_', $name)));
         }
 
         /**
@@ -85,9 +85,9 @@ class PrefixedAttributeCollection
                         throw new DomainException("Unexpected property value");
                 }
                 if (isset($value)) {
-                        $this->_props->set(sprintf("%s-%s", $this->_prefix, $name), $value);
+                        $this->_props->set(sprintf("%s-%s", $this->_prefix, str_replace('_', '-', $name)), $value);
                 } else {
-                        $this->_props->set(sprintf("%s", $this->_prefix), $name);
+                        $this->_props->set(sprintf("%s", $this->_prefix), str_replace('_', '-', $name));
                 }
         }
 
