@@ -28,11 +28,17 @@ use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
  * 
  * @property-read Align $align The align style object.
  * @property-read Animation $animation The animation style object.
+ * @property-read Background $background The background style object.
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;delay&gt; &lt;iteration-count&gt; &lt;direction&gt; &lt;fill-mode&gt; &lt;play-state&gt;;
+ * 
+ * @property string $background A shorthand property for setting all the background properties 
+ *      in one declaration (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> background: &lt;background-color&gt; &lt;background-image&gt; &lt;position&gt;/&lt;background-size&gt; &lt;background-repeat&gt; &lt;background-origin&gt; &lt;background-clip&gt; &lt;background-attachment&gt; initial|inherit;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP

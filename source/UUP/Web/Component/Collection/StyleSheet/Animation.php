@@ -70,6 +70,15 @@ use UUP\Web\Component\Collection\StyleSheet\Animation\Timing;
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
+ * 
+ * @link https://www.w3schools.com/cssref/css3_pr_animation-delay.asp The animation-delay property.
+ * @link https://www.w3schools.com/cssref/css3_pr_animation-direction.asp The animation direction property.
+ * @link https://www.w3schools.com/cssref/css3_pr_animation-duration.asp The animation-duration property.
+ * @link https://www.w3schools.com/cssref/css3_pr_animation-name.asp The animation-name property.
+ * @link https://www.w3schools.com/cssref/css3_pr_animation-fill-mode.asp The animation-fill-mode property.
+ * @link https://www.w3schools.com/cssref/css3_pr_animation-iteration-count.asp The animation-iteration-count property.
+ * @link https://www.w3schools.com/cssref/css3_pr_animation-play-state.asp The animation-play-state property.
+ * @link https://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp The animation-timing-function property.
  */
 class Animation extends PrefixedAttributeCollection
 {
