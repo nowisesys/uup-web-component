@@ -235,6 +235,10 @@ use UUP\Web\Component\Collection\StyleSheet\Vertical;
  *      <b>CSS Syntax</b>
  *      <br> transition: &lt;property&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;delay&gt;|initial|inherit;
  * 
+ * @property string $visibility Specifies whether or not an element is visible (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> visibility: visible|hidden|collapse|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -269,6 +273,7 @@ use UUP\Web\Component\Collection\StyleSheet\Vertical;
  * @link https://www.w3schools.com/cssref/pr_pos_top.asp The top property.
  * @link https://www.w3schools.com/cssref/css3_pr_transform.asp The transform property.
  * @link https://www.w3schools.com/cssref/css3_pr_transition.asp The transition property.
+ * @link https://www.w3schools.com/cssref/pr_class_visibility.asp The visibility property.
  */
 class StyleSheet extends Collection
 {
