@@ -185,6 +185,11 @@ use UUP\Web\Component\Collection\StyleSheet\Perspective;
  *      <b>CSS Syntax</b>
  *      <br> perspective: &lt;length&gt;|none;
  * 
+ * @property string $position Specifies the type of positioning method used for an element 
+ *      (static, relative, absolute or fixed) (since CSS2).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> position: static|absolute|fixed|relative|sticky|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -212,6 +217,7 @@ use UUP\Web\Component\Collection\StyleSheet\Perspective;
  * @link https://www.w3schools.com/cssref/pr_pos_overflow.asp The overflow property.
  * @link https://www.w3schools.com/cssref/pr_padding.asp The padding property.
  * @link https://www.w3schools.com/cssref/css3_pr_perspective.asp The perspective property.
+ * @link https://www.w3schools.com/cssref/pr_class_position.asp The position property.
  */
 class StyleSheet extends Collection
 {
