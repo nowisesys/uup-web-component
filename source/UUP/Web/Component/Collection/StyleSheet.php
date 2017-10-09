@@ -106,6 +106,10 @@ use UUP\Web\Component\Collection\StyleSheet\Word;
  *      <b>CSS Syntax</b>
  *      <br> background: &lt;background-color&gt; &lt;background-image&gt; &lt;position&gt;/&lt;background-size&gt; &lt;background-repeat&gt; &lt;background-origin&gt; &lt;background-clip&gt; &lt;background-attachment&gt; initial|inherit;
  * 
+ * @property string $border Sets all the border properties in one declaration (since CSS1).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> border: &lt;border-width&gt; &lt;border-style&gt; &lt;border-color&gt;|initial|inherit;
+ * 
  * @property string $bottom Specifies the bottom position of a positioned element (since CSS2).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> bottom: auto|&lt;length&gt;(px|cm|mm|%)|initial|inherit;
