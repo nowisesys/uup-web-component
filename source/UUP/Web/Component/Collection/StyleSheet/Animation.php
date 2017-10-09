@@ -52,7 +52,7 @@ use UUP\Web\Component\Collection\StyleSheet\Animation\Timing;
  *      <b>CSS Syntax</b>
  *      <br> animation-fill-mode: none|forwards|backwards|both|initial|inherit;
  * 
- * @property string $ieration_count Specifies the number of times an animation 
+ * @property string $iteration_count Specifies the number of times an animation 
  *      should be played (since CSS3).<br><br>
  *      <b>CSS Syntax</b>
  *      <br> animation-iteration-count: &lt;number$gt;|infinite|initial|inherit;
@@ -75,38 +75,12 @@ class Animation extends PrefixedAttributeCollection
 {
 
         /**
-         * The animation fill object.
-         * @var Fill 
-         */
-        public $fill;
-        /**
-         * The animation iteration object.
-         * @var Iteration 
-         */
-        public $iteration;
-        /**
-         * The animation play object.
-         * @var Play
-         */
-        public $play;
-        /**
-         * The animation timing object.
-         * @var Timing 
-         */
-        public $timing;
-
-        /**
          * Constructor.
          * @param StyleSheet $attrs The stylesheet collection.
          */
         public function __construct($attrs)
         {
                 parent::__construct('animation', $attrs);
-
-                $this->fill = new Fill($attrs);
-                $this->iteration = New Iteration($attrs);
-                $this->play = new Play($attrs);
-                $this->timing = New Timing($attrs);
         }
 
 }

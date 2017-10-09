@@ -27,6 +27,12 @@ use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
  * The stylesheet attribute collection.
  * 
  * @property-read Align $align The align style object.
+ * @property-read Animation $animation The animation style object.
+ * 
+ * @property string $animation A shorthand property for all the animation properties (except 
+ *      animation-play-state and animation-fill-mode) (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;delay&gt; &lt;iteration-count&gt; &lt;direction&gt; &lt;fill-mode&gt; &lt;play-state&gt;;
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
