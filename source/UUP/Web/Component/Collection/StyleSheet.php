@@ -178,6 +178,11 @@ use UUP\Web\Component\Collection\StyleSheet\Page;
  *      <b>CSS Syntax</b>
  *      <br> padding: &lt;length&gt;|initial|inherit;
  * 
+ * @property string $perspective Specifies the perspective on how CSS3D elements are viewed
+ *      (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> perspective: &lt;length&gt;|none;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
@@ -204,6 +209,7 @@ use UUP\Web\Component\Collection\StyleSheet\Page;
  * @link https://www.w3schools.com/cssref/pr_outline.asp The outline property.
  * @link https://www.w3schools.com/cssref/pr_pos_overflow.asp The overflow property.
  * @link https://www.w3schools.com/cssref/pr_padding.asp The padding property.
+ * @link https://www.w3schools.com/cssref/css3_pr_perspective.asp The perspective property.
  */
 class StyleSheet extends Collection
 {
