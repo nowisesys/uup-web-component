@@ -215,6 +215,11 @@ use UUP\Web\Component\Collection\StyleSheet\Text;
  *      <b>CSS Syntax</b>
  *      <br> top: auto|&lt;length&gt;|initial|inherit;
  * 
+ * @property string $transform Applies a CSS2D or CSS3D transformation to an element 
+ *      (since CSS3).<br><br>
+ *      <b>CSS Syntax</b>
+ *      <br> transform: none|&lt;transform-functions&gt;|initial|inherit;
+ * 
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
