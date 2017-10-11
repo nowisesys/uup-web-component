@@ -55,11 +55,6 @@ class Modules
                 return $this->_virtual->get($key);
         }
 
-        public function __set($key, $val)
-        {
-                $this->_virtual->set($key, $val);
-        }
-
         /**
          * Get named property collection.
          * 
