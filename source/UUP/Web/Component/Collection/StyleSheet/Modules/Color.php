@@ -21,7 +21,7 @@ namespace UUP\Web\Component\Collection\StyleSheet\Modules;
 use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 
 /**
- * CSS color module.
+ * The CSS color module.
  *
  * @property string $color Sets the color of text.
  *      <p><b>CSS Syntax (CSS1)</b><br>

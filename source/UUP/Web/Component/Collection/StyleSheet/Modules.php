@@ -19,27 +19,28 @@
 namespace UUP\Web\Component\Collection\StyleSheet;
 
 use UUP\Web\Component\Collection\Base\AttributeCollection;
+use UUP\Web\Component\Collection\Base\CollectionRepository;
 use UUP\Web\Component\Collection\StyleSheet;
-use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
 use UUP\Web\Component\Collection\StyleSheet\Modules\Color;
+use UUP\Web\Component\Collection\StyleSheet\Modules\Factory;
 
 /**
- * The CSS modules.
+ * The CSS modules repository.
  * 
- * @property-read Color $color The color CSS module.
+ * @property-read Color $color The CSS color module.
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
  */
-class Modules
+class Modules extends CollectionRepository
 {
 
         /**
-         * The repository of CSS modules
-         * @var Repository 
+         * The stylesheet collection.
+         * @var StyleSheet 
          */
-        private $_virtual;
+        private $_props;
 
         /**
          * Constructor.
@@ -47,12 +48,12 @@ class Modules
          */
         public function __construct($props)
         {
-                $this->_virtual = new Repository($props);
+                $this->_props = $props;
         }
 
         public function __get($key)
         {
-                return $this->_virtual->get($key);
+                return parent::get($key);
         }
 
         /**
@@ -67,9 +68,21 @@ class Modules
          */
         public function collection($key)
         {
-                if ($this->_virtual->has($key)) {
-                        return $this->_virtual->get($key);
+                if (parent::has($key)) {
+                        return parent::get($key);
                 }
+        }
+
+        /**
+         * Get sub collection object.
+         * Return sub collection object if handled by this class or false.
+         * 
+         * @param string $name The property collection name.
+         * @return boolean|AttributeCollection
+         */
+        protected function create($name)
+        {
+                return Factory::create($name, $this->_props);
         }
 
 }
