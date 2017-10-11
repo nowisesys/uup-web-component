@@ -28,7 +28,7 @@ use UUP\Web\Component\Collection\Collection;
  * @package UUP
  * @subpackage Web Components
  */
-class PrefixedAttributeCollection
+class PrefixedAttributeCollection extends AttributeCollection
 {
 
         /**
@@ -36,11 +36,6 @@ class PrefixedAttributeCollection
          * @var string 
          */
         private $_prefix;
-        /**
-         * The shadowed properties collection.
-         * @var Collection 
-         */
-        private $_props;
 
         /**
          * Constructor.
@@ -50,7 +45,7 @@ class PrefixedAttributeCollection
         public function __construct($prefix, $props)
         {
                 $this->_prefix = $prefix;
-                $this->_props = $props;
+                parent::__construct($props);
         }
 
         public function __get($name)
@@ -70,7 +65,7 @@ class PrefixedAttributeCollection
          */
         public function get($name)
         {
-                return $this->_props->get(sprintf("%s-%s", $this->_prefix, str_replace('-', '_', $name)));
+                return parent::get(sprintf("%s-%s", $this->_prefix, $name));
         }
 
         /**
@@ -81,36 +76,7 @@ class PrefixedAttributeCollection
          */
         public function set($name, $value = null)
         {
-                if ($this->acceptable($value) == false) {
-                        throw new DomainException("Unexpected property value");
-                }
-                if (isset($value)) {
-                        $this->_props->set(sprintf("%s-%s", $this->_prefix, str_replace('_', '-', $name)), $value);
-                } else {
-                        $this->_props->set(sprintf("%s", $this->_prefix), str_replace('_', '-', $name));
-                }
-        }
-
-        /**
-         * Check if value is acceptable.
-         * @param mixed $value The value to check.
-         * @return boolean
-         */
-        private function acceptable($value)
-        {
-                if (is_object($value)) {
-                        return false;
-                } elseif (is_string($value)) {
-                        return true;
-                } elseif (is_bool($value)) {
-                        return true;
-                } elseif (is_numeric($value)) {
-                        return true;
-                } elseif (is_null($value)) {
-                        return true;
-                } else {
-                        return false;
-                }
+                parent::set(sprintf("%s-%s", $this->_prefix, $name), $value);
         }
 
 }

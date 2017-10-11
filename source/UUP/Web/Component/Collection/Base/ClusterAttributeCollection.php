@@ -18,9 +18,6 @@
 
 namespace UUP\Web\Component\Collection\Base;
 
-use DomainException;
-use UUP\Web\Component\Collection\Collection;
-
 /**
  * Clustered attribute collection.
  *
@@ -28,23 +25,8 @@ use UUP\Web\Component\Collection\Collection;
  * @package UUP
  * @subpackage Web Components
  */
-class ClusterAttributeCollection
+class ClusterAttributeCollection extends AttributeCollection
 {
-
-        /**
-         * The shadowed collection.
-         * @var Collection 
-         */
-        private $_props;
-
-        /**
-         * Constructor.
-         * @param Collection $props The shadowed collection.
-         */
-        public function __construct($props)
-        {
-                $this->_props = $props;
-        }
 
         public function __get($name)
         {
@@ -63,7 +45,7 @@ class ClusterAttributeCollection
          */
         public function get($name)
         {
-                return $this->_props->get($name);
+                return parent::get($name);
         }
 
         /**
@@ -72,35 +54,9 @@ class ClusterAttributeCollection
          * @param string|bool $value The property value.
          * @throws DomainException
          */
-        public function set($name, $value)
+        public function set($name, $value = null)
         {
-                if ($this->acceptable($value) == false) {
-                        throw new DomainException("Unexpected property value");
-                }
-
-                $this->_props->set($name, $value);
-        }
-
-        /**
-         * Check if value is acceptable.
-         * @param mixed $value The value to check.
-         * @return boolean
-         */
-        private function acceptable($value)
-        {
-                if (is_object($value)) {
-                        return false;
-                } elseif (is_string($value)) {
-                        return true;
-                } elseif (is_bool($value)) {
-                        return true;
-                } elseif (is_numeric($value)) {
-                        return true;
-                } elseif (is_null($value)) {
-                        return true;
-                } else {
-                        return false;
-                }
+                parent::set($name, $value);
         }
 
 }

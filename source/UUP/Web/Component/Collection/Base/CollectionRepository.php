@@ -19,7 +19,7 @@
 namespace UUP\Web\Component\Collection\Base;
 
 /**
- * Properties collection repository.
+ * Repository of attribute collections.
  * 
  * The purpose of this class is to support lazy initialization of clustered or 
  * prefixed collection. Getting the name of an not yet created colletion will 
@@ -34,7 +34,7 @@ abstract class CollectionRepository
 
         /**
          * The array of cluster property objects.
-         * @var ClusterAttributeCollection 
+         * @var AttributeCollection 
          */
         private $_repos = array();
 
