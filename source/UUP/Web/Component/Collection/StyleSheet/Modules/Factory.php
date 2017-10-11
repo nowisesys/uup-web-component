@@ -43,6 +43,8 @@ class Factory
                 switch ($module) {
                         case 'color':
                                 return new Color($props);
+                        case 'background':
+                                return new Background($props);
                         default:
                                 return false;
                 }

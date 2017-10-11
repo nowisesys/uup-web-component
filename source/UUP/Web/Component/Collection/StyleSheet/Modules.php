@@ -21,13 +21,15 @@ namespace UUP\Web\Component\Collection\StyleSheet;
 use UUP\Web\Component\Collection\Base\AttributeCollection;
 use UUP\Web\Component\Collection\Base\CollectionRepository;
 use UUP\Web\Component\Collection\StyleSheet;
+use UUP\Web\Component\Collection\StyleSheet\Modules\Background;
 use UUP\Web\Component\Collection\StyleSheet\Modules\Color;
 use UUP\Web\Component\Collection\StyleSheet\Modules\Factory;
 
 /**
  * The CSS modules repository.
  * 
- * @property-read Color $color The CSS color module.
+ * @property-read Color $color The color CSS module.
+ * @property-read Background $background The background CSS module.
  *
  * @author Anders Lövgren (QNET)
  * @package UUP

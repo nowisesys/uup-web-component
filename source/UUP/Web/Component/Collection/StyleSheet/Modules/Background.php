@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Collection\StyleSheet;
+namespace UUP\Web\Component\Collection\StyleSheet\Modules;
 
 use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\StyleSheet;
