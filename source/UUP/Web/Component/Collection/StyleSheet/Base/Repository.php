@@ -22,41 +22,7 @@ use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\CollectionRepository;
 use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
 use UUP\Web\Component\Collection\StyleSheet;
-use UUP\Web\Component\Collection\StyleSheet\Align;
-use UUP\Web\Component\Collection\StyleSheet\Animation;
-use UUP\Web\Component\Collection\StyleSheet\Backface;
-use UUP\Web\Component\Collection\StyleSheet\Background;
-use UUP\Web\Component\Collection\StyleSheet\Border;
-use UUP\Web\Component\Collection\StyleSheet\Box;
-use UUP\Web\Component\Collection\StyleSheet\Caption;
-use UUP\Web\Component\Collection\StyleSheet\Caret;
-use UUP\Web\Component\Collection\StyleSheet\Column;
-use UUP\Web\Component\Collection\StyleSheet\Counter;
-use UUP\Web\Component\Collection\StyleSheet\Emptys;
-use UUP\Web\Component\Collection\StyleSheet\Flex;
-use UUP\Web\Component\Collection\StyleSheet\Font;
-use UUP\Web\Component\Collection\StyleSheet\Hanging;
-use UUP\Web\Component\Collection\StyleSheet\Justify;
-use UUP\Web\Component\Collection\StyleSheet\Letter;
-use UUP\Web\Component\Collection\StyleSheet\Line;
-use UUP\Web\Component\Collection\StyleSheet\Lists;
-use UUP\Web\Component\Collection\StyleSheet\Margin;
-use UUP\Web\Component\Collection\StyleSheet\Max;
-use UUP\Web\Component\Collection\StyleSheet\Min;
-use UUP\Web\Component\Collection\StyleSheet\Outline;
-use UUP\Web\Component\Collection\StyleSheet\Overflow;
-use UUP\Web\Component\Collection\StyleSheet\Padding;
-use UUP\Web\Component\Collection\StyleSheet\Page;
-use UUP\Web\Component\Collection\StyleSheet\Perspective;
-use UUP\Web\Component\Collection\StyleSheet\Tab;
-use UUP\Web\Component\Collection\StyleSheet\Table;
-use UUP\Web\Component\Collection\StyleSheet\Text;
-use UUP\Web\Component\Collection\StyleSheet\Transform;
-use UUP\Web\Component\Collection\StyleSheet\Transition;
-use UUP\Web\Component\Collection\StyleSheet\Unicode;
-use UUP\Web\Component\Collection\StyleSheet\User;
-use UUP\Web\Component\Collection\StyleSheet\Vertical;
-use UUP\Web\Component\Collection\StyleSheet\Word;
+use UUP\Web\Component\Collection\StyleSheet\Modules\Color;
 
 /**
  * Properties collection repository.
@@ -93,76 +59,8 @@ class Repository extends CollectionRepository
         protected function create($name)
         {
                 switch ($name) {
-                        case 'align':
-                                return new Align($this->_props);
-                        case 'animation':
-                                return new Animation($this->_props);
-                        case 'backface':
-                                return new Backface($this->_props);
-                        case 'background':
-                                return new Background($this->_props);
-                        case 'border':
-                                return new Border($this->_props);
-                        case 'box':
-                                return new Box($this->_props);
-                        case 'caption':
-                                return new Caption($this->_props);
-                        case 'caret':
-                                return new Caret($this->_props);
-                        case 'column':
-                                return new Column($this->_props);
-                        case 'counter':
-                                return new Counter($this->_props);
-                        case 'empty':
-                                return new Emptys($this->_props);
-                        case 'flex':
-                                return new Flex($this->_props);
-                        case 'font':
-                                return new Font($this->_props);
-                        case 'hanging':
-                                return new Hanging($this->_props);
-                        case 'justify':
-                                return new Justify($this->_props);
-                        case 'letter':
-                                return new Letter($this->_props);
-                        case 'line':
-                                return new Line($this->_props);
-                        case 'list':
-                                return new Lists($this->_props);
-                        case 'margin':
-                                return new Margin($this->_props);
-                        case 'max':
-                                return new Max($this->_props);
-                        case 'min':
-                                return new Min($this->_props);
-                        case 'outline':
-                                return new Outline($this->_props);
-                        case 'overflow':
-                                return new Overflow($this->_props);
-                        case 'padding':
-                                return new Padding($this->_props);
-                        case 'page':
-                                return new Page($this->_props);
-                        case 'perspective':
-                                return new Perspective($this->_props);
-                        case 'tab':
-                                return new Tab($this->_props);
-                        case 'table':
-                                return new Table($this->_props);
-                        case 'text':
-                                return new Text($this->_props);
-                        case 'transform':
-                                return new Transform($this->_props);
-                        case 'transition':
-                                return new Transition($this->_props);
-                        case 'unicode':
-                                return new Unicode($this->_props);
-                        case 'user':
-                                return new User($this->_props);
-                        case 'vertical':
-                                return new Vertical($this->_props);
-                        case 'word':
-                                return new Word($this->_props);
+                        case 'color':
+                                return new Color($this->_props);
                         default:
                                 return false;
                 }

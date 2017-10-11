@@ -18,9 +18,7 @@
 
 namespace UUP\Web\Component\Collection;
 
-use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
-use UUP\Web\Component\Collection\Base\PrefixedAttributeCollection;
-use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
+use UUP\Web\Component\Collection\StyleSheet\Modules;
 
 /**
  * The stylesheet attribute collection.
@@ -424,6 +422,7 @@ use UUP\Web\Component\Collection\StyleSheet\Base\Repository;
  * @link https://www.w3schools.com/cssref/pr_dim_height.asp The height property.
  * @link https://www.w3schools.com/cssref/pr_pos_left.asp The left property.
  * @link https://www.w3schools.com/cssref/pr_margin.asp The margin property.
+ * @link https://www.w3schools.com/cssref/css3_pr_opacity.asp The opacity property.
  * @link https://www.w3schools.com/cssref/css3_pr_order.asp The order property.
  * @link https://www.w3schools.com/cssref/pr_outline.asp The outline property.
  * @link https://www.w3schools.com/cssref/pr_pos_overflow.asp The overflow property.
@@ -443,10 +442,10 @@ class StyleSheet extends Collection
 {
 
         /**
-         * Sub collection repository.
-         * @var Repository 
+         * The CSS modules.
+         * @var Modules 
          */
-        private $_virtual;
+        public $modules;
 
         /**
          * Constructor.
@@ -454,53 +453,7 @@ class StyleSheet extends Collection
         public function __construct()
         {
                 parent::__construct(';', ':', '');
-                $this->_virtual = new Repository($this);
-        }
-
-        public function __get($key)
-        {
-                if (($cluster = $this->_virtual->get($key))) {
-                        return $cluster;
-                } else {
-                        return parent::get($key);
-                }
-        }
-
-        public function __set($key, $val)
-        {
-                if (!is_object($val)) {
-                        parent::set($key, $val);
-                }
-        }
-
-        /**
-         * Get value from sub collection.
-         * 
-         * Return style value if exist or false if missing.
-         * 
-         * @param string $key The sub collection name.
-         * @return mixed
-         */
-        public function property($key)
-        {
-                return parent::get($key);
-        }
-
-        /**
-         * Get named property collection.
-         * 
-         * Return sub collection if exist or false if missing. This differs from
-         * the magic get behavior that will create an empty collection for this key if 
-         * its missing.
-         * 
-         * @param string $key The sub collection name.
-         * @return ClusterAttributeCollection|PrefixedAttributeCollection
-         */
-        public function collection($key)
-        {
-                if ($this->_virtual->has($key)) {
-                        return $this->_virtual->get($key);
-                }
+                $this->modules = new Modules($this);
         }
 
 }
