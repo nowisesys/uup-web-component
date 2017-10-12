@@ -18,10 +18,17 @@
 
 namespace UUP\Web\Component\Collection;
 
-use UUP\Web\Component\Collection\StyleSheet\Modules;
-
 /**
  * The stylesheet attribute collection.
+ * 
+ * Commonly used style properties are defined as magic get/set. Use method add() or set()
+ * for other properties. It's also possible to use property names having underscore as
+ * alias for '-'.
+ * 
+ * <code>
+ * $style->set('animation-iteration-count', 1);
+ * $style->animation_iteration_count = 1;
+ * </code>
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
  *      animation-play-state and animation-fill-mode).
@@ -403,49 +410,9 @@ use UUP\Web\Component\Collection\StyleSheet\Modules;
  * @author Anders Lövgren (QNET)
  * @package UUP
  * @subpackage Web Components
- * 
- * @link https://www.w3schools.com/cssref/css3_pr_animation.asp The animation property.
- * @link https://www.w3schools.com/cssref/css3_pr_background.asp The background property.
- * @link https://www.w3schools.com/cssref/pr_border.asp The border property.
- * @link https://www.w3schools.com/cssref/pr_pos_bottom.asp The bottom property.
- * @link https://www.w3schools.com/cssref/pr_class_clear.asp The clear proprty.
- * @link https://www.w3schools.com/cssref/pr_pos_clip.asp The clip property.
- * @link https://www.w3schools.com/cssref/pr_text_color.asp The color property.
- * @link https://www.w3schools.com/cssref/css3_pr_columns.asp The columns property.
- * @link https://www.w3schools.com/cssref/pr_gen_content.asp The content property.
- * @link https://www.w3schools.com/cssref/pr_class_cursor.asp The cursor property.
- * @link https://www.w3schools.com/cssref/pr_text_direction.asp The direction property.
- * @link https://www.w3schools.com/cssref/css3_pr_filter.asp The filter property.
- * @link https://www.w3schools.com/cssref/css3_pr_flex.asp The flex property.
- * @link https://www.w3schools.com/cssref/pr_class_float.asp The float property.
- * @link https://www.w3schools.com/cssref/pr_font_font.asp The font property.
- * @link https://www.w3schools.com/cssref/pr_dim_height.asp The height property.
- * @link https://www.w3schools.com/cssref/pr_pos_left.asp The left property.
- * @link https://www.w3schools.com/cssref/pr_margin.asp The margin property.
- * @link https://www.w3schools.com/cssref/css3_pr_opacity.asp The opacity property.
- * @link https://www.w3schools.com/cssref/css3_pr_order.asp The order property.
- * @link https://www.w3schools.com/cssref/pr_outline.asp The outline property.
- * @link https://www.w3schools.com/cssref/pr_pos_overflow.asp The overflow property.
- * @link https://www.w3schools.com/cssref/pr_padding.asp The padding property.
- * @link https://www.w3schools.com/cssref/css3_pr_perspective.asp The perspective property.
- * @link https://www.w3schools.com/cssref/pr_class_position.asp The position property.
- * @link https://www.w3schools.com/cssref/pr_gen_quotes.asp The quotes property.
- * @link https://www.w3schools.com/cssref/css3_pr_resize.asp The resize property.
- * @link https://www.w3schools.com/cssref/pr_pos_right.asp The right property.
- * @link https://www.w3schools.com/cssref/pr_pos_top.asp The top property.
- * @link https://www.w3schools.com/cssref/css3_pr_transform.asp The transform property.
- * @link https://www.w3schools.com/cssref/css3_pr_transition.asp The transition property.
- * @link https://www.w3schools.com/cssref/pr_class_visibility.asp The visibility property.
- * @link https://www.w3schools.com/cssref/pr_dim_width.asp The width property.
  */
 class StyleSheet extends Collection
 {
-
-        /**
-         * The CSS modules.
-         * @var Modules 
-         */
-        public $modules;
 
         /**
          * Constructor.
@@ -453,7 +420,16 @@ class StyleSheet extends Collection
         public function __construct()
         {
                 parent::__construct(';', ':', '');
-                $this->modules = new Modules($this);
+        }
+
+        public function __set($key, $val)
+        {
+                parent::__set(str_replace('_', '-', $key), $val);
+        }
+
+        public function __get($key)
+        {
+                return parent::__get(str_replace('_', '-', $key));
         }
 
 }

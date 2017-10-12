@@ -33,13 +33,13 @@ abstract class CollectionRepository
 {
 
         /**
-         * The array of cluster property objects.
+         * The array of property collections.
          * @var AttributeCollection 
          */
         private $_repos = array();
 
         /**
-         * Get cluster property collection.
+         * Get property collection.
          * @param string $name The property collection name.
          * @return ClusterAttributeCollection
          */
@@ -53,7 +53,7 @@ abstract class CollectionRepository
         }
 
         /**
-         * Check if cluster property collection exists.
+         * Check if property collection exists.
          * @param string $name The property collection name.
          * @return bool
          */
@@ -68,11 +68,11 @@ abstract class CollectionRepository
         }
 
         /**
-         * Get cluster property object.
+         * Get property collection.
+         * The object will be created if its handled by this repository.
          * 
-         * The object will be created if its handled by this class.
          * @param string $name The property collection name.
-         * @return boolean|ClusterAttributeCollection|Prefix
+         * @return boolean|AttributeCollection
          */
         abstract protected function create($name);
 }
