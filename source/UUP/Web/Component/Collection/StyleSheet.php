@@ -18,6 +18,8 @@
 
 namespace UUP\Web\Component\Collection;
 
+use UUP\Web\Component\Collection\Base\VirtualAttributeCollection;
+
 /**
  * The stylesheet attribute collection.
  * 
@@ -26,8 +28,13 @@ namespace UUP\Web\Component\Collection;
  * alias for '-'.
  * 
  * <code>
- * $style->set('animation-iteration-count', 1);
- * $style->animation_iteration_count = 1;
+ * // 
+ * // Four possible ways to set the animation iteration count:
+ * // 
+ * $style->set('animation-iteration-count', 2);
+ * $style->animation_iteration_count = 2;
+ * $style->animation->iteration->count = 2;
+ * $style->{'animation-iteration-count'} = 2;
  * </code>
  * 
  * @property string $animation A shorthand property for all the animation properties (except 
@@ -116,17 +123,6 @@ namespace UUP\Web\Component\Collection;
  *      </p>
  *      <p><b>Example:</b> 
  *      columns: 100px 3;
- *      <br>
- *      <b>Defines:</b> 
- *      The '' module.
- *      </p>
- * 
- * @property string $content Used with the :before and :after pseudo-elements, to insert generated content.
- *      <p><b>CSS Syntax (CSS2)</b><br>
- *      content: normal|none|counter|attr|&lt;string&gt;|open-quote|close-quote|no-open-quote|no-close-quote|&lt;url&gt;|initial|inherit;
- *      </p>
- *      <p><b>Example:</b> 
- *      content: " (" attr(href) ")";
  *      <br>
  *      <b>Defines:</b> 
  *      The '' module.
@@ -297,34 +293,12 @@ namespace UUP\Web\Component\Collection;
  *      The '' module.
  *      </p>
  * 
- * @property string $perspective Specifies the perspective on how CSS3D elements are viewed.
- *      <p><b>CSS Syntax (CSS3)</b><br>
- *      perspective: &lt;length&gt;|none;
- *      </p>
- *      <p><b>Example:</b> 
- *      perspective: 500px;
- *      <br>
- *      <b>Defines:</b> 
- *      The '' module.
- *      </p>
- * 
  * @property string $position Specifies the type of positioning method used for an element (static, relative, absolute or fixed).
  *      <p><b>CSS Syntax (CSS2)</b><br>
  *      position: static|absolute|fixed|relative|sticky|initial|inherit;
  *      </p>
  *      <p><b>Example:</b> 
  *      position: absolute;
- *      <br>
- *      <b>Defines:</b> 
- *      The '' module.
- *      </p>
- * 
- * @property string $quotes Sets the type of quotation marks for embedded quotations.
- *      <p><b>CSS Syntax (CSS2)</b><br>
- *      quotes: none|&lt;string&gt;|initial|inherit;
- *      </p>
- *      <p><b>Example:</b> 
- *      quotes: "\00ab" "\00bb";
  *      <br>
  *      <b>Defines:</b> 
  *      The '' module.
@@ -429,7 +403,7 @@ class StyleSheet extends Collection
 
         public function __get($key)
         {
-                return parent::__get(str_replace('_', '-', $key));
+                return new VirtualAttributeCollection($key, $this);
         }
 
 }
