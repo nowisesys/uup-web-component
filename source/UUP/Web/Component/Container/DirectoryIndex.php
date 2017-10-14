@@ -162,7 +162,7 @@ class DirectoryIndex extends Container
                 if (!isset($this->sort)) {
                         return;
                 }
-                
+
                 uasort($this->_files, function($a, $b) {
                         if ($this->order == self::ORDER_ASC) {
                                 return strnatcmp($a[$this->sort], $b[$this->sort]);
@@ -260,7 +260,8 @@ class DirectoryIndex extends Container
                         'type' => $fileinfo->getType(),
                         'size' => $fileinfo->getSize(),
                         'time' => strftime("%x %X", filemtime($fileinfo->getRealPath())),
-                        'path' => $this->getPathname($fileinfo)
+                        'path' => $this->getPathname($fileinfo),
+                        'mime' => mime_content_type($fileinfo->getRealPath())
                 );
         }
 
@@ -277,7 +278,9 @@ class DirectoryIndex extends Container
                         'type' => $fileinfo->getType(),
                         'size' => $fileinfo->getSize(),
                         'time' => strftime("%x %X", filemtime($fileinfo->getRealPath())),
-                        'path' => $this->getPathname($fileinfo));
+                        'path' => $this->getPathname($fileinfo),
+                        'mime' => mime_content_type($fileinfo->getRealPath())
+                );
         }
 
         /**
@@ -293,7 +296,9 @@ class DirectoryIndex extends Container
                         'type' => $fileinfo->getType(),
                         'size' => $fileinfo->getSize(),
                         'time' => strftime("%x %X", filemtime($fileinfo->getRealPath())),
-                        'path' => $this->getPathname($fileinfo));
+                        'path' => $this->getPathname($fileinfo),
+                        'mime' => mime_content_type($fileinfo->getRealPath())
+                );
         }
 
         /**

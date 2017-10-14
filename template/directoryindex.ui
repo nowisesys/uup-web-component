@@ -15,19 +15,111 @@
  * limitations under the License.
  */
 
+function get_icon($mime)
+{
+        $type = explode("/", $mime);
+
+        error_log(print_r($type, true));
+
+        switch ($type[0]) {
+                case 'directory':
+                        return 'fa-folder-open-o w3-text-blue';
+                case 'audio':
+                        return 'fa-file-audio-o w3-text-pink';
+                case 'video':
+                        return 'fa-file-video-o w3-text-orange';
+                case 'image':
+                        return 'fa-file-image-o w3-text-indigo';
+                case 'application':
+                        switch ($type[1]) {
+                                case 'pdf':
+                                        return 'fa-file-pdf-o w3-text-purple';
+                                case 'vnd.oasis.opendocument.spreadsheet':
+                                case 'octet-stream':
+                                case 'vnd.ms-office':
+                                        return 'fa-file-excel-o w3-text-yellow';
+                                case 'vnd.openxmlformats-officedocument.wordprocessingml.document':
+                                case 'vnd.oasis.opendocument.text':
+                                case 'msword':
+                                        return 'fa-file-word-o w3-text-teal';
+                                case 'vnd.openxmlformats-officedocument.presentationml.presentation':
+                                case 'vnd.oasis.opendocument.presentation':
+                                case 'vnd.ms-powerpoint':
+                                        return 'fa-file-powerpoint-o w3-text-lime';
+                                case 'zip':
+                                case 'x-gzip':
+                                case 'java-archive':
+                                        return 'fa-file-archive-o w3-text-red';
+                                case 'x-executable':
+                                        return "fa-file w3-text-orange";                                        
+                                case 'x-sharedlib':
+                                        return "fa-file w3-text-grey";                                        
+                                default:
+                                        return "fa-file-o w3-text-grey";
+                        }
+                case 'text':
+                        switch ($type[1]) {
+                                case 'x-php':
+                                        return 'fa-file-code-o w3-text-purple';
+                                case 'x-shellscript':
+                                        return 'fa-file-code-o w3-text-pink';
+                                case 'html':
+                                        return 'fa-file-code-o w3-text-blue';
+                                case 'css':
+                                        return 'fa-file-code-o w3-text-indigo';
+                                case 'x-c++':
+                                        return 'fa-file-code-o w3-text-orange';
+                                case 'x-c':
+                                        return 'fa-file-code-o w3-text-green';
+                                case 'x-java':
+                                        return 'fa-file-code-o w3-text-brown';
+                                case 'x-csharp':
+                                        return 'fa-file-code-o w3-text-red';
+                                case 'x-perl':
+                                        return 'fa-file-code-o w3-text-indigo';
+                                case 'x-python':
+                                        return 'fa-file-code-o w3-text-yellow';
+                                default:
+                                        return 'fa-file-text-o w3-text-grey';
+                        }
+        }
+}
+
 ?>
 
-<table class="w3-table w3-table-all">
-    <tr>
-        <th>Name</th>
-        <th>Size</th>
+<style>
+    table.index a {
+        text-decoration: none;
+    }
+    table.index a > i {
+        min-width: 25px;
+    }
+</style>
+
+<table class="index w3-table w3-table-all w3-card">
+    <tr class="w3-green">
+        <th>
+            <a href="..">
+                <i class="fa fa-level-up" aria-hidden="true"></i>
+            </a>
+            Name
+        </th>
         <th>Modified</th>
+        <th>Size</th>
+        <th class="w3-hide-small">Type</th>
     </tr>
     <?php foreach ($this->files as $file) : ?>
+            <?php $file['icon'] = get_icon($file['mime']) ?>
             <tr>
-                <td><a href="<?= $file['path'] ?>"><?= $file['path'] ?></a></td>
-                <td><?= $file['size'] ?></td>
-                <td><?= $file['time'] ?></td>
+                <td>
+                    <a href="<?= $file['path'] ?>">
+                        <i class="fa <?= $file['icon'] ?>" aria-hidden="true"></i>
+                        <?= $file['path'] ?>
+                    </a>
+                </td>
+                <td class="w3-text-grey"><?= $file['time'] ?></td>
+                <td class="w3-text-grey"><?= $file['size'] ?></td>
+                <td class="w3-text-grey w3-hide-small"><?= $file['mime'] ?></td>
             </tr>
     <?php endforeach; ?>
 </table>
