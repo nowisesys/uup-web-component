@@ -7,6 +7,7 @@ return array(
                 'Grid'     => '?page=container/grid',
                 'Download' => '?page=container/download',
                 'Sitemap'  => '?page=container/sitemap',
+                'Index'    => '?page=container/directoryindex',
         ),
         'Widgets'     => array(
                 'Buttons' => '?page=widgets/buttons',
