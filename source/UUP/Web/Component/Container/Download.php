@@ -20,6 +20,7 @@ namespace UUP\Web\Component\Container;
 
 use FilesystemIterator;
 use RuntimeException;
+use SplFileInfo;
 use UUP\Web\Component\Container;
 
 /**
@@ -202,7 +203,7 @@ class Download extends Container
 
         /**
          * Add file entry.
-         * @param FilesystemIterator $fileinfo The file info object.
+         * @param SplFileInfo $fileinfo The file info object.
          */
         private function addEntry($fileinfo)
         {
@@ -218,7 +219,7 @@ class Download extends Container
 
         /**
          * Add standard file.
-         * @param FilesystemIterator $fileinfo The file info object.
+         * @param SplFileInfo $fileinfo The file info object.
          */
         private function addFile($fileinfo)
         {
@@ -232,7 +233,7 @@ class Download extends Container
 
         /**
          * Add symbolic link.
-         * @param FilesystemIterator $fileinfo The file info object.
+         * @param SplFileInfo $fileinfo The file info object.
          */
         private function addLink($fileinfo)
         {
@@ -251,7 +252,7 @@ class Download extends Container
          * Check if security files exists.
          * 
          * Returns true if checksum or signed files exist for current download file.
-         * @param FilesystemIterator $fileinfo The file info object. 
+         * @param SplFileInfo $fileinfo The file info object. 
          * @return bool 
          */
         private function hasSecurity($fileinfo)
@@ -272,7 +273,7 @@ class Download extends Container
 
         /**
          * Add security files.
-         * @param FilesystemIterator $fileinfo The file info object. 
+         * @param SplFileInfo $fileinfo The file info object. 
          */
         private function addSecurity($fileinfo)
         {
