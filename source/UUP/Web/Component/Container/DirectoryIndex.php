@@ -100,6 +100,11 @@ class DirectoryIndex extends Container
          */
         public $order = self::ORDER_ASC;
         /**
+         * Include directories in listing.
+         * @var boolean 
+         */
+        public $dirs = true;
+        /**
          * The collection of files.
          * @var array 
          */
@@ -204,6 +209,9 @@ class DirectoryIndex extends Container
         private function addEntry($fileinfo)
         {
                 if ($fileinfo->isReadable() == false) {
+                        return;
+                }
+                if ($fileinfo->isDir() && $this->dirs == false) {
                         return;
                 }
 
