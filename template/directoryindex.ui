@@ -108,6 +108,7 @@ function get_icon($mime)
     </tr>
     <?php foreach ($this->files as $file) : ?>
             <?php $file['icon'] = get_icon($file['mime']) ?>
+            <?php $file['size'] = $file['type'] == 'dir' ? '' : $file['size'] ?>
             <tr>
                 <td nowrap>
                     <a href="<?= $file['path'] ?>">
