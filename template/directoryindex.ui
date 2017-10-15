@@ -109,7 +109,7 @@ function get_icon($mime)
     <?php foreach ($this->files as $file) : ?>
             <?php $file['icon'] = get_icon($file['mime']) ?>
             <tr>
-                <td>
+                <td nowrap>
                     <a href="<?= $file['path'] ?>">
                         <i class="fa <?= $file['icon'] ?>" aria-hidden="true"></i>
                         <?= $file['path'] ?>
