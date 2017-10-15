@@ -105,6 +105,19 @@ class DirectoryIndex extends Container
          */
         public $dirs = true;
         /**
+         * Exclude filter for site map.
+         * @var array 
+         */
+        public $exclude = array(
+                'name' => array(
+                        '.svn', '.git', '.github', '.ssh', 'admin', 'vendor', 'config',
+                        'cache', 'temp', 'logs', 'nbproject', 'node_modules', 'htpasswd'
+                ),
+                'file' => array(
+                        '.hidden'
+                )
+        );
+        /**
          * The collection of files.
          * @var array 
          */
@@ -208,10 +221,7 @@ class DirectoryIndex extends Container
          */
         private function addEntry($fileinfo)
         {
-                if ($fileinfo->isReadable() == false) {
-                        return;
-                }
-                if ($fileinfo->isDir() && $this->dirs == false) {
+                if ($this->isExcluded($fileinfo)) {
                         return;
                 }
 
@@ -318,6 +328,43 @@ class DirectoryIndex extends Container
         private function getPathname($fileinfo)
         {
                 return substr($fileinfo->getPathname(), strlen($this->path) + 1);
+        }
+
+        /**
+         * Should entry be included in listing?
+         * 
+         * @param SplFileInfo $fileinfo The file info object.
+         * @return bool
+         */
+        private function isExcluded($fileinfo)
+        {
+                if ($fileinfo->isReadable() == false) {
+                        return true;
+                }
+                if ($fileinfo->isDir() && $this->dirs == false) {
+                        return true;
+                }
+                if (in_array($fileinfo->getBasename(), $this->exclude['name'])) {
+                        return true;
+                }
+                if ($this->isDisplayable($fileinfo->getRealPath()) == false) {
+                        return true;
+                }
+        }
+
+        /**
+         * This directory can be displayed.
+         * @return bool 
+         */
+        public function isDisplayable($path)
+        {
+                foreach ($this->exclude['file'] as $file) {
+                        if (file_exists(sprintf("%s/%s", $path, $file))) {
+                                return false;
+                        }
+                }
+
+                return true;
         }
 
 }
