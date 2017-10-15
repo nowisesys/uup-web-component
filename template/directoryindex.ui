@@ -19,8 +19,6 @@ function get_icon($mime)
 {
         $type = explode("/", $mime);
 
-        error_log(print_r($type, true));
-
         switch ($type[0]) {
                 case 'directory':
                         return 'fa-folder-open-o w3-text-blue';
@@ -51,9 +49,9 @@ function get_icon($mime)
                                 case 'java-archive':
                                         return 'fa-file-archive-o w3-text-red';
                                 case 'x-executable':
-                                        return "fa-file w3-text-orange";                                        
+                                        return "fa-file w3-text-orange";
                                 case 'x-sharedlib':
-                                        return "fa-file w3-text-grey";                                        
+                                        return "fa-file w3-text-grey";
                                 default:
                                         return "fa-file-o w3-text-grey";
                         }
