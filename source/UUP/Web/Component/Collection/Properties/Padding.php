@@ -24,8 +24,8 @@ use UUP\Web\Component\Collection\Properties;
 /**
  * The padding properties.
  * 
- * @property string $small Padding 4px top and bottom, and 8px left and right.
- * @property string $large Padding 12px top and bottom, and 24px left and right.
+ * @property bool $small Padding 4px top and bottom, and 8px left and right.
+ * @property bool $large Padding 12px top and bottom, and 24px left and right.
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
