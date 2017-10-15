@@ -3,7 +3,6 @@
 use UUP\Web\Component\Element\Div;
 use UUP\Web\Component\Style\Background;
 use UUP\Web\Component\Style\Border;
-use UUP\Web\Component\Style\Color;
 
 echo "<h2>Divs</h2>\n";
 

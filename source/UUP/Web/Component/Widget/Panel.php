@@ -21,7 +21,7 @@ namespace UUP\Web\Component\Widget;
 use UUP\Web\Component\Element\Div;
 
 /**
- * Panel component.
+ * Panel widget component.
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
