@@ -7,4 +7,7 @@ echo "<p>Provides a component for file download. Given a directory path, it scan
 echo "for files to make available for download.</p>\n";
 
 $download = new Download();
+$download->path = "container/download";
+$download->extension = "txt";
+$download->detect = array('sha1', 'md5');
 $download->render();
