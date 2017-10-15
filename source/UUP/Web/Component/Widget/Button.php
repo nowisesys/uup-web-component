@@ -27,6 +27,7 @@ use UUP\Web\Component\Element\Button as ButtonBase;
  * Button widget component.
  * 
  * @property-write string $link The target URL.
+ * @property-write bool $flat Enable flat button style.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
@@ -70,6 +71,10 @@ class Button extends ButtonBase
                         case 'link':
                                 $this->attr->common->href = $value;
                                 $this->setName('a');    // transform to anchor element
+                                break;
+                        case 'flat':
+                                $this->props->btn = ($value == false);
+                                $this->props->button = ($value == true);
                                 break;
                         default:
                                 parent::__set($name, $value);
