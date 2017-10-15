@@ -59,6 +59,7 @@ use UUP\Web\Component\Collection\Properties\Padding;
  * @property Display $display The display properties.
  * @property Padding $padding The padding property.
  * @property Card $card The card property.
+ * @property Round $round The round property.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP

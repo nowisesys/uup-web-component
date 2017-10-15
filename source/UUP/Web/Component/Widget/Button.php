@@ -20,6 +20,7 @@ namespace UUP\Web\Component\Widget;
 
 use UUP\Web\Component\Collection\Properties\Color;
 use UUP\Web\Component\Collection\Properties\Hover;
+use UUP\Web\Component\Collection\Properties\Round;
 use UUP\Web\Component\Element\Button as ButtonBase;
 
 /**
@@ -44,6 +45,11 @@ class Button extends ButtonBase
          * @var Hover 
          */
         public $hover;
+        /**
+         * The button round properties.
+         * @var Round 
+         */
+        public $round;
 
         /**
          * Constructor.
@@ -55,6 +61,7 @@ class Button extends ButtonBase
 
                 $this->color = $this->props->color;
                 $this->hover = $this->props->hover;
+                $this->round = $this->props->round;
         }
 
         public function __set($name, $value)

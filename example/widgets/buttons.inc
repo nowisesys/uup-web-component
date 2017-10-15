@@ -1,5 +1,6 @@
 <?php
 
+use UUP\Web\Component\Collection\Properties\Round;
 use UUP\Web\Component\Widget\Button;
 
 $colors = array(
@@ -101,4 +102,29 @@ echo "below will open google.</p>\n";
 $button = new Button("Button1");
 $button->color->back = "green";
 $button->link = "http://www.google.com";
+$button->render();
+
+echo "<h3>Round</h3>\n";
+
+echo "<p>Use the round object to set the roundness on buttons. To set default round property, ";
+echo "use 'props->round'</p>\n";
+$button = new Button("Button1");
+$button->color->back = "blue";
+
+$button->props->round = true;   // default enable
+$button->render();
+
+$button->round->small = true;
+$button->render();
+
+$button->round->medium = true;
+$button->render();
+
+$button->round->large = true;
+$button->render();
+
+$button->round->xlarge = true;
+$button->render();
+
+$button->round->xxlarge = true;
 $button->render();

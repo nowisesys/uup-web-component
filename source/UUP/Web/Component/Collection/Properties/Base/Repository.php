@@ -21,13 +21,6 @@ namespace UUP\Web\Component\Collection\Properties\Base;
 use UUP\Web\Component\Collection\Base\ClusterAttributeCollection;
 use UUP\Web\Component\Collection\Base\CollectionRepository;
 use UUP\Web\Component\Collection\Properties;
-use UUP\Web\Component\Collection\Properties\Card;
-use UUP\Web\Component\Collection\Properties\Color;
-use UUP\Web\Component\Collection\Properties\Container;
-use UUP\Web\Component\Collection\Properties\Display;
-use UUP\Web\Component\Collection\Properties\Effect;
-use UUP\Web\Component\Collection\Properties\Hover;
-use UUP\Web\Component\Collection\Properties\Padding;
 
 /**
  * Properties collection repository.
@@ -65,19 +58,21 @@ class Repository extends CollectionRepository
         {
                 switch ($name) {
                         case 'card':
-                                return new Card($this->_props);
+                                return new Properties\Card($this->_props);
                         case 'color':
-                                return new Color($this->_props);
+                                return new Properties\Color($this->_props);
                         case 'container':
-                                return new Container($this->_props);
+                                return new Properties\Container($this->_props);
                         case 'display':
-                                return new Display($this->_props);
+                                return new Properties\Display($this->_props);
                         case 'effect':
-                                return new Effect($this->_props);
+                                return new Properties\Effect($this->_props);
                         case 'hover':
-                                return new Hover($this->_props);
+                                return new Properties\Hover($this->_props);
                         case 'padding':
-                                return new Padding($this->_props);
+                                return new Properties\Padding($this->_props);
+                        case 'round':
+                                return new Properties\Round($this->_props);
                         default:
                                 return false;
                 }
