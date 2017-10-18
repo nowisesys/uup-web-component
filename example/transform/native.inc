@@ -14,13 +14,11 @@
 <?php
 
 use UUP\Web\Component\Element\Button;
-use UUP\Web\Component\Transform;
-use UUP\Web\Component\Transform\Native;
 
 // 
 // Set default render transformer to native:
 // 
-Transform::setInstance(new Native('nat'));
+set_transformer('native');
 
 echo "<h2>Native transformer</h2>\n";
 echo "<p>Demo of native attribute transformer that renders component with one-to-one ";

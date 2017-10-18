@@ -1,7 +1,9 @@
 <?php
 require_once("../vendor/autoload.php");
 require_once("index.inc");
+
 $transformer = load_transformer();
+set_transformer($transformer);
 
 ?>
 <!DOCTYPE html> 

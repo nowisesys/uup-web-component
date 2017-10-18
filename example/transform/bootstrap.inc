@@ -5,13 +5,11 @@
 <?php
 
 use UUP\Web\Component\Element\Button;
-use UUP\Web\Component\Transform;
-use UUP\Web\Component\Transform\Bootstrap;
 
 // 
 // Set default render transformer to bootstrap:
 // 
-Transform::setInstance(new Bootstrap());
+set_transformer('bootstrap');
 
 echo "<h2>Bootstrap transformer</h2>\n";
 echo "<p>Demo of bootstrap attribute transformer that renders component with class ";

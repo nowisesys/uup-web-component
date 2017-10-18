@@ -8,6 +8,11 @@
 
 <?php
 
+use UUP\Web\Component\Transform;
+use UUP\Web\Component\Transform\Bootstrap;
+use UUP\Web\Component\Transform\Native;
+use UUP\Web\Component\Transform\Paragon;
+
 function load_stylesheet($transformer)
 {
         switch ($transformer) {
@@ -78,6 +83,23 @@ function show_transformer($selected)
         }
         printf("</select>\n");
         printf("</form>\n");
+}
+
+function set_transformer($selected)
+{
+        switch ($selected) {
+                case 'paragon':
+                        Transform::setInstance(new Paragon());
+                        break;
+                case 'native':
+                        Transform::setInstance(new Native('nat'));
+                        break;
+                case 'bootstrap':
+                        Transform::setInstance(new Bootstrap());
+                        break;
+                default:
+                        Transform::setInstance(new Paragon());
+        }
 }
 
 function print_menu($menu)

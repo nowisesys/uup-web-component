@@ -4,6 +4,11 @@
 
 use UUP\Web\Component\Element\Button;
 
+// 
+// Set default render transformer to native:
+// 
+set_transformer('paragon');
+
 echo "<h2>Paragon transformer</h2>\n";
 echo "<p>Demo of the standard attribute transformer that is used unless another transformer ";
 echo "is set for rendering.</p>\n";
