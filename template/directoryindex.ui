@@ -107,6 +107,7 @@ function get_icon($mime)
         <th class="w3-hide-small">Type</th>
     </tr>
     <?php foreach ($this->files as $file) : ?>
+            <?php error_log(print_r($file, true)) ?>
             <?php $file['icon'] = get_icon($file['mime']) ?>
             <?php $file['size'] = $file['type'] == 'dir' ? '' : $file['size'] ?>
             <tr>

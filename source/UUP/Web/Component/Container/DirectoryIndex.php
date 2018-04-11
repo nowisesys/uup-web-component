@@ -122,6 +122,16 @@ class DirectoryIndex extends Container
          * @var array 
          */
         private $_files;
+        /**
+         * Relative path.
+         * @var string 
+         */
+        private $_pathrel;
+        /**
+         *
+         * @var string 
+         */
+        private $_pathabs;
 
         public function __construct($path = null)
         {
@@ -157,7 +167,8 @@ class DirectoryIndex extends Container
                         throw new RuntimeException("The index directory don't exist");
                 }
 
-                $this->path = realpath($this->path);
+                $this->_pathrel = $this->path;
+                $this->_pathabs = realpath($this->path);
                 $this->_files = array();
 
                 $this->collect();
@@ -169,7 +180,7 @@ class DirectoryIndex extends Container
          */
         private function collect()
         {
-                $this->addPath($this->path);
+                $this->addPath($this->_pathabs);
         }
 
         /**
@@ -327,7 +338,13 @@ class DirectoryIndex extends Container
          */
         private function getPathname($fileinfo)
         {
-                return substr($fileinfo->getPathname(), strlen($this->path) + 1);
+                $name = substr($fileinfo->getPathname(), strlen($this->_pathabs) + 1);
+
+                if ($this->_pathrel != '.') {
+                        return $this->_pathrel . '/' . $name;
+                } else {
+                        return $name;
+                }
         }
 
         /**
