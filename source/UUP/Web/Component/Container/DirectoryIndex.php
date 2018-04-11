@@ -126,6 +126,11 @@ class DirectoryIndex extends Container
                 )
         );
         /**
+         * The DOM tree ID.
+         * @var int
+         */
+        public $id = 0;
+        /**
          * The collection of files.
          * @var array 
          */

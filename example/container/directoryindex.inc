@@ -15,4 +15,5 @@ $index = new DirectoryIndex();
 $index->depth = DirectoryIndex::DEPTH_INFINITE;
 $index->path = ".";
 $index->sort = DirectoryIndex::SORT_BROWSE;
+$index->id = rand(1, 100);
 $index->render();
