@@ -75,6 +75,10 @@ class DirectoryIndex extends Container
          */
         const SORT_MIME = "mime";
         /**
+         * Sort as file system explorer.
+         */
+        const SORT_BROWSE = "browse";
+        /**
          * Order sort ascending.
          */
         const ORDER_ASC = 1;
@@ -197,8 +201,11 @@ class DirectoryIndex extends Container
                 }
 
                 uasort($this->_files, function($a, $b) {
-                        error_log($a[$this->sort]);
-                        if ($this->order == self::ORDER_ASC) {
+                        if ($this->sort == self::SORT_BROWSE) {
+                                return
+                                    strnatcmp($a['type'], $b['type']) * 2 +
+                                    strnatcmp($a['path'], $b['path']);
+                        } elseif ($this->order == self::ORDER_ASC) {
                                 return strnatcmp($a[$this->sort], $b[$this->sort]);
                         } else {
                                 return strnatcmp($b[$this->sort], $a[$this->sort]);

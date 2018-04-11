@@ -12,4 +12,7 @@ echo "recursion depth. Watch out for 'out of memory' or 'max excution time' erro
 echo "infinite depth.</p>\n";
 
 $index = new DirectoryIndex();
+$index->depth = DirectoryIndex::DEPTH_INFINITE;
+$index->path = ".";
+$index->sort = DirectoryIndex::SORT_BROWSE;
 $index->render();
