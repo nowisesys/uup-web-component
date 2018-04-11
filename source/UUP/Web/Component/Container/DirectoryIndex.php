@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (QNET).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -168,6 +168,74 @@ class DirectoryIndex extends Container
                 }
 
                 return $this->_files;
+        }
+
+        public function getIcon($mime)
+        {
+                $type = explode("/", $mime);
+
+                switch ($type[0]) {
+                        case 'directory':
+                                return 'fa-folder-open-o w3-text-blue';
+                        case 'audio':
+                                return 'fa-file-audio-o w3-text-pink';
+                        case 'video':
+                                return 'fa-file-video-o w3-text-orange';
+                        case 'image':
+                                return 'fa-file-image-o w3-text-indigo';
+                        case 'application':
+                                switch ($type[1]) {
+                                        case 'pdf':
+                                                return 'fa-file-pdf-o w3-text-purple';
+                                        case 'vnd.oasis.opendocument.spreadsheet':
+                                        case 'octet-stream':
+                                        case 'vnd.ms-office':
+                                                return 'fa-file-excel-o w3-text-yellow';
+                                        case 'vnd.openxmlformats-officedocument.wordprocessingml.document':
+                                        case 'vnd.oasis.opendocument.text':
+                                        case 'msword':
+                                                return 'fa-file-word-o w3-text-teal';
+                                        case 'vnd.openxmlformats-officedocument.presentationml.presentation':
+                                        case 'vnd.oasis.opendocument.presentation':
+                                        case 'vnd.ms-powerpoint':
+                                                return 'fa-file-powerpoint-o w3-text-lime';
+                                        case 'zip':
+                                        case 'x-gzip':
+                                        case 'java-archive':
+                                                return 'fa-file-archive-o w3-text-red';
+                                        case 'x-executable':
+                                                return "fa-file w3-text-orange";
+                                        case 'x-sharedlib':
+                                                return "fa-file w3-text-grey";
+                                        default:
+                                                return "fa-file-o w3-text-grey";
+                                }
+                        case 'text':
+                                switch ($type[1]) {
+                                        case 'x-php':
+                                                return 'fa-file-code-o w3-text-purple';
+                                        case 'x-shellscript':
+                                                return 'fa-file-code-o w3-text-pink';
+                                        case 'html':
+                                                return 'fa-file-code-o w3-text-blue';
+                                        case 'css':
+                                                return 'fa-file-code-o w3-text-indigo';
+                                        case 'x-c++':
+                                                return 'fa-file-code-o w3-text-orange';
+                                        case 'x-c':
+                                                return 'fa-file-code-o w3-text-green';
+                                        case 'x-java':
+                                                return 'fa-file-code-o w3-text-brown';
+                                        case 'x-csharp':
+                                                return 'fa-file-code-o w3-text-red';
+                                        case 'x-perl':
+                                                return 'fa-file-code-o w3-text-indigo';
+                                        case 'x-python':
+                                                return 'fa-file-code-o w3-text-yellow';
+                                        default:
+                                                return 'fa-file-text-o w3-text-grey';
+                                }
+                }
         }
 
         /**

@@ -11,9 +11,18 @@ echo "<p>Even though not really recommended, the directory index can have immedi
 echo "recursion depth. Watch out for 'out of memory' or 'max excution time' errors when using ";
 echo "infinite depth.</p>\n";
 
+echo "<h3>Content of directory container:</h3>\n";
 $index = new DirectoryIndex();
 $index->depth = DirectoryIndex::DEPTH_INFINITE;
-$index->path = ".";
+$index->path = "container";
 $index->sort = DirectoryIndex::SORT_BROWSE;
-$index->id = rand(1, 100);
+$index->id = 1;
+$index->render();
+
+echo "<h3>Content of directory properties:</h3>\n";
+$index = new DirectoryIndex();
+$index->depth = DirectoryIndex::DEPTH_INFINITE;
+$index->path = "properties";
+$index->sort = DirectoryIndex::SORT_BROWSE;
+$index->id = 2;
 $index->render();
