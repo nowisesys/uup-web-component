@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (QNET).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ use UUP\Web\Component\Container;
 /**
  * Grid component.
  * 
- * The image is an URL and icon is the name of an font awesome icon.
+ * Renders two column content with image|text or text|image. Use either
+ * icon or image. The icon name is font awesome without 'fa-' prefix.
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
@@ -32,12 +33,40 @@ use UUP\Web\Component\Container;
 class Grid extends Container
 {
 
-        public $title = "TITLE";
-        public $intro = "INTRO";
-        public $text = "TEXT";
+        /**
+         * The grid header text.
+         * @var string 
+         */
+        public $title = false;
+        /**
+         * A short ingress text.
+         * @var string 
+         */
+        public $intro = false;
+        /**
+         * The grid content (plain text or HTML).
+         * @var string 
+         */
+        public $text = false;
+        /**
+         * The icon name (i.e. anchor).
+         * @var string 
+         */
         public $icon = false;
+        /**
+         * The image URL.
+         * @var string 
+         */
         public $image = false;
+        /**
+         * The background color.
+         * @var string 
+         */
         public $color = "white";
+        /**
+         * The content alignment (left or right).
+         * @var string 
+         */
         public $align = "left";
 
         /**
