@@ -21,15 +21,15 @@
     <div class="w3-content">
         <?php if ($this->align == "left") : ?>
 
-                <div class="w3-twothird w3-padding-left">
+                <div class="w3-twothird">
                     <?php if ($this->title): ?>
-                            <h1><?= $this->title ?></h1>
+                            <h1 class="w3-margin-right"><?= $this->title ?></h1>
                     <?php endif; ?>
                     <?php if ($this->intro): ?>
-                            <h5 class="w3-padding-32"><?= $this->intro ?></h5>
+                            <h5 class="w3-margin-right"><?= $this->intro ?></h5>
                     <?php endif; ?>
                     <?php if ($this->text): ?>
-                            <p class="w3-text-grey"><?= $this->text ?></p>
+                            <p class="w3-margin-right w3-text-grey"><?= $this->text ?></p>
                     <?php endif; ?>                    
                     <?php if ($this->count() != 0): ?>
                             <div>
@@ -40,7 +40,7 @@
                     <?php endif; ?>
                 </div>
 
-                <div class="w3-third w3-center">
+                <div class="w3-third w3-center w3-margin-top">
                     <?php if ($this->icon) : ?>
                             <i class="fa fa-<?= $this->icon ?> w3-text-red" style="font-size: 200px"></i>
                     <?php elseif ($this->image) : ?>
@@ -50,7 +50,7 @@
 
         <?php else : ?>
 
-                <div class="w3-third w3-center">
+                <div class="w3-third w3-center w3-margin-top">
                     <?php if ($this->icon) : ?>
                             <i class="fa fa-<?= $this->icon ?> w3-text-red" style="font-size: 200px"></i>
                     <?php elseif ($this->image) : ?>
@@ -58,15 +58,15 @@
                     <?php endif ?>
                 </div>
 
-                <div class="w3-twothird w3-padding-right">
+                <div class="w3-twothird">
                     <?php if ($this->title): ?>
-                            <h1><?= $this->title ?></h1>
+                            <h1 class="w3-margin-left"><?= $this->title ?></h1>
                     <?php endif; ?>
                     <?php if ($this->intro): ?>
-                            <h5 class="w3-padding-32"><?= $this->intro ?></h5>
+                            <h5 class="w3-margin-left"><?= $this->intro ?></h5>
                     <?php endif; ?>
                     <?php if ($this->text): ?>
-                            <p class="w3-text-grey"><?= $this->text ?></p>
+                            <p class="w3-margin-left w3-text-grey"><?= $this->text ?></p>
                     <?php endif; ?>                    
                     <?php if ($this->count() != 0): ?>
                             <div>
