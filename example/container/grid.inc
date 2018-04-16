@@ -45,3 +45,30 @@ $cell2->text = '<iframe width="100%" height="240" src="https://www.youtube.com/e
 $grid->add($cell1);
 $grid->add($cell2);
 $grid->render();
+
+echo "<h3>Media icon</h3>\n";
+echo "<p>Use the image property to use linked content as icon. The icon property should ";
+echo "be set to false.</p>\n";
+
+$grid = new Grid();
+$grid->title = $title;
+$grid->intro = $intro;
+$grid->text = $text;
+$grid->image = "container/gallery/img_mountains.jpeg";
+$grid->render();
+
+$grid = new Grid();
+$grid->align = "right";
+$grid->color = "w3-light-grey";
+$grid->title = $title;
+$grid->intro = $intro;
+$grid->text = $text;
+$grid->image = "container/gallery/img_forest.jpeg";
+$grid->render();
+
+$grid = new Grid();
+$grid->title = $title;
+$grid->intro = $intro;
+$grid->text = $text;
+$grid->image = "container/gallery/img_fjords.jpeg";
+$grid->render();
