@@ -47,15 +47,11 @@ echo "<h3>Gallery carousel</h3>\n";
 echo "<p>Cycle thru items added to the carousel gallery and display them with a nice ";
 echo "transistion effect morphing one into another.</p>\n";
 $gallery = new Carousel();
-$gallery->interval = 3;         // Three seconds between shifting
+$gallery->interval = 5;         // Three seconds between shifting
 $gallery->add($cell1);
-$gallery->add($cell5);
 $gallery->add($cell2);
-$gallery->add($cell5);
 $gallery->add($cell3);
-$gallery->add($cell5);
 $gallery->add($cell4);
-$gallery->add($cell5);
 $gallery->render();
 
 echo "<h3>Exposé gallery layout</h3>\n";
