@@ -50,6 +50,11 @@ class Carousel extends Container
          * @var int 
          */
         public $interval = 10;
+        /**
+         * The number of instances.
+         * @var int 
+         */
+        private static $instances = 0;
 
         /**
          * Constructor.
@@ -58,7 +63,7 @@ class Carousel extends Container
         public function __construct($path = null)
         {
                 parent::__construct("gallery/carousel", $path);
-                $this->id = sprintf("carousel-%s", md5($this->path));
+                $this->id = sprintf("carousel-%s", md5(time() + self::$instances++));
         }
 
 }
