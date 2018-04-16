@@ -21,7 +21,7 @@ namespace UUP\Web\Component\Element;
 use UUP\Web\Component\Element;
 
 /**
- * Button component.
+ * Button HTML element (button, a, input).
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
