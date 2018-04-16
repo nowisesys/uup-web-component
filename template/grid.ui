@@ -31,6 +31,13 @@
                     <?php if ($this->text): ?>
                             <p class="w3-text-grey"><?= $this->text ?></p>
                     <?php endif; ?>                    
+                    <?php if ($this->count() != 0): ?>
+                            <div>
+                                <?php foreach ($this->children() as $item): ?>
+                                        <?php $item->render() ?>
+                                <?php endforeach; ?>
+                            </div>
+                    <?php endif; ?>
                 </div>
 
                 <div class="w3-third w3-center">
@@ -61,6 +68,13 @@
                     <?php if ($this->text): ?>
                             <p class="w3-text-grey"><?= $this->text ?></p>
                     <?php endif; ?>                    
+                    <?php if ($this->count() != 0): ?>
+                            <div>
+                                <?php foreach ($this->children() as $item): ?>
+                                        <?php $item->render() ?>
+                                <?php endforeach; ?>
+                            </div>
+                    <?php endif; ?>
                 </div>
 
         <?php endif ?>
