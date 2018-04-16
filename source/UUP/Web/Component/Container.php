@@ -20,6 +20,9 @@ namespace UUP\Web\Component;
 
 /**
  * The container component.
+ * 
+ * Rendering is done using a template file (*.ui). Templates are responsible for 
+ * rendering any child components inside the container.
  *
  * @author Anders Lövgren (QNET)
  * @package UUP
@@ -98,7 +101,6 @@ class Container extends Renderable implements Component
         private function output($transform)
         {
                 include($this->_template);
-                parent::render($transform);
         }
 
         /**
