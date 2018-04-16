@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (QNET).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,15 +31,15 @@ class Cell extends Container
 {
 
         /**
-         * The card title.
+         * The cell title.
          * @var string 
          */
-        public $title = "TITLE";
+        public $title = false;
         /**
-         * The card text.
+         * The cell text.
          * @var string 
          */
-        public $text = "TEXT";
+        public $text = false;
         /**
          * The image URL.
          * @var string 
