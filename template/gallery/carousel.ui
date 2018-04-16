@@ -1,0 +1,95 @@
+<?php
+/*
+ * Copyright (C) 2018 Anders Lövgren (Nowise Systems).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * Based on http://css3.bradshawenterprises.com/cfimg/
+ */
+
+// 
+// The values for cross fading depends on total number of items. Use 1
+// as hardcoded duration value for cross fade.
+// 
+$total = ($this->interval + 1) * $this->count();
+$shift = array(
+        0,
+        100 * ($this->interval / $total),
+        100 * ($this->interval + 1) / $total,
+        100 * (1 - 1 / $total),
+        100
+);
+
+?>
+
+<style>
+
+    /* 
+     * Animate on opacity and z-index. The latter is required for links
+     * in active item to work.
+     */
+    @keyframes <?= $this->id ?>-fade-in-out {
+        <?= $shift[0] ?>% {
+            opacity:1;
+            z-index: 10;
+        }
+        <?= $shift[1] ?>% {
+            opacity:1;
+            z-index: 10;
+        }
+        <?= $shift[2] ?>% {
+            opacity:0;
+            z-index: 0;
+        }
+        <?= $shift[3] ?>% {
+            opacity:0;
+            z-index: 0;
+        }
+        <?= $shift[4] ?>% {
+            opacity:1;
+            z-index: 10;
+        }
+    }
+
+    #<?= $this->id ?> {
+        position:relative;
+        height:<?= $this->height ?>;
+        width:<?= $this->width ?>;
+        margin:0 auto;
+    }
+    #<?= $this->id ?> > div {
+        position:absolute;
+        left:0;
+    }
+
+    #<?= $this->id ?> > div {
+        animation-name: <?= $this->id ?>-fade-in-out;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-duration: <?= $this->count() * $this->interval ?>s;
+    }
+    <?php for ($i = 1; $i <= $this->count(); $i++): ?>
+            #<?= $this->id ?> > div:nth-of-type(<?= $i ?>) {
+                animation-delay: <?= ($this->count() - $i) * $this->interval ?>s;
+            }
+    <?php endfor; ?>
+
+</style>
+
+<div id="<?= $this->id ?>">
+    <?php foreach ($this->children() as $item): ?>
+            <?php $item->render() ?>
+    <?php endforeach; ?>
+</div>

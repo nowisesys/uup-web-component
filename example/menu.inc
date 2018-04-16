@@ -8,6 +8,7 @@ return array(
                 'Download' => '?page=container/download',
                 'Sitemap'  => '?page=container/sitemap',
                 'Index'    => '?page=container/directoryindex',
+                'Gallery'  => '?page=container/gallery'
         ),
         'Widgets'     => array(
                 'Buttons' => '?page=widgets/buttons',
