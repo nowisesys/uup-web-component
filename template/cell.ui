@@ -18,7 +18,7 @@
 ?>
 
 <div class="w3-cell w3-center w3-mobile w3-margin-bottom">
-    <div class="w3-padding-16 <?= $this->color ?>">
+    <div class="<?= $this->padding ?> <?= $this->color ?>">
         <?php if ($this->title): ?>
                 <h1><?= $this->title ?></h1>
         <?php endif; ?>

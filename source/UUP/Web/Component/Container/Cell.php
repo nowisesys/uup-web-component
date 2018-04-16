@@ -55,6 +55,11 @@ class Cell extends Container
          * @var string 
          */
         public $href = "#";
+        /**
+         * The inner padding.
+         * @var string 
+         */
+        public $padding = "w3-padding-16";
 
         /**
          * Constructor.
