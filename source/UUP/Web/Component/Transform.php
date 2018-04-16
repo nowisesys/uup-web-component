@@ -54,13 +54,13 @@ abstract class Transform
         /**
          * Invokes the apply method.
          * 
-         * @param int $type The component type (one of the Component::XXX constants).
          * @param Component $component The component to render.
+         * @param int $type The component type (one of the Component::XXX constants).
          * @return boolean
          */
-        public function __invoke($type, $component)
+        public function __invoke($component, $type)
         {
-                return $this->apply($type, $component);
+                return $this->apply($component, $type);
         }
 
         /**
