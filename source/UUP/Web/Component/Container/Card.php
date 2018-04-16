@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (QNET).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,22 +30,26 @@ use UUP\Web\Component\Element\Button;
  */
 class Card extends Container
 {
+        /**
+         * Example URL for image.
+         */
+        const IMAGE = "https://secure.bankofamerica.com/content/images/ContextualSiteGraphics/Instructional/en_US/Banner_Credit_Card_Activation.png";
 
         /**
          * The card title.
          * @var string 
          */
-        public $title = "TITLE";
+        public $title = false;
         /**
          * The card text.
          * @var string 
          */
-        public $text = "TEXT";
+        public $text = false;
         /**
          * The image URL.
          * @var string 
          */
-        public $image = "https://secure.bankofamerica.com/content/images/ContextualSiteGraphics/Instructional/en_US/Banner_Credit_Card_Activation.png";
+        public $image = false;
         /**
          * Background color.
          * @var string 
@@ -64,7 +68,7 @@ class Card extends Container
         public function __construct($path = null)
         {
                 parent::__construct('card', $path);
-                $this->button = new Button("MORE", array('event' => array('onclick' => "alert('CLICKED')"), 'class' => array('w3-green')));
+                $this->button = new Button(_("More"), array('event' => array('onclick' => "alert('CLICKED')"), 'class' => array('w3-green')));
         }
 
 }

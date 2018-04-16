@@ -1,28 +1,44 @@
 <?php
-
-/* 
-* Copyright (C) 2017 Anders Lövgren (QNET).
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+/*
+ * Copyright (C) 2017-2018 Anders Lövgren (QNET).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 ?>
 
 <div class="w3-cell w3-center w3-mobile">
     <div class="w3-card-2 w3-padding-16 w3-margin-right <?= $this->color ?>">
-        <h1><?= $this->title ?></h1>
-        <img src="<?= $this->image ?>" class="w3-image" style="max-height:230px;min-height:200px">
-        <p><?= $this->text ?></p>
-        <?= $this->button->render() ?>
+        <?php if ($this->title): ?>
+                <h1><?= $this->title ?></h1>
+        <?php endif; ?>
+        <?php if ($this->image): ?>
+                <img src="<?= $this->image ?>" class="w3-image" style="max-height:230px;min-height:200px">
+        <?php endif; ?>
+        <?php if ($this->text): ?>
+                <p><?= $this->text ?></p>
+        <?php endif; ?>
+        <?php if ($this->count() != 0): ?>
+                <div>
+                    <?php foreach ($this->children() as $item): ?>
+                            <?php $item->render() ?>
+                    <?php endforeach; ?>
+                </div>
+        <?php endif; ?>
+        <?php if ($this->button): ?>
+                <div class="w3-center">
+                    <?= $this->button->render() ?>
+                </div>
+        <?php endif; ?>
     </div>
 </div>
