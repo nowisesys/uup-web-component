@@ -43,7 +43,7 @@ $cell5 = new Cell();
 $cell5->title = null;
 $cell5->text = "Sample picture";
 
-echo "<h3>Gallery carousel</h3>\n";
+echo "<h3>Carousel</h3>\n";
 echo "<p>Cycle thru items added to the carousel gallery and display them with a nice ";
 echo "transistion effect morphing one into another.</p>\n";
 $gallery = new Carousel();
@@ -54,7 +54,7 @@ $gallery->add($cell3);
 $gallery->add($cell4);
 $gallery->render();
 
-echo "<h3>Exposé gallery layout</h3>\n";
+echo "<h3>Exposé layout</h3>\n";
 echo "<p>Gallery consisting of cell objects using default third layout. By default, items ";
 echo "are places within card outline.</p>\n";
 $gallery = new Expose();
@@ -66,7 +66,7 @@ $gallery->add($cell5);
 $gallery->add($cell1);
 $gallery->render();
 
-echo "<h3>Compact gallery layout</h3>\n";
+echo "<h3>Compact layout</h3>\n";
 echo "<p>Same gallery using the compact layout (no border and simple row layout).</p>\n";
 $gallery = new Compact();
 $gallery->add($cell1);
@@ -82,8 +82,15 @@ echo "<p>The gallery items can be any renderable content (i.e. cards). The flat 
 echo "is set to true in this case.</p>\n";
 $gallery = new Expose();
 $gallery->flat = true;
-$gallery->add(new Card());
-$gallery->add(new Card());
+$card1 = new Card();
+$card1->text = '<iframe width="100%" height="240" src="https://www.youtube.com/embed/bXZEP6OwKBQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+$card2 = new Card();
+$card2->text = '<iframe width="100%" height="240" src="https://www.youtube.com/embed/W9xyWxXyOOg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+$card3 = new Card();
+$card3->text = '<iframe width="100%" height="240" src="https://www.youtube.com/embed/bkCWRGdCxrc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+$gallery->add($card1);
+$gallery->add($card2);
+$gallery->add($card3);
 $gallery->render();
 
 echo "<h3>The lightroom layout</h3>\n";
