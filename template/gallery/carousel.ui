@@ -80,11 +80,11 @@ $k = array(// Values for keyframes.
         animation-name: <?= $this->id ?>-fade-in-out;
         animation-timing-function: ease;
         animation-iteration-count: infinite;
-        animation-duration: <?= $this->count() * $this->interval ?>s;
+        animation-duration: <?= $a * $n ?>s;
     }
     <?php for ($i = 1; $i <= $this->count(); $i++): ?>
             #<?= $this->id ?> > div:nth-of-type(<?= $i ?>) {
-                animation-delay: <?= ($this->count() - $i) * $this->interval ?>s;
+                animation-delay: <?= ($n - $i) * $a ?>s;
             }
     <?php endfor; ?>
 
