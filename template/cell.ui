@@ -24,7 +24,7 @@
         <?php endif; ?>
         <?php if ($this->image): ?>
                 <a href="<?= $this->href ?>">
-                    <img src="<?= $this->image ?>" class="w3-image" style="max-height:230px;min-height:200px">
+                    <img src="<?= $this->image ?>" class="w3-image">
                 </a>
         <?php endif; ?>
         <?php if ($this->text): ?>

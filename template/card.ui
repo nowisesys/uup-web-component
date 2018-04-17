@@ -23,7 +23,7 @@
                 <h1><?= $this->title ?></h1>
         <?php endif; ?>
         <?php if ($this->image): ?>
-                <img src="<?= $this->image ?>" class="w3-image" style="max-height:230px;min-height:200px">
+                <img src="<?= $this->image ?>" class="w3-image">
         <?php endif; ?>
         <?php if ($this->text): ?>
                 <p><?= $this->text ?></p>
