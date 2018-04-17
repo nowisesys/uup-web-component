@@ -45,7 +45,8 @@ $cell5->title = null;
 $cell5->text = "Sample picture";
 
 echo "<h3>Navigator</h3>\n";
-echo "<p>Provides forward/backward navigation among pictures inserted in the gallery.</p>\n";
+echo "<p>Provides forward/backward navigation among pictures inserted in the gallery. The transition ";
+echo "between slides can be animated (off by default).</p>\n";
 
 echo "<div class=\"w3-row\">\n";
 echo "<div class=\"w3-half\">\n";
@@ -54,6 +55,7 @@ $gallery1->add($cell1);
 $gallery1->add($cell2);
 $gallery1->add($cell3);
 $gallery1->add($cell4);
+$gallery1->animate = true;
 $gallery1->render();
 echo "</div>\n";
 echo "<div class=\"w3-half\">\n";

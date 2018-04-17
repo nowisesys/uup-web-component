@@ -41,6 +41,11 @@ class Navigator extends Container
          */
         public $style = "max-width: 500px";
         /**
+         * Apply transition animation (i.e. zoom, opacity or left).
+         * @var string|boolean
+         */
+        public $animate = false;
+        /**
          * The number of instances.
          * @var int 
          */
