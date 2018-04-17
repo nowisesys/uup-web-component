@@ -62,7 +62,7 @@ class Navigator extends Container
         }
 
         /**
-         * Should template be initialized?
+         * Should script be initialized?
          * @return boolean
          */
         public function initialize()

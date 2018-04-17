@@ -64,4 +64,13 @@ class Carousel extends Container
                 $this->id = sprintf("gallery-carousel-%s", md5(time() + self::$instances++));
         }
 
+        /**
+         * Should script be initialized?
+         * @return boolean
+         */
+        public function initialize()
+        {
+                return self::$instances == 1;
+        }
+
 }

@@ -86,10 +86,26 @@ $shift = array(
 
 </style>
 
-<div class="w3-display-container" style="<?= $this->style ?>">
+<div class="w3-display-container gallery-carousel" style="<?= $this->style ?>">
     <div id="<?= $this->id ?>">
         <?php foreach ($this->children() as $item): ?>
                 <?php $item->render() ?>
         <?php endforeach; ?>
     </div>
 </div>
+
+<?php if ($this->initialize()) : ?>
+        <script>
+                // 
+                // Resize each carousel to fit its child content.
+                // 
+                window.onresize = function () {
+                    var carousels = document.getElementsByClassName('gallery-carousel');
+
+                    for (var i = 0; i < carousels.length; ++i) {
+                        var content = carousels[i].querySelector("div").firstChild.nextSibling;
+                        carousels[i].style.height = window.getComputedStyle(content).height;
+                    }
+                };
+        </script>
+<?php endif; ?>
