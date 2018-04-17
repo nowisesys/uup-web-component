@@ -6,6 +6,7 @@ use UUP\Web\Component\Container\Gallery\Presentation\Carousel;
 use UUP\Web\Component\Container\Gallery\Presentation\Compact;
 use UUP\Web\Component\Container\Gallery\Presentation\Expose;
 use UUP\Web\Component\Container\Gallery\Presentation\LightRoom;
+use UUP\Web\Component\Container\Gallery\Presentation\Navigator;
 
 echo "<h2>Gallery component</h2>\n";
 echo "<p>Provides a component for displaying child components in various layout schemes (i.e. ";
@@ -42,6 +43,28 @@ $cell4->text = "An mountain picture";
 $cell5 = new Cell();
 $cell5->title = null;
 $cell5->text = "Sample picture";
+
+echo "<h3>Navigator</h3>\n";
+echo "<p>Provides forward/backward navigation among pictures inserted in the gallery.</p>\n";
+
+echo "<div class=\"w3-row\">\n";
+echo "<div class=\"w3-half\">\n";
+$gallery1 = new Navigator();
+$gallery1->add($cell1);
+$gallery1->add($cell2);
+$gallery1->add($cell3);
+$gallery1->add($cell4);
+$gallery1->render();
+echo "</div>\n";
+echo "<div class=\"w3-half\">\n";
+$gallery2 = new Navigator();
+$gallery2->add($cell4);
+$gallery2->add($cell3);
+$gallery2->add($cell2);
+$gallery2->add($cell1);
+$gallery2->render();
+echo "</div>\n";
+echo "</div>\n";
 
 echo "<h3>Carousel</h3>\n";
 echo "<p>Cycle thru items added to the carousel gallery and display them with a nice ";

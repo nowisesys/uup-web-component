@@ -30,9 +30,39 @@ use UUP\Web\Component\Container;
 class Navigator extends Container
 {
 
+        /**
+         * Unique ID for this navigator.
+         * @var string 
+         */
+        public $id;
+        /**
+         * The container style.
+         * @var string 
+         */
+        public $style = "max-width: 500px";
+        /**
+         * The number of instances.
+         * @var int 
+         */
+        private static $instances = 0;
+
+        /**
+         * Constructor.
+         * @param string $path The template path (optional).
+         */
         public function __construct($path = null)
         {
                 parent::__construct("gallery/navigator", $path);
+                $this->id = sprintf("gallery-navigator-%s", md5(time() + self::$instances++));
+        }
+
+        /**
+         * Should template be initialized?
+         * @return boolean
+         */
+        public function initialize()
+        {
+                return self::$instances == 1;
         }
 
 }
