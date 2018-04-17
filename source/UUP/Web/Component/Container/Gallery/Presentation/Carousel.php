@@ -49,6 +49,11 @@ class Carousel extends Container
          */
         public $interval = 10;
         /**
+         * Number of seconds for cross fading.
+         * @var int 
+         */
+        public $duration = 2;
+        /**
          * The number of instances.
          * @var int 
          */

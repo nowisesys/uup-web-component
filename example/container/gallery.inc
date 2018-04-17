@@ -74,7 +74,7 @@ echo "transistion effect morphing one into another.</p>\n";
 echo "<div class=\"w3-row\">\n";
 echo "<div class=\"w3-half\">\n";
 $gallery = new Carousel();
-$gallery->interval = 5;         // Three seconds between shifting
+$gallery->interval = 10;        // Seconds between shifting
 $gallery->add($cell1);
 $gallery->add($cell2);
 $gallery->add($cell3);
@@ -83,7 +83,7 @@ $gallery->render();
 echo "</div>\n";
 echo "<div class=\"w3-half\">\n";
 $gallery = new Carousel();
-$gallery->interval = 2;         // Three seconds between shifting
+$gallery->interval = 3;         // Seconds between shifting
 $gallery->add($cell1);
 $gallery->add($cell2);
 $gallery->add($cell3);

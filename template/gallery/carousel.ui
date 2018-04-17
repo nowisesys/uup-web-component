@@ -20,15 +20,18 @@
  */
 
 // 
-// The values for cross fading depends on total number of items. Use 1
-// as hardcoded duration value for cross fade.
+// The values to use for cross fading depends on total number of items
+// and needs to be computed:
 // 
-$total = ($this->interval + 1) * $this->count();
-$shift = array(
+$a = $this->interval;   // Presentation time for one image.
+$b = $this->duration;   // Duration for cross fading.
+$n = $this->count();    // Total number of images.
+$t = ($a + $b) * $n;    // Total length of animation.
+$k = array(// Values for keyframes.
         0,
-        100 * ($this->interval / $total),
-        100 * ($this->interval + 1) / $total,
-        100 * (1 - 1 / $total),
+        floor(100 * $a / $t),
+        floor(100 / $n),
+        floor(100 - (100 * $b / $t)),
         100
 );
 
@@ -36,28 +39,29 @@ $shift = array(
 
 <style>
 
+
     /* 
      * Animate on opacity and z-index. The latter is required for links
      * in active item to work.
      */
     @keyframes <?= $this->id ?>-fade-in-out {
-        <?= $shift[0] ?>% {
+        <?= $k[0] ?>% {
             opacity: 1;
             z-index: 10;
         }
-        <?= $shift[1] ?>% {
+        <?= $k[1] ?>% {
             opacity: 1;
             z-index: 10;
         }
-        <?= $shift[2] ?>% {
+        <?= $k[2] ?>% {
             opacity: 0;
             z-index: 0;
         }
-        <?= $shift[3] ?>% {
+        <?= $k[3] ?>% {
             opacity: 0;
             z-index: 0;
         }
-        <?= $shift[4] ?>% {
+        <?= $k[4] ?>% {
             opacity: 1;
             z-index: 10;
         }
@@ -74,7 +78,7 @@ $shift = array(
 
     #<?= $this->id ?> > div {
         animation-name: <?= $this->id ?>-fade-in-out;
-        animation-timing-function: ease-in-out;
+        animation-timing-function: ease;
         animation-iteration-count: infinite;
         animation-duration: <?= $this->count() * $this->interval ?>s;
     }
@@ -86,7 +90,7 @@ $shift = array(
 
 </style>
 
-<div class="w3-display-container gallery-carousel" style="<?= $this->style ?>">
+<div class="w3-display-container w3-transparent gallery-carousel" style="<?= $this->style ?>">
     <div id="<?= $this->id ?>">
         <?php foreach ($this->children() as $item): ?>
                 <?php $item->render() ?>
@@ -107,5 +111,6 @@ $shift = array(
                         carousels[i].style.height = window.getComputedStyle(content).height;
                     }
                 };
+                window.onresize();
         </script>
 <?php endif; ?>
