@@ -22,6 +22,9 @@ use UUP\Web\Component\Container;
 
 /**
  * The carousel gallery presentation.
+ * 
+ * Layout is picky due to template rendering child components using absolute
+ * position. Please adjust style property to match.
  *
  * @author Anders Lövgren (Nowise Systems)
  * @package UUP
@@ -36,15 +39,10 @@ class Carousel extends Container
          */
         public $id;
         /**
-         * The height.
+         * The container style.
          * @var string 
          */
-        public $height = "320px";
-        /**
-         * The width.
-         * @var string 
-         */
-        public $width = "100%";
+        public $style = "max-width: 500px; height: 400px";
         /**
          * The interval in seconds between shifting pictures.
          * @var int 
@@ -63,7 +61,7 @@ class Carousel extends Container
         public function __construct($path = null)
         {
                 parent::__construct("gallery/carousel", $path);
-                $this->id = sprintf("carousel-%s", md5(time() + self::$instances++));
+                $this->id = sprintf("gallery-carousel-%s", md5(time() + self::$instances++));
         }
 
 }

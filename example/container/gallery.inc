@@ -71,6 +71,8 @@ echo "</div>\n";
 echo "<h3>Carousel</h3>\n";
 echo "<p>Cycle thru items added to the carousel gallery and display them with a nice ";
 echo "transistion effect morphing one into another.</p>\n";
+echo "<div class=\"w3-row\">\n";
+echo "<div class=\"w3-half\">\n";
 $gallery = new Carousel();
 $gallery->interval = 5;         // Three seconds between shifting
 $gallery->add($cell1);
@@ -78,6 +80,17 @@ $gallery->add($cell2);
 $gallery->add($cell3);
 $gallery->add($cell4);
 $gallery->render();
+echo "</div>\n";
+echo "<div class=\"w3-half\">\n";
+$gallery = new Carousel();
+$gallery->interval = 2;         // Three seconds between shifting
+$gallery->add($cell1);
+$gallery->add($cell2);
+$gallery->add($cell3);
+$gallery->add($cell4);
+$gallery->render();
+echo "</div>\n";
+echo "</div>\n";
 
 echo "<h3>Exposé layout</h3>\n";
 echo "<p>Gallery consisting of cell objects using default third layout. By default, items ";

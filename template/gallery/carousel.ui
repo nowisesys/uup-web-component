@@ -42,36 +42,34 @@ $shift = array(
      */
     @keyframes <?= $this->id ?>-fade-in-out {
         <?= $shift[0] ?>% {
-            opacity:1;
+            opacity: 1;
             z-index: 10;
         }
         <?= $shift[1] ?>% {
-            opacity:1;
+            opacity: 1;
             z-index: 10;
         }
         <?= $shift[2] ?>% {
-            opacity:0;
+            opacity: 0;
             z-index: 0;
         }
         <?= $shift[3] ?>% {
-            opacity:0;
+            opacity: 0;
             z-index: 0;
         }
         <?= $shift[4] ?>% {
-            opacity:1;
+            opacity: 1;
             z-index: 10;
         }
     }
 
     #<?= $this->id ?> {
-        position:relative;
-        height:<?= $this->height ?>;
-        width:<?= $this->width ?>;
-        margin:0 auto;
+        position: relative;
+        margin: 0 auto;
     }
     #<?= $this->id ?> > div {
-        position:absolute;
-        left:0;
+        position: absolute;
+        left: 0;
     }
 
     #<?= $this->id ?> > div {
@@ -88,8 +86,10 @@ $shift = array(
 
 </style>
 
-<div id="<?= $this->id ?>">
-    <?php foreach ($this->children() as $item): ?>
-            <?php $item->render() ?>
-    <?php endforeach; ?>
+<div class="w3-display-container" style="<?= $this->style ?>">
+    <div id="<?= $this->id ?>">
+        <?php foreach ($this->children() as $item): ?>
+                <?php $item->render() ?>
+        <?php endforeach; ?>
+    </div>
 </div>
