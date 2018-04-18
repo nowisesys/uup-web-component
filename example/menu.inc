@@ -12,7 +12,8 @@ return array(
         ),
         'Widgets'     => array(
                 'Buttons' => '?page=widgets/buttons',
-                'Panels'  => '?page=widgets/panels'
+                'Panels'  => '?page=widgets/panels',
+                'Video'   => '?page=widgets/video'
         ),
         'Elements'    => array(
                 'Buttons' => '?page=element/buttons',
