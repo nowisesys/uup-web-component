@@ -7,6 +7,7 @@ use UUP\Web\Component\Container\Gallery\Presentation\Compact;
 use UUP\Web\Component\Container\Gallery\Presentation\Expose;
 use UUP\Web\Component\Container\Gallery\Presentation\LightRoom;
 use UUP\Web\Component\Container\Gallery\Presentation\Navigator;
+use UUP\Web\Component\Container\Gallery\Scanner\ImageScanner;
 
 echo "<h2>Gallery component</h2>\n";
 echo "<p>Provides a component for displaying child components in various layout schemes (i.e. ";
@@ -139,6 +140,15 @@ $gallery->add($cell3);
 $gallery->add($cell4);
 $gallery->add($cell5);
 $gallery->add($cell1);
+$gallery->render();
+
+echo "<h3>Scanner</h3>\n";
+echo "<p>Galleries can be dynamic populated using a content scanner. This gallery has been ";
+echo "collected by an image scanner.</p>\n";
+
+$scanner = new ImageScanner(new Expose());
+$scanner->find("container/gallery");
+$gallery = $scanner->getGallery();
 $gallery->render();
 
 ?>
