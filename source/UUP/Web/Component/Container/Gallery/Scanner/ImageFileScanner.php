@@ -33,7 +33,7 @@ use UUP\Web\Component\Container\Gallery\Scanner;
  * @package UUP
  * @subpackage Web Components
  */
-class ImageScanner extends Scanner
+class ImageFileScanner extends Scanner
 {
 
         /**
