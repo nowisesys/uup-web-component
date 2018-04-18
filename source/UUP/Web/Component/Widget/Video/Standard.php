@@ -19,11 +19,19 @@
 namespace UUP\Web\Component\Widget\Video;
 
 use UUP\Web\Component\Element;
-use UUP\Web\Component\Element\Source;
 
 /**
  * Standard HTML5 video player.
  * 
+ * Use the URL property if one video format is enough: 
+ * <code>
+ * $video = new Standard();
+ * $video->url = 'file.mp4';
+ * $video->render();
+ * </code>
+ * 
+ * Add source element as child component to support multiple video formats
+ * for a single video stream:
  * <code>
  * $video = new Standard();
  * $video->add(new Source('file.mp4', 'video/mp4'));
