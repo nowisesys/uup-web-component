@@ -7,7 +7,8 @@ use UUP\Web\Component\Container\Gallery\Presentation\Compact;
 use UUP\Web\Component\Container\Gallery\Presentation\Expose;
 use UUP\Web\Component\Container\Gallery\Presentation\LightRoom;
 use UUP\Web\Component\Container\Gallery\Presentation\Navigator;
-use UUP\Web\Component\Container\Gallery\Scanner\ImageScanner;
+use UUP\Web\Component\Container\Gallery\Scanner\ContentSpecScanner;
+use UUP\Web\Component\Container\Gallery\Scanner\ImageFileScanner;
 
 echo "<h2>Gallery component</h2>\n";
 echo "<p>Provides a component for displaying child components in various layout schemes (i.e. ";
@@ -146,7 +147,23 @@ echo "<h3>Scanner</h3>\n";
 echo "<p>Galleries can be dynamic populated using a content scanner. This gallery has been ";
 echo "collected by an image scanner.</p>\n";
 
-$scanner = new ImageScanner(new Expose());
+$scanner = new ImageFileScanner(new Expose());
+$scanner->find("container/gallery");
+$gallery = $scanner->getGallery();
+$gallery->render();
+
+echo "<p>This scanner collects data from content.spec files found in immediate sub directories ";
+echo "of given root directory and inserts them in the gallery.</p>\n";
+
+$scanner = new ContentSpecScanner(new Expose());
+$scanner->find("container/gallery");
+$gallery = $scanner->getGallery();
+$gallery->render();
+
+echo "<p>The gallery layout can be controlled by passing different gallery presention objects ";
+echo "to the scanner constructor. The same content rendered as compact presentation:</p>\n";
+
+$scanner = new ContentSpecScanner(new Compact());
 $scanner->find("container/gallery");
 $gallery = $scanner->getGallery();
 $gallery->render();
