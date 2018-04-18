@@ -18,11 +18,6 @@
 
 namespace UUP\Web\Component\Container\Gallery\Scanner;
 
-use FilesystemIterator;
-use RegexIterator;
-use UUP\Web\Component\Container\Cell;
-use UUP\Web\Component\Container\Gallery\Scanner;
-
 /**
  * The image file scanner.
  * 
@@ -33,7 +28,7 @@ use UUP\Web\Component\Container\Gallery\Scanner;
  * @package UUP
  * @subpackage Web Components
  */
-class ImageFileScanner extends Scanner
+class ImageFileScanner extends MediaFileScanner
 {
 
         /**
@@ -42,23 +37,9 @@ class ImageFileScanner extends Scanner
          * @param string $path The directory to scan.
          * @param string $name The filename pattern.
          */
-        public function find($path = ".", $name = null)
+        public function find($path = ".", $name = "%^.*(jpg|jpeg|gif|png|bmp)$%")
         {
-                if (!isset($name)) {
-                        $name = "%^.*(jpg|jpeg|gif|png|bmp)$%";
-                }
-
-                $iterator = new FilesystemIterator($path);
-                $iterator->setFlags(FilesystemIterator::SKIP_DOTS | FilesystemIterator::CURRENT_AS_PATHNAME);
-                $iterator = new RegexIterator($iterator, $name);
-
-                foreach ($iterator as $file) {
-                        $component = new Cell();
-                        $component->image = $file;
-                        $component->href = $file;
-                        $component->text = basename($file);
-                        $this->_gallery->add($component);
-                }
+                parent::find($path, $name);
         }
 
 }
