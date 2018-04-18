@@ -27,7 +27,7 @@ set_transformer($transformer);
         </div>
 
         <nav class="w3-sidebar w3-bar-block w3-collapse w3-card-2" style="width:200px; top: 0px" id="menu">
-            <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="close_menu()">Close &times;</button>
+            <button class="w3-bar-item w3-button w3-large w3-hide-large w3-hover-red" onclick="close_menu()">Close <span class="w3-right">&times;</span></button>
             <?php print_menu(include('menu.inc')); ?>
         </nav>
 
