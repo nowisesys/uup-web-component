@@ -206,7 +206,15 @@ class Collection implements IteratorAggregate
                         $data = $this->_data;
                 }
 
-                foreach (array_filter($data) as $key => $val) {
+                foreach (array_filter($data, function($d) {
+                        if (is_bool($d) && $d == false) {
+                                return false;
+                        } elseif (is_null($d)) {
+                                return false;
+                        } else {
+                                return true;
+                        }
+                }) as $key => $val) {
                         $result[] = $this->format($key, $val);
                 }
 
