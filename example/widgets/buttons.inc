@@ -129,8 +129,8 @@ $button->render();
 $button->round->xxlarge = true;
 $button->render();
 
-echo "<h3>Round</h3>\n";
-echo "<p>The button style can be set to flat (no enabled by default). Use hover to override the ";
+echo "<h3>Flat</h3>\n";
+echo "<p>The button style can be set to flat (not default style). Use hover to override the ";
 echo "default grey color for flat button style.</p>\n";
 
 $button = new Button("Button1");
