@@ -13,7 +13,8 @@ return array(
         'Widgets'     => array(
                 'Buttons' => '?page=widgets/buttons',
                 'Panels'  => '?page=widgets/panels',
-                'Video'   => '?page=widgets/video'
+                'Video'   => '?page=widgets/video',
+                'Audio'   => '?page=widgets/audio'
         ),
         'Elements'    => array(
                 'Buttons' => '?page=element/buttons',
