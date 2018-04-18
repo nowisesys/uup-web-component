@@ -16,34 +16,18 @@
  * limitations under the License.
  */
 
-namespace UUP\Web\Component\Container\Gallery\Presentation;
+namespace UUP\Web\Component\Container\Gallery;
 
-use UUP\Web\Component\Container;
-use UUP\Web\Component\Container\Gallery\Presentation;
+use UUP\Web\Component\Component;
 
 /**
- * The lightroom gallery presentation.
- *
+ * Interface for gallery presentation classes.
+ * 
  * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
-class LightRoom extends Container implements Presentation
+interface Presentation extends Component
 {
-
-        /**
-         * The background color.
-         * @var string 
-         */
-        public $color = "black";
-
-        /**
-         * Constructor.
-         * @param string $path The template path (optional).
-         */
-        public function __construct($path = null)
-        {
-                parent::__construct("gallery/lightroom", $path);
-        }
-
+        
 }

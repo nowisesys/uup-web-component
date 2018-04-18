@@ -19,6 +19,7 @@
 namespace UUP\Web\Component\Container\Gallery\Presentation;
 
 use UUP\Web\Component\Container;
+use UUP\Web\Component\Container\Gallery\Presentation;
 
 /**
  * The carousel gallery presentation.
@@ -30,7 +31,7 @@ use UUP\Web\Component\Container;
  * @package UUP
  * @subpackage Web Components
  */
-class Carousel extends Container
+class Carousel extends Container implements Presentation
 {
 
         /**

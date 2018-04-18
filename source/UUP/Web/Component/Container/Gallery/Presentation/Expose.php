@@ -19,6 +19,7 @@
 namespace UUP\Web\Component\Container\Gallery\Presentation;
 
 use UUP\Web\Component\Container;
+use UUP\Web\Component\Container\Gallery\Presentation;
 
 /**
  * The exposé gallery presentation.
@@ -27,7 +28,7 @@ use UUP\Web\Component\Container;
  * @package UUP
  * @subpackage Web Components
  */
-class Expose extends Container
+class Expose extends Container implements Presentation
 {
 
         /**

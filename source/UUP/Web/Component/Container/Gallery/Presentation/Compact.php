@@ -19,6 +19,7 @@
 namespace UUP\Web\Component\Container\Gallery\Presentation;
 
 use UUP\Web\Component\Container;
+use UUP\Web\Component\Container\Gallery\Presentation;
 
 /**
  * The compact (side-by-side) gallery presentation.
@@ -30,7 +31,7 @@ use UUP\Web\Component\Container;
  * @package UUP
  * @subpackage Web Components
  */
-class Compact extends Container
+class Compact extends Container implements Presentation
 {
 
         /**

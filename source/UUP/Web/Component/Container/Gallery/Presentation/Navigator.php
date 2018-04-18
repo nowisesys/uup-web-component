@@ -19,6 +19,7 @@
 namespace UUP\Web\Component\Container\Gallery\Presentation;
 
 use UUP\Web\Component\Container;
+use UUP\Web\Component\Container\Gallery\Presentation;
 
 /**
  * The navigator gallery presentation.
@@ -27,7 +28,7 @@ use UUP\Web\Component\Container;
  * @package UUP
  * @subpackage Web Components
  */
-class Navigator extends Container
+class Navigator extends Container implements Presentation
 {
 
         /**
