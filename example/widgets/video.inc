@@ -1,6 +1,7 @@
 <?php
 
 use UUP\Web\Component\Element\Source;
+use UUP\Web\Component\Widget\Video\Dailymotion;
 use UUP\Web\Component\Widget\Video\Standard;
 use UUP\Web\Component\Widget\Video\Vimeo;
 use UUP\Web\Component\Widget\Video\YouTube;
@@ -14,7 +15,7 @@ echo "<h3>Vimeo</h3>\n";
 echo "<p>Using the Vimeo video widget to play video inside an iframe element.</p>\n";
 
 $video = new Vimeo();
-$video->url = "https://player.vimeo.com/video/265045525";
+$video->url = "https://player.vimeo.com/video/73234721";
 $video->render();
 
 echo "<div class=\"w3-container w3-code w3-border-red\">\n";
@@ -27,12 +28,25 @@ echo "<h3>YouTube</h3>\n";
 echo "<p>Using the YouTube video widget to play video inside an iframe element.</p>\n";
 
 $video = new YouTube();
-$video->url = "https://www.youtube.com/embed/9-NU7yOSElE";
+$video->url = "https://www.youtube.com/embed/nqs9D0L4P90";
 $video->render();
 
 echo "<div class=\"w3-container w3-code w3-border-red\">\n";
 echo "\$video = new YouTube();<br/>\n";
-echo "\$video->url = \"https://www.youtube.com/embed/9-NU7yOSElE\";<br/>\n";
+echo "\$video->url = \"https://www.youtube.com/embed/nqs9D0L4P90\";<br/>\n";
+echo "</div>\n";
+dump_property_data($video->attr);
+
+echo "<h3>Dailymotion</h3>\n";
+echo "<p>Using the Dailymotion video widget to play video inside an iframe element.</p>\n";
+
+$video = new Dailymotion();
+$video->url = "http://www.dailymotion.com/embed/video/x6bqxrk";
+$video->render();
+
+echo "<div class=\"w3-container w3-code w3-border-red\">\n";
+echo "\$video = new Dailymotion();<br/>\n";
+echo "\$video->url = \"http://www.dailymotion.com/embed/video/x6bqxrk\";<br/>\n";
 echo "</div>\n";
 dump_property_data($video->attr);
 
