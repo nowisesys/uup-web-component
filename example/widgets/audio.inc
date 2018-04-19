@@ -4,7 +4,7 @@ use UUP\Web\Component\Element\Source;
 use UUP\Web\Component\Widget\Audio\AppleMusic;
 use UUP\Web\Component\Widget\Audio\SoundCloud;
 use UUP\Web\Component\Widget\Audio\Spotify;
-use UUP\Web\Component\Widget\Audio\Standard;
+use UUP\Web\Component\Widget\Audio\MediaPlayer;
 use UUP\Web\Component\Widget\Audio\SverigesRadio;
 
 echo "<h2>Audio</h2>\n";
@@ -69,7 +69,7 @@ echo "<h3>HTML 5</h3>\n";
 echo "<p>Using the HTML 5 audio widget to play audio inside an audio element. The url property ";
 echo "is used to set the audio URL.</p>\n";
 
-$audio = new Standard();
+$audio = new MediaPlayer();
 $audio->url = "https://hpr.dogphilosophy.net/test/ogg.ogg";
 $audio->render();
 
@@ -83,7 +83,7 @@ echo "<p>Use source element object to define alternative audio formats and let b
 echo "a format its can handle from this list. The audio source is added by calling the add() ";
 echo "method.</p>\n";
 
-$audio = new Standard();
+$audio = new MediaPlayer();
 $audio->add(new Source('https://hpr.dogphilosophy.net/test/ogg.ogg', 'audio/ogg'));
 $audio->add(new Source('https://hpr.dogphilosophy.net/test/flac.flac', 'audio/flac'));
 $audio->add(new Source('https://hpr.dogphilosophy.net/test/opus.opus', 'audio/ogg; codecs="opus"'));

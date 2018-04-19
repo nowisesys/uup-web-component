@@ -46,7 +46,7 @@ use UUP\Web\Component\Element;
  * @package UUP
  * @subpackage Web Components
  */
-class Standard extends Element
+class MediaPlayer extends Element
 {
 
         /**

@@ -2,7 +2,7 @@
 
 use UUP\Web\Component\Element\Source;
 use UUP\Web\Component\Widget\Video\Dailymotion;
-use UUP\Web\Component\Widget\Video\Standard;
+use UUP\Web\Component\Widget\Video\MediaPlayer;
 use UUP\Web\Component\Widget\Video\Vimeo;
 use UUP\Web\Component\Widget\Video\YouTube;
 
@@ -54,7 +54,7 @@ echo "<h3>HTML 5</h3>\n";
 echo "<p>Using the HTML 5 video widget to play video inside an video element. The url property ";
 echo "is used to set the video URL.</p>\n";
 
-$video = new Standard();
+$video = new MediaPlayer();
 $video->url = "http://techslides.com/demos/sample-videos/small.mp4";
 $video->render();
 
@@ -68,7 +68,7 @@ echo "<p>Use source element object to define alternative video formats and let b
 echo "a format its can handle from this list. The video source is added by calling the add() ";
 echo "method.</p>\n";
 
-$video = new Standard();
+$video = new MediaPlayer();
 $video->add(new Source('http://techslides.com/demos/sample-videos/small.mp4', 'video/mp4'));
 $video->add(new Source('http://techslides.com/demos/sample-videos/small.webm', 'video/webm'));
 $video->add(new Source('http://techslides.com/demos/sample-videos/small.ogv', 'video/ogg'));
