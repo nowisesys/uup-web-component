@@ -1,8 +1,10 @@
 <?php
 
+use UUP\Web\Component\Element\Source;
 use UUP\Web\Component\Widget\Audio\AppleMusic;
 use UUP\Web\Component\Widget\Audio\SoundCloud;
 use UUP\Web\Component\Widget\Audio\Spotify;
+use UUP\Web\Component\Widget\Audio\Standard;
 use UUP\Web\Component\Widget\Audio\SverigesRadio;
 
 echo "<h2>Audio</h2>\n";
@@ -63,3 +65,42 @@ echo "\$audio->url = 'https://sverigesradio.se/embed/episode/1056388';<br/>\n";
 echo "</div>\n";
 dump_property_data($audio->attr);
 
+echo "<h3>HTML 5</h3>\n";
+echo "<p>Using the HTML 5 audio widget to play audio inside an audio element. The url property ";
+echo "is used to set the audio URL.</p>\n";
+
+$audio = new Standard();
+$audio->url = "https://hpr.dogphilosophy.net/test/ogg.ogg";
+$audio->render();
+
+echo "<div class=\"w3-container w3-code w3-border-red\">\n";
+echo "\$audio = new Standard();<br/>\n";
+echo "\$audio->url = \"https://hpr.dogphilosophy.net/test/ogg.ogg\";<br/>\n";
+echo "</div>\n";
+dump_property_data($audio->attr);
+
+echo "<p>Use source element object to define alternative audio formats and let browser select ";
+echo "a format its can handle from this list. The audio source is added by calling the add() ";
+echo "method.</p>\n";
+
+$audio = new Standard();
+$audio->add(new Source('https://hpr.dogphilosophy.net/test/ogg.ogg', 'audio/ogg'));
+$audio->add(new Source('https://hpr.dogphilosophy.net/test/flac.flac', 'audio/flac'));
+$audio->add(new Source('https://hpr.dogphilosophy.net/test/opus.opus', 'audio/ogg; codecs="opus"'));
+$audio->add(new Source('https://hpr.dogphilosophy.net/test/webmv2.webm', 'audio/webm; codecs="opus"'));
+$audio->add(new Source('https://hpr.dogphilosophy.net/test/mp3.mp3', 'audio/mpeg'));
+$audio->render();
+
+echo "<div class=\"w3-container w3-code w3-border-red\">\n";
+echo "\$audio = new Standard();<br/>\n";
+echo "\$audio->add(new Source('https://hpr.dogphilosophy.net/test/ogg.ogg', 'audio/ogg'));<br/>\n";
+echo "\$audio->add(new Source('https://hpr.dogphilosophy.net/test/flac.flac', 'audio/flac'));<br/>\n";
+echo "\$audio->add(new Source('https://hpr.dogphilosophy.net/test/opus.opus', 'audio/ogg; codecs=\"opus\"'));<br/>\n";
+echo "\$audio->add(new Source('https://hpr.dogphilosophy.net/test/webmv2.webm', 'audio/webm; codecs=\"opus\"'));<br/>\n";
+echo "\$audio->add(new Source('https://hpr.dogphilosophy.net/test/mp3.mp3', 'audio/mpeg'));<br/>\n";
+echo "</div>\n";
+dump_property_data($audio->attr);
+foreach ($audio->children() as $child) {
+        echo "<br>\n";
+        dump_property_data($child->attr);
+}
