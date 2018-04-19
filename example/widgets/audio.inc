@@ -3,6 +3,7 @@
 use UUP\Web\Component\Widget\Audio\AppleMusic;
 use UUP\Web\Component\Widget\Audio\SoundCloud;
 use UUP\Web\Component\Widget\Audio\Spotify;
+use UUP\Web\Component\Widget\Audio\SverigesRadio;
 
 echo "<h2>Audio</h2>\n";
 
@@ -48,5 +49,17 @@ echo "\$audio->album = '1DFixLWuPkv3KT3TnV35m3';<br/>\n";
 echo "</div>\n";
 dump_property_data($audio->attr);
 
-?>
-    
+echo "<h3>Sveriges Radio (SR)</h3>\n";
+echo "<p>Using the Sveriges Radio widget for playing broadcast streams and episodes from ";
+echo "Sveriges Radio inside an iframe element.</p>\n";
+
+$audio = new SverigesRadio();
+$audio->url = 'https://sverigesradio.se/embed/episode/1056388';
+$audio->render();
+
+echo "<div class=\"w3-container w3-code w3-border-red\">\n";
+echo "\$audio = new SverigesRadio();<br/>\n";
+echo "\$audio->url = 'https://sverigesradio.se/embed/episode/1056388';<br/>\n";
+echo "</div>\n";
+dump_property_data($audio->attr);
+
