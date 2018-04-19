@@ -23,6 +23,9 @@ use UUP\Web\Component\Element;
 /**
  * For Apple Music embedded.
  *
+ * @property-write string $url The video URL.
+ * @property-write boolean $resize Enable resize of video player.
+ * 
  * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
