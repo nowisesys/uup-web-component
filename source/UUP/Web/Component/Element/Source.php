@@ -31,41 +31,69 @@ class Source extends Element
 {
 
         /**
-         * The MIME type for MP4.
+         * The MIME type for MP4 video (*.mp4).
          */
         const MIME_VIDEO_MP4 = 'video/mp4';
         /**
-         * The MIME type for WebM.
+         * The MIME type for WebM video (*.webm).
          */
         const MIME_VIDEO_WEBM = 'video/webm';
         /**
-         * The MIME type for Ogg.
+         * The MIME type for Ogg Vorbis video (*.ogg).
          */
         const MIME_VIDEO_OGG = 'video/ogg';
         /**
-         * The MIME type for QuickTime.
+         * The MIME type for QuickTime video (*.mov).
          */
         const MIME_VIDEO_QUICKTIME = 'video/quicktime';
         /**
-         * The MIME type for Flash.
+         * The MIME type for Flash video (*.flv).
          */
         const MIME_VIDEO_FLV = 'video/x-flv';
         /**
-         * The MIME type for 3GP Mobile.
+         * The MIME type for 3GP Mobile video (*.3gp).
          */
         const MIME_VIDEO_3GP = 'video/3gpp';
         /**
-         * The MIME type for Windows Media.
+         * The MIME type for Windows Media video (*.wmv).
          */
         const MIME_VIDEO_WMV = 'video/x-ms-wmv';
         /**
-         * The MIME type for ASF video.
+         * The MIME type for ASF video (*.asf).
          */
         const MIME_VIDEO_ASF = 'application/vnd.ms-asf';
         /**
-         * The MIME type for AVI video.
+         * The MIME type for AVI video (*.avi).
          */
         const MIME_VIDEO_AVI = 'video/x-msvideo';
+        /**
+         * The MIME type for Opus audio (*.opus).
+         */
+        const MIME_AUDIO_OPUS = 'audio/ogg; codecs="opus"';
+        /**
+         * The MIME type for WebM (v2) audio (*.webm).
+         */
+        const MIME_AUDIO_WEBMV2 = 'audio/webm; codecs="opus"';
+        /**
+         * The MIME type for WebM audio (*.weba).
+         */
+        const MIME_AUDIO_WEBM = 'audio/webm';
+        /**
+         * The MIME type for Ogg Vorbis audio (*.ogg).
+         */
+        const MIME_AUDIO_OGG = 'audio/ogg';
+        /**
+         * The MIME type for WAV audio (*.wav).
+         */
+        const MIME_AUDIO_WAV = 'audio/x-wav';
+        /**
+         * The MIME type for MP3 audio (*.mp3, *.mpga).
+         */
+        const MIME_AUDIO_MP3 = 'audio/mpeg';
+        /**
+         * The MIME type for FLAC audio (*.flac).
+         */
+        const MIME_AUDIO_FLAC = 'audio/flac';
 
         /**
          * Constructor.
