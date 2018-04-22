@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (QNET).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,6 +101,11 @@ class Download extends Container
          * @var array 
          */
         private $_files;
+        /**
+         * The number of instances.
+         * @var int 
+         */
+        private static $instances = 0;
 
         /**
          * Constructor.
@@ -108,8 +113,8 @@ class Download extends Container
          */
         public function __construct($path = null)
         {
-                parent::__construct('download', $path);
-                $this->id = md5($this->path);
+                parent::__construct("download", $path);
+                $this->id = sprintf("download-%s", md5(time() + self::$instances++));
         }
 
         public function __get($name)
@@ -285,6 +290,15 @@ class Download extends Container
                                 $this->_files['secure'][$fileinfo->getFilename()][$secure] = $filename;
                         }
                 }
+        }
+
+        /**
+         * Should script/style be initialized?
+         * @return boolean
+         */
+        public function initialize()
+        {
+                return self::$instances == 1;
         }
 
 }

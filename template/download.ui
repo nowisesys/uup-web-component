@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (QNET).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,59 +15,65 @@
  * limitations under the License.
  */
 
-function download_output_security($download, $name)
-{
-        if (isset($download->secure[$name])) {
-                foreach ($download->secure[$name] as $name => $link) {
-                        printf("<a class=\"w3-btn w3-yellow w3-tiny w3-round download-security-file\" href=\"%s\">\n", $link);
-                        printf("<i class=\"fa fa-shield\" aria-hidden=\"true\"></i> %s\n", $name);
-                        printf("</a>\n");
+if (!function_exists("download_output_security")) {
+
+        function download_output_security($download, $name)
+        {
+                if (isset($download->secure[$name])) {
+                        foreach ($download->secure[$name] as $name => $link) {
+                                printf("<a class=\"w3-btn w3-yellow w3-tiny w3-round download-security-file\" href=\"%s\">\n", $link);
+                                printf("<i class=\"fa fa-shield\" aria-hidden=\"true\"></i> %s\n", $name);
+                                printf("</a>\n");
+                        }
                 }
         }
+
 }
 
 ?>
 
-<style>
-    li.older {
-        display: block;
-    }
-    .download div {
-        overflow: visible;
-    }
-    .download-file {
-        cursor: pointer;
-    }
-    .download-button {
-        min-width: 110px;
-    }
-    .download-security-file {
-        margin-top: 3px;
-    }
-</style>
-
-<script>
-        function download_show_older(id) {
-            var list = document.getElementById(id);
-            var item = list.getElementsByClassName("older");
-
-            for (var i = 0; i < item.length; ++i) {
-                item[i].style.display = 'block';
+<?php if ($this->initialize()) : ?>
+        <style>
+            li.older {
+                display: block;
             }
-        }
-
-        function download_show_fileinfo(sender) {
-            var parent = sender.parentNode;
-            var target = parent.nextElementSibling;
-
-            if (target.style.display === 'none') {
-                target.style.display = 'block';
-            } else {
-                target.style.display = 'none';
+            .download div {
+                overflow: visible;
             }
-        }
+            .download-file {
+                cursor: pointer;
+            }
+            .download-button {
+                min-width: 110px;
+            }
+            .download-security-file {
+                margin-top: 3px;
+            }
+        </style>
 
-</script>
+        <script>
+                function download_show_older(id) {
+                    var list = document.getElementById(id);
+                    var item = list.getElementsByClassName("older");
+
+                    for (var i = 0; i < item.length; ++i) {
+                        item[i].style.display = 'block';
+                    }
+                }
+
+                function download_show_fileinfo(sender) {
+                    var parent = sender.parentNode;
+                    var target = parent.nextElementSibling;
+
+                    if (target.style.display === 'none') {
+                        target.style.display = 'block';
+                    } else {
+                        target.style.display = 'none';
+                    }
+                }
+
+        </script>
+<?php endif; ?>
 
 <ul class="w3-ul download" id="<?= $this->id ?>">
     <li class="download-first">
