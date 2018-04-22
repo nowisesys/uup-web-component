@@ -67,6 +67,23 @@ class Download extends Container
 {
 
         /**
+         * Sort by name (natural compare).
+         */
+        const SORT_NAME = 'name';
+        /**
+         * Sort on datetime (natural compare).
+         */
+        const SORT_TIME = 'time';
+        /**
+         * Sort on file size.
+         */
+        const SORT_SIZE = 'size';
+        /**
+         * Sort on UNIX timestamp.
+         */
+        const SORT_UNIX = 'unix';
+
+        /**
          * Unique ID for download list.
          * @var string 
          */
@@ -96,6 +113,11 @@ class Download extends Container
          * @var array 
          */
         public $detect = array("md5", "sha1", "sha256");
+        /**
+         * How to sort files.
+         * @var string 
+         */
+        public $sort = self::SORT_NAME;
         /**
          * The files in download directory.
          * @var array 
@@ -188,9 +210,22 @@ class Download extends Container
          */
         private function sort()
         {
-                uasort($this->_files['older'], function($a, $b) {
-                        return strnatcmp($b['name'], $a['name']);
-                });
+                switch ($this->sort) {
+                        case self::SORT_NAME:
+                        case self::SORT_TIME:
+                                uasort($this->_files['older'], function($a, $b) {
+                                        return strnatcmp($b[$this->sort], $a[$this->sort]);
+                                });
+                                break;
+                        case self::SORT_SIZE:
+                        case self::SORT_UNIX:
+                                uasort($this->_files['older'], function($a, $b) {
+                                        return $b[$this->sort] - $a[$this->sort];
+                                });
+                                break;
+                        default:
+                                throw new RuntimeException("Unsupported sort mode $this->sort");
+                }
         }
 
         /**
@@ -232,6 +267,7 @@ class Download extends Container
                         'name' => $fileinfo->getFilename(),
                         'size' => $fileinfo->getSize(),
                         'time' => strftime("%x %X", filemtime($fileinfo->getRealPath())),
+                        'unix' => filemtime($fileinfo->getRealPath()),
                         'path' => sprintf($this->format, $this->id, $this->path, $fileinfo->getFilename())
                 );
         }
@@ -249,6 +285,7 @@ class Download extends Container
                         'name' => $fileinfo->getLinkTarget(),
                         'size' => $fileinfo->getSize(),
                         'time' => strftime("%x %X", filemtime($fileinfo->getRealPath())),
+                        'unix' => filemtime($fileinfo->getRealPath()),
                         'path' => sprintf($this->format, $this->id, $this->path, $fileinfo->getFilename())
                 );
         }
