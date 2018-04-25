@@ -199,7 +199,9 @@ class Download extends Container
                 $iterator = new FilesystemIterator($this->path);
 
                 foreach ($iterator as $fileinfo) {
-                        if ($iterator->getExtension() == $this->extension) {
+                        if (!isset($this->extension)) {
+                                $this->addEntry($fileinfo);
+                        } elseif ($iterator->getExtension() == $this->extension) {
                                 $this->addEntry($fileinfo);
                         }
                 }
