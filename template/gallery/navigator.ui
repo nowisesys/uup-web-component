@@ -44,7 +44,7 @@ if ($this->animate) {
         </style>
 <?php endif; ?>
 
-<div id="<?= $this->id ?>" class="w3-display-container" style="<?= $this->style ?>">
+<div id="<?= $this->id ?>" class="gallery-navigator w3-display-container" style="<?= $this->style ?>">
     <?php foreach ($this->children() as $item): ?>
             <div class="w3-center gallery-navigator-slide <?= $this->animate ?>"><?php $item->render() ?></div>
     <?php endforeach; ?>

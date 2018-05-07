@@ -90,7 +90,7 @@ $k = array(// Values for keyframes.
 
 </style>
 
-<div class="w3-display-container w3-transparent gallery-carousel" style="<?= $this->style ?>">
+<div class="gallery-carousel w3-display-container w3-transparent" style="<?= $this->style ?>">
     <div id="<?= $this->id ?>">
         <?php foreach ($this->children() as $item): ?>
                 <?php $item->render() ?>
