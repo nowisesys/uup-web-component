@@ -168,6 +168,19 @@ $scanner->find("container/gallery");
 $gallery = $scanner->getGallery();
 $gallery->render();
 
+echo "<h3>Style</h3>\n";
+echo "<p>When having headers and images of various lenght and size, you might need to apply ";
+echo "some style sheet rules. Try to append &css=1 to see the effect.</p>";
+
 ?>
+<?php if (filter_has_var(INPUT_GET, 'css')): ?>
+        <style>
+        <?php readfile('container/gallery.css') ?>
+        </style>    
+<?php endif; ?>
+<div class="w3-code">
+    <pre><code><?php readfile('container/gallery.css') ?></code></pre>
+</div>
 
 <p>Images taken from <a href="https://www.w3schools.com/css/css_image_gallery.asp">W3Schools</a> example on image galleries.</p>
+
