@@ -15,11 +15,30 @@
  * limitations under the License.
  */
 
+switch ($this->layout) {
+        case 'half':
+                $this->rowitems = 2;
+                break;
+        case 'third':
+                $this->rowitems = 3;
+                break;
+        case 'querter':
+                $this->rowitems = 4;
+                break;
+        default:
+                $this->layout = 'third';
+                $this->rowitems = 3;
+}
+
 ?>
 
 <?php if ($this->flat): ?>
         <div class="w3-row w3-margin-top">
-            <?php foreach ($this->children() as $item): ?>
+            <?php foreach ($this->children() as $index => $item): ?>
+                    <?php if ($index != 0 && ($index % $this->rowitems == 0)): ?>
+                        </div>
+                        <div class="w3-row w3-margin-top">
+                    <?php endif; ?>
                     <div class="w3-<?= $this->layout ?>">
                         <div class="w3-margin-bottom">
                             <?php $item->render(); ?>
@@ -29,7 +48,11 @@
         </div>
 <?php else: ?>
         <div class="w3-row w3-margin-top">
-            <?php foreach ($this->children() as $item): ?>
+            <?php foreach ($this->children() as $index => $item): ?>
+                    <?php if ($index != 0 && ($index % $this->rowitems == 0)): ?>
+                        </div>
+                        <div class="w3-row w3-margin-top">
+                    <?php endif; ?>
                     <div class="w3-<?= $this->layout ?>">
                         <div class="w3-card w3-margin-bottom w3-margin-right">
                             <?php $item->render(); ?>
