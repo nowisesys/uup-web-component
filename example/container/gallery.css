@@ -12,7 +12,7 @@
     }
     .w3-cell img {
         max-height: 250px;
-        max-height: 200px;
+        min-height: 120px;
         width: 100%;
     }
     .w3-cell p {
