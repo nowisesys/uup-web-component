@@ -103,14 +103,18 @@ $k = array(// Values for keyframes.
                 // 
                 // Resize each carousel to fit its child content.
                 // 
-                window.onresize = function () {
+                function carousel_onresize() {
                     var carousels = document.getElementsByClassName('gallery-carousel');
 
                     for (var i = 0; i < carousels.length; ++i) {
                         var content = carousels[i].querySelector("div").firstChild.nextSibling;
                         carousels[i].style.height = window.getComputedStyle(content).height;
                     }
-                };
-                window.onresize();
+                }
+
+                window.onresize = carousel_onresize;
+                window.onload = function () {
+                    return carousel_onresize();
+                }
         </script>
 <?php endif; ?>
