@@ -19,21 +19,29 @@
 namespace UUP\Web\Component\Container\Gallery\Scanner;
 
 use DirectoryIterator;
+use UUP\Web\Component\Container\Card;
 use UUP\Web\Component\Container\Cell;
 use UUP\Web\Component\Container\Gallery\Scanner;
+use UUP\Web\Component\Container\Grid;
 
 /**
  * The content specification scanner.
  * 
  * Scans immediate sub directories for content.spec (default) files. If found, 
  * then their content is read and inserted in the gallery.
- *
+ * 
  * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
 class ContentSpecScanner extends Scanner
 {
+
+        /**
+         * The child type for gallery items (cell, card or grid).
+         * @var string 
+         */
+        public $itemtype = 'cell';
 
         /**
          * Find content specification files.
@@ -83,14 +91,40 @@ class ContentSpecScanner extends Scanner
          */
         private function insert($path, $data)
         {
-                $component = new Cell();
+                $data = self::convert($path, $data);
 
-                $component->image = sprintf("%s/%s", $path, $data['image']);
-                $component->title = $data['name'];
-                $component->text = $data['info'];
-                $component->href = $path;
+                switch ($this->itemtype) {
+                        case 'cell':
+                                $component = Cell::create($data);
+                                $this->_gallery->add($component);
+                                break;
+                        case 'card':
+                                $component = Card::create($data);
+                                $this->_gallery->add($component);
+                                break;
+                        case 'grid':
+                                $component = Grid::create($data);
+                                $this->_gallery->add($component);
+                                break;
+                }
+        }
 
-                $this->_gallery->add($component);
+        /**
+         * Convert data.
+         * 
+         * @param string $path The base path.
+         * @param array $data The data params.
+         * @return array
+         */
+        private static function convert($path, $data)
+        {
+                return array(
+                        'image' => sprintf("%s/%s", $path, $data['image']),
+                        'title' => $data['name'],
+                        'intro' => $data['info'],
+                        'text'  => $data['desc'],
+                        'href'  => $path
+                );
         }
 
 }

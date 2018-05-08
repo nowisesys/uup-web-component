@@ -17,19 +17,19 @@
 
 ?>
 
-<div class="w3-row-padding w3-padding-64 w3-container <?= $this->color ?>">
-    <div class="w3-content">
+<div class="w3-row-padding w3-padding-32 w3-container <?= $this->color ?>">
+    <div class="item-content w3-content">
         <?php if ($this->align == "left") : ?>
 
                 <div class="w3-twothird">
                     <?php if ($this->title): ?>
-                            <h1 class="w3-margin-right"><?= $this->title ?></h1>
+                            <h2 class="w3-margin-right"><?= $this->title ?></h2>
                     <?php endif; ?>
                     <?php if ($this->intro): ?>
-                            <h5 class="w3-margin-right"><?= $this->intro ?></h5>
+                            <h5 class="w3-margin-right w3-text-grey"><?= $this->intro ?></h5>
                     <?php endif; ?>
                     <?php if ($this->text): ?>
-                            <p class="w3-margin-right w3-text-grey"><?= $this->text ?></p>
+                            <p class="w3-margin-right"><?= $this->text ?></p>
                     <?php endif; ?>                    
                     <?php if ($this->count() != 0): ?>
                             <div>
@@ -60,13 +60,13 @@
 
                 <div class="w3-twothird">
                     <?php if ($this->title): ?>
-                            <h1 class="w3-margin-left"><?= $this->title ?></h1>
+                            <h2 class="w3-margin-left"><?= $this->title ?></h2>
                     <?php endif; ?>
                     <?php if ($this->intro): ?>
-                            <h5 class="w3-margin-left"><?= $this->intro ?></h5>
+                            <h5 class="w3-margin-left w3-text-grey"><?= $this->intro ?></h5>
                     <?php endif; ?>
                     <?php if ($this->text): ?>
-                            <p class="w3-margin-left w3-text-grey"><?= $this->text ?></p>
+                            <p class="w3-margin-left"><?= $this->text ?></p>
                     <?php endif; ?>                    
                     <?php if ($this->count() != 0): ?>
                             <div>

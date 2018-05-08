@@ -78,4 +78,15 @@ class Grid extends Container
                 parent::__construct('grid', $path);
         }
 
+        public static function create($data = array('image' => '', 'title' => '', 'intro' => '', 'text' => '', 'href' => '#'))
+        {
+                $component = new Grid();
+
+                foreach ($data as $key => $val) {
+                        $component->$key = $val;
+                }
+
+                return $component;
+        }
+
 }

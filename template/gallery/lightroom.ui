@@ -17,7 +17,7 @@
 
 ?>
 
-<div class="gallery-lightroom w3-row w3-margin-top w3-<?= $this->color ?>">
+<div class="gallery-lightroom w3-row w3-margin-top w3-padding w3-<?= $this->color ?>">
     <?php foreach ($this->children() as $item): ?>
             <div class="w3-third w3-padding">
                 <a href="<?= $item->href ?>">

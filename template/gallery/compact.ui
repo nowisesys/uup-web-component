@@ -17,8 +17,10 @@
 
 ?>
 
-<div class="gallery-compact w3-row">
+<div class="gallery-compact w3-cell-row">
     <?php foreach ($this->children() as $item): ?>
-            <?php $item->render(); ?>
+            <div class="w3-cell">
+                <?php $item->render(); ?>
+            </div>
     <?php endforeach; ?>
 </div>

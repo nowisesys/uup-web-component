@@ -71,4 +71,17 @@ class Card extends Container
                 $this->button = new Button(_("More"), array('event' => array('onclick' => "alert('CLICKED')"), 'class' => array('w3-green')));
         }
 
+        public static function create($data = array('image' => '', 'title' => '', 'text' => '', 'href' => '#'))
+        {
+                $component = new Card();
+
+                foreach ($data as $key => $val) {
+                        $component->$key = $val;
+                }
+                
+                $component->button->event->onclick = sprintf("window.location='%s'", $data['href']);
+                
+                return $component;
+        }
+        
 }

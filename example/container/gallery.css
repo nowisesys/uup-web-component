@@ -3,26 +3,26 @@
  */
 
 @media screen and (min-width: 600px) {
-    .w3-cell h1 {
+    .item-content h1 {
         min-height: 170px;
         margin: auto;
         vertical-align: middle;
         background-color: black;
         color: darkgrey;
     }
-    .w3-cell img {
+    .item-content img {
         max-height: 250px;
         min-height: 120px;
         width: 100%;
     }
-    .w3-cell p {
+    .item-content p {
         font-style: italic;
         font-size: 0.8em;
         color: darkslategray;
     }
 }
 @media screen and (min-width: 750px) {
-    .w3-cell h1 {
+    .item-content h1 {
         min-height: 110px;
     }
 }

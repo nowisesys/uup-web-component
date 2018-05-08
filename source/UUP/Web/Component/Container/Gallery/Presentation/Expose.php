@@ -32,15 +32,15 @@ class Expose extends Container implements Presentation
 {
 
         /**
-         * The item layout (half, third or quarter).
+         * The item layout (half, third, quarter, single or auto).
          * @var string 
          */
-        public $layout = 'third';
+        public $layout = 'auto';
         /**
          * Use flat style or card outline.
          * @var boolean 
          */
-        public $flat = false;
+        public $flat = null;
 
         /**
          * Constructor.

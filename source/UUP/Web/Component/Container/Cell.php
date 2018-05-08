@@ -70,4 +70,15 @@ class Cell extends Container
                 parent::__construct('cell', $path);
         }
 
+        public static function create($data = array('image' => '', 'title' => '', 'text' => '', 'href' => '#'))
+        {
+                $component = new Cell();
+
+                foreach ($data as $key => $val) {
+                        $component->$key = $val;
+                }
+
+                return $component;
+        }
+
 }

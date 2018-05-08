@@ -96,7 +96,8 @@ echo "</div>\n";
 
 echo "<h3>Exposé layout</h3>\n";
 echo "<p>Gallery consisting of cell objects using default third layout. By default, items ";
-echo "are places within card outline.</p>\n";
+echo "are placed within card outline. The default layout is auto meaning the render template ";
+echo "tries to figure out best layout based on number of items and their type.</p>\n";
 $gallery = new Expose();
 $gallery->add($cell1);
 $gallery->add($cell2);
@@ -164,6 +165,15 @@ echo "<p>The gallery layout can be controlled by passing different gallery prese
 echo "to the scanner constructor. The same content rendered as compact presentation:</p>\n";
 
 $scanner = new ContentSpecScanner(new Compact());
+$scanner->find("container/gallery");
+$gallery = $scanner->getGallery();
+$gallery->render();
+
+echo "<p>Use \$scanner->itemtype = 'grid' to insert grid components instead of default cell ";
+echo "components. Possible item types are grid, cell or card.</p>\n";
+
+$scanner = new ContentSpecScanner(new Expose());
+$scanner->itemtype = 'grid';
 $scanner->find("container/gallery");
 $gallery = $scanner->getGallery();
 $gallery->render();

@@ -15,19 +15,61 @@
  * limitations under the License.
  */
 
+use UUP\Web\Component\Container\Card;
+use UUP\Web\Component\Container\Cell;
+use UUP\Web\Component\Container\Grid;
+
+// 
+// Try to guess layout based on number of items and item type.
+// 
+if ($this->layout == 'auto') {
+        $item = current($this->children());
+        if ($item instanceof Cell ||
+            $item instanceof Card) {
+                if ($this->count() % 4 == 0) {
+                        $this->layout = 'quarter';
+                } elseif ($this->count() % 3 == 0) {
+                        $this->layout = 'third';
+                } else {
+                        $this->layout = 'third';
+                }
+        }
+        if ($item instanceof Grid) {
+                $this->layout = 'single';
+                if (!isset($this->flat)) {
+                        $this->flat = false;
+                }
+        }
+        if ($item instanceof Cell) {
+                if (!isset($this->flat)) {
+                        $this->flat = false;
+                }
+        }
+        if ($item instanceof Card) {
+                if (!isset($this->flat)) {
+                        $this->flat = true;
+                }
+        }
+}
+
 switch ($this->layout) {
+        case 'auto':
+                $this->rowitems = 3;
+                break;
         case 'half':
                 $this->rowitems = 2;
                 break;
         case 'third':
                 $this->rowitems = 3;
                 break;
-        case 'querter':
+        case 'quarter':
                 $this->rowitems = 4;
                 break;
+        case 'single':
+                $this->rowitems = 1;
         default:
-                $this->layout = 'third';
-                $this->rowitems = 3;
+                $this->layout = 'single';
+                $this->rowitems = 1;
 }
 
 ?>
@@ -41,7 +83,7 @@ switch ($this->layout) {
                             <div class="w3-row w3-margin-top">
                         <?php endif; ?>
                         <div class="w3-<?= $this->layout ?>">
-                            <div class="w3-margin-bottom">
+                            <div class="w3-margin-bottom w3-margin-right">
                                 <?php $item->render(); ?>
                             </div>
                         </div>
