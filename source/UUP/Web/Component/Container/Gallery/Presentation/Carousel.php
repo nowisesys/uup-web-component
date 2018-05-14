@@ -43,7 +43,7 @@ class Carousel extends Container implements Presentation
          * The container style.
          * @var string 
          */
-        public $style = "max-width: 500px; height: 400px";
+        public $style = "max-width: 500px; height: 400px; z-index: 0";
         /**
          * The interval in seconds between shifting pictures.
          * @var int 
