@@ -1,6 +1,6 @@
 {
     "name": "bmc/uup-web-component",
-    "version": "1.2.14",
+    "version": "1.2.15",
     "description": "Web component library.",
     "type": "library",
     "keywords": ["template", "component", "render", "web", "uup", "bmc"],
