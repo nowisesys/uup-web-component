@@ -68,7 +68,7 @@ class Downloads extends Container
          * The number of instances.
          * @var int 
          */
-        private static $instances = 0;
+        private static $_instances = 0;
 
         /**
          * Constructor.
@@ -77,7 +77,7 @@ class Downloads extends Container
         public function __construct($path = null)
         {
                 parent::__construct("downloads", $path);
-                $this->id = sprintf("downloads-%s", md5(time() + self::$instances++));
+                $this->id = sprintf("downloads-%s", md5(time() + self::$_instances++));
         }
 
         /**
@@ -129,15 +129,6 @@ class Downloads extends Container
         public function addDownload($download)
         {
                 $this->renderable[$download->path] = $download;
-        }
-
-        /**
-         * Should script/style be initialized?
-         * @return boolean
-         */
-        public function initialize()
-        {
-                return self::$instances == 1;
         }
 
         /**

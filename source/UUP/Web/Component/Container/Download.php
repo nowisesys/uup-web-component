@@ -137,9 +137,9 @@ class Download extends Container
          * The number of instances.
          * @var int 
          */
-        private static $instances = 0;
+        private static $_instances = 0;
         /**
-         * .The number of instances rendered.
+         * Number of instances rendered.
          * @var int 
          */
         private static $_rendered = 0;
@@ -151,7 +151,7 @@ class Download extends Container
         public function __construct($path = null)
         {
                 parent::__construct("download", $path);
-                $this->id = sprintf("download-%s", md5(time() + self::$instances++));
+                $this->id = sprintf("download-%s", md5(time() + self::$_instances++));
         }
 
         public function __get($name)
