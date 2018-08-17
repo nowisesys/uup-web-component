@@ -94,10 +94,10 @@ class Download extends Container
          */
         public $path = "download";
         /**
-         * The file extension.
-         * @var string 
+         * Array of filename extensions or pattern to match (i.e. /\.tar\.gz$/).
+         * @var string|array
          */
-        public $extension = "gz";
+        public $match = null;
         /**
          * Name of latest file.
          * @var string 
@@ -199,9 +199,13 @@ class Download extends Container
                 $iterator = new FilesystemIterator($this->path);
 
                 foreach ($iterator as $fileinfo) {
-                        if (!isset($this->extension)) {
+                        if (is_null($this->match)) {
                                 $this->addEntry($fileinfo);
-                        } elseif ($iterator->getExtension() == $this->extension) {
+                        } elseif (is_string($this->match) &&
+                            preg_match($this->match, $iterator->getBasename())) {
+                                $this->addEntry($fileinfo);
+                        } elseif (is_array($this->match) &&
+                            in_array($iterator->getExtension(), $this->match)) {
                                 $this->addEntry($fileinfo);
                         }
                 }
