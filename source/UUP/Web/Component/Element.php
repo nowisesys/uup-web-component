@@ -173,7 +173,7 @@ class Element extends Renderable implements Component
                 $this->_text = $text;
                 $this->_last = $last;
         }
-        
+
         /**
          * Render component.
          * 

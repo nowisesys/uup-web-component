@@ -96,15 +96,15 @@ class ContentSpecScanner extends Scanner
                 switch ($this->itemtype) {
                         case 'cell':
                                 $component = Cell::create($data);
-                                $this->_gallery->add($component);
+                                $this->_gallery->addComponent($component);
                                 break;
                         case 'card':
                                 $component = Card::create($data);
-                                $this->_gallery->add($component);
+                                $this->_gallery->addComponent($component);
                                 break;
                         case 'grid':
                                 $component = Grid::create($data);
-                                $this->_gallery->add($component);
+                                $this->_gallery->addComponent($component);
                                 break;
                 }
         }

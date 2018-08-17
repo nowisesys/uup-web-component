@@ -39,7 +39,7 @@ echo "<p>These buttons contains other components (italic for text and icon):</p>
 // 
 $button = new Button();
 $button->props->color->back = "blue";
-$button->add(new Element(array(), 'i', 'Button3'));
+$button->addComponent(new Element(array(), 'i', 'Button3'));
 $button->render();
 
 //
@@ -55,10 +55,10 @@ $button->render();
 // 
 $button = new Button();
 $button->props->color->back = "purple";
-$button->add(new Element(array(
+$button->addComponent(new Element(array(
         'class' => 'fa fa-refresh w3-spin',
         'style' => 'font-size:16px'
-), 'i', ''));
+    ), 'i', ''));
 $button->setText("Click", true);
 $button->render();
 
@@ -67,10 +67,10 @@ $button->render();
 // 
 $button = new Button();
 $button->props->color->back = "purple";
-$button->add(new Element(array(
+$button->addComponent(new Element(array(
         'class' => 'fa fa-refresh w3-spin',
         'style' => 'font-size:16px'
-), 'i', ''));
+    ), 'i', ''));
 $button->setText("Click", false);
 $button->render();
 echo "</div>\n";

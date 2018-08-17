@@ -30,6 +30,7 @@ use UUP\Web\Component\Element\Button;
  */
 class Card extends Container
 {
+
         /**
          * Example URL for image.
          */
@@ -78,10 +79,10 @@ class Card extends Container
                 foreach ($data as $key => $val) {
                         $component->$key = $val;
                 }
-                
+
                 $component->button->event->onclick = sprintf("window.location='%s'", $data['href']);
-                
+
                 return $component;
         }
-        
+
 }

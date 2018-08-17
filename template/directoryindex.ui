@@ -68,8 +68,8 @@
 
             for (var i = 0; i < rows.length; i++) {
                 var td = rows[i].getElementsByTagName("td")[0];
-                if(td) {
-                    if(td.innerHTML.toUpperCase().indexOf(text) > -1) {
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(text) > -1) {
                         rows[i].style.display = "";
                     } else {
                         rows[i].style.display = "none";

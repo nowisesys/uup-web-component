@@ -131,7 +131,7 @@ echo "</pre>\n";
 
 echo "<hr>\n";
 printf("<div style=\"padding: 20px; border: 2px dashed #eeeeee\">Properties iterated using foreach(): \n");
-foreach($props as $key => $val) {
+foreach ($props as $key => $val) {
         echo "$key => $val, \n";
 }
 printf("</div>\n");

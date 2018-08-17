@@ -34,8 +34,8 @@ use UUP\Web\Component\Element;
  * for a single audio stream:
  * <code>
  * $video = new Standard();
- * $video->add(new Source('file.ogg', 'video/ogg'));
- * $video->add(new Source('file.mp3', 'audio/mpeg'));
+ * $video->addComponent(new Source('file.ogg', 'video/ogg'));
+ * $video->addComponent(new Source('file.mp3', 'audio/mpeg'));
  * $video->render();
  * </code>
  * 

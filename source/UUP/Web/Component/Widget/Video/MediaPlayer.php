@@ -34,8 +34,8 @@ use UUP\Web\Component\Element;
  * for a single video stream:
  * <code>
  * $video = new Standard();
- * $video->add(new Source('file.mp4', 'video/mp4'));
- * $video->add(new Source('file.ogg', 'video/ogg'));
+ * $video->addComponent(new Source('file.mp4', 'video/mp4'));
+ * $video->addComponent(new Source('file.ogg', 'video/ogg'));
  * $video->render();
  * </code>
  * 

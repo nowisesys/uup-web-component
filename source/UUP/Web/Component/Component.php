@@ -41,19 +41,25 @@ interface Component
          * Add child component.
          * @param Component $component
          */
-        function add(Component $component);
+        function addComponent(Component $component);
 
         /**
          * Get number of child components.
          * @return int 
          */
-        function count();
+        function componentCount();
 
         /**
          * Get all child components.
          * @return Component[]
          */
-        function children();
+        function getComponents();
+
+        /**
+         * Child components check.
+         * @return bool True if this component has child components.
+         */
+        function hasComponents();
 
         /**
          * Render component.

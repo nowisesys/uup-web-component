@@ -53,7 +53,7 @@ abstract class Renderable implements Component
          * Add child component.
          * @param Component $component The child component.
          */
-        public function add(Component $component)
+        public function addComponent(Component $component)
         {
                 $this->_comp[] = $component;
         }
@@ -62,16 +62,25 @@ abstract class Renderable implements Component
          * Get child components.
          * @return Component[]
          */
-        public function children()
+        public function getComponents()
         {
                 return $this->_comp;
+        }
+
+        /**
+         * Child components check.
+         * @return bool True if this component has child components.
+         */
+        public function hasComponents()
+        {
+                return count($this->_comp) != 0;
         }
 
         /**
          * Get number of child components.
          * @return int
          */
-        public function count()
+        public function componentCount()
         {
                 return count($this->_comp);
         }

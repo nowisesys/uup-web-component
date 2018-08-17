@@ -69,23 +69,23 @@ echo "a format its can handle from this list. The video source is added by calli
 echo "method.</p>\n";
 
 $video = new MediaPlayer();
-$video->add(new Source('http://techslides.com/demos/sample-videos/small.mp4', 'video/mp4'));
-$video->add(new Source('http://techslides.com/demos/sample-videos/small.webm', 'video/webm'));
-$video->add(new Source('http://techslides.com/demos/sample-videos/small.ogv', 'video/ogg'));
-$video->add(new Source('http://techslides.com/demos/sample-videos/small.3gp', 'video/3gp'));
-$video->add(new Source('http://techslides.com/demos/sample-videos/small.flv', 'video/x-flv'));
+$video->addComponent(new Source('http://techslides.com/demos/sample-videos/small.mp4', 'video/mp4'));
+$video->addComponent(new Source('http://techslides.com/demos/sample-videos/small.webm', 'video/webm'));
+$video->addComponent(new Source('http://techslides.com/demos/sample-videos/small.ogv', 'video/ogg'));
+$video->addComponent(new Source('http://techslides.com/demos/sample-videos/small.3gp', 'video/3gp'));
+$video->addComponent(new Source('http://techslides.com/demos/sample-videos/small.flv', 'video/x-flv'));
 $video->render();
 
 echo "<div class=\"w3-container w3-code w3-border-red\">\n";
 echo "\$video = new Standard();<br/>\n";
-echo "\$video->add(new Source('http://techslides.com/demos/sample-videos/small.mp4', 'video/mp4'));<br/>\n";
-echo "\$video->add(new Source('http://techslides.com/demos/sample-videos/small.webm', 'video/webm'));<br/>\n";
-echo "\$video->add(new Source('http://techslides.com/demos/sample-videos/small.ogv', 'video/ogg'));<br/>\n";
-echo "\$video->add(new Source('http://techslides.com/demos/sample-videos/small.3gp', 'video/3gp'));<br/>\n";
-echo "\$video->add(new Source('http://techslides.com/demos/sample-videos/small.flv', 'video/x-flv'));<br/>\n";
+echo "\$video->addComponent(new Source('http://techslides.com/demos/sample-videos/small.mp4', 'video/mp4'));<br/>\n";
+echo "\$video->addComponent(new Source('http://techslides.com/demos/sample-videos/small.webm', 'video/webm'));<br/>\n";
+echo "\$video->addComponent(new Source('http://techslides.com/demos/sample-videos/small.ogv', 'video/ogg'));<br/>\n";
+echo "\$video->addComponent(new Source('http://techslides.com/demos/sample-videos/small.3gp', 'video/3gp'));<br/>\n";
+echo "\$video->addComponent(new Source('http://techslides.com/demos/sample-videos/small.flv', 'video/x-flv'));<br/>\n";
 echo "</div>\n";
 dump_property_data($video->attr);
-foreach ($video->children() as $child) {
+foreach ($video->getComponents() as $component) {
         echo "<br>\n";
-        dump_property_data($child->attr);
+        dump_property_data($component->attr);
 }

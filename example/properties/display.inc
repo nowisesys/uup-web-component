@@ -14,9 +14,9 @@ $div->props->display->container = true;
 $div->style->add('height', '300px');
 
 foreach (array('topleft', 'topright', 'bottomleft', 'bottomright', 'left', 'right', 'middle', 'topmiddle', 'bottommiddle') as $pos) {
-         $obj = new Div($pos);
-         $obj->props->display->$pos = true;
-         $div->add($obj);
+        $obj = new Div($pos);
+        $obj->props->display->$pos = true;
+        $div->addComponent($obj);
 }
 
 $div->render();
@@ -32,10 +32,10 @@ $div->props->display->container = true;
 $div->style->add('height', '300px');
 
 foreach (array('topleft', 'topright', 'bottomleft', 'bottomright', 'left', 'right', 'middle', 'topmiddle', 'bottommiddle') as $pos) {
-         $obj = new Div($pos);
-         $obj->props->display->$pos = true;
-         $obj->props->display->hover = true;
-         $div->add($obj);
+        $obj = new Div($pos);
+        $obj->props->display->$pos = true;
+        $obj->props->display->hover = true;
+        $div->addComponent($obj);
 }
 
 $div->render();

@@ -60,7 +60,7 @@ abstract class MediaFileScanner extends Scanner
                 $component->image = $file;
                 $component->href = $file;
                 $component->text = basename($file);
-                $this->_gallery->add($component);
+                $this->_gallery->addComponent($component);
         }
 
 }

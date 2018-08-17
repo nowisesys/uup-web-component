@@ -27,6 +27,7 @@ namespace UUP\Web\Component\Style\Speech;
  */
 class Mark
 {
+
         /**
          * Allows named markers to be attached to the audio stream. Applies to CSS3.
          */

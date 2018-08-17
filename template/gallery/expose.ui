@@ -23,29 +23,29 @@ use UUP\Web\Component\Container\Grid;
 // Try to guess layout based on number of items and item type.
 // 
 if ($this->layout == 'auto') {
-        $item = current($this->children());
-        if ($item instanceof Cell ||
-            $item instanceof Card) {
-                if ($this->count() % 4 == 0) {
+        $component = current($this->getComponents());
+        if ($component instanceof Cell ||
+            $component instanceof Card) {
+                if ($this->componentCount() % 4 == 0) {
                         $this->layout = 'quarter';
-                } elseif ($this->count() % 3 == 0) {
+                } elseif ($this->componentCount() % 3 == 0) {
                         $this->layout = 'third';
                 } else {
                         $this->layout = 'third';
                 }
         }
-        if ($item instanceof Grid) {
+        if ($component instanceof Grid) {
                 $this->layout = 'single';
                 if (!isset($this->flat)) {
                         $this->flat = false;
                 }
         }
-        if ($item instanceof Cell) {
+        if ($component instanceof Cell) {
                 if (!isset($this->flat)) {
                         $this->flat = false;
                 }
         }
-        if ($item instanceof Card) {
+        if ($component instanceof Card) {
                 if (!isset($this->flat)) {
                         $this->flat = true;
                 }
@@ -77,28 +77,28 @@ switch ($this->layout) {
 <div class="gallery-expose">
     <?php if ($this->flat): ?>
             <div class="w3-row w3-margin-top">
-                <?php foreach ($this->children() as $index => $item): ?>
+                <?php foreach ($this->getComponents() as $index => $component): ?>
                         <?php if ($index != 0 && ($index % $this->rowitems == 0)): ?>
                             </div>
                             <div class="w3-row w3-margin-top">
                         <?php endif; ?>
                         <div class="w3-<?= $this->layout ?>">
                             <div class="w3-margin-bottom w3-margin-right">
-                                <?php $item->render(); ?>
+                                <?php $component->render(); ?>
                             </div>
                         </div>
                 <?php endforeach; ?>
             </div>
     <?php else: ?>
             <div class="w3-row w3-margin-top">
-                <?php foreach ($this->children() as $index => $item): ?>
+                <?php foreach ($this->getComponents() as $index => $component): ?>
                         <?php if ($index != 0 && ($index % $this->rowitems == 0)): ?>
                             </div>
                             <div class="w3-row w3-margin-top">
                         <?php endif; ?>
                         <div class="w3-<?= $this->layout ?>">
                             <div class="w3-card w3-margin-bottom w3-margin-right">
-                                <?php $item->render(); ?>
+                                <?php $component->render(); ?>
                             </div>
                         </div>
                 <?php endforeach; ?>

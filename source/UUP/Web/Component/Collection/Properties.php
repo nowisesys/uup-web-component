@@ -73,7 +73,7 @@ class Properties extends Collection
          * @var Repository 
          */
         private $_virtual;
-        
+
         /**
          * Constructor.
          */

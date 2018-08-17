@@ -27,6 +27,7 @@ namespace UUP\Web\Component\Style\Border;
  */
 class Image
 {
+
         /**
          * Specifies the amount by which the border image area extends beyond the border box. Applies to CSS3.
          */

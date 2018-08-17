@@ -23,10 +23,10 @@
 // The values to use for cross fading depends on total number of items
 // and needs to be computed:
 // 
-$a = $this->interval;   // Presentation time for one image.
-$b = $this->duration;   // Duration for cross fading.
-$n = $this->count();    // Total number of images.
-$t = ($a + $b) * $n;    // Total length of animation.
+$a = $this->interval;           // Presentation time for one image.
+$b = $this->duration;           // Duration for cross fading.
+$n = $this->componentCount();   // Total number of images.
+$t = ($a + $b) * $n;            // Total length of animation.
 $k = array(// Values for keyframes.
         0,
         floor(100 * $a / $t),
@@ -82,7 +82,7 @@ $k = array(// Values for keyframes.
         animation-iteration-count: infinite;
         animation-duration: <?= $a * $n ?>s;
     }
-    <?php for ($i = 1; $i <= $this->count(); $i++): ?>
+    <?php for ($i = 1; $i <= $n; $i++): ?>
             #<?= $this->id ?> > div:nth-of-type(<?= $i ?>) {
                 animation-delay: <?= ($n - $i) * $a ?>s;
             }
@@ -92,8 +92,8 @@ $k = array(// Values for keyframes.
 
 <div class="gallery-carousel w3-display-container w3-transparent" style="<?= $this->style ?>">
     <div id="<?= $this->id ?>">
-        <?php foreach ($this->children() as $item): ?>
-                <?php $item->render() ?>
+        <?php foreach ($this->getComponents() as $component): ?>
+                <?php $component->render() ?>
         <?php endforeach; ?>
     </div>
 </div>

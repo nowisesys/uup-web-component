@@ -40,4 +40,6 @@ class Align
          * Specifies the alignment for selected items inside a flexible container. Applies to CSS3.
          */
         const SELF = 'align-self';
-}
+        }
+
+        
