@@ -2,13 +2,14 @@
 
 return array(
         'Containers'  => array(
-                'Card'     => '?page=container/card',
-                'Cell'     => '?page=container/cell',
-                'Grid'     => '?page=container/grid',
-                'Download' => '?page=container/download',
-                'Sitemap'  => '?page=container/sitemap',
-                'Index'    => '?page=container/directoryindex',
-                'Gallery'  => '?page=container/gallery'
+                'Card'      => '?page=container/card',
+                'Cell'      => '?page=container/cell',
+                'Grid'      => '?page=container/grid',
+                'Download'  => '?page=container/download',
+                'Downloads' => '?page=container/downloads',
+                'Sitemap'   => '?page=container/sitemap',
+                'Index'     => '?page=container/directoryindex',
+                'Gallery'   => '?page=container/gallery'
         ),
         'Widgets'     => array(
                 'Buttons' => '?page=widgets/buttons',
