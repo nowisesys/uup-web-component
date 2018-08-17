@@ -94,6 +94,16 @@ class Download extends Container
          */
         public $path = "download";
         /**
+         * The name of this download.
+         * @var string
+         */
+        public $name;
+        /**
+         * The description for this download.
+         * @var string 
+         */
+        public $desc;
+        /**
          * Array of filename extensions or pattern to match (i.e. /\.tar\.gz$/).
          * @var string|array
          */
@@ -128,6 +138,11 @@ class Download extends Container
          * @var int 
          */
         private static $instances = 0;
+        /**
+         * .The number of instances rendered.
+         * @var int 
+         */
+        private static $_rendered = 0;
 
         /**
          * Constructor.
@@ -142,6 +157,12 @@ class Download extends Container
         public function __get($name)
         {
                 return $this->getFiles($name);
+        }
+
+        public function render($transform = false)
+        {
+                parent::render($transform);
+                self::$_rendered++;
         }
 
         /**
@@ -199,6 +220,11 @@ class Download extends Container
                 $iterator = new FilesystemIterator($this->path);
 
                 foreach ($iterator as $fileinfo) {
+                        if ($fileinfo->isDir() ||
+                            $fileinfo->isReadable() == false) {
+                                continue;
+                        }
+
                         if (is_null($this->match)) {
                                 $this->addEntry($fileinfo);
                         } elseif (is_string($this->match) &&
@@ -341,7 +367,7 @@ class Download extends Container
          */
         public function initialize()
         {
-                return self::$instances == 1;
+                return self::$_rendered == 0;
         }
 
 }
