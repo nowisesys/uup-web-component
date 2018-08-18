@@ -9,7 +9,8 @@ return array(
                 'Downloads' => '?page=container/downloads',
                 'Sitemap'   => '?page=container/sitemap',
                 'Index'     => '?page=container/directoryindex',
-                'Gallery'   => '?page=container/gallery'
+                'Gallery'   => '?page=container/gallery',
+                'CodeBox'   => '?page=container/codebox'
         ),
         'Widgets'     => array(
                 'Buttons' => '?page=widgets/buttons',

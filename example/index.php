@@ -11,6 +11,7 @@ set_transformer($transformer);
     <head>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
         <?php load_stylesheet($transformer) ?>
         <style>
             body {
@@ -56,5 +57,7 @@ set_transformer($transformer);
                     document.getElementById("menu").style.display = "none";
                 }
         </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad()</script>
     <body>
 </html>
