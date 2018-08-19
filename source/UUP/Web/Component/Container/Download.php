@@ -99,10 +99,20 @@ class Download extends Container
          */
         public $name;
         /**
+         * The title for this download.
+         * @var string 
+         */
+        public $title;
+        /**
          * The description for this download.
          * @var string 
          */
         public $desc;
+        /**
+         * Special information for this download.
+         * @var string
+         */
+        public $info;
         /**
          * Array of filename extensions or pattern to match (i.e. /\.tar\.gz$/).
          * @var string|array

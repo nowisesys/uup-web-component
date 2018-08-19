@@ -68,7 +68,7 @@ class Downloads extends Container
          * Guideline text for end users.
          * @var string 
          */
-        public $guideline;
+        public $info;
         /**
          * The number of instances.
          * @var int 
@@ -91,16 +91,18 @@ class Downloads extends Container
          * @param string $path The directory path.
          * @param string $name An optional name.
          * @param string|array $match The filename pattern or filename extension array.
-         * @param string $desc A longer description.
+         * @param string $desc The description for this download.
+         * @param string $info Special information for this download..
          * @return Download
          */
-        public static function getObject($path, $name, $match, $desc)
+        public static function getObject($path, $name, $match, $desc, $info)
         {
                 $download = new Download();
 
                 $download->path = $path;
                 $download->name = $name;
                 $download->desc = $desc;
+                $download->info = $info;
                 $download->match = $match;
 
                 return $download;
@@ -112,9 +114,10 @@ class Downloads extends Container
          * @param string $path The directory path.
          * @param string $name An optional name.
          * @param string|array $match The filename pattern or filename extension array.
-         * @param string $desc A longer description.
+         * @param string $desc The description for this download.
+         * @param string $info Special information for this download..
          */
-        public function addLocation($path, $name = null, $match = array("gz"), $desc = null)
+        public function addLocation($path, $name = null, $match = array("gz"), $desc = null, $info = null)
         {
                 if (!isset($name)) {
                         $name = self::getName($path, $name);
@@ -123,7 +126,7 @@ class Downloads extends Container
                         $desc = self::getDescription($path);
                 }
 
-                $download = self::getObject($path, $name, $match, $desc);
+                $download = self::getObject($path, $name, $match, $desc, $info);
                 $this->renderable[$download->path] = $download;
         }
 
