@@ -57,6 +57,15 @@ $codebox->addComponent(new Button("Compile"));
 $codebox->addComponent(new Button("Download"));
 $codebox->render();
 
+echo "<p>Same as example above, but with some inline CSS style applied.</p>\n";
+$codebox = new CodeBox();
+$codebox->style = "margin: 10px; background-color: #f0f0f0; padding-top: 3px";
+$codebox->addComponent(new Panel("This is a panel component"));
+$codebox->addContent(new FileContent("container/code/file.c", true));
+$codebox->addComponent(new Button("Compile"));
+$codebox->addComponent(new Button("Download"));
+$codebox->render();
+
 echo "<p>Multiple content objects can be added to the same code box. The first content object ";
 echo "will be used as download link. Each content section will get their own language class ";
 echo "attribute value defined though.</p>\n";

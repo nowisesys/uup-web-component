@@ -124,6 +124,11 @@ class CodeBox extends Container
          */
         public $decorated = true;
         /**
+         * The content area style.
+         * @var string 
+         */
+        public $style = "margin: 0";
+        /**
          * Files for dropdown select menu.
          * @var array 
          */

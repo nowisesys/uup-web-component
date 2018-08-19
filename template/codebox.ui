@@ -23,7 +23,7 @@
             </div>
     <?php endif; ?>
     <?php if ($this->hasComponents()): ?>
-            <div>
+            <div style="<?= $this->style ?>">
                 <?php foreach ($this->getComponents() as $component): ?>
                         <?php $component->render() ?>
                 <?php endforeach; ?>
