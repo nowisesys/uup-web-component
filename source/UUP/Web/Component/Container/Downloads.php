@@ -127,7 +127,7 @@ class Downloads extends Container
                 }
 
                 $download = self::getObject($path, $name, $match, $desc, $info);
-                $this->renderable[$download->path] = $download;
+                $this->renderable[] = $download;
         }
 
         /**
@@ -136,7 +136,7 @@ class Downloads extends Container
          */
         public function addDownload($download)
         {
-                $this->renderable[$download->path] = $download;
+                $this->renderable[] = $download;
         }
 
         /**
