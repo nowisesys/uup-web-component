@@ -34,7 +34,7 @@ abstract class Renderable implements Component
          * The collection of child components.
          * @var array 
          */
-        protected $_comp = array();
+        protected $_components = array();
         /**
          * The transformer object.
          * @var Transform 
@@ -59,8 +59,8 @@ abstract class Renderable implements Component
          */
         function setComponent(Component $component)
         {
-                $this->_comp = array();
-                $this->_comp[] = $component;
+                $this->_components = array();
+                $this->_components[] = $component;
         }
 
         /**
@@ -69,7 +69,7 @@ abstract class Renderable implements Component
          */
         public function addComponent(Component $component)
         {
-                $this->_comp[] = $component;
+                $this->_components[] = $component;
         }
 
         /**
@@ -79,7 +79,7 @@ abstract class Renderable implements Component
          */
         public function getComponent($index)
         {
-                return $this->_comp[$index];
+                return $this->_components[$index];
         }
 
         /**
@@ -88,7 +88,7 @@ abstract class Renderable implements Component
          */
         public function getComponents()
         {
-                return $this->_comp;
+                return $this->_components;
         }
 
         /**
@@ -97,7 +97,7 @@ abstract class Renderable implements Component
          */
         public function hasComponents()
         {
-                return count($this->_comp) != 0;
+                return count($this->_components) != 0;
         }
 
         /**
@@ -106,7 +106,7 @@ abstract class Renderable implements Component
          */
         public function componentCount()
         {
-                return count($this->_comp);
+                return count($this->_components);
         }
 
         /**
@@ -123,7 +123,7 @@ abstract class Renderable implements Component
                 if (!$transform) {
                         $transform = $this->_transform;
                 }
-                foreach ($this->_comp as $component) {
+                foreach ($this->_components as $component) {
                         $component->render($transform);
                 }
         }

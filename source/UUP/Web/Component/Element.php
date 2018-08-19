@@ -232,7 +232,7 @@ class Element extends Renderable implements Component
                 // 
                 printf("<%s %s>", $this->_name, implode(" ", $attr));
                 if ($this->_last) {
-                        if (!empty($this->_comp)) {
+                        if (!empty($this->_components)) {
                                 printf(" ");
                                 parent::render($transform);
                         }
@@ -243,7 +243,7 @@ class Element extends Renderable implements Component
                         if (!empty($this->_text)) {
                                 printf("%s", $this->_text);
                         }
-                        if (!empty($this->_comp)) {
+                        if (!empty($this->_components)) {
                                 printf(" ");
                                 parent::render($transform);
                         }
