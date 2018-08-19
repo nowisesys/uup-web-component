@@ -22,5 +22,11 @@
                 <?php endif; ?>
             </div>
     <?php endif; ?>
-    <pre style="margin: 0"><code class="<?= $this->lang ?>"><?php $this->getOutput() ?></code></pre>
+    <?php if ($this->hasComponents()): ?>
+            <div>
+                <?php foreach ($this->getComponents() as $component): ?>
+                        <?php $component->render() ?>
+                <?php endforeach; ?>
+            </div>
+    <?php endif; ?>
 </div>
