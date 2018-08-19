@@ -23,7 +23,7 @@ $downloads->render();
 
 $downloads = new Downloads();
 $downloads->title = "All files";
-$downloads->info = "The guideline is empty for all downloads in this example.";
+$downloads->info = "These downloads has no other properties set than the location.";
 $downloads->addLocation("container/gallery");
 $downloads->addLocation("container/download");
 $downloads->render();
