@@ -55,6 +55,11 @@ class Downloads extends Container
          */
         public $id;
         /**
+         * Optional header text.
+         * @var string
+         */
+        public $title;
+        /**
          * The array of download objects.
          * @var array 
          */

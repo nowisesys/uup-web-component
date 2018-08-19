@@ -17,6 +17,10 @@
 
 ?>
 
+<?php if (!empty($this->title)): ?>
+        <h2><?= $this->title ?></h2>
+<?php endif; ?>
+
 <div class="w3-blue w3-container w3-padding"><h3>Guidelines</h3>
     <?php if (isset($this->guideline)): ?>
             <p><?= $this->guideline ?></p>
