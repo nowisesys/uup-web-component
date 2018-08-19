@@ -44,6 +44,7 @@ set_transformer($transformer);
             try {
                     load_example();
             } catch (Exception $exception) {
+                    error_log($exception);
                     die(sprintf("<b>%s</b>: <span style=\"color: red\">%s</div>", get_class($exception), $exception->getMessage()));
             }
 
