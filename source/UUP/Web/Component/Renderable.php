@@ -50,12 +50,36 @@ abstract class Renderable implements Component
         }
 
         /**
+         * Set child component.
+         * 
+         * Calling this method clears the list of existing child components first
+         * before adding this new child component.
+         * 
+         * @param Component $component The child component.
+         */
+        function setComponent(Component $component)
+        {
+                $this->_comp = array();
+                $this->_comp[] = $component;
+        }
+
+        /**
          * Add child component.
          * @param Component $component The child component.
          */
         public function addComponent(Component $component)
         {
                 $this->_comp[] = $component;
+        }
+
+        /**
+         * Get component at position index.
+         * @param int $index
+         * @return Component
+         */
+        public function getComponent($index)
+        {
+                return $this->_comp[$index];
         }
 
         /**
@@ -97,7 +121,7 @@ abstract class Renderable implements Component
         public function render($transform = false)
         {
                 if (!$transform) {
-                        throw new RuntimeException("Called without transformer");
+                        $transform = $this->_transform;
                 }
                 foreach ($this->_comp as $component) {
                         $component->render($transform);

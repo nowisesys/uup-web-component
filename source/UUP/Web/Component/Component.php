@@ -38,8 +38,18 @@ interface Component
         const CONTAINER = 2;
 
         /**
+         * Set child component.
+         * 
+         * Calling this method clears the list of existing child components first
+         * before adding this new child component.
+         * 
+         * @param Component $component The child component.
+         */
+        function setComponent(Component $component);
+
+        /**
          * Add child component.
-         * @param Component $component
+         * @param Component $component The child component.
          */
         function addComponent(Component $component);
 
@@ -48,6 +58,13 @@ interface Component
          * @return int 
          */
         function componentCount();
+
+        /**
+         * Get component at position.
+         * @param int $index The component position.
+         * @return Component
+         */
+        function getComponent($index);
 
         /**
          * Get all child components.
