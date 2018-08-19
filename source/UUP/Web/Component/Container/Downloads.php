@@ -117,13 +117,16 @@ class Downloads extends Container
          * @param string $desc The description for this download.
          * @param string $info Special information for this download..
          */
-        public function addLocation($path, $name = null, $match = array("gz"), $desc = null, $info = null)
+        public function addLocation($path, $name = null, $match = null, $desc = null, $info = null)
         {
                 if (!isset($name)) {
                         $name = self::getName($path, $name);
                 }
                 if (!isset($desc)) {
                         $desc = self::getDescription($path);
+                }
+                if (!isset($match)) {
+                        $match = self::getMatch($path);
                 }
 
                 $download = self::getObject($path, $name, $match, $desc, $info);
@@ -198,6 +201,35 @@ class Downloads extends Container
                         case 'patch':
                         case 'diffs':
                                 return _("Patches are normally in unified diff-format, use the patch command to apply. ");
+                }
+        }
+
+        /**
+         * Get match array for location.
+         * 
+         * This function will i.e. return array("gz", "zip") if path is stable as it's
+         * common archive formats for releases.
+         * 
+         * @param string $path The download location.
+         * @return array
+         */
+        public static function getMatch($path)
+        {
+                switch ($path) {
+                        case 'stable':
+                        case 'release':
+                        case 'releases':
+                                return array("gz", "zip");
+                        case 'testing':
+                        case 'bugfixes':
+                                return array("gz", "zip");
+                        case 'binary':
+                        case 'binaries':
+                        case 'executable':
+                                return array("exe", "zip");
+                        case 'patch':
+                        case 'diffs':
+                                return array("diff", "patch");
                 }
         }
 
