@@ -217,6 +217,27 @@ class Directory implements TreeNode
                                 $this->addChild($fileinfo);
                         }
                 }
+
+                if ($this->_sitemap->sort) {
+                        $this->useSorting($this->_sitemap->sort);
+                }
+        }
+
+        /**
+         * Sort the children array.
+         * @param bool|string $mode The sort mode.
+         */
+        private function useSorting($mode)
+        {
+                if ($mode == 'time') {
+                        uasort($this->_children, function($a, $b) {
+                                return $a->getModified() - $b->getModified();
+                        });
+                } else {
+                        uasort($this->_children, function($a, $b) {
+                                return strcmp($a->getName(), $b->getName());
+                        });
+                }
         }
 
         /**
@@ -272,6 +293,16 @@ class Directory implements TreeNode
         public function getLocation()
         {
                 return '/' . trim(sprintf("/%s/%s", $this->_sitemap->path, $this->_path), '/') . '/';
+        }
+
+        /**
+         * Get file modify time.
+         * @return int
+         */
+        public function getModified()
+        {
+                $filename = sprintf("%s/%s", $this->_sitemap->root, $this->_path);
+                return filemtime($filename);
         }
 
 }

@@ -77,6 +77,11 @@ class Sitemap extends Container implements TreeNode
                 )
         );
         /**
+         * Sort directory listing (bool or 'name'|'time').
+         * @var bool|string
+         */
+        public $sort = false;
+        /**
          * The directory node.
          * @var Directory 
          */
