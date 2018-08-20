@@ -82,3 +82,7 @@ foreach (array("whoami", "date", "uptime", "uname -a", "free") as $command) {
         $codebox->addContent(new TextContent(shell_exec($command), "text"));
 }
 $codebox->render();
+
+echo "<p>Each content class contains a convenience static method for output. These are meant ";
+echo "to be used inside views to provide single-line statements.</p>\n";
+FileContent::outputContent("container/code/file.cpp", true);

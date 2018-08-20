@@ -62,4 +62,16 @@ class TextContent extends NullContent
                 }
         }
 
+        /**
+         * Output text inside code box.
+         * 
+         * @param string $code The code to display.
+         * @param string $lang The code language.
+         * @param bool $wrap Use wrapped mode (encode content).
+         */
+        public static function outputContent($code, $lang, $wrap = false)
+        {
+                CodeBox::outputContent(new TextContent($code, $lang, $wrap));
+        }
+
 }

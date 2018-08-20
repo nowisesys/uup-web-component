@@ -19,6 +19,7 @@
 namespace UUP\Web\Component\Container\CodeBox;
 
 use SplFileInfo;
+use UUP\Web\Component\Container\CodeBox;
 
 /**
  * File content component.
@@ -78,6 +79,18 @@ class FileContent extends NullContent
                 } else {
                         readfile($this->file);
                 }
+        }
+
+        /**
+         * Output file inside code box.
+         * 
+         * @param string $file The file to display.
+         * @param bool $wrap Use wrapped mode (encode content).
+         * @param array $files Files for dropdown select menu.
+         */
+        public static function outputContent($file, $wrap = false, $files = null)
+        {
+                CodeBox::outputContent(new FileContent($file, $wrap, $files));
         }
 
 }
