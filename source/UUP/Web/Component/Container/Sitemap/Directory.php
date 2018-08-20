@@ -219,23 +219,33 @@ class Directory implements TreeNode
                 }
 
                 if ($this->_sitemap->sort) {
-                        $this->useSorting($this->_sitemap->sort);
+                        $this->useSorting($this->_sitemap->sort, $this->_sitemap->order);
                 }
         }
 
         /**
          * Sort the children array.
+         * 
          * @param bool|string $mode The sort mode.
+         * @param string The sort order.
          */
-        private function useSorting($mode)
+        private function useSorting($mode, $order)
         {
                 if ($mode == Sitemap::SORT_ON_TIME) {
-                        uasort($this->_children, function($a, $b) {
-                                return $a->getModified() - $b->getModified();
+                        uasort($this->_children, function($a, $b) use($order) {
+                                if ($order == Sitemap::ORDER_ASC) {
+                                        return $b->getModified() - $a->getModified();
+                                } else {
+                                        return $a->getModified() - $b->getModified();
+                                }
                         });
                 } else {
-                        uasort($this->_children, function($a, $b) {
-                                return strcmp($a->getName(), $b->getName());
+                        uasort($this->_children, function($a, $b) use($order) {
+                                if ($order == Sitemap::ORDER_ASC) {
+                                        return strcmp($a->getName(), $b->getName());
+                                } else {
+                                        return strcmp($b->getName(), $a->getName());
+                                }
                         });
                 }
         }

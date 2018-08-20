@@ -70,6 +70,14 @@ class Sitemap extends Container implements TreeNode
          * Sort on modified timestamp.
          */
         const SORT_ON_TIME = 'time';
+        /**
+         * Order ascending.
+         */
+        const ORDER_ASC = 'asc';
+        /**
+         * Order descending.
+         */
+        const ORDER_DESC = 'desc';
 
         /**
          * Exclude filter for site map.
@@ -89,6 +97,11 @@ class Sitemap extends Container implements TreeNode
          * @var bool|string
          */
         public $sort = false;
+        /**
+         * The sort order.
+         * @var string 
+         */
+        public $order = self::ORDER_ASC;
         /**
          * The directory node.
          * @var Directory 

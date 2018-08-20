@@ -51,6 +51,7 @@ if (false) {
 // 
 if (false) {
         $sitemap = new Sitemap();
-        $sitemap->sort = Sitemap::SORT_ON_TIME; // Sort on modified timestamp.
+        $sitemap->sort = Sitemap::SORT_ON_TIME;         // Sort on modified timestamp.
+        $sitemap->order = Sitemap::ORDER_ASC;           // Newest modified directories first.
         $sitemap->render();
 }
