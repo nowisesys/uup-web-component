@@ -155,6 +155,29 @@ class Sitemap extends Container implements TreeNode
         }
 
         /**
+         * Add exclude filter.
+         * 
+         * <code>
+         * // 
+         * // Exclude directories named .config (user settings).
+         * // 
+         * $sitemap->addFilter('name', '.config');
+         * 
+         * // 
+         * // Don't show directories containing .noshow files.
+         * // 
+         * $sitemap->addFilter('type', '.noshow');
+         * </code>
+         * 
+         * @param string $type The type (name or file).
+         * @param string $name The exclude value.
+         */
+        public function addFilter($type, $name)
+        {
+                $this->exclude[$type][] = $name;
+        }
+
+        /**
          * Get children tree nodes.
          * @return TreeNode[] 
          */
