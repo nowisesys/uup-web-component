@@ -55,6 +55,11 @@ interface TreeNode
          * @return string
          */
         function getPath();
+        
+        /**
+         * Get URI location.
+         */
+        function getLocation();
 
         /**
          * Get nesting level.

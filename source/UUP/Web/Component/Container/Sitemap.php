@@ -40,8 +40,8 @@ use UUP\Web\Component\Container\Sitemap\TreeNode;
  * named admin.
  * 
  * @property string $root The root directory.
- * @property string $name The root name.
- * @property string $path The root path.
+ * @property string $name The root node name.
+ * @property string $path The server path (location).
  * 
  * @author Anders Lövgren (QNET)
  * @package UUP
@@ -51,7 +51,7 @@ class Sitemap extends Container implements TreeNode
 {
 
         /**
-         * The default name for site root.
+         * The default name for root.
          */
         const NAME = 'root';
         /**
@@ -59,7 +59,7 @@ class Sitemap extends Container implements TreeNode
          */
         const ROOT = '/var/www/localhost/htdocs';
         /**
-         * The default path.
+         * The default path (location).
          */
         const PATH = '/';
 
@@ -86,6 +86,11 @@ class Sitemap extends Container implements TreeNode
          * @var string 
          */
         private $_root = self::ROOT;
+        /**
+         * The URI location.
+         * @var string 
+         */
+        private $_path = self::PATH;
 
         /**
          * Constructor.
@@ -94,7 +99,15 @@ class Sitemap extends Container implements TreeNode
         public function __construct($path = null)
         {
                 parent::__construct('sitemap', $path);
-                $this->_directory = new Directory($this, self::NAME, self::PATH);
+                $this->_directory = new Directory($this, self::NAME);
+
+                if (filter_has_var(INPUT_SERVER, 'DOCUMENT_ROOT')) {
+                        $this->root = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT');
+                }
+
+                if (filter_has_var(INPUT_SERVER, 'SERVER_NAME')) {
+                        $this->name = filter_input(INPUT_SERVER, 'SERVER_NAME');
+                }
         }
 
         public function __get($name)
@@ -103,7 +116,7 @@ class Sitemap extends Container implements TreeNode
                         case 'name':
                                 return $this->_directory->getName();
                         case 'path':
-                                return $this->_directory->getPath();
+                                return $this->_path;
                         case 'root':
                                 return $this->_root;
                 }
@@ -116,7 +129,7 @@ class Sitemap extends Container implements TreeNode
                                 $this->_directory->setName($value);
                                 break;
                         case 'path':
-                                $this->_directory->setPath($value);
+                                $this->_path = $value;
                                 break;
                         case 'root':
                                 $this->_root = $value;
@@ -165,7 +178,7 @@ class Sitemap extends Container implements TreeNode
          */
         public function getPath()
         {
-                return $this->_directory->getPath();
+                return $this->_path;
         }
 
         /**
@@ -202,6 +215,19 @@ class Sitemap extends Container implements TreeNode
         public function getID()
         {
                 return $this->_directory->getID();
+        }
+
+        /**
+         * Get URI location.
+         * 
+         * The returned location is identical with the sitemap path. Unless set this
+         * will be '/'.
+         * 
+         * @return string
+         */
+        public function getLocation()
+        {
+                return $this->_path;
         }
 
 }
