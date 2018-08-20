@@ -1,6 +1,6 @@
 {
     "name": "bmc/uup-web-component",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "description": "Web component library.",
     "type": "library",
     "keywords": ["template", "component", "render", "web", "uup", "bmc"],
@@ -16,7 +16,7 @@
         "php": ">=5.4.0"
     },
     "suggest": {
-        "bmc/uup-html": ">=1.0.5"
+        "bmc/uup-html": "^1.0"
     },
     "autoload": {
         "psr-0": {
