@@ -226,7 +226,7 @@ class Downloads extends Container
                         case 'binary':
                         case 'binaries':
                         case 'executable':
-                                return array("exe", "zip");
+                                return array("exe", "zip", "jar");
                         case 'patch':
                         case 'diffs':
                                 return array("diff", "patch");
