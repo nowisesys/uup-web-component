@@ -219,10 +219,10 @@ class Downloads extends Container
                         case 'stable':
                         case 'release':
                         case 'releases':
-                                return array("gz", "zip");
+                                return array("gz", "zip", "tgz");
                         case 'testing':
                         case 'bugfixes':
-                                return array("gz", "zip");
+                                return array("gz", "zip", "tgz");
                         case 'binary':
                         case 'binaries':
                         case 'executable':
