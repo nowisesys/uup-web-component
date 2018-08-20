@@ -229,7 +229,7 @@ class Directory implements TreeNode
          */
         private function useSorting($mode)
         {
-                if ($mode == 'time') {
+                if ($mode == Sitemap::SORT_ON_TIME) {
                         uasort($this->_children, function($a, $b) {
                                 return $a->getModified() - $b->getModified();
                         });

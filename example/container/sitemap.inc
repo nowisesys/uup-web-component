@@ -45,4 +45,12 @@ if (false) {
         $sitemap->name = "Examples";
         $sitemap->render();
 }
-    
+
+// 
+// The sitemap can be sorted:
+// 
+if (false) {
+        $sitemap = new Sitemap();
+        $sitemap->sort = Sitemap::SORT_ON_TIME; // Sort on modified timestamp.
+        $sitemap->render();
+}

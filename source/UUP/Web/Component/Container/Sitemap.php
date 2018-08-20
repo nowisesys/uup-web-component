@@ -53,15 +53,23 @@ class Sitemap extends Container implements TreeNode
         /**
          * The default name for root.
          */
-        const NAME = 'root';
+        const NODE_DEFAULT_NAME = 'root';
         /**
          * The default root directory.
          */
-        const ROOT = '/var/www/localhost/htdocs';
+        const NODE_DEFAULT_ROOT = '/var/www/localhost/htdocs';
         /**
          * The default path (location).
          */
-        const PATH = '/';
+        const NODE_DEFAULT_PATH = '/';
+        /**
+         * Sort on filename.
+         */
+        const SORT_ON_NAME = 'name';
+        /**
+         * Sort on modified timestamp.
+         */
+        const SORT_ON_TIME = 'time';
 
         /**
          * Exclude filter for site map.
@@ -90,12 +98,12 @@ class Sitemap extends Container implements TreeNode
          * The root directory.
          * @var string 
          */
-        private $_root = self::ROOT;
+        private $_root = self::NODE_DEFAULT_ROOT;
         /**
          * The URI location.
          * @var string 
          */
-        private $_path = self::PATH;
+        private $_path = self::NODE_DEFAULT_PATH;
 
         /**
          * Constructor.
@@ -104,7 +112,7 @@ class Sitemap extends Container implements TreeNode
         public function __construct($path = null)
         {
                 parent::__construct('sitemap', $path);
-                $this->_directory = new Directory($this, self::NAME);
+                $this->_directory = new Directory($this, self::NODE_DEFAULT_NAME);
 
                 if (filter_has_var(INPUT_SERVER, 'DOCUMENT_ROOT')) {
                         $this->root = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT');
