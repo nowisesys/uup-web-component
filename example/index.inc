@@ -8,10 +8,13 @@
 
 <?php
 
+use UUP\Web\Component\Container\CodeBox;
+use UUP\Web\Component\Container\CodeBox\FileContent;
 use UUP\Web\Component\Transform;
 use UUP\Web\Component\Transform\Bootstrap;
 use UUP\Web\Component\Transform\Native;
 use UUP\Web\Component\Transform\Paragon;
+use UUP\Web\Component\Widget\Button;
 
 function load_stylesheet($transformer)
 {
@@ -31,6 +34,11 @@ function load_example()
         if (($page = filter_input(INPUT_GET, 'page'))) {
                 require_once("$page.inc");
         }
+        if (($page = filter_input(INPUT_GET, 'code'))) {
+                $codebox = new CodeBox();
+                $codebox->addContent(new FileContent("$page.inc", true));
+                $codebox->render();
+        }
 }
 
 function load_transformer()
@@ -49,6 +57,22 @@ function load_transformer()
         }
 
         return $selected;
+}
+
+function show_toggle_source_button()
+{
+        if (($page = filter_input(INPUT_GET, 'page'))) {
+                $button = new Button("Show Code");
+                $button->link = "?code=$page";
+                $button->color->text = "white";
+                $button->render();
+        }
+        if (($page = filter_input(INPUT_GET, 'code'))) {
+                $button = new Button("Show Page");
+                $button->link = "?page=$page";
+                $button->color->text = "white";
+                $button->render();
+        }
 }
 
 function show_transformer($selected)

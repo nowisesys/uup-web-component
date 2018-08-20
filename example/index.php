@@ -22,7 +22,12 @@ set_transformer($transformer);
     </head>        
     <body>
 
-        <h1 class="w3-center w3-blue w3-card-2" style="margin-top: 0px">UUP Web Components</h1>
+        <div class="w3-right">
+            <?php show_toggle_source_button() ?>
+        </div>
+        <h1 class="w3-center w3-blue w3-card-2" style="margin-top: 0px">
+            UUP Web Components
+        </h1>
         <div class="w3-right w3-padding">
             <?php show_transformer($transformer) ?>
         </div>
