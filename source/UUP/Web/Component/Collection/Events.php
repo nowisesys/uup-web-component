@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -134,7 +134,7 @@ namespace UUP\Web\Component\Collection;
  * @property string $onshow Fires when a <menu> element is shown as a context menu.
  * @property string $ontoggle Fires when the user opens or closes the <details> element.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ use UUP\Web\Component\Collection\StyleSheet;
  * @property string $id The element ID.
  * @property-write string $text Set inner HTML or text.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ use UUP\Web\Component\Collection\Properties;
  * @property bool $position Displays content at a specified position in parent container. Set position with (top,left) inline CSS.
  * @property bool $hover Displays content on hover inside the container.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */

@@ -28,7 +28,7 @@ use UUP\Web\Component\Transform;
  * This is the native generic properties transformer. It basically output all
  * properties "as is", possibly prefixed.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */

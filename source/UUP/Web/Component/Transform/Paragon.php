@@ -29,7 +29,7 @@ use UUP\Web\Component\Transform;
  * on component elements. For example, the generic 'color-text' is tranformed
  * to w3-text-xxx', where xxx is the color name.
  *
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */

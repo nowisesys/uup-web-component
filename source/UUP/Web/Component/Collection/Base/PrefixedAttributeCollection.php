@@ -24,7 +24,7 @@ use UUP\Web\Component\Collection\Collection;
 /**
  * Prefixed attribute collection.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
