@@ -5,6 +5,7 @@ use UUP\Web\Component\Container\CodeBox\FileContent;
 use UUP\Web\Component\Container\CodeBox\TextContent;
 use UUP\Web\Component\Widget\Button;
 use UUP\Web\Component\Widget\Panel;
+use UUP\Web\Component\Script\CodeBox as CodeBoxRender;
 
 echo "<h2>CodeBox component</h2>\n";
 echo "<p>This component outputs a file in a box decorated with language information and download ";
@@ -86,3 +87,6 @@ $codebox->render();
 echo "<p>Each content class contains a convenience static method for output. These are meant ";
 echo "to be used inside views to provide single-line statements.</p>\n";
 FileContent::outputContent("container/code/file.cpp", true);
+
+echo "<p>There's also a custom class for use in scripts (HTML pages with PHP fragments).</p>\n";
+CodeBoxRender::outputFile("container/code/file.cpp", true);
