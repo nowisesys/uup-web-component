@@ -48,11 +48,11 @@ class CodeBox
         /**
          * Output text inside code box.
          * 
-         * @param string $code The code to display.
          * @param string $lang The code language.
+         * @param string $code The code to display.
          * @param bool $wrap Use wrapped mode (encode content).
          */
-        public static function outputText($code, $lang, $wrap = false)
+        public static function outputText($lang, $code, $wrap = false)
         {
                 CodeBoxComponent::outputContent(new TextContent($code, $lang, $wrap));
         }
