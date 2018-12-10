@@ -33,7 +33,7 @@ $codebox->render();
 
 echo "<p>Pass an array of files for selecting among.</p>\n";
 $codebox = new CodeBox();
-$codebox->file = filter_input(INPUT_GET, 'file');
+$codebox->file = filter_input(INPUT_GET, 'file', FILTER_SANITIZE_STRING);
 $codebox->files = array(
         "container/code/file.cpp",
         "container/code/file.inc",
