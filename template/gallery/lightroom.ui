@@ -18,12 +18,12 @@
 ?>
 
 <div class="gallery-lightroom w3-row w3-margin-top w3-padding w3-<?= $this->color ?>">
-    <?php foreach ($this->children() as $item): ?>
+    <?php foreach ($this->getComponents() as $component): ?>
             <div class="w3-third w3-padding">
-                <a href="<?= $item->href ?>">
-                    <img src="<?= $item->image ?>" class="w3-image w3-animate-opacity" style="width: 100%">
+                <a href="<?= $component->href ?>">
+                    <img src="<?= $component->image ?>" class="w3-image w3-animate-opacity" style="width: 100%">
                 </a>
-                <p><?= $item->text ?></p>
+                <p><?= $component->text ?></p>
             </div>
     <?php endforeach; ?>
 </div>

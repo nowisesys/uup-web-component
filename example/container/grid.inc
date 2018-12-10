@@ -28,7 +28,7 @@ $grid->text = $text;
 $grid->render();
 
 echo "<h3>Custom content</h3>\n";
-echo "<p>Use add() method to embed custom components inside the grid.</p>\n";
+echo "<p>Use addComponent() method to embed custom components inside the grid.</p>\n";
 $grid = new Grid();
 $grid->icon = "youtube";
 $grid->color = "w3-black";
@@ -42,8 +42,8 @@ $cell2 = new Cell();
 $cell2->image = false;
 $cell2->padding = false;
 $cell2->text = '<iframe width="100%" height="240" src="https://www.youtube.com/embed/p3VgV31vmUE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-$grid->add($cell1);
-$grid->add($cell2);
+$grid->addComponent($cell1);
+$grid->addComponent($cell2);
 $grid->render();
 
 echo "<h3>Media icon</h3>\n";

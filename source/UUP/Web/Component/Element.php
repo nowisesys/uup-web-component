@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ use UUP\Web\Component\Collection\StyleSheet;
  * @property string $id The element ID.
  * @property-write string $text Set inner HTML or text.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
@@ -173,7 +173,7 @@ class Element extends Renderable implements Component
                 $this->_text = $text;
                 $this->_last = $last;
         }
-        
+
         /**
          * Render component.
          * 
@@ -232,7 +232,7 @@ class Element extends Renderable implements Component
                 // 
                 printf("<%s %s>", $this->_name, implode(" ", $attr));
                 if ($this->_last) {
-                        if (!empty($this->_comp)) {
+                        if (!empty($this->_components)) {
                                 printf(" ");
                                 parent::render($transform);
                         }
@@ -243,7 +243,7 @@ class Element extends Renderable implements Component
                         if (!empty($this->_text)) {
                                 printf("%s", $this->_text);
                         }
-                        if (!empty($this->_comp)) {
+                        if (!empty($this->_components)) {
                                 printf(" ");
                                 parent::render($transform);
                         }

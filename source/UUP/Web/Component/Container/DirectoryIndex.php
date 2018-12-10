@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017-2018 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ use UUP\Web\Component\Container;
  * 
  * @property-read array $files All files and directories in index.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */

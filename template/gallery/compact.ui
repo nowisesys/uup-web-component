@@ -18,9 +18,9 @@
 ?>
 
 <div class="gallery-compact w3-cell-row">
-    <?php foreach ($this->children() as $item): ?>
+    <?php foreach ($this->getComponents() as $component): ?>
             <div class="w3-cell">
-                <?php $item->render(); ?>
+                <?php $component->render(); ?>
             </div>
     <?php endforeach; ?>
 </div>

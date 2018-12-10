@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (C) 2017-2018 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,6 +75,14 @@ if (!function_exists("download_output_security")) {
         </script>
 <?php endif; ?>
 
+<?php if (isset($this->title)): ?>
+        <h3><?= $this->title ?></h3>
+<?php endif; ?>
+<?php if (isset($this->info)): ?>
+        <div class="w3-panel w3-leftbar w3-border-deep-orange">
+            <p><?= $this->info ?></p>
+        </div>
+<?php endif; ?>
 <ul class="w3-ul download" id="<?= $this->id ?>">
     <li class="download-first">
         <div class="w3-bar">

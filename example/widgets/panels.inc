@@ -28,6 +28,6 @@ $panel5->render();
 
 $panel6 = new Panel("<h2>Nested panels</h2>");
 $panel6->class->add('w3-indigo');
-$panel5->add($panel4);
-$panel6->add($panel5);
+$panel5->addComponent($panel4);
+$panel6->addComponent($panel5);
 $panel6->render();

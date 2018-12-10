@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,10 +40,10 @@ use UUP\Web\Component\Container\Sitemap\TreeNode;
  * named admin.
  * 
  * @property string $root The root directory.
- * @property string $name The root name.
- * @property string $path The root path.
+ * @property string $name The root node name.
+ * @property string $path The server path (location).
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
@@ -51,17 +51,33 @@ class Sitemap extends Container implements TreeNode
 {
 
         /**
-         * The default name for site root.
+         * The default name for root.
          */
-        const NAME = 'root';
+        const NODE_DEFAULT_NAME = 'root';
         /**
          * The default root directory.
          */
-        const ROOT = '/var/www/localhost/htdocs';
+        const NODE_DEFAULT_ROOT = '/var/www/localhost/htdocs';
         /**
-         * The default path.
+         * The default path (location).
          */
-        const PATH = '/';
+        const NODE_DEFAULT_PATH = '/';
+        /**
+         * Sort on filename.
+         */
+        const SORT_ON_NAME = 'name';
+        /**
+         * Sort on modified timestamp.
+         */
+        const SORT_ON_TIME = 'time';
+        /**
+         * Order ascending.
+         */
+        const ORDER_ASC = 'asc';
+        /**
+         * Order descending.
+         */
+        const ORDER_DESC = 'desc';
 
         /**
          * Exclude filter for site map.
@@ -77,6 +93,16 @@ class Sitemap extends Container implements TreeNode
                 )
         );
         /**
+         * Sort directory listing (bool or 'name'|'time').
+         * @var bool|string
+         */
+        public $sort = false;
+        /**
+         * The sort order.
+         * @var string 
+         */
+        public $order = self::ORDER_ASC;
+        /**
          * The directory node.
          * @var Directory 
          */
@@ -85,7 +111,12 @@ class Sitemap extends Container implements TreeNode
          * The root directory.
          * @var string 
          */
-        private $_root = self::ROOT;
+        private $_root = self::NODE_DEFAULT_ROOT;
+        /**
+         * The URI location.
+         * @var string 
+         */
+        private $_path = self::NODE_DEFAULT_PATH;
 
         /**
          * Constructor.
@@ -94,7 +125,15 @@ class Sitemap extends Container implements TreeNode
         public function __construct($path = null)
         {
                 parent::__construct('sitemap', $path);
-                $this->_directory = new Directory($this, self::NAME, self::PATH);
+                $this->_directory = new Directory($this, self::NODE_DEFAULT_NAME);
+
+                if (filter_has_var(INPUT_SERVER, 'DOCUMENT_ROOT')) {
+                        $this->root = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT');
+                }
+
+                if (filter_has_var(INPUT_SERVER, 'SERVER_NAME')) {
+                        $this->name = filter_input(INPUT_SERVER, 'SERVER_NAME');
+                }
         }
 
         public function __get($name)
@@ -103,7 +142,7 @@ class Sitemap extends Container implements TreeNode
                         case 'name':
                                 return $this->_directory->getName();
                         case 'path':
-                                return $this->_directory->getPath();
+                                return $this->_path;
                         case 'root':
                                 return $this->_root;
                 }
@@ -116,7 +155,7 @@ class Sitemap extends Container implements TreeNode
                                 $this->_directory->setName($value);
                                 break;
                         case 'path':
-                                $this->_directory->setPath($value);
+                                $this->_path = $value;
                                 break;
                         case 'root':
                                 $this->_root = $value;
@@ -139,6 +178,29 @@ class Sitemap extends Container implements TreeNode
         public function setFilter($exclude)
         {
                 $this->exclude = $exclude;
+        }
+
+        /**
+         * Add exclude filter.
+         * 
+         * <code>
+         * // 
+         * // Exclude directories named .config (user settings).
+         * // 
+         * $sitemap->addFilter('name', '.config');
+         * 
+         * // 
+         * // Don't show directories containing .noshow files.
+         * // 
+         * $sitemap->addFilter('type', '.noshow');
+         * </code>
+         * 
+         * @param string $type The type (name or file).
+         * @param string $name The exclude value.
+         */
+        public function addFilter($type, $name)
+        {
+                $this->exclude[$type][] = $name;
         }
 
         /**
@@ -165,7 +227,7 @@ class Sitemap extends Container implements TreeNode
          */
         public function getPath()
         {
-                return $this->_directory->getPath();
+                return $this->_path;
         }
 
         /**
@@ -202,6 +264,19 @@ class Sitemap extends Container implements TreeNode
         public function getID()
         {
                 return $this->_directory->getID();
+        }
+
+        /**
+         * Get URI location.
+         * 
+         * The returned location is identical with the sitemap path. Unless set this
+         * will be '/'.
+         * 
+         * @return string
+         */
+        public function getLocation()
+        {
+                return $this->_path;
         }
 
 }

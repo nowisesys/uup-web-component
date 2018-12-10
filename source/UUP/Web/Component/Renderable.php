@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ use RuntimeException;
 /**
  * Abstract base class for concrete component classes.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
@@ -34,7 +34,7 @@ abstract class Renderable implements Component
          * The collection of child components.
          * @var array 
          */
-        protected $_comp = array();
+        protected $_components = array();
         /**
          * The transformer object.
          * @var Transform 
@@ -50,30 +50,63 @@ abstract class Renderable implements Component
         }
 
         /**
+         * Set child component.
+         * 
+         * Calling this method clears the list of existing child components first
+         * before adding this new child component.
+         * 
+         * @param Component $component The child component.
+         */
+        function setComponent(Component $component)
+        {
+                $this->_components = array();
+                $this->_components[] = $component;
+        }
+
+        /**
          * Add child component.
          * @param Component $component The child component.
          */
-        public function add(Component $component)
+        public function addComponent(Component $component)
         {
-                $this->_comp[] = $component;
+                $this->_components[] = $component;
+        }
+
+        /**
+         * Get component at position index.
+         * @param int $index
+         * @return Component
+         */
+        public function getComponent($index)
+        {
+                return $this->_components[$index];
         }
 
         /**
          * Get child components.
          * @return Component[]
          */
-        public function children()
+        public function getComponents()
         {
-                return $this->_comp;
+                return $this->_components;
+        }
+
+        /**
+         * Child components check.
+         * @return bool True if this component has child components.
+         */
+        public function hasComponents()
+        {
+                return count($this->_components) != 0;
         }
 
         /**
          * Get number of child components.
          * @return int
          */
-        public function count()
+        public function componentCount()
         {
-                return count($this->_comp);
+                return count($this->_components);
         }
 
         /**
@@ -88,9 +121,9 @@ abstract class Renderable implements Component
         public function render($transform = false)
         {
                 if (!$transform) {
-                        throw new RuntimeException("Called without transformer");
+                        $transform = $this->_transform;
                 }
-                foreach ($this->_comp as $component) {
+                foreach ($this->_components as $component) {
                         $component->render($transform);
                 }
         }

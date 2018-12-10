@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017-2018 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,12 +24,13 @@ use UUP\Web\Component\Element\Button;
 /**
  * Card component.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
 class Card extends Container
 {
+
         /**
          * Example URL for image.
          */
@@ -78,10 +79,10 @@ class Card extends Container
                 foreach ($data as $key => $val) {
                         $component->$key = $val;
                 }
-                
+
                 $component->button->event->onclick = sprintf("window.location='%s'", $data['href']);
-                
+
                 return $component;
         }
-        
+
 }

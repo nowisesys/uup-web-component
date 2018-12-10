@@ -61,8 +61,8 @@ $cell->render();
 echo "</div>\n";
 
 echo "<h3>Child components</h3>\n";
-echo "<p>Use add() on card object to insert child components inside the card. In this example the ";
-echo "standard image has been replaced with common dialog buttons.</p>\n";
+echo "<p>Use addComponent() on card object to insert child components inside the card. In this ";
+echo "example the standard image has been replaced with common dialog buttons.</p>\n";
 $cell = new Cell();
 $cell->title = "Delete file";
 $cell->text = "<p class=\"w3-container\">Are you sure you wan't to delete the file document1.txt?</p>";
@@ -74,8 +74,8 @@ $button1->style->width = "80px";
 $button2 = new Button("Cancel");
 $button2->color->back = "red";
 $button1->style->width = "80px";
-$cell->add($button1);
-$cell->add($button2);
+$cell->addComponent($button1);
+$cell->addComponent($button2);
 $cell->render();
 
 echo "<h3>Using cards or cells?</h3>\n";

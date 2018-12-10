@@ -1,0 +1,32 @@
+<div class="<?= implode(" ", $this->classes) ?> code-box">
+    <?php if ($this->decorated) : ?>
+            <div class="w3-padding lang <?= $this->lang ?>">
+                <span>
+                    <a class="w3-button w3-tiny w3-deep-orange w3-round"><?= $this->desc ?></a>
+                </span>
+                <?php if (isset($this->file)): ?>
+                        <?php if (isset($this->files)): ?>
+                                <div class="w3-dropdown-hover w3-right">
+                                    <a class="w3-button w3-small w3-round" href="<?= $this->file ?>"><?= basename($this->file) ?></a>
+                                    <div class="w3-dropdown-content w3-bar-block w3-border">
+                                        <?php foreach ($this->files as $file) : ?>
+                                                <a class="w3-button w3-small w3-bar-item" href="<?= sprintf($this->linkfmt, $file) ?>"><?= basename($file) ?></a>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                        <?php else: ?>
+                                <span class="w3-right">
+                                    <a class="w3-button w3-small w3-round" href="<?= $this->file ?>"><?= basename($this->file) ?></a>
+                                </span>
+                        <?php endif; ?>
+                <?php endif; ?>
+            </div>
+    <?php endif; ?>
+    <?php if ($this->hasComponents()): ?>
+            <div style="<?= $this->style ?>">
+                <?php foreach ($this->getComponents() as $component): ?>
+                        <?php $component->render() ?>
+                <?php endforeach; ?>
+            </div>
+    <?php endif; ?>
+</div>

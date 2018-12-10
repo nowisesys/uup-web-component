@@ -23,7 +23,7 @@ use UUP\Web\Component\Element\Div;
 /**
  * Panel widget component.
  *
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */

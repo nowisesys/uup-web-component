@@ -28,7 +28,7 @@ use UUP\Web\Component\Transform;
  * This transformer translates properties to class names for use with the
  * twitter bootstrap CSS/JS theme.
  *
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */

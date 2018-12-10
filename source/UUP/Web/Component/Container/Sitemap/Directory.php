@@ -24,7 +24,7 @@ use UUP\Web\Component\Container\Sitemap;
 
 /**
  * Directory tree node.
- *
+ * 
  * @author Anders Lövgren (Computing Department at BMC, Uppsala University)
  */
 class Directory implements TreeNode
@@ -46,7 +46,7 @@ class Directory implements TreeNode
          */
         private $_name;
         /**
-         * The node path.
+         * The node path (relative sitemap root).
          * @var string 
          */
         private $_path;
@@ -67,7 +67,7 @@ class Directory implements TreeNode
          * @param string $name The node name.
          * @param string $path The node path.
          */
-        public function __construct($sitemap, $name, $path, $level = 0)
+        public function __construct($sitemap, $name, $path = null, $level = 0)
         {
                 $this->_sitemap = $sitemap;
 
@@ -206,7 +206,7 @@ class Directory implements TreeNode
          */
         private function setChildren($root)
         {
-                $iterator = new DirectoryIterator(sprintf("%s%s", $root, $this->_path));
+                $iterator = new DirectoryIterator(sprintf("%s/%s", $root, $this->_path));
                 $this->_children = array();
 
                 foreach ($iterator as $fileinfo) {
@@ -216,6 +216,37 @@ class Directory implements TreeNode
                         if ($fileinfo->isDir()) {
                                 $this->addChild($fileinfo);
                         }
+                }
+
+                if ($this->_sitemap->sort) {
+                        $this->useSorting($this->_sitemap->sort, $this->_sitemap->order);
+                }
+        }
+
+        /**
+         * Sort the children array.
+         * 
+         * @param bool|string $mode The sort mode.
+         * @param string The sort order.
+         */
+        private function useSorting($mode, $order)
+        {
+                if ($mode == Sitemap::SORT_ON_TIME) {
+                        uasort($this->_children, function($a, $b) use($order) {
+                                if ($order == Sitemap::ORDER_ASC) {
+                                        return $b->getModified() - $a->getModified();
+                                } else {
+                                        return $a->getModified() - $b->getModified();
+                                }
+                        });
+                } else {
+                        uasort($this->_children, function($a, $b) use($order) {
+                                if ($order == Sitemap::ORDER_ASC) {
+                                        return strcmp($a->getName(), $b->getName());
+                                } else {
+                                        return strcmp($b->getName(), $a->getName());
+                                }
+                        });
                 }
         }
 
@@ -242,7 +273,7 @@ class Directory implements TreeNode
          */
         private function getRelative($fileinfo)
         {
-                return substr($fileinfo->getPathname(), strlen($this->_sitemap->root));
+                return substr($fileinfo->getPathname(), strlen($this->_sitemap->root) + 1);
         }
 
         /**
@@ -261,6 +292,27 @@ class Directory implements TreeNode
         public function getID()
         {
                 return $this->_uuid;
+        }
+
+        /**
+         * Get URI location.
+         * 
+         * The returned path is relocated to sitemap path.
+         * @return string
+         */
+        public function getLocation()
+        {
+                return '/' . trim(sprintf("/%s/%s", $this->_sitemap->path, $this->_path), '/') . '/';
+        }
+
+        /**
+         * Get file modify time.
+         * @return int
+         */
+        public function getModified()
+        {
+                $filename = sprintf("%s/%s", $this->_sitemap->root, $this->_path);
+                return filemtime($filename);
         }
 
 }

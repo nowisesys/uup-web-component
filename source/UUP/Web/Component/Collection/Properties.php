@@ -61,7 +61,7 @@ use UUP\Web\Component\Collection\Properties\Padding;
  * @property Card $card The card property.
  * @property Round $round The round property.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
@@ -73,7 +73,7 @@ class Properties extends Collection
          * @var Repository 
          */
         private $_virtual;
-        
+
         /**
          * Constructor.
          */

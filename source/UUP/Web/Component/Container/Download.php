@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017-2018 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ use UUP\Web\Component\Container;
  * 
  * @property-read array $secure The associated security files.
  *
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
@@ -94,10 +94,30 @@ class Download extends Container
          */
         public $path = "download";
         /**
-         * The file extension.
+         * The name of this download.
+         * @var string
+         */
+        public $name;
+        /**
+         * The title for this download.
          * @var string 
          */
-        public $extension = "gz";
+        public $title;
+        /**
+         * The description for this download.
+         * @var string 
+         */
+        public $desc;
+        /**
+         * Special information for this download.
+         * @var string
+         */
+        public $info;
+        /**
+         * Array of filename extensions or pattern to match (i.e. /\.tar\.gz$/).
+         * @var string|array
+         */
+        public $match = null;
         /**
          * Name of latest file.
          * @var string 
@@ -127,7 +147,12 @@ class Download extends Container
          * The number of instances.
          * @var int 
          */
-        private static $instances = 0;
+        private static $_instances = 0;
+        /**
+         * Number of instances rendered.
+         * @var int 
+         */
+        private static $_rendered = 0;
 
         /**
          * Constructor.
@@ -136,12 +161,18 @@ class Download extends Container
         public function __construct($path = null)
         {
                 parent::__construct("download", $path);
-                $this->id = sprintf("download-%s", md5(time() + self::$instances++));
+                $this->id = sprintf("download-%s", md5(time() + self::$_instances++));
         }
 
         public function __get($name)
         {
                 return $this->getFiles($name);
+        }
+
+        public function render($transform = false)
+        {
+                parent::render($transform);
+                self::$_rendered++;
         }
 
         /**
@@ -199,9 +230,18 @@ class Download extends Container
                 $iterator = new FilesystemIterator($this->path);
 
                 foreach ($iterator as $fileinfo) {
-                        if (!isset($this->extension)) {
+                        if ($fileinfo->isDir() ||
+                            $fileinfo->isReadable() == false) {
+                                continue;
+                        }
+
+                        if (is_null($this->match)) {
                                 $this->addEntry($fileinfo);
-                        } elseif ($iterator->getExtension() == $this->extension) {
+                        } elseif (is_string($this->match) &&
+                            preg_match($this->match, $iterator->getBasename())) {
+                                $this->addEntry($fileinfo);
+                        } elseif (is_array($this->match) &&
+                            in_array($iterator->getExtension(), $this->match)) {
                                 $this->addEntry($fileinfo);
                         }
                 }
@@ -337,7 +377,7 @@ class Download extends Container
          */
         public function initialize()
         {
-                return self::$instances == 1;
+                return self::$_rendered == 0;
         }
 
 }

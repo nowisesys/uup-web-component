@@ -84,23 +84,23 @@ echo "a format its can handle from this list. The audio source is added by calli
 echo "method.</p>\n";
 
 $audio = new MediaPlayer();
-$audio->add(new Source('https://hpr.dogphilosophy.net/test/ogg.ogg', 'audio/ogg'));
-$audio->add(new Source('https://hpr.dogphilosophy.net/test/flac.flac', 'audio/flac'));
-$audio->add(new Source('https://hpr.dogphilosophy.net/test/opus.opus', 'audio/ogg; codecs="opus"'));
-$audio->add(new Source('https://hpr.dogphilosophy.net/test/webmv2.webm', 'audio/webm; codecs="opus"'));
-$audio->add(new Source('https://hpr.dogphilosophy.net/test/mp3.mp3', 'audio/mpeg'));
+$audio->addComponent(new Source('https://hpr.dogphilosophy.net/test/ogg.ogg', 'audio/ogg'));
+$audio->addComponent(new Source('https://hpr.dogphilosophy.net/test/flac.flac', 'audio/flac'));
+$audio->addComponent(new Source('https://hpr.dogphilosophy.net/test/opus.opus', 'audio/ogg; codecs="opus"'));
+$audio->addComponent(new Source('https://hpr.dogphilosophy.net/test/webmv2.webm', 'audio/webm; codecs="opus"'));
+$audio->addComponent(new Source('https://hpr.dogphilosophy.net/test/mp3.mp3', 'audio/mpeg'));
 $audio->render();
 
 echo "<div class=\"w3-container w3-code w3-border-red\">\n";
 echo "\$audio = new Standard();<br/>\n";
-echo "\$audio->add(new Source('https://hpr.dogphilosophy.net/test/ogg.ogg', 'audio/ogg'));<br/>\n";
-echo "\$audio->add(new Source('https://hpr.dogphilosophy.net/test/flac.flac', 'audio/flac'));<br/>\n";
-echo "\$audio->add(new Source('https://hpr.dogphilosophy.net/test/opus.opus', 'audio/ogg; codecs=\"opus\"'));<br/>\n";
-echo "\$audio->add(new Source('https://hpr.dogphilosophy.net/test/webmv2.webm', 'audio/webm; codecs=\"opus\"'));<br/>\n";
-echo "\$audio->add(new Source('https://hpr.dogphilosophy.net/test/mp3.mp3', 'audio/mpeg'));<br/>\n";
+echo "\$audio->addComponent(new Source('https://hpr.dogphilosophy.net/test/ogg.ogg', 'audio/ogg'));<br/>\n";
+echo "\$audio->addComponent(new Source('https://hpr.dogphilosophy.net/test/flac.flac', 'audio/flac'));<br/>\n";
+echo "\$audio->addComponent(new Source('https://hpr.dogphilosophy.net/test/opus.opus', 'audio/ogg; codecs=\"opus\"'));<br/>\n";
+echo "\$audio->addComponent(new Source('https://hpr.dogphilosophy.net/test/webmv2.webm', 'audio/webm; codecs=\"opus\"'));<br/>\n";
+echo "\$audio->addComponent(new Source('https://hpr.dogphilosophy.net/test/mp3.mp3', 'audio/mpeg'));<br/>\n";
 echo "</div>\n";
 dump_property_data($audio->attr);
-foreach ($audio->children() as $child) {
+foreach ($audio->getComponents() as $component) {
         echo "<br>\n";
-        dump_property_data($child->attr);
+        dump_property_data($component->attr);
 }

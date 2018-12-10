@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ namespace UUP\Web\Component;
  * Rendering is done using a template file (*.ui). Templates are responsible for 
  * rendering any child components inside the container.
  *
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
@@ -54,10 +54,8 @@ class Container extends Renderable implements Component
          */
         public function __construct($name, $path = null)
         {
-                if (isset($path)) {
-                        if (($template = $this->resolve($name, $path))) {
-                                $this->_template = $template;
-                        }
+                if (($template = $this->resolve($name, $path))) {
+                        $this->_template = $template;
                 }
                 if (!$this->_template) {
                         if (($template = $this->resolve($name, realpath(__DIR__ . "/../../../../template/")))) {
@@ -114,7 +112,9 @@ class Container extends Renderable implements Component
         {
                 $filename = sprintf("%s/%s.ui", $path, $name);
 
-                if (file_exists($filename)) {
+                if (!isset($path)) {
+                        return false;
+                } elseif (file_exists($filename)) {
                         return $filename;
                 } else {
                         return false;

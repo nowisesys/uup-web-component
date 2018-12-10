@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 function render_node_item($node, $icon)
 {
         printf("<li onclick=\"sitemap_toggle_expand('%s')\">", $node->getID());
-        printf("<i class=\"fa $icon sitemap-icon w3-text-blue\" aria-hidden=\"true\"></i><a href=\"%s\"> %s</a>", $node->getPath(), $node->getName());
+        printf("<i class=\"fa $icon sitemap-icon w3-text-blue\" aria-hidden=\"true\"></i><a href=\"%s\"> %s</a>", $node->getLocation(), $node->getName());
         printf("</li>\n");
 }
 

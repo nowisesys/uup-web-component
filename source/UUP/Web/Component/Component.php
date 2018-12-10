@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ namespace UUP\Web\Component;
 /**
  * Interface for components.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
@@ -38,22 +38,45 @@ interface Component
         const CONTAINER = 2;
 
         /**
-         * Add child component.
-         * @param Component $component
+         * Set child component.
+         * 
+         * Calling this method clears the list of existing child components first
+         * before adding this new child component.
+         * 
+         * @param Component $component The child component.
          */
-        function add(Component $component);
+        function setComponent(Component $component);
+
+        /**
+         * Add child component.
+         * @param Component $component The child component.
+         */
+        function addComponent(Component $component);
 
         /**
          * Get number of child components.
          * @return int 
          */
-        function count();
+        function componentCount();
+
+        /**
+         * Get component at position.
+         * @param int $index The component position.
+         * @return Component
+         */
+        function getComponent($index);
 
         /**
          * Get all child components.
          * @return Component[]
          */
-        function children();
+        function getComponents();
+
+        /**
+         * Child components check.
+         * @return bool True if this component has child components.
+         */
+        function hasComponents();
 
         /**
          * Render component.

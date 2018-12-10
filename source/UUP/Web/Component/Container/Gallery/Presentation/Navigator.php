@@ -50,7 +50,12 @@ class Navigator extends Container implements Presentation
          * The number of instances.
          * @var int 
          */
-        private static $instances = 0;
+        private static $_instances = 0;
+        /**
+         * Number of instances rendered.
+         * @var int 
+         */
+        private static $_rendered = 0;
 
         /**
          * Constructor.
@@ -59,7 +64,13 @@ class Navigator extends Container implements Presentation
         public function __construct($path = null)
         {
                 parent::__construct("gallery/navigator", $path);
-                $this->id = sprintf("gallery-navigator-%s", md5(time() + self::$instances++));
+                $this->id = sprintf("gallery-navigator-%s", md5(time() + self::$_instances++));
+        }
+
+        public function render($transform = false)
+        {
+                parent::render($transform);
+                self::$_rendered++;
         }
 
         /**
@@ -68,7 +79,7 @@ class Navigator extends Container implements Presentation
          */
         public function initialize()
         {
-                return self::$instances == 1;
+                return self::$_rendered == 0;
         }
 
 }

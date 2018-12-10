@@ -31,6 +31,6 @@ $div5->render();
 
 $div6 = new Div("<h2>Nested divs</h2>");
 $div6->style->add(Background::COLOR, 'indigo');
-$div5->add($div4);
-$div6->add($div5);
+$div5->addComponent($div4);
+$div6->addComponent($div5);
 $div6->render();

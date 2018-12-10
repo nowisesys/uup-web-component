@@ -28,7 +28,7 @@ use UUP\Web\Component\Collection\Properties;
  * @property string $text The text color.
  * @property string $border The border color.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */

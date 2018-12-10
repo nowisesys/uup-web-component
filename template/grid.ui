@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (C) 2017-2018 Anders Lövgren (QNET).
+ * Copyright (C) 2017-2018 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,10 +31,10 @@
                     <?php if ($this->text): ?>
                             <p class="w3-margin-right"><?= $this->text ?></p>
                     <?php endif; ?>                    
-                    <?php if ($this->count() != 0): ?>
+                    <?php if ($this->hasComponents()): ?>
                             <div>
-                                <?php foreach ($this->children() as $item): ?>
-                                        <?php $item->render() ?>
+                                <?php foreach ($this->getComponents() as $component): ?>
+                                        <?php $component->render() ?>
                                 <?php endforeach; ?>
                             </div>
                     <?php endif; ?>
@@ -68,10 +68,10 @@
                     <?php if ($this->text): ?>
                             <p class="w3-margin-left"><?= $this->text ?></p>
                     <?php endif; ?>                    
-                    <?php if ($this->count() != 0): ?>
+                    <?php if ($this->hasComponents()): ?>
                             <div>
-                                <?php foreach ($this->children() as $item): ?>
-                                        <?php $item->render() ?>
+                                <?php foreach ($this->getComponents() as $component): ?>
+                                        <?php $component->render() ?>
                                 <?php endforeach; ?>
                             </div>
                     <?php endif; ?>

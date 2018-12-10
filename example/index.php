@@ -11,6 +11,7 @@ set_transformer($transformer);
     <head>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
         <?php load_stylesheet($transformer) ?>
         <style>
             body {
@@ -21,7 +22,12 @@ set_transformer($transformer);
     </head>        
     <body>
 
-        <h1 class="w3-center w3-blue w3-card-2" style="margin-top: 0px">UUP Web Components</h1>
+        <div class="w3-right">
+            <?php show_toggle_source_button() ?>
+        </div>
+        <h1 class="w3-center w3-blue w3-card-2" style="margin-top: 0px">
+            UUP Web Components
+        </h1>
         <div class="w3-right w3-padding">
             <?php show_transformer($transformer) ?>
         </div>
@@ -43,6 +49,7 @@ set_transformer($transformer);
             try {
                     load_example();
             } catch (Exception $exception) {
+                    error_log($exception);
                     die(sprintf("<b>%s</b>: <span style=\"color: red\">%s</div>", get_class($exception), $exception->getMessage()));
             }
 
@@ -56,5 +63,7 @@ set_transformer($transformer);
                     document.getElementById("menu").style.display = "none";
                 }
         </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad()</script>
     <body>
 </html>

@@ -45,13 +45,13 @@ if ($this->animate) {
 <?php endif; ?>
 
 <div id="<?= $this->id ?>" class="gallery-navigator w3-display-container" style="<?= $this->style ?>">
-    <?php foreach ($this->children() as $item): ?>
-            <div class="w3-center gallery-navigator-slide <?= $this->animate ?>"><?php $item->render() ?></div>
+    <?php foreach ($this->getComponents() as $component): ?>
+            <div class="w3-center gallery-navigator-slide <?= $this->animate ?>"><?php $component->render() ?></div>
     <?php endforeach; ?>
     <div class="gallery-navigator-bar w3-center w3-container w3-section w3-large w3-display-bottommiddle" style="width:100%; bottom: 52px; padding-bottom: 5px">
         <div class="gallery-navigator-button w3-text-light-grey w3-hover-text-white w3-left" onclick="navigator_prev_slide('<?= $this->id ?>')">&#10094;</div>
         <div class="gallery-navigator-button w3-text-light-grey w3-hover-text-white w3-right" onclick="navigator_next_slide('<?= $this->id ?>')">&#10095;</div>
-        <?php for ($i = 1; $i <= $this->count(); $i++): ?>
+        <?php for ($i = 1; $i <= $this->componentCount(); $i++): ?>
                 <span class="w3-badge w3-border w3-transparent gallery-navigator-index" onclick="navigator_select_slide('<?= $this->id ?>', <?= $i ?>)"></span>
         <?php endfor; ?>
     </div>
@@ -103,10 +103,10 @@ if ($this->animate) {
                     var x = p.querySelectorAll(".gallery-navigator-slide");
                     var c = p.querySelectorAll(".gallery-navigator-index");
 
-                    if(n > x.length) {
+                    if (n > x.length) {
                         n = 1;
                     }
-                    if(n < 1) {
+                    if (n < 1) {
                         n = x.length;
                     }
                     for (i = 0; i < x.length; i++) {

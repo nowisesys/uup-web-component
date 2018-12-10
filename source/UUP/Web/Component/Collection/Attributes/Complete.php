@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2017 Anders Lövgren (QNET).
+ * Copyright (C) 2017 Anders Lövgren (Nowise Systems).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -193,7 +193,7 @@ namespace UUP\Web\Component\Collection\Attributes;
  * @property string $width Specifies the width of the element. Applies to <canvas>, <embed>, <iframe>, <img>, <input>, <object>, <video>.
  * @property string $wrap Specifies how the text in a text area is to be wrapped when submitted in a form. Applies to <textarea>.
  * 
- * @author Anders Lövgren (QNET)
+ * @author Anders Lövgren (Nowise Systems)
  * @package UUP
  * @subpackage Web Components
  */
