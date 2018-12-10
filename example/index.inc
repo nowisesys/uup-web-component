@@ -68,7 +68,6 @@ function show_toggle_source_button()
                 $button->render();
         }
         if (($page = filter_input(INPUT_GET, 'code', FILTER_SANITIZE_STRING))) {
-                error_log($page);
                 $button = new Button("Show Page");
                 $button->link = "?page=$page";
                 $button->color->text = "white";
