@@ -28,7 +28,7 @@ function load_stylesheet($transformer)
 
 function load_example()
 {
-        if (($page = filter_input(INPUT_GET, 'page'))) {
+        if (($page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_STRING))) {
                 require_once("$page.inc");
         }
 }
@@ -36,10 +36,10 @@ function load_example()
 function load_transformer()
 {
         if (filter_has_var(INPUT_GET, "transformer")) {
-                $selected = filter_input(INPUT_GET, "transformer");
+                $selected = filter_input(INPUT_GET, "transformer", FILTER_SANITIZE_STRING);
                 setcookie("transformer", $selected);
         } elseif (filter_has_var(INPUT_COOKIE, "transformer")) {
-                $selected = filter_input(INPUT_COOKIE, "transformer");
+                $selected = filter_input(INPUT_COOKIE, "transformer", FILTER_SANITIZE_STRING);
         } else {
                 $selected = 0;
         }
