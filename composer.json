@@ -1,22 +1,26 @@
 {
-    "name": "bmc/uup-web-component",
+    "name": "nowise/uup-web-component",
     "version": "2.0.6",
     "description": "Web component library.",
     "type": "library",
     "keywords": ["template", "component", "render", "web", "uup", "bmc"],
-    "homepage": "http://it.bmc.uu.se/andlov/php/proj/bmc/uup-site",
+    "homepage": "https://nowise.se/oss/uup-web-component",
     "license": "Apache-2.0",
     "authors": [
         {
             "name": "Anders Lövgren",
             "email": "anders.lovgren@bmc.uu.se"
+        },
+        {
+            "name": "Anders Lövgren",
+            "email": "andlov@nowise.se"
         }
     ],
     "require": {
         "php": ">=5.4.0"
     },
     "suggest": {
-        "bmc/uup-html": "^1.0"
+        "nowise/uup-html": "^1.0"
     },
     "autoload": {
         "psr-0": {
