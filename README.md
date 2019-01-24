@@ -1,0 +1,150 @@
+## UUP-WEB-COMPONENT - OOP approach on web components
+
+This library provides web component classes for rendering HTML. 
+
+A component is a class that has both behavior and interface. The main classes
+are widget (standard components), element (simple HTML elements) and finally
+container (using template file). You can use these direct, but recommended is
+to use one of their sub-classes.
+
+The easiest way to get started is to examine the code in the examples directory
+while watching the outcome in a web browser. It's recommended to open the project
+in i.e. NetBeans IDE to get autocomplete of property names. Start explore the 
+container and widget classes.
+
+The library is organized as:
+
+    UUP\Web\Component
+        +-- Component           // Interface class
+        +-- Transform           // Rendition transformer (callable)
+        +-- Element             // Generic element component class
+        +-- Container           // Generic container component class
+        +-- Style               // Enum classes for inline CSS
+        |     +-- Alignment
+        |     +-- Border
+        |     +-- Color
+        |     +-- Font
+        |    ...
+        +-- Collection          // Collection support (i.e. attributes and events).
+        |     +-- Attributes
+        |     +-- Classes
+        |     +-- Events
+        |     +-- Stylesheet
+        |     +-- Properties    // Generic properties
+        |     +-- Collection    // Base class
+        +-- Element             // Components with direct rendering (HTML elements)
+        |     +-- Button
+        |     +-- Span
+        |     +-- List
+        |     +-- Table
+        |    ...
+        +-- Widget              // Components with direct rendering (specialized objects)
+        |     +-- Button
+        |     +-- Combobox
+        |     +-- Panel
+        |    ...
+        +-- Container           // Components using rendering template
+              +-- Grid
+              +-- Card
+              +-- Download
+              +-- Sitemap
+
+All classes derived from element has access to the special properties class, 
+event, props, style and attr that provides collection support. Settings in the
+props collection are transformed during rendering. Some of the collection has
+virtual sub collections that groups properties together:
+
+```php
+$element = new Element(array(), "p", "...");
+$element->id = 12;
+$element->data->order = 4885;
+$element->render();     // <p id="12" data-order="4885">...</p>
+```
+
+Components contains properties and optional sub components. It's the job of the 
+render transformer to generate HTML from component objects and rendition can be 
+altered by passing the transformer to render() method or set a default transformer 
+globally:
+
+```php
+$transformer = new CustomTransformer();
+Transformer::setInstance($transfomer);
+```
+
+The reason for using a custom transformer could be to support themes, creating 
+high-contrast styles or translation of text. It's up to you as the library user
+to decide how to use it, at the extreme you can bypass the builtin rendition and
+use the library classes as plain objects.
+
+The default render transformer is paragon that produces HTML targetting the W3.CSS
+library from properties defined in component objects:
+
+```php
+$button = new Button("Download");
+$button->color = "red";
+$button->render();          // <button class="w3-btn w3-red">Download</button>
+```
+
+You can override this by passing an transform class instance to the render()
+method and modify classes:
+
+```php
+$transform = new MaterialDesignTransform();
+$button->render($transform);
+```
+
+Another option is to not using the component properties, but to use the collection 
+properties instead:
+
+```php
+$button = new Button("Download");
+$button->attr->color = "red";
+$button->render();          // <button color="red">Download</button>
+```
+
+For setting attributes that can't be used as property names (syntax violation on
+i.e. background-color), use the add() method instead:
+
+```php
+$button->attr->add("background-color", "red");
+```
+
+You are not limited to setting individual properties. The class, event, attr and 
+style properties all accepts an array:
+
+```php
+$button->attr->set(array(
+    "color" => "red",
+    "background-color" => "blue"
+));
+```
+
+For setting all at once, use the second argument during construction:
+
+```php
+$button = new Button("Download", array(
+    "style" => array(           // Define inline CSS
+            ...     
+    ),
+    "event" => array(           // Define event handlers
+            ...     
+    ),
+));
+```
+
+All components (element and containers) can contain other child components:
+
+```php
+$div = new Div();
+$p1 = $div->add(new Paragraph("Some text here"));
+$p2 = $div->add(new Paragraph("More text here"));
+$div->render();     // <div><p>Some text here</p><p>More text here</p></div>
+```
+
+Calling render() on parent component automatic renders all child components. 
+The rendition will take care of outputting them inside itself using their added 
+order but after its own text (think inner HTML).
+
+The scope of this library is not to provide a complete set of HTML element 
+components. Neither does it care if nesting input elements inside an option
+element.
