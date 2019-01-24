@@ -148,3 +148,7 @@ order but after its own text (think inner HTML).
 The scope of this library is not to provide a complete set of HTML element 
 components. Neither does it care if nesting input elements inside an option
 element.
+
+### More
+
+Visit the [project page](https://nowise.se/oss/uup-web-component/) for more examples.
